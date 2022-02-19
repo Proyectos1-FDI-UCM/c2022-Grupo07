@@ -105,6 +105,8 @@ MonoBehaviour:
   _acceleration: 3
   _maxspeed: 10
   _airSpeed: 0
+  _dashduration: 0
+  _dashcooldown: 0
 --- !u!114 &8100229311138475047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3399b2a5cab32dc40bbedae182c1452c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _acceleration: 0
-  _maxspeed: 0
-  _airSpeed: 0
+  _acceleration: 3
+  _maxspeed: 4
+  _airSpeed: 5
+  _dashduration: 2
+  _dashcooldown: 2

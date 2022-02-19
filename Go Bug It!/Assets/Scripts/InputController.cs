@@ -49,10 +49,9 @@ public class InputController : MonoBehaviour
             _myGravityComponent.ChangeGravity(_changeGravity);
             _isGrounded = false;
         }
-        if(Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            _movController.Dash();
-        }
+
+        // Dash
+        if (Input.GetKeyDown(KeyCode.LeftShift)) _movController.Dash();
        
     }
 }
