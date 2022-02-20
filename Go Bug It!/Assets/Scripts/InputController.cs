@@ -60,20 +60,19 @@ public class InputController : MonoBehaviour
         {
             _movController.Dash();
             _elapsedash = 0;
-           
+            _dashcooldown_ok = false;
         }
 
        
-        if(_elapsedash>=_dashcooldown)//calcula el cooldown de los dashes (Nota Rafa Malo: Se podria hacer un scrpit que lleve los cooldowns en su update, ya que parece el unico sitio donde funciona)
+        if(_elapsedash>=_dashcooldown&&_isGrounded)//calcula el cooldown de los dashes (Nota Rafa Malo: Se podria hacer un scrpit que lleve los cooldowns en su update, ya que parece el unico sitio donde funciona)
         {
             _dashcooldown_ok = true;
         }
         else
         {
-          _dashcooldown_ok = false; 
-            _elapsedash += Time.deltaTime;
+          _elapsedash += Time.deltaTime;
         }
-            
-      
+
+        Debug.Log(_elapsedash);
     }
 }
