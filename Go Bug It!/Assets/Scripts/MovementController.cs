@@ -22,12 +22,15 @@ public class MovementController : MonoBehaviour
     private float _dashduration;
     [SerializeField]
     private float _dashcooldown;
+    [SerializeField]
+    float _dashforce;
     #endregion
 
     #region properties
     private float _elapsedtime;
     private Vector3 _movementDirection;
     private bool _dash;
+    private float _elapsedash;
     #endregion
 
     #region methods
@@ -36,7 +39,7 @@ public class MovementController : MonoBehaviour
     {
         _movementDirection = horizontal * _myTransform.right;
     }
-    public float Speed(float _elapsedtime,float _acceleration)
+    public float Speed(float _elapsedtime, float _acceleration)
     {
         float _speed = 0;
         // Cálculos del movimiento
@@ -49,7 +52,7 @@ public class MovementController : MonoBehaviour
         if (_movementDirection.magnitude == 0) _speed = 0;
         return _speed;
     }
-    public void Dash() //Probar con addforce en vez translate
+    /*public void Dash() //Teleport dash, por si acaso
     {
         float _previusGravity=_rigidbody2D.gravityScale;
         float _elapseduration = 0;
@@ -70,7 +73,20 @@ public class MovementController : MonoBehaviour
         //_elapsedcooldown = 0;
         _elapseduration = 0;
         _rigidbody2D.gravityScale = _previusGravity;
+    }*/
+    public void Dash()
+    {
+        float _previusGravity = _rigidbody2D.gravityScale; //guarda la gravedad anterior
+        _rigidbody2D.AddForce(_movementDirection * _dashforce);//aplica una fuerza en la direccion del movimiento
+        while (_elapsedash <= _dashduration)//cuanto tiempo se desactiva la gravedad
+        {
+            _dash = true;
+            _rigidbody2D.gravityScale = 0;
+        }
+        _dash = false;//para indicar que el dash se ha acabado
+        _rigidbody2D.gravityScale = _previusGravity;
     }
+    
     #endregion
 
     // Start is called before the first frame update
@@ -88,6 +104,8 @@ public class MovementController : MonoBehaviour
         // Guardar tiempo transcurrido para los cálculos
         if (_movementDirection.magnitude != 0) _elapsedtime += Time.deltaTime;
         else  _elapsedtime = 0;
+        if (_dash) _elapsedash += Time.deltaTime;
+        else _elapsedash = 0;
 
         // Aplicar movimiento
        
