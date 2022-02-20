@@ -18,7 +18,6 @@ public class MovementController : MonoBehaviour
     private float _maxspeed; //velocidad máxima alcanzable
     [SerializeField]
     private float _airSpeed;
-    private float _speed;
     [SerializeField]
     private float _dashduration;
     [SerializeField]
@@ -36,6 +35,19 @@ public class MovementController : MonoBehaviour
     public void SetMovementDirection(float horizontal)
     {
         _movementDirection = horizontal * _myTransform.right;
+    }
+    public float Speed(float _elapsedtime,float _acceleration)
+    {
+        float _speed = 0;
+        // Cálculos del movimiento
+        _speed += _acceleration * _elapsedtime; //Fórmula del movimiento uniformemente acelerado
+        _speed = Mathf.Clamp(_speed, 0f, _maxspeed); // Limita la velocidad a la velocidad máxima alcanzable
+        if (!_myInput._isGrounded)
+        {
+            _speed *= _airSpeed;
+        }
+        if (_movementDirection.magnitude == 0) _speed = 0;
+        return _speed;
     }
     public void Dash() //Probar con addforce en vez translate
     {
@@ -77,25 +89,10 @@ public class MovementController : MonoBehaviour
         if (_movementDirection.magnitude != 0) _elapsedtime += Time.deltaTime;
         else  _elapsedtime = 0;
 
-        // Cancelar velocidad si no se detecta movimiento
-        
-
-        // Cálculos del movimiento
-        _speed += _acceleration * _elapsedtime; //Fórmula del movimiento uniformemente acelerado
-        _speed = Mathf.Clamp(_speed, 0f, _maxspeed); // Limita la velocidad a la velocidad máxima alcanzable
-        if (!_myInput._isGrounded)
-        {
-            _speed *= _airSpeed;
-        }
-        if (_movementDirection.magnitude==0) _speed = 0;
-      
-       
-
         // Aplicar movimiento
-       if(!_dash)
-        {
-          _myTransform.Translate(_movementDirection * _speed * Time.deltaTime);
-        }
+       
+          _myTransform.Translate(_movementDirection * Speed(_elapsedtime,_acceleration)* Time.deltaTime);
+        
        
     }
 }
