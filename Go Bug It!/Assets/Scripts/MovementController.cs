@@ -19,10 +19,6 @@ public class MovementController : MonoBehaviour
     [SerializeField]
     private float _airSpeed;
     [SerializeField]
-    private float _dashduration;
-    [SerializeField]
-    private float _dashcooldown;
-    [SerializeField]
     float _dashforce;
     #endregion
 
@@ -78,13 +74,6 @@ public class MovementController : MonoBehaviour
     {
         float _previusGravity = _rigidbody2D.gravityScale; //guarda la gravedad anterior
         _rigidbody2D.AddForce(_movementDirection * _dashforce);//aplica una fuerza en la direccion del movimiento
-        while (_elapsedash <= _dashduration)//cuanto tiempo se desactiva la gravedad
-        {
-            _dash = true;
-            _rigidbody2D.gravityScale = 0;
-        }
-        _dash = false;//para indicar que el dash se ha acabado
-        _rigidbody2D.gravityScale = _previusGravity;
     }
     
     #endregion
@@ -104,8 +93,6 @@ public class MovementController : MonoBehaviour
         // Guardar tiempo transcurrido para los cálculos
         if (_movementDirection.magnitude != 0) _elapsedtime += Time.deltaTime;
         else  _elapsedtime = 0;
-        if (_dash) _elapsedash += Time.deltaTime;
-        else _elapsedash = 0;
 
         // Aplicar movimiento
        
