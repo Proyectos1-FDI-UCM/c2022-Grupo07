@@ -602,7 +602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8100229311138475044, guid: 8fa8215044cbc4b48b87f582196a1a25, type: 3}
       propertyPath: _acceleration
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8100229311138475044, guid: 8fa8215044cbc4b48b87f582196a1a25, type: 3}
       propertyPath: _dashcooldown
