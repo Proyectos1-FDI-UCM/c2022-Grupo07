@@ -22,11 +22,28 @@ public class InputController : MonoBehaviour
     private bool _dashcooldown_ok;
     #endregion
 
+    #region parameters
+    private float direction;
+    #endregion
+
     #region methods
     //Metodo que nos informa sobre si el jugador esta tocando una superficie o no
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision != null) _isGrounded = true;
+    }
+
+    // Asignar la orientaci贸n de la bala seg煤n la del jugador
+    public void Switch()
+    {
+        if (_horizontal > 0) direction = 1;
+        else if (_horizontal < 0) direction = -1;
+    }
+
+    // Devuelve la direcci贸n
+    public float GetDirection()
+    {
+        return direction;
     }
     #endregion
 
@@ -55,7 +72,7 @@ public class InputController : MonoBehaviour
         {
             _changeGravity = !_changeGravity;                           //Negamos el booleano gravedad para q ahora sea lo contrario
             _myGravityComponent.ChangeGravity(_changeGravity);          //Llamamos al metodo ChangeGravity del script de gravedad
-            _isGrounded = false;                                        //Cambiamos a false el booleano de superficie para que se cambie a true cuando detecte una colisi髇
+            _isGrounded = false;                                        //Cambiamos a false el booleano de superficie para que se cambie a true cuando detecte una colisi贸n
         }
         if(Input.GetKeyDown(KeyCode.LeftShift)&&_dashcooldown_ok)
         {
@@ -63,8 +80,10 @@ public class InputController : MonoBehaviour
             _elapsedash = 0;
             _dashcooldown_ok = false;
         }
-
-       
+        
+        // Asignar orientaci贸n bala
+        Switch();
+        
         if(_elapsedash>=_dashcooldown&&_isGrounded)//calcula el cooldown de los dashes (Nota Rafa Malo: Se podria hacer un scrpit que lleve los cooldowns en su update, ya que parece el unico sitio donde funciona)
         {
             _dashcooldown_ok = true;

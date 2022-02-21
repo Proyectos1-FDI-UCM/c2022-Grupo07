@@ -15,7 +15,7 @@ public class MovementController : MonoBehaviour
     [SerializeField]
     private float _acceleration;
     [SerializeField]
-    private float _maxspeed; //velocidad máxima alcanzable
+    private float _maxspeed; //velocidad mÃ¡xima alcanzable
     [SerializeField]
     private float _airSpeed;
     [SerializeField]
@@ -30,7 +30,7 @@ public class MovementController : MonoBehaviour
     #endregion
 
     #region methods
-    // Asigna la dirección del movimiento seleccionada a través del input del jugador
+    // Asigna la direcciÃ³n del movimiento seleccionada a travÃ©s del input del jugador
     public void SetMovementDirection(float horizontal)
     {
         _movementDirection = horizontal * _myTransform.right;
@@ -38,9 +38,9 @@ public class MovementController : MonoBehaviour
     public float Speed(float _elapsedtime, float _acceleration)
     {
         float _speed = 0;
-        // Cálculos del movimiento
-        _speed += _acceleration * _elapsedtime; //Fórmula del movimiento uniformemente acelerado
-        _speed = Mathf.Clamp(_speed, 0f, _maxspeed); // Limita la velocidad a la velocidad máxima alcanzable
+        // CÃ¡lculos del movimiento
+        _speed += _acceleration * _elapsedtime; //FÃ³rmula del movimiento uniformemente acelerado
+        _speed = Mathf.Clamp(_speed, 0f, _maxspeed); // Limita la velocidad a la velocidad mÃ¡xima alcanzable
         if (!_myInput._isGrounded)
         {
             _speed *= _airSpeed;
@@ -75,7 +75,6 @@ public class MovementController : MonoBehaviour
         float _previusGravity = _rigidbody2D.gravityScale; //guarda la gravedad anterior
         _rigidbody2D.AddForce(_movementDirection * _dashforce);//aplica una fuerza en la direccion del movimiento
     }
-    
     #endregion
 
     // Start is called before the first frame update
@@ -84,20 +83,17 @@ public class MovementController : MonoBehaviour
         _myInput = GetComponent<InputController>();
         _myTransform = transform;
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Guardar tiempo transcurrido para los cálculos
+        // Guardar tiempo transcurrido para los cÃ¡lculos
         if (_movementDirection.magnitude != 0) _elapsedtime += Time.deltaTime;
         else  _elapsedtime = 0;
 
         // Aplicar movimiento
-       
-          _myTransform.Translate(_movementDirection * Speed(_elapsedtime,_acceleration)* Time.deltaTime);
-        
-       
+        _myTransform.Translate(_movementDirection * Speed(_elapsedtime,_acceleration)* Time.deltaTime);
     }
+   
 }
