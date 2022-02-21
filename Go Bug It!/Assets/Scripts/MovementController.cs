@@ -23,7 +23,6 @@ public class MovementController : MonoBehaviour
     private float _dashduration;
     [SerializeField]
     private float _dashcooldown;
-    float direction;
     #endregion
 
     #region properties
@@ -60,25 +59,8 @@ public class MovementController : MonoBehaviour
         _elapseduration = 0;
         _rigidbody2D.gravityScale = _previusGravity;
     }
-    public void Switch()
-    {
-        if (Input.GetAxis("Horizontal") > 0)
-        {
-            Debug.Log("hola");
-            direction = 1;
-        }
-        else if (Input.GetAxis("Horizontal") < 0)
-        {
-            Debug.Log("hola");
-            direction = -1;
 
-        }
-    }
-   
-    public float GetDirection()
-    {
-        return direction;
-    }
+    
 
     #endregion
 
@@ -117,10 +99,6 @@ public class MovementController : MonoBehaviour
         {
           _myTransform.Translate(_movementDirection * _speed * Time.deltaTime);
         }
-
-
-        Switch();
-        Debug.Log(_rigidbody2D.velocity);
     }
    
 }

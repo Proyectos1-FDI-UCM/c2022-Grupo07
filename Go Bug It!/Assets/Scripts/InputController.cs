@@ -17,10 +17,27 @@ public class InputController : MonoBehaviour
     [HideInInspector] public bool _isGrounded;
     #endregion
 
+    #region parameters
+    private float direction;
+    #endregion
+
     #region methods
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision != null) _isGrounded = true;
+    }
+
+    // Asignar la orientación de la bala según la del jugador
+    public void Switch()
+    {
+        if (_horizontal > 0) direction = 1;
+        else if (_horizontal < 0) direction = -1;
+    }
+
+    // Devuelve la dirección
+    public float GetDirection()
+    {
+        return direction;
     }
     #endregion
 
@@ -53,6 +70,8 @@ public class InputController : MonoBehaviour
         {
             _movController.Dash();
         }
-       
+
+        // Asignar orientación bala
+        Switch();
     }
 }
