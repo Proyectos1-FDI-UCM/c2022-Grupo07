@@ -23,6 +23,7 @@ public class InputController : MonoBehaviour
     #endregion
 
     #region methods
+    //Metodo que nos informa sobre si el jugador esta tocando una superficie o no
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision != null) _isGrounded = true;
@@ -32,11 +33,11 @@ public class InputController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _movController = GetComponent<MovementController>();
-        _myGravityComponent = GetComponent<GravityComponent>();
-        _myCollider = GetComponent<Collider2D>();
-        _changeGravity = false;
-        _isGrounded = false;
+        _movController = GetComponent<MovementController>();            //Accedemos al script de movimiento del jugador
+        _myGravityComponent = GetComponent<GravityComponent>();         //Accedemos al script de gravedad del jugador
+        _myCollider = GetComponent<Collider2D>();                       //Accedemos al collider de nuestro jugador
+        _changeGravity = false;                                         //Inicializamos el booleano de la gravedad a negativo para que la gravedad sea normal
+        _isGrounded = false;                                            //Inicializamos el booleano de tocar una superficie a false
         _elapsedash = 0;
         _dashcooldown_ok = false;
     }
@@ -50,11 +51,11 @@ public class InputController : MonoBehaviour
         _movController.SetMovementDirection(_horizontal);
 
         //Cambio de gravedad
-        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)             //Si presiono espacio y estoy tocando una superficie...
         {
-            _changeGravity = !_changeGravity;
-            _myGravityComponent.ChangeGravity(_changeGravity);
-            _isGrounded = false;
+            _changeGravity = !_changeGravity;                           //Negamos el booleano gravedad para q ahora sea lo contrario
+            _myGravityComponent.ChangeGravity(_changeGravity);          //Llamamos al metodo ChangeGravity del script de gravedad
+            _isGrounded = false;                                        //Cambiamos a false el booleano de superficie para que se cambie a true cuando detecte una colisión
         }
         if(Input.GetKeyDown(KeyCode.LeftShift)&&_dashcooldown_ok)
         {
