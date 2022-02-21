@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
-
+    #region parameters
+    [SerializeField]
+    float _dashcooldown;
+    #endregion
     #region references
     private MovementController _movController;
     private GravityComponent _myGravityComponent;
@@ -15,6 +18,8 @@ public class InputController : MonoBehaviour
     private float _horizontal;
     private bool _changeGravity;
     [HideInInspector] public bool _isGrounded;
+    private float _elapsedash;
+    private bool _dashcooldown_ok;
     #endregion
 
     #region methods
@@ -32,6 +37,8 @@ public class InputController : MonoBehaviour
         _myCollider = GetComponent<Collider2D>();
         _changeGravity = false;
         _isGrounded = false;
+        _elapsedash = 0;
+        _dashcooldown_ok = false;
     }
 
     // Update is called once per frame
@@ -49,10 +56,23 @@ public class InputController : MonoBehaviour
             _myGravityComponent.ChangeGravity(_changeGravity);
             _isGrounded = false;
         }
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if(Input.GetKeyDown(KeyCode.LeftShift)&&_dashcooldown_ok)
         {
             _movController.Dash();
+            _elapsedash = 0;
+            _dashcooldown_ok = false;
         }
+
        
+        if(_elapsedash>=_dashcooldown&&_isGrounded)//calcula el cooldown de los dashes (Nota Rafa Malo: Se podria hacer un scrpit que lleve los cooldowns en su update, ya que parece el unico sitio donde funciona)
+        {
+            _dashcooldown_ok = true;
+        }
+        else
+        {
+          _elapsedash += Time.deltaTime;
+        }
+
+        Debug.Log(_elapsedash);
     }
 }
