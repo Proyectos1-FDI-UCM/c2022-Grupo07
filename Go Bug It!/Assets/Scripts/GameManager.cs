@@ -49,5 +49,7 @@ public class GameManager : MonoBehaviour
             _timeLeft -= Time.deltaTime;
             _myUIManager.UpdateTime((int)_timeLeft);
         }
+
+        _myUIManager.UpdatePoints(1);
     }
 }
