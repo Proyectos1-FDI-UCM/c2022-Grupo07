@@ -13,9 +13,10 @@ public class GravityComponent : MonoBehaviour
     #endregion
 
     #region methods
-    // Cambio de gravedad
+    // Cambio de gravedad, metodo llamado desde el input controller
     public void ChangeGravity(bool grav)
     {
+        //Dependiendo del booleano grav se crea una gravedad positiva o negativa
         if (grav) _myRigidbody.gravityScale = -_myGravityScale;
         else _myRigidbody.gravityScale = _myGravityScale;
     }
@@ -24,6 +25,6 @@ public class GravityComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _myRigidbody = GetComponent<Rigidbody2D>();
+        _myRigidbody = GetComponent<Rigidbody2D>();     //Accedo al rigidbody de mi jugador
     }
 }
