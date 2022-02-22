@@ -8,6 +8,7 @@ public class InputController : MonoBehaviour
     [SerializeField]
     float _dashcooldown;
     #endregion
+    
     #region references
     private MovementController _movController;
     private GravityComponent _myGravityComponent;
@@ -74,6 +75,7 @@ public class InputController : MonoBehaviour
             _myGravityComponent.ChangeGravity(_changeGravity);          //Llamamos al metodo ChangeGravity del script de gravedad
             _isGrounded = false;                                        //Cambiamos a false el booleano de superficie para que se cambie a true cuando detecte una colisión
         }
+        
         if(Input.GetKeyDown(KeyCode.LeftShift)&&_dashcooldown_ok)
         {
             _movController.Dash();

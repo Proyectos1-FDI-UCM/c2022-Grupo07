@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class PlayerLifeComponent : MonoBehaviour
 {
-    // Start is called before the first frame update
+    #region parameters
     // Starting Life of the player
-    [SerializeField]
-    private int _playerLife = 4;
-
+    [SerializeField] private int _playerLife = 4;
     // Current Life of the player
-    [SerializeField]
-    private int _currLife;
-
+    [SerializeField] private int _currLife;
     // Damage taken by player
-    [SerializeField]
-    private int _hitDamage = 1;
-
+    [SerializeField] private int _hitDamage = 1;
+    #endregion
     //Respawn postion X
     [SerializeField]
     private float _respawnX = 0;
@@ -26,17 +21,18 @@ public class PlayerLifeComponent : MonoBehaviour
     private float _respawnY = 0;
 
 
+#region methods
     private void Damage()
     {
         _currLife -= _hitDamage;
+        GameManager.Instance.OnPlayerDamage(_currLife);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Enemy
         ///<summary>
         ///LifeComponent
-        ///Como el checkpoint manager no existe en el primer sprint la implementación 
+        ///Como el checkpoint manager no existe en el primer sprint la implementaciÃ³n 
         ///de la vida del jugador no puede ser implementada totalmente.
         /// </summary>
 
@@ -50,9 +46,10 @@ public class PlayerLifeComponent : MonoBehaviour
         //{
         //    _currLife = 0;
         //}
-
     }
+    #endregion
 
+    // Start is called before the first frame update
     void Start()
     {
         _currLife = _playerLife;
@@ -62,9 +59,6 @@ public class PlayerLifeComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_currLife == 0)
-        {
-            Destroy(gameObject);
-        }
+        if (_currLife == 0) Destroy(gameObject);
     }
 }
