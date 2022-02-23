@@ -6,8 +6,8 @@ public class BulletMovementController : MonoBehaviour
 {
     #region parameters
     [SerializeField] private float _shotSpeed = 1.0f;
-    bool velocityRight;
-    bool velocityLeft;
+    private bool velocityRight;
+    private bool velocityLeft;
     #endregion
 
     #region references

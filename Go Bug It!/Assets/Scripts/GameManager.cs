@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region methods
+    // Daño al jugador
     public void OnPlayerDamage(int lifePoints)
     {
         _myUIManager.UpdatePlayerLife(lifePoints, false);

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GravityComponent : MonoBehaviour
 {
+
     #region parameters
     [SerializeField] private float _myGravityScale = 1;
     #endregion

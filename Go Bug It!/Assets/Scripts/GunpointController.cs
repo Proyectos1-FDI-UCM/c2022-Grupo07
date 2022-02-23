@@ -7,11 +7,12 @@ public class GunpointController : MonoBehaviour
 
     #region references
     private Transform _myTransform;
-    [SerializeField] private GameObject _myShot;
-    [SerializeField] private Transform Gun;
+    [SerializeField] private GameObject _myShot; // Prefab bala
+    [SerializeField] private Transform Gun; // Posición del label Gun
     #endregion
 
     #region methods
+    // Instanciación de la bala
     public void Shoot()
     {
         GameObject.Instantiate(_myShot, _myTransform.position, _myTransform.rotation);
@@ -22,11 +23,5 @@ public class GunpointController : MonoBehaviour
     void Start()
     {
         _myTransform = transform;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

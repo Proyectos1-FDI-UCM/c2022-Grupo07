@@ -5,8 +5,7 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
     #region parameters
-    [SerializeField]
-    float _dashcooldown;
+    [SerializeField] private float _dashcooldown;
     #endregion
     
     #region references
@@ -52,12 +51,12 @@ public class InputController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _movController = GetComponent<MovementController>();            //Accedemos al script de movimiento del jugador
-        _myGravityComponent = GetComponent<GravityComponent>();         //Accedemos al script de gravedad del jugador
-        _myCollider = GetComponent<Collider2D>();                       //Accedemos al collider de nuestro jugador
-        _myGunpoint = transform.GetChild(0).GetComponent<GunpointController>();
-        _changeGravity = false;                                         //Inicializamos el booleano de la gravedad a negativo para que la gravedad sea normal
-        _isGrounded = false;                                            //Inicializamos el booleano de tocar una superficie a false
+        _movController = GetComponent<MovementController>();            // Accedemos al script de movimiento del jugador
+        _myGravityComponent = GetComponent<GravityComponent>();         // Accedemos al script de gravedad del jugador
+        _myCollider = GetComponent<Collider2D>();                       // Accedemos al collider de nuestro jugador
+        _myGunpoint = transform.GetChild(0).GetComponent<GunpointController>(); // Accedemos al script de la pistola
+        _changeGravity = false;                                         // Inicializamos el booleano de la gravedad a negativo para que la gravedad sea normal
+        _isGrounded = false;                                            // Inicializamos el booleano de tocar una superficie a false
         _elapsedash = 0;
         _dashcooldown_ok = false;
     }
@@ -70,7 +69,7 @@ public class InputController : MonoBehaviour
         // Movimiento del personaje
         _movController.SetMovementDirection(_horizontal);
 
-        //Cambio de gravedad
+        // Cambio de gravedad
         if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)             //Si presiono espacio y estoy tocando una superficie...
         {
             _changeGravity = !_changeGravity;                           //Negamos el booleano gravedad para q ahora sea lo contrario
@@ -78,30 +77,20 @@ public class InputController : MonoBehaviour
             _isGrounded = false;                                        //Cambiamos a false el booleano de superficie para que se cambie a true cuando detecte una colisión
         }
         
-        if(Input.GetKeyDown(KeyCode.LeftShift)&&_dashcooldown_ok)
+        // Dash
+        if (Input.GetKeyDown(KeyCode.LeftShift)&&_dashcooldown_ok)
         {
             _movController.Dash();
             _elapsedash = 0;
             _dashcooldown_ok = false;
         }
-
-        if (Input.GetKeyDown(KeyCode.Mouse0) && _isGrounded)
-        {
-            _myGunpoint.Shoot();
-        }
-
-        // Asignar orientación bala
+       
+        // Disparo y orientación de la bala
+        if (Input.GetKeyDown(KeyCode.Mouse0) && _isGrounded) _myGunpoint.Shoot();
         Switch();
-        
-        if(_elapsedash>=_dashcooldown&&_isGrounded)//calcula el cooldown de los dashes (Nota Rafa Malo: Se podria hacer un scrpit que lleve los cooldowns en su update, ya que parece el unico sitio donde funciona)
-        {
-            _dashcooldown_ok = true;
-        }
-        else
-        {
-          _elapsedash += Time.deltaTime;
-        }
 
-        
+        // Calcula el cooldown de los dashes (Nota Rafa Malo: Se podria hacer un scrpit que lleve los cooldowns en su update, ya que parece el unico sitio donde funciona)
+        if (_elapsedash >= _dashcooldown && _isGrounded) _dashcooldown_ok = true;
+        else _elapsedash += Time.deltaTime;
     }
 }
