@@ -13,6 +13,7 @@ public class InputController : MonoBehaviour
     private MovementController _movController;
     private GravityComponent _myGravityComponent;
     private Collider2D _myCollider;
+    private GunpointController _myGunpoint;
     #endregion
 
     #region properties
@@ -54,6 +55,7 @@ public class InputController : MonoBehaviour
         _movController = GetComponent<MovementController>();            //Accedemos al script de movimiento del jugador
         _myGravityComponent = GetComponent<GravityComponent>();         //Accedemos al script de gravedad del jugador
         _myCollider = GetComponent<Collider2D>();                       //Accedemos al collider de nuestro jugador
+        _myGunpoint = transform.GetChild(0).GetComponent<GunpointController>();
         _changeGravity = false;                                         //Inicializamos el booleano de la gravedad a negativo para que la gravedad sea normal
         _isGrounded = false;                                            //Inicializamos el booleano de tocar una superficie a false
         _elapsedash = 0;
@@ -82,7 +84,12 @@ public class InputController : MonoBehaviour
             _elapsedash = 0;
             _dashcooldown_ok = false;
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && _isGrounded)
+        {
+            _myGunpoint.Shoot();
+        }
+
         // Asignar orientación bala
         Switch();
         
@@ -95,6 +102,6 @@ public class InputController : MonoBehaviour
           _elapsedash += Time.deltaTime;
         }
 
-        Debug.Log(_elapsedash);
+        
     }
 }

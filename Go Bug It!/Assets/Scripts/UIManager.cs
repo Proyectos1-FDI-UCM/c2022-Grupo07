@@ -62,7 +62,7 @@ public class UIManager : MonoBehaviour
         {
             int maxZeros = 5; // Variable de control del nº de ceros máximo
             string pointsText = "" + _points; // Contenedeor para el nº de dígitos de _points
-            for (int i = maxZeros; i > pointsText.Length; i--) zerosText += "0"; // Añadir el nº de ceros correcto
+            for (int i = maxZeros; i > pointsText.Length + 1; i--) zerosText += "0"; // Añadir el nº de ceros correcto
         }
 
         // Aplicar suma en la UI
