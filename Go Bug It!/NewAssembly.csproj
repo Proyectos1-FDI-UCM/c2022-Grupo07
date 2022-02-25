@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\GravityComponent.cs" />
     <Compile Include="Assets\Scripts\InputController.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Movile_plataform.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\AssemblyDefinition.asmdef" />
