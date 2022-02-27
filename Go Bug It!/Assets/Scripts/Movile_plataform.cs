@@ -32,11 +32,10 @@ public class Movile_plataform : MonoBehaviour
     {
         if (_movementDirection.x == 0)
         {
-            if (_startposition.y < _mytransform.position.y && _mytransform.position.y < _startposition.y + _distance)
+            if ((_mytransform.position.y <= _startposition.y- _distance || _mytransform.position.y  >= _startposition.y + _distance))
             {
-                _mytransform.Translate(_movementDirection * _speed * Time.deltaTime);
+                _movementDirection.y = -_movementDirection.y;
             }
-            else _movementDirection.y = -_movementDirection.y;
         }
         else if (_movementDirection.y == 0)
         {
