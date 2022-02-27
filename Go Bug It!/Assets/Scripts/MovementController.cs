@@ -26,8 +26,6 @@ public class MovementController : MonoBehaviour
     private float _elapsedtime;
     private float _movementDirection;
     private Vector3 _dashDirection;
-    private bool _dashing;
-    private float _currentdash = 0;
     #endregion
 
     #region methods
@@ -103,7 +101,7 @@ public class MovementController : MonoBehaviour
 
 
          // Aplicar movimiento
-         if(!_dashing)_myTransform.Translate(_dashDirection * Speed(_elapsedtime,_acceleration)* Time.fixedDeltaTime);
+        _myTransform.Translate(_dashDirection * Speed(_elapsedtime,_acceleration)* Time.fixedDeltaTime);
         
        /* _rigidbody2D.velocity = new Vector2(_movementDirection*Speed(_elapsedtime,_acceleration), _rigidbody2D.velocity.y);*/
     }
