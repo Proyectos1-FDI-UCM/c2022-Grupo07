@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NeuBullet : MonoBehaviour
+public class NeuBulletComponent : MonoBehaviour
 {
     #region references
     private Collider2D _myCollider2D;

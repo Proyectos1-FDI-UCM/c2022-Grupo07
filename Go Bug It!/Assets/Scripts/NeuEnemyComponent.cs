@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NeutralizeShootComponent : MonoBehaviour
+public class NeuEnemyComponent : MonoBehaviour
 {
     #region parameters
     private float _elapsedTime;
@@ -11,8 +11,6 @@ public class NeutralizeShootComponent : MonoBehaviour
 
     #region references
     private GameObject _enemy;
-    private Collider2D _enemyCollider;
-    private Rigidbody2D _enemyRigidbody;
     #endregion
 
     #region properties
@@ -22,7 +20,7 @@ public class NeutralizeShootComponent : MonoBehaviour
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        NeuBullet _bulletCollision = collision.gameObject.GetComponent<NeuBullet>();
+        NeuBulletComponent _bulletCollision = collision.gameObject.GetComponent<NeuBulletComponent>();
 
         if (_bulletCollision != null)
         {
@@ -40,8 +38,6 @@ public class NeutralizeShootComponent : MonoBehaviour
     void Start()
     {
         _enemy = gameObject;
-        _enemyCollider = _enemy.GetComponent<Collider2D>();
-        _enemyRigidbody = _enemy.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame

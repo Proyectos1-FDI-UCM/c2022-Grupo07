@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 428833296652412451}
   - component: {fileID: 428833296652412449}
   m_Layer: 0
-  m_Name: Cam Control
+  m_Name: CamControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
