@@ -21,10 +21,11 @@ public class PlayerLifeComponent : MonoBehaviour
     private float _respawnY = 0;
 
 
-#region methods
+    #region methods
     private void Damage()
     {
         _currLife -= _hitDamage;
+        Debug.Log(_currLife);
         GameManager.Instance.OnPlayerDamage(_currLife);
     }
 
@@ -38,8 +39,11 @@ public class PlayerLifeComponent : MonoBehaviour
 
         if (collision.gameObject.layer == 6||collision.gameObject.layer ==7)
         {
-            Damage();
-            transform.position = new Vector2(_respawnX, _respawnY);
+            if (collision.gameObject.GetComponent<NeutralizeShootComponent>().GetNeutralization() == false)
+            {
+                Damage();
+                transform.position = new Vector2(_respawnX, _respawnY);
+            }    
         }
         //DeathZone 
         //if(collision.gameObject.layer == 7)

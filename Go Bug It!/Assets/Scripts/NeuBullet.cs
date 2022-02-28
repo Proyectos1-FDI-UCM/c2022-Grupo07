@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class NeuBullet : MonoBehaviour
 {
+    #region references
+    private Collider2D _myCollider2D;
+    #endregion
+
+    #region methods
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(gameObject);
+    }
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _myCollider2D = gameObject.GetComponent<Collider2D>();
     }
 }

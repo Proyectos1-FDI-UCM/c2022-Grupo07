@@ -7,7 +7,6 @@ public class NeutralizeShootComponent : MonoBehaviour
     #region parameters
     private float _elapsedTime;
     [SerializeField] private int _neutralizeDuration = 5;
-    int i = 0;
     #endregion
 
     #region references
@@ -21,32 +20,19 @@ public class NeutralizeShootComponent : MonoBehaviour
     #endregion
 
     #region methods
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerLifeComponent _bulletCollision = collision.gameObject.GetComponent<PlayerLifeComponent>();
-        Debug.Log(_bulletCollision);
+        NeuBullet _bulletCollision = collision.gameObject.GetComponent<NeuBullet>();
 
         if (_bulletCollision != null)
         {
-            if (_neutralized == false)
-            {
-                Debug.Log("MÉTODO");
-                _neutralized = true;
-                NeutralizeEnemy();
-            }
+            if (_neutralized == false) _neutralized = true;
         }
     }
 
-    // Neutraliza al enemigo
-    private void NeutralizeEnemy()
+    public bool GetNeutralization()
     {
-        _enemyRigidbody.simulated = false;
-    }
-
-    // Reactiva el enemigo
-    private void DeNeutralizeEnemy()
-    {
-        _enemyRigidbody.simulated = true;
+        return _neutralized;
     }
     #endregion
 
@@ -63,13 +49,13 @@ public class NeutralizeShootComponent : MonoBehaviour
     {
         if (_neutralized == true)
         {
-            if (i == 0) { Debug.Log("NEUTRALIZED"); i++; }
+            Debug.Log("NEUTRALIZED");
             _elapsedTime += Time.deltaTime;
             if (_elapsedTime > _neutralizeDuration)
             {
                 _neutralized = false;
                 Debug.Log("DENEUTRALIZED");
-                DeNeutralizeEnemy();
+                _elapsedTime = 0;
             }
         }
     }
