@@ -66,7 +66,9 @@ public class InputController : MonoBehaviour
     {
         _horizontal = Input.GetAxis("Horizontal");  
 
-        // Movimiento del personaje
+        // Impulso del personaje
+        _movController.SetDashDirection(_horizontal);
+        //Movimiento del personaje
         _movController.SetMovementDirection(_horizontal);
 
         // Cambio de gravedad
@@ -76,13 +78,13 @@ public class InputController : MonoBehaviour
             _myGravityComponent.ChangeGravity(_changeGravity);          //Llamamos al metodo ChangeGravity del script de gravedad
             _isGrounded = false;                                        //Cambiamos a false el booleano de superficie para que se cambie a true cuando detecte una colisión
         }
-        
+
         // Dash
-        if (Input.GetKeyDown(KeyCode.LeftShift)&&_dashcooldown_ok)
+        if (_dashcooldown_ok && Input.GetKeyDown(KeyCode.LeftShift))
         {
             _movController.Dash();
-            _elapsedash = 0;
             _dashcooldown_ok = false;
+            _elapsedash = 0;
         }
        
         // Disparo y orientación de la bala

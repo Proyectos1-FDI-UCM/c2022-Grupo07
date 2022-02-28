@@ -19,21 +19,24 @@ public class MovementController : MonoBehaviour
     [SerializeField]
     private float _airSpeed;
     [SerializeField]
-    float _dashforce;
+    private float _dashForce;
     #endregion
 
     #region properties
     private float _elapsedtime;
-    private Vector3 _movementDirection;
-    private bool _dash;
-    private float _elapsedash;
+    private float _movementDirection;
+    private Vector3 _dashDirection;
     #endregion
 
     #region methods
     // Asigna la dirección del movimiento seleccionada a través del input del jugador
+    public void SetDashDirection(float horizontal)
+    {
+        _dashDirection = horizontal * _myTransform.right;//Da un vector en la dirección de movimiento para aplicar la fuerza.
+    }
     public void SetMovementDirection(float horizontal)
     {
-        _movementDirection = horizontal * _myTransform.right;
+        _movementDirection = horizontal;
     }
 
     // Cálculo de la velocidad del jugador
@@ -49,7 +52,7 @@ public class MovementController : MonoBehaviour
         if (!_myInput._isGrounded) _speed *= _airSpeed;
 
         // Comprobar si no se mueve
-        if (_movementDirection.magnitude == 0) _speed = 0;
+        if (_movementDirection == 0) _speed = 0;
 
         return _speed;
     }
@@ -57,8 +60,23 @@ public class MovementController : MonoBehaviour
     // Impulso
     public void Dash()
     {
-        float _previusGravity = _rigidbody2D.gravityScale; // Guarda la gravedad anterior
-        _rigidbody2D.AddForce(_movementDirection * _dashforce); // Aplica una fuerza en la direccion del movimiento
+        _rigidbody2D.AddForce(_dashDirection*_dashForce);
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Movile_plataform _plataform = collision.gameObject.GetComponent<Movile_plataform>();
+        if (_plataform!=null)
+        {
+            _myTransform.parent = collision.gameObject.transform;
+        }
+    }
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        Movile_plataform _plataform = collision.gameObject.GetComponent<Movile_plataform>();
+        if (_plataform != null)
+        {
+            _myTransform.parent = null;
+        }
     }
     #endregion
 
@@ -69,16 +87,23 @@ public class MovementController : MonoBehaviour
         _myTransform = transform;
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
+    private void Update()
+    {
+                // Guardar tiempo transcurrido para los cálculos
+         if (_movementDirection!= 0) _elapsedtime += Time.deltaTime;
+         else  _elapsedtime = 0;
+      
+    }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        // Guardar tiempo transcurrido para los cálculos
-        if (_movementDirection.magnitude != 0) _elapsedtime += Time.deltaTime;
-        else  _elapsedtime = 0;
 
-        // Aplicar movimiento
-        _myTransform.Translate(_movementDirection * Speed(_elapsedtime,_acceleration)* Time.deltaTime);
+
+         // Aplicar movimiento
+        _myTransform.Translate(_dashDirection * Speed(_elapsedtime,_acceleration)* Time.fixedDeltaTime);
+        
+       /* _rigidbody2D.velocity = new Vector2(_movementDirection*Speed(_elapsedtime,_acceleration), _rigidbody2D.velocity.y);*/
     }
    
 }
