@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerLifeComponent : MonoBehaviour
 {
+
     #region parameters
     // Starting Life of the player
     [SerializeField] private int _playerLife = 4;
@@ -11,20 +12,19 @@ public class PlayerLifeComponent : MonoBehaviour
     [SerializeField] private int _currLife;
     // Damage taken by player
     [SerializeField] private int _hitDamage = 1;
-    #endregion
     //Respawn postion X
     [SerializeField]
     private float _respawnX = 0;
-
     //Respawn position Y
     [SerializeField]
     private float _respawnY = 0;
+    #endregion
 
-
-#region methods
+    #region methods
     private void Damage()
     {
         _currLife -= _hitDamage;
+        Debug.Log(_currLife);
         GameManager.Instance.OnPlayerDamage(_currLife);
     }
 
@@ -38,8 +38,11 @@ public class PlayerLifeComponent : MonoBehaviour
 
         if (collision.gameObject.layer == 6||collision.gameObject.layer ==7)
         {
-            Damage();
-            transform.position = new Vector2(_respawnX, _respawnY);
+            if (collision.gameObject.GetComponent<NeuEnemyComponent>().GetNeutralization() == false)
+            {
+                Damage();
+                transform.position = new Vector2(_respawnX, _respawnY);
+            }    
         }
         //DeathZone 
         //if(collision.gameObject.layer == 7)

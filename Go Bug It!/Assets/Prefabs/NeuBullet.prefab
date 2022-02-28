@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 1962010505709490930}
   - component: {fileID: 7234913149564806981}
   - component: {fileID: 3197369681651966003}
+  - component: {fileID: 1309047783907649935}
   - component: {fileID: -761634954902192453}
+  - component: {fileID: -6490998374927005015}
   m_Layer: 0
-  m_Name: Bala
+  m_Name: NeuBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1815924873053125479}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.312, y: -3.77, z: 0}
-  m_LocalScale: {x: 0.8839, y: 0.265, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.15, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -110,6 +112,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1309047783907649935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815924873053125479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba52622abc35bc4c82626ab333632df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-761634954902192453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,3 +137,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shotSpeed: 20
+--- !u!114 &-6490998374927005015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815924873053125479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df99e0e6b4072614fb6380efff17112b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifeTime: 2
