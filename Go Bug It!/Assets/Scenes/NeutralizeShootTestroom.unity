@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 1.13
       objectReference: {fileID: 0}
+    - target: {fileID: 4870689083164522753, guid: 8fa8215044cbc4b48b87f582196a1a25, type: 3}
+      propertyPath: _myShot
+      value: 
+      objectReference: {fileID: 1815924873053125479, guid: b9634cee94d847f4898372a98d6990dd, type: 3}
     - target: {fileID: 8100229311138475034, guid: 8fa8215044cbc4b48b87f582196a1a25, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -417,7 +421,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6401632399129430706, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_Constraints
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457368, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_Name
