@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\NeutralizeShootComponent.cs" />
     <Compile Include="Assets\Scripts\InputController.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
+    <Compile Include="Assets\Scripts\RoomManager.cs" />
     <Compile Include="Assets\Scripts\GravEnemyComponent.cs" />
     <Compile Include="Assets\Scripts\GravBulletComponent.cs" />
     <Compile Include="Assets\Scripts\LifeTimeController.cs" />
