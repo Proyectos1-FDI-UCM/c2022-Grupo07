@@ -1,31 +1,55 @@
 fileFormatVersion: 2
-guid: d407943340dfd3d499b02d944be30951
+guid: a05d456700c228146a30b8123ec855b0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -341635477823377664
-    second: "Coraz\xF3n Vac\xEDo_0"
+      213: 1959917541784156756
+    second: "Coraz\xF3n Lleno_0"
   - first:
-      213: 3429268610300018841
-    second: "Coraz\xF3n Vac\xEDo_1"
+      213: -1797968438809231560
+    second: "Coraz\xF3n Lleno_1"
   - first:
-      213: -1323006960496125537
-    second: "Coraz\xF3n Vac\xEDo_2"
+      213: 5767583733674881025
+    second: "Coraz\xF3n Lleno_2"
   - first:
-      213: -7880783060100303616
-    second: "Coraz\xF3n Vac\xEDo_3"
+      213: 6179463912160896914
+    second: "Coraz\xF3n Lleno_3"
   - first:
-      213: -1914626584319242078
-    second: "Coraz\xF3n Vac\xEDo_4"
+      213: -8038397449391499412
+    second: "Coraz\xF3n Lleno_4"
   - first:
-      213: -4196543643383974180
-    second: "Coraz\xF3n Vac\xEDo_5"
+      213: 6620728866935915674
+    second: "Coraz\xF3n Lleno_5"
   - first:
-      213: 59674512467546314
-    second: "Coraz\xF3n Vac\xEDo_6"
+      213: -2951044481169436746
+    second: "Coraz\xF3n Lleno_6"
   - first:
-      213: -7364272289864525685
-    second: "Coraz\xF3n Vac\xEDo_7"
+      213: 6105753643216022807
+    second: "Coraz\xF3n Lleno_7"
+  - first:
+      213: 2350297403280568894
+    second: FullHeart_0
+  - first:
+      213: -7601109241220244812
+    second: FullHeart_1
+  - first:
+      213: -8180400557922001129
+    second: FullHeart_2
+  - first:
+      213: -7289349546784745838
+    second: FullHeart_3
+  - first:
+      213: -4273535230264792488
+    second: FullHeart_4
+  - first:
+      213: -7026239795229651328
+    second: FullHeart_5
+  - first:
+      213: -6241930439825534099
+    second: FullHeart_6
+  - first:
+      213: -5498844017945300022
+    second: FullHeart_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Coraz\xF3n Vac\xEDo_0"
+      name: FullHeart_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 1072
-        width: 480
-        height: 416
+        x: 17
+        y: 1139
+        width: 510
+        height: 442
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00faaadc754424bf0800000000000000
-      internalID: -341635477823377664
+      spriteID: e32bf0f290fed9020800000000000000
+      internalID: 2350297403280568894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Coraz\xF3n Vac\xEDo_1"
+      name: FullHeart_1
       rect:
         serializedVersion: 2
-        x: 528
-        y: 1072
-        width: 480
-        height: 416
+        x: 561
+        y: 1139
+        width: 510
+        height: 442
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 990845cc1a5379f20800000000000000
-      internalID: 3429268610300018841
+      spriteID: 4bad022ea6f638690800000000000000
+      internalID: -7601109241220244812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Coraz\xF3n Vac\xEDo_2"
+      name: FullHeart_2
       rect:
         serializedVersion: 2
-        x: 1040
-        y: 1072
-        width: 480
-        height: 416
+        x: 1105
+        y: 1139
+        width: 510
+        height: 442
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f995244dd2cb3ade0800000000000000
-      internalID: -1323006960496125537
+      spriteID: 71fd6a0c801697e80800000000000000
+      internalID: -8180400557922001129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Coraz\xF3n Vac\xEDo_3"
+      name: FullHeart_3
       rect:
         serializedVersion: 2
-        x: 16
-        y: 560
-        width: 480
-        height: 416
+        x: 17
+        y: 595
+        width: 510
+        height: 442
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0053ece9f85d1a290800000000000000
-      internalID: -7880783060100303616
+      spriteID: 2969d34353707da90800000000000000
+      internalID: -7289349546784745838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Coraz\xF3n Vac\xEDo_4"
+      name: FullHeart_4
       rect:
         serializedVersion: 2
-        x: 528
-        y: 560
-        width: 480
-        height: 416
+        x: 561
+        y: 595
+        width: 510
+        height: 442
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a0d1240441ed65e0800000000000000
-      internalID: -1914626584319242078
+      spriteID: 85a23f8a95a51b4c0800000000000000
+      internalID: -4273535230264792488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Coraz\xF3n Vac\xEDo_5"
+      name: FullHeart_5
       rect:
         serializedVersion: 2
-        x: 1040
-        y: 560
-        width: 480
-        height: 416
+        x: 1105
+        y: 595
+        width: 510
+        height: 442
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd6bca36ac1e2c5c0800000000000000
-      internalID: -4196543643383974180
+      spriteID: 08e8f920228cd7e90800000000000000
+      internalID: -7026239795229651328
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Coraz\xF3n Vac\xEDo_6"
+      name: FullHeart_6
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
-        width: 480
-        height: 416
+        x: 17
+        y: 51
+        width: 510
+        height: 442
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +279,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac0d5c527a104d000800000000000000
-      internalID: 59674512467546314
+      spriteID: d63508d06553069a0800000000000000
+      internalID: -6241930439825534099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Coraz\xF3n Vac\xEDo_7"
+      name: FullHeart_7
       rect:
         serializedVersion: 2
-        x: 528
-        y: 48
-        width: 480
-        height: 416
+        x: 561
+        y: 51
+        width: 510
+        height: 442
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,8 +300,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b885f55be59dcc990800000000000000
-      internalID: -7364272289864525685
+      spriteID: ac3b613ff7e20b3b0800000000000000
+      internalID: -5498844017945300022
       vertices: []
       indices: 
       edges: []

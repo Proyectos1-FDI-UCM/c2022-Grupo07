@@ -9,8 +9,8 @@ public class UIManager : MonoBehaviour
     #region references
     // Vida
     [SerializeField] private GameObject _lifeUI;
-    [SerializeField] private Sprite _fullHeart;
-    [SerializeField] private Sprite _emptyHeart;
+    [SerializeField] private Sprite _fullHeartImg;
+    [SerializeField] private Sprite _emptyHeartImg;
     // Tiempo
     [SerializeField] private GameObject _timeUI;
     private Text _timeText;
@@ -21,13 +21,13 @@ public class UIManager : MonoBehaviour
     // Disparos
     [SerializeField] private GameObject _shotsUI;
     [SerializeField] private Sprite _gravActivated;
-    [SerializeField] private Sprite _gravDesactivated;
-    [SerializeField] private Sprite _neutActivated;
-    [SerializeField] private Sprite _neutDesactivated;
+    [SerializeField] private Sprite _gravDeactivated;
+    [SerializeField] private Sprite _neuActivated;
+    [SerializeField] private Sprite _neuDeactivated;
     #endregion
 
     #region parameters
-    private Image[] _hearts = new Image[4];
+    private Image[] _heartsImg = new Image[4];
     private Image[] _shots = new Image[2];
     private int _points = 0;
     #endregion
@@ -38,8 +38,8 @@ public class UIManager : MonoBehaviour
     {
         if (life <= 3 && life >= 0) // Comprobar si está entre los límites de vida posible del jugador
         {
-            if (powerup == false) _hearts[life].sprite = _emptyHeart; // Si se resta vida
-            else _hearts[life].sprite = _fullHeart; // Si se suma con un powerup
+            if (powerup == false) _heartsImg[life].sprite = _emptyHeartImg; // Si se resta vida
+            else _heartsImg[life].sprite = _fullHeartImg; // Si se suma con un powerup
         }
     }
 
@@ -70,9 +70,18 @@ public class UIManager : MonoBehaviour
     }
 
     // Cambiar de disparo
-    public void UpdateShot()
+    public void UpdateShot(int shot)
     {
-
+        if (shot == 0)
+        {
+            _shots[0].sprite = _gravActivated;
+            _shots[1].sprite = _neuDeactivated;
+        }
+        else
+        {
+            _shots[0].sprite = _gravDeactivated;
+            _shots[1].sprite = _neuActivated;
+        }
     }
     #endregion
 
@@ -80,10 +89,10 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         // Inicializar vida
-        for (int i = 0; i < _hearts.Length; i++)
+        for (int i = 0; i < _heartsImg.Length; i++)
         {
-            _hearts[i] = _lifeUI.transform.GetChild(i).GetComponent<Image>();
-            _hearts[i].sprite = _fullHeart;
+            _heartsImg[i] = _lifeUI.transform.GetChild(i).GetComponent<Image>();
+            _heartsImg[i].sprite = _fullHeartImg;
         }
 
         // Inicializar temporizador
@@ -98,7 +107,7 @@ public class UIManager : MonoBehaviour
         {
             _shots[i] = _shotsUI.transform.GetChild(i).GetComponent<Image>();
             if (i == 0) _shots[i].sprite = _gravActivated; // Disparo gravedad
-            else if (i == 1) _shots[i].sprite = _neutDesactivated; // Disparo neutralizado
+            else if (i == 1) _shots[i].sprite = _neuDeactivated; // Disparo neutralizado
         }
     }
 }
