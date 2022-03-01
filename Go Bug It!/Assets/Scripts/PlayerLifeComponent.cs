@@ -13,11 +13,9 @@ public class PlayerLifeComponent : MonoBehaviour
     // Damage taken by player
     [SerializeField] private int _hitDamage = 1;
     //Respawn postion X
-    [SerializeField]
-    private float _respawnX = 0;
+    [SerializeField] private float _respawnX = 0;
     //Respawn position Y
-    [SerializeField]
-    private float _respawnY = 0;
+    [SerializeField] private float _respawnY = 0;
     #endregion
 
     #region methods

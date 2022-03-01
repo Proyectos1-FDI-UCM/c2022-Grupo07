@@ -12,14 +12,10 @@ public class MovementController : MonoBehaviour
     #endregion
 
     #region parameters
-    [SerializeField]
-    private float _acceleration;
-    [SerializeField]
-    private float _maxspeed; //velocidad máxima alcanzable
-    [SerializeField]
-    private float _airSpeed;
-    [SerializeField]
-    private float _dashForce;
+    [SerializeField] private float _acceleration;
+    [SerializeField] private float _maxspeed; //velocidad máxima alcanzable
+    [SerializeField] private float _airSpeed;
+    [SerializeField] private float _dashForce;
     #endregion
 
     #region properties
@@ -62,21 +58,17 @@ public class MovementController : MonoBehaviour
     {
         _rigidbody2D.AddForce(_dashDirection*_dashForce);
     }
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Movile_plataform _plataform = collision.gameObject.GetComponent<Movile_plataform>();
-        if (_plataform!=null)
-        {
-            _myTransform.parent = collision.gameObject.transform;
-        }
+        MovingPlatformController _plataform = collision.gameObject.GetComponent<MovingPlatformController>();
+        if (_plataform!=null) _myTransform.parent = collision.gameObject.transform;
     }
+
     public void OnCollisionExit2D(Collision2D collision)
     {
-        Movile_plataform _plataform = collision.gameObject.GetComponent<Movile_plataform>();
-        if (_plataform != null)
-        {
-            _myTransform.parent = null;
-        }
+        MovingPlatformController _plataform = collision.gameObject.GetComponent<MovingPlatformController>();
+        if (_plataform != null) _myTransform.parent = null;
     }
     #endregion
 
@@ -89,7 +81,7 @@ public class MovementController : MonoBehaviour
     }
     private void Update()
     {
-                // Guardar tiempo transcurrido para los cálculos
+         // Guardar tiempo transcurrido para los cálculos
          if (_movementDirection!= 0) _elapsedtime += Time.deltaTime;
          else  _elapsedtime = 0;
       
@@ -100,10 +92,10 @@ public class MovementController : MonoBehaviour
     {
 
 
-         // Aplicar movimiento
+        // Aplicar movimiento
         _myTransform.Translate(_dashDirection * Speed(_elapsedtime,_acceleration)* Time.fixedDeltaTime);
         
-       /* _rigidbody2D.velocity = new Vector2(_movementDirection*Speed(_elapsedtime,_acceleration), _rigidbody2D.velocity.y);*/
+        /* _rigidbody2D.velocity = new Vector2(_movementDirection*Speed(_elapsedtime,_acceleration), _rigidbody2D.velocity.y);*/
     }
    
 }
