@@ -86,7 +86,10 @@ public class InputController : MonoBehaviour
             _dashcooldown_ok = false;
             _elapsedash = 0;
         }
-       
+        
+        // Selección de disparo
+        if (Input.GetKeyDown(KeyCode.Mouse1)) _myGunpoint.ChangeShoot();
+
         // Disparo y orientación de la bala
         if (Input.GetKeyDown(KeyCode.Mouse0) && _isGrounded) _myGunpoint.Shoot();
         Switch();

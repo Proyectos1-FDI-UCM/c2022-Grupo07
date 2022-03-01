@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
     {
         _myUIManager.UpdatePlayerLife(lifePoints, false);
     }
+
+    public void OnChangingShoot(int shot)
+    {
+        _myUIManager.UpdateShot(shot);
+    }
     #endregion
 
     // Initializes GameManager instance and list of enemies.
