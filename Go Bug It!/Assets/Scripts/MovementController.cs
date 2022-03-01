@@ -14,7 +14,7 @@ public class MovementController : MonoBehaviour
     #region parameters
     [SerializeField] private float _acceleration;
     [SerializeField] private float _maxspeed; //velocidad máxima alcanzable
-    [SerializeField] private float _airSpeed;
+    [SerializeField, Range(0.1f, 1.0f)] private float _airSpeed;
     [SerializeField] private float _dashForce;
     #endregion
 
@@ -84,14 +84,11 @@ public class MovementController : MonoBehaviour
          // Guardar tiempo transcurrido para los cálculos
          if (_movementDirection!= 0) _elapsedtime += Time.deltaTime;
          else  _elapsedtime = 0;
-      
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
-
         // Aplicar movimiento
         _myTransform.Translate(_dashDirection * Speed(_elapsedtime,_acceleration)* Time.fixedDeltaTime);
         

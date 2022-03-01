@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
     {
         _myUIManager.UpdatePlayerLife(lifePoints, false);
     }
+
+    public void OnChangingShoot(int shot)
+    {
+        _myUIManager.UpdateShot(shot);
+    }
     #endregion
 
     public void OnPlayerHeals(int lifePoints)
