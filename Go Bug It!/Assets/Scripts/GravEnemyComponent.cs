@@ -5,8 +5,7 @@ using UnityEngine;
 public class GravEnemyComponent : MonoBehaviour
 {
     #region parameters
-    [SerializeField]
-    private float _gravity = 1.0f;
+    [SerializeField] private float _gravity = 1.0f;
     #endregion
 
     #region references
@@ -18,12 +17,8 @@ public class GravEnemyComponent : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GravBulletComponent _myBullet = collision.gameObject.GetComponent<GravBulletComponent>();
-        Debug.Log(_myBullet);
-
-        if (_myBullet != null)
-        {
-            ChangeGravity();
-        }
+        
+        if (_myBullet != null) ChangeGravity();
     }
 
     public void ChangeGravity()

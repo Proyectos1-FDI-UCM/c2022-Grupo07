@@ -65,7 +65,7 @@
     <Compile Include="Assets\Scripts\NeuBulletComponent.cs" />
     <Compile Include="Assets\Scripts\PlayerLifeComponent.cs" />
     <Compile Include="Assets\Scripts\GunpointController.cs" />
-    <Compile Include="Assets\Scripts\Movile_plataform.cs" />
+    <Compile Include="Assets\Scripts\MovingPlatformController.cs" />
     <Compile Include="Assets\Scripts\GravityComponent.cs" />
     <Compile Include="Assets\Scripts\NeuEnemyComponent.cs" />
     <Compile Include="Assets\Scripts\InputController.cs" />

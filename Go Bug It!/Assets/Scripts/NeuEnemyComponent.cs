@@ -9,10 +9,6 @@ public class NeuEnemyComponent : MonoBehaviour
     [SerializeField] private int _neutralizeDuration = 5;
     #endregion
 
-    #region references
-    private GameObject _enemy;
-    #endregion
-
     #region properties
     [SerializeField] private bool _neutralized = false;
     #endregion
@@ -33,12 +29,6 @@ public class NeuEnemyComponent : MonoBehaviour
         return _neutralized;
     }
     #endregion
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        _enemy = gameObject;
-    }
 
     // Update is called once per frame
     void Update()
