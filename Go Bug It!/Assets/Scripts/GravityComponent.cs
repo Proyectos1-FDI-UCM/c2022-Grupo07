@@ -20,6 +20,8 @@ public class GravityComponent : MonoBehaviour
         //Dependiendo del booleano grav se crea una gravedad positiva o negativa
         if (grav) _myRigidbody.gravityScale = -_myGravityScale;
         else _myRigidbody.gravityScale = _myGravityScale;
+
+        gameObject.transform.Rotate(0, 0, 180);
     }
     #endregion
 
