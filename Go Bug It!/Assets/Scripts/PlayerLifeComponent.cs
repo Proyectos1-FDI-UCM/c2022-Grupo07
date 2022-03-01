@@ -28,25 +28,29 @@ public class PlayerLifeComponent : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        ///<summary>
-        ///LifeComponent
-        ///Como el checkpoint manager no existe en el primer sprint la implementaciÃ³n 
-        ///de la vida del jugador no puede ser implementada totalmente.
-        /// </summary>
-
-        if (collision.gameObject.layer == 6||collision.gameObject.layer ==7)
+        // Colisión con un enemigo
+        EnemyComponent _enemy = collision.gameObject.GetComponent<EnemyComponent>();
+        
+        if (_enemy != null)
         {
-            if (collision.gameObject.GetComponent<NeuEnemyComponent>().GetNeutralization() == false)
+            NeuBulletComponent _bullet = _enemy.GetComponent<NeuBulletComponent>();
+            Debug.Log(_bullet);
+
+            if (_bullet == null) // Si el enemigo no está neutralizado
             {
                 Damage();
                 transform.position = new Vector2(_respawnX, _respawnY);
-            }    
+            } 
         }
-        //DeathZone 
-        //if(collision.gameObject.layer == 7)
-        //{
-        //    _currLife = 0;
-        //}
+
+        // Colisión con la zona de muerte
+        DeathZoneComponent _deathZone = collision.gameObject.GetComponent<DeathZoneComponent>();
+        
+        if (_deathZone != null)
+        {
+            Damage();
+            transform.position = new Vector2(_respawnX, _respawnY);
+        }
     }
     #endregion
 
@@ -55,7 +59,6 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         _currLife = _playerLife;
     }
-
     
     // Update is called once per frame
     void Update()

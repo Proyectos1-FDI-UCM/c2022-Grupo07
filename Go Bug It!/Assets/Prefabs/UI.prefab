@@ -452,8 +452,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeUI: {fileID: 4729239257478058065}
-  _fullHeart: {fileID: 1959917541784156756, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  _emptyHeart: {fileID: -341635477823377664, guid: d407943340dfd3d499b02d944be30951, type: 3}
+  _fullHeartImg: {fileID: 2350297403280568894, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  _emptyHeartImg: {fileID: -705465144167411356, guid: d407943340dfd3d499b02d944be30951, type: 3}
   _timeUI: {fileID: 4729239256859108848}
   _timer: {fileID: 21300000, guid: f104631b3d2554d4ea4117554c021b07, type: 3}
   _pointsUI: {fileID: 4729239256714414050}
