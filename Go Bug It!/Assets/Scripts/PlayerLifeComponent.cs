@@ -26,6 +26,15 @@ public class PlayerLifeComponent : MonoBehaviour
         GameManager.Instance.OnPlayerDamage(_currLife);
     }
 
+    public void Heal()
+    {
+        if (_currLife < _playerLife)
+        {
+            _currLife++;
+            GameManager.Instance.OnPlayerHeals(_currLife);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         ///<summary>
@@ -36,7 +45,7 @@ public class PlayerLifeComponent : MonoBehaviour
 
         if (collision.gameObject.layer == 6||collision.gameObject.layer ==7)
         {
-            if (collision.gameObject.GetComponent<NeuEnemyComponent>().GetNeutralization() == false)
+            //if (collision.gameObject.GetComponent<NeuEnemyComponent>().GetNeutralization() == false)
             {
                 Damage();
                 transform.position = new Vector2(_respawnX, _respawnY);
