@@ -11,6 +11,7 @@ public class GravEnemyComponent : MonoBehaviour
     #region references
     private Collider2D _myCollider;
     private Rigidbody2D _myRigidbody;
+    private Transform _myTransform;
     #endregion
     
     #region methods
@@ -23,6 +24,7 @@ public class GravEnemyComponent : MonoBehaviour
 
     public void ChangeGravity()
     {
+        _myTransform.Rotate(180, 0, 0);
         _gravity *= -1;
         _myRigidbody.gravityScale = _gravity;
     }
@@ -33,5 +35,6 @@ public class GravEnemyComponent : MonoBehaviour
     {
         _myCollider = gameObject.GetComponent<Collider2D>();
         _myRigidbody = gameObject.GetComponent<Rigidbody2D>();
+        _myTransform = gameObject.transform;
     }
 }
