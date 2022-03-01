@@ -21,7 +21,7 @@ public class GravityComponent : MonoBehaviour
         if (grav) _myRigidbody.gravityScale = -_myGravityScale;
         else _myRigidbody.gravityScale = _myGravityScale;
 
-        gameObject.transform.Rotate(0, 0, 180);
+        gameObject.transform.Rotate(0, 180, 180);
     }
     #endregion
 
