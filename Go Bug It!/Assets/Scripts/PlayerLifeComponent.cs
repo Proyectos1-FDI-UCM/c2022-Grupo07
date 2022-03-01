@@ -22,8 +22,8 @@ public class PlayerLifeComponent : MonoBehaviour
     private void Damage()
     {
         _currLife -= _hitDamage;
-        Debug.Log(_currLife);
         GameManager.Instance.OnPlayerDamage(_currLife);
+        transform.position = new Vector2(_respawnX, _respawnY);
     }
 
     public void Heal()
@@ -42,13 +42,11 @@ public class PlayerLifeComponent : MonoBehaviour
         
         if (_enemy != null)
         {
-            NeuBulletComponent _bullet = _enemy.GetComponent<NeuBulletComponent>();
-            Debug.Log(_bullet);
+            NeuEnemyComponent _neuEnemy = _enemy.GetComponent<NeuEnemyComponent>();
 
-            if (_bullet == null) // Si el enemigo no está neutralizado
+            if (_neuEnemy != null)
             {
-                Damage();
-                transform.position = new Vector2(_respawnX, _respawnY);
+                if (_neuEnemy.GetNeutralization() != true) Damage();
             } 
         }
 
