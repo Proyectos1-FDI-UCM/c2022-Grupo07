@@ -26,9 +26,18 @@ public class PlayerLifeComponent : MonoBehaviour
         GameManager.Instance.OnPlayerDamage(_currLife);
     }
 
+    public void Heal()
+    {
+        if (_currLife < _playerLife)
+        {
+            _currLife++;
+            GameManager.Instance.OnPlayerHeals(_currLife);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // ColisiÛn con un enemigo
+        // Colisi√≥n con un enemigo
         EnemyComponent _enemy = collision.gameObject.GetComponent<EnemyComponent>();
         
         if (_enemy != null)
@@ -36,14 +45,14 @@ public class PlayerLifeComponent : MonoBehaviour
             NeuBulletComponent _bullet = _enemy.GetComponent<NeuBulletComponent>();
             Debug.Log(_bullet);
 
-            if (_bullet == null) // Si el enemigo no est· neutralizado
+            if (_bullet == null) // Si el enemigo no est√° neutralizado
             {
                 Damage();
                 transform.position = new Vector2(_respawnX, _respawnY);
             } 
         }
 
-        // ColisiÛn con la zona de muerte
+        // Colisi√≥n con la zona de muerte
         DeathZoneComponent _deathZone = collision.gameObject.GetComponent<DeathZoneComponent>();
         
         if (_deathZone != null)

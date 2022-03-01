@@ -33,6 +33,11 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    public void OnPlayerHeals(int lifePoints)
+    {
+        _myUIManager.UpdatePlayerLife(lifePoints-1, true);
+    }
+
     // Initializes GameManager instance and list of enemies.
     private void Awake()
     {
