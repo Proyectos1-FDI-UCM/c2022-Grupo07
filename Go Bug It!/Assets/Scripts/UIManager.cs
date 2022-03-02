@@ -24,11 +24,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite _gravDeactivated;
     [SerializeField] private Sprite _neuActivated;
     [SerializeField] private Sprite _neuDeactivated;
+    // Recuadros
+    [SerializeField] private GameObject _cornersUI;
+    [SerializeField] private Sprite _corner;
     #endregion
 
     #region parameters
-    private Image[] _heartsImg = new Image[4];
+    private Image[] _hearts= new Image[4];
     private Image[] _shots = new Image[2];
+    private Image[] _corners = new Image[4];
     private int _points = 0;
     #endregion
 
@@ -38,8 +42,8 @@ public class UIManager : MonoBehaviour
     {
         if (life <= 3 && life >= 0) // Comprobar si está entre los límites de vida posible del jugador
         {
-            if (powerup == false) _heartsImg[life].sprite = _emptyHeartImg; // Si se resta vida
-            else _heartsImg[life].sprite = _fullHeartImg; // Si se suma con un powerup
+            if (powerup == false) _hearts[life].sprite = _emptyHeartImg; // Si se resta vida
+            else _hearts[life].sprite = _fullHeartImg; // Si se suma con un powerup
         }
     }
 
@@ -88,11 +92,28 @@ public class UIManager : MonoBehaviour
     // Initializes own references
     private void Awake()
     {
-        // Inicializar vida
-        for (int i = 0; i < _heartsImg.Length; i++)
+        // Inicializar recuadros
+        for(int i = 0; i < _corners.Length; i++)
         {
-            _heartsImg[i] = _lifeUI.transform.GetChild(i).GetComponent<Image>();
-            _heartsImg[i].sprite = _fullHeartImg;
+            _corners[i] = _cornersUI.transform.GetChild(i).GetComponent<Image>();
+            _corners[i].sprite = _corner;
+
+            /*
+            switch (i)
+            {
+                case 0: _corners[i].sprite = _upLeft; break;
+                case 1: _corners[i].sprite = _upRight; break;
+                case 2: _corners[i].sprite = _downLeft; break;
+                case 3: _corners[i].sprite = _downRight; break;
+            }
+            */
+        }
+
+        // Inicializar vida
+        for (int i = 0; i < _hearts.Length; i++)
+        {
+            _hearts[i] = _lifeUI.transform.GetChild(i).GetComponent<Image>();
+            _hearts[i].sprite = _fullHeartImg;
         }
 
         // Inicializar temporizador
