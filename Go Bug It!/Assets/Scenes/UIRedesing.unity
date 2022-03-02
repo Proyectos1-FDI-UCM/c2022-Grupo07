@@ -2722,7 +2722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c312c9ac1545eaf44a27aa35627148b0, type: 3}
---- !u!1001 &684692363
+--- !u!1001 &699776441
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -2817,13 +2817,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4729239257457353065, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
+      propertyPath: _upRight
+      value: 
+      objectReference: {fileID: 21300000, guid: 6ce5906cbab26da4bac2bbab56bf79e3, type: 3}
+    - target: {fileID: 4729239257457353065, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
+      propertyPath: _downLeft
+      value: 
+      objectReference: {fileID: 21300000, guid: 6ce5906cbab26da4bac2bbab56bf79e3, type: 3}
+    - target: {fileID: 4729239257457353065, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
+      propertyPath: _downRight
+      value: 
+      objectReference: {fileID: 21300000, guid: 6ce5906cbab26da4bac2bbab56bf79e3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
---- !u!1 &699137314 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4729239257457353064, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
-  m_PrefabInstance: {fileID: 684692363}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &736150444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4797639031185367718, guid: 37cc393fd82a8634cbe8fd7ec6a5fc66, type: 3}
@@ -5018,7 +5025,7 @@ PrefabInstance:
     - target: {fileID: 2680697669183223878, guid: f42427efad87f0246a1e8c185e4c86d1, type: 3}
       propertyPath: _myUIObject
       value: 
-      objectReference: {fileID: 699137314}
+      objectReference: {fileID: 1933249528}
     - target: {fileID: 2680697669183223879, guid: f42427efad87f0246a1e8c185e4c86d1, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -5912,6 +5919,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7525282916623362026, guid: ea4fd06937c75b1468be7cdeb3242f6e, type: 3}
   m_PrefabInstance: {fileID: 1429972224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1933249528 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4729239257457353064, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
+  m_PrefabInstance: {fileID: 699776441}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1945900515 stripped
 Transform:
