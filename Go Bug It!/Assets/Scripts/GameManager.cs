@@ -21,10 +21,11 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region methods
-    public void Puntuation (int _puntuation)
+    public void OnEnemyDies (int _puntuation)
     {
         _myUIManager.UpdatePoints(_puntuation);
     }
+
     // Daño al jugador
     public void OnPlayerDamage(int lifePoints)
     {
@@ -64,7 +65,5 @@ public class GameManager : MonoBehaviour
             _timeLeft -= Time.deltaTime;
             _myUIManager.UpdateTime((int)_timeLeft);
         }
-
-        _myUIManager.UpdatePoints(1);
     }
 }
