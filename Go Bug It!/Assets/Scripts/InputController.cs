@@ -53,7 +53,7 @@ public class InputController : MonoBehaviour
     {
         _movController = GetComponent<MovementController>();            // Accedemos al script de movimiento del jugador
         _myGravityComponent = GetComponent<GravityComponent>();         // Accedemos al script de gravedad del jugador
-        _myCollider = GetComponent<Collider2D>();                       // Accedemos al collider de nuestro jugador
+        _myCollider = GetComponentInChildren<Collider2D>();                       // Accedemos al collider de nuestro jugador
         _myGunpoint = transform.GetChild(0).GetComponent<GunpointController>(); // Accedemos al script de la pistola
         _changeGravity = false;                                         // Inicializamos el booleano de la gravedad a negativo para que la gravedad sea normal
         _isGrounded = false;                                            // Inicializamos el booleano de tocar una superficie a false
