@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 4729239256226173347}
   - component: {fileID: 4729239256226173345}
   - component: {fileID: 4729239256226173344}
+  - component: {fileID: 2119497439936330873}
   m_Layer: 5
   m_Name: Heart 2
   m_TagString: Untagged
@@ -150,6 +151,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2119497439936330873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4729239256226173346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bba4ddea068c9f44b0ecef55acff133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 2350297403280568894, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -7601109241220244812, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -8180400557922001129, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -7289349546784745838, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -4273535230264792488, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -7026239795229651328, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -6241930439825534099, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -5498844017945300022, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  _spritesPerFrame: 25
 --- !u!1 &4729239256364886913
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,6 +184,7 @@ GameObject:
   - component: {fileID: 4729239256364886942}
   - component: {fileID: 4729239256364886940}
   - component: {fileID: 4729239256364886943}
+  - component: {fileID: 170218462391801485}
   m_Layer: 5
   m_Name: Heart 4
   m_TagString: Untagged
@@ -225,6 +249,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &170218462391801485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4729239256364886913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bba4ddea068c9f44b0ecef55acff133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 2350297403280568894, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -7601109241220244812, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -8180400557922001129, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -7289349546784745838, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -4273535230264792488, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -7026239795229651328, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -6241930439825534099, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -5498844017945300022, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  _spritesPerFrame: 25
 --- !u!1 &4729239256714414050
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,7 +512,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -608,7 +654,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -725, y: 70}
+  m_AnchoredPosition: {x: -735, y: 70}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4729239257546005877
@@ -640,13 +686,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: 2f2872000eea02945b2e9e52f77c7f1e, type: 3}
+    m_FontSize: 41
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 300
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -814,6 +860,7 @@ GameObject:
   - component: {fileID: 4729239257916604716}
   - component: {fileID: 4729239257916604714}
   - component: {fileID: 4729239257916604717}
+  - component: {fileID: 2574913860045928267}
   m_Layer: 5
   m_Name: Heart 1
   m_TagString: Untagged
@@ -878,6 +925,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2574913860045928267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4729239257916604719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bba4ddea068c9f44b0ecef55acff133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 2350297403280568894, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -7601109241220244812, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -8180400557922001129, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -7289349546784745838, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -4273535230264792488, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -7026239795229651328, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -6241930439825534099, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -5498844017945300022, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  _spritesPerFrame: 25
 --- !u!1 &4729239258162767470
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,7 +981,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 870, y: 70}
+  m_AnchoredPosition: {x: 869, y: 71}
   m_SizeDelta: {x: 45, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4729239258162767469
@@ -944,11 +1013,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
-    m_FontStyle: 1
-    m_BestFit: 1
-    m_MinSize: 3
+    m_Font: {fileID: 12800000, guid: 2f2872000eea02945b2e9e52f77c7f1e, type: 3}
+    m_FontSize: 40
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
     m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -968,6 +1037,7 @@ GameObject:
   - component: {fileID: 4729239258187519084}
   - component: {fileID: 4729239258187519082}
   - component: {fileID: 4729239258187519085}
+  - component: {fileID: 6297999063396946382}
   m_Layer: 5
   m_Name: Heart 3
   m_TagString: Untagged
@@ -1032,6 +1102,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6297999063396946382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4729239258187519087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bba4ddea068c9f44b0ecef55acff133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 2350297403280568894, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -7601109241220244812, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -8180400557922001129, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -7289349546784745838, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -4273535230264792488, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -7026239795229651328, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -6241930439825534099, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  - {fileID: -5498844017945300022, guid: a05d456700c228146a30b8123ec855b0, type: 3}
+  _spritesPerFrame: 25
 --- !u!1 &7414868112238270976
 GameObject:
   m_ObjectHideFlags: 0

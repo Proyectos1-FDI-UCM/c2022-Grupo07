@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\LifeTimeController.cs" />
     <Compile Include="Assets\Scripts\CodigoRestauradorComponent.cs" />
     <Compile Include="Assets\Scripts\GravEnemyComponent.cs" />
+    <Compile Include="Assets\Scripts\UIAnimationController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\AssemblyDefinition.asmdef" />
