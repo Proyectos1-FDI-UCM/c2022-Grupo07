@@ -29,9 +29,14 @@ public class InputController : MonoBehaviour
 
     #region methods
     //Metodo que nos informa sobre si el jugador esta tocando una superficie o no
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionStay2D(Collision2D collision)
     {
         if (collision != null) _isGrounded = true;
+    }
+
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        _isGrounded = false;
     }
 
     // Asignar la orientación de la bala según la del jugador
@@ -53,7 +58,7 @@ public class InputController : MonoBehaviour
     {
         _movController = GetComponent<MovementController>();            // Accedemos al script de movimiento del jugador
         _myGravityComponent = GetComponent<GravityComponent>();         // Accedemos al script de gravedad del jugador
-        _myCollider = GetComponent<Collider2D>();                       // Accedemos al collider de nuestro jugador
+        _myCollider = GetComponentInChildren<Collider2D>();                       // Accedemos al collider de nuestro jugador
         _myGunpoint = transform.GetChild(0).GetComponent<GunpointController>(); // Accedemos al script de la pistola
         _changeGravity = false;                                         // Inicializamos el booleano de la gravedad a negativo para que la gravedad sea normal
         _isGrounded = false;                                            // Inicializamos el booleano de tocar una superficie a false
@@ -76,7 +81,6 @@ public class InputController : MonoBehaviour
         {
             _changeGravity = !_changeGravity;                           //Negamos el booleano gravedad para q ahora sea lo contrario
             _myGravityComponent.ChangeGravity(_changeGravity);          //Llamamos al metodo ChangeGravity del script de gravedad
-            _isGrounded = false;                                        //Cambiamos a false el booleano de superficie para que se cambie a true cuando detecte una colisión
         }
 
         // Dash
