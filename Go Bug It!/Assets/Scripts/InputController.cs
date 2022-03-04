@@ -21,6 +21,7 @@ public class InputController : MonoBehaviour
     [HideInInspector] public bool _isGrounded;
     private float _elapsedash;
     private bool _dashcooldown_ok;
+    public bool _doDash;
     #endregion
 
     #region parameters
@@ -71,8 +72,6 @@ public class InputController : MonoBehaviour
     {
         _horizontal = Input.GetAxis("Horizontal");  
 
-        // Impulso del personaje
-        _movController.SetDashDirection(_horizontal);
         //Movimiento del personaje
         _movController.SetMovementDirection(_horizontal);
 
@@ -86,7 +85,7 @@ public class InputController : MonoBehaviour
         // Dash
         if (_dashcooldown_ok && Input.GetKeyDown(KeyCode.LeftShift))
         {
-            _movController.Dash();
+            _doDash = true;
             _dashcooldown_ok = false;
             _elapsedash = 0;
         }
