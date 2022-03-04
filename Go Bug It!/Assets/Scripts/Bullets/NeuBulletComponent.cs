@@ -6,12 +6,21 @@ public class NeuBulletComponent : MonoBehaviour
 {
     #region references
     private Collider2D _myCollider2D;
+    private Animator _myAnimator;
+    [SerializeField] private RuntimeAnimatorController _bulletAnimation;
     #endregion
 
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        EnemyComponent _enemy = collision.gameObject.GetComponent<EnemyComponent>();
+
+        if (_enemy != null)
+        {
+            _myAnimator.Play("NeuParticles");
+            // Destroy(gameObject);
+        }
+        
     }
     #endregion
 
@@ -19,5 +28,6 @@ public class NeuBulletComponent : MonoBehaviour
     void Start()
     {
         _myCollider2D = gameObject.GetComponent<Collider2D>();
+        _myAnimator = gameObject.GetComponent<Animator>();
     }
 }

@@ -1,22 +1,25 @@
 fileFormatVersion: 2
-guid: 8ddb847611563674da176a03c3b90210
+guid: 2d8d43fedefaad9499f4d086305eea5d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3774374118143669823
-    second: GravParticles_0
+      213: -3656652511836394076
+    second: NeuParticles_0
   - first:
-      213: -7041910008490334127
-    second: GravParticles_1
+      213: 249326996066284644
+    second: NeuParticles_1
   - first:
-      213: 1238985320460951497
-    second: GravParticles_2
+      213: 7788776484783814097
+    second: NeuParticles_2
   - first:
-      213: -105131096411811305
-    second: GravParticles_3
+      213: 4272686933760269169
+    second: NeuParticles_3
   - first:
-      213: -8124206577580310191
-    second: GravParticles_4
+      213: -7498250466595698378
+    second: NeuParticles_4
+  - first:
+      213: 6666867228270357256
+    second: NeuParticles_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -106,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GravParticles_0
+      name: NeuParticles_0
       rect:
         serializedVersion: 2
         x: 0
@@ -120,14 +123,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c94e9eacbabe9bc0800000000000000
-      internalID: -3774374118143669823
+      spriteID: 4ada3fc0ae5f04dc0800000000000000
+      internalID: -3656652511836394076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GravParticles_1
+      name: NeuParticles_1
       rect:
         serializedVersion: 2
         x: 256
@@ -141,14 +144,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1586aab282c164e90800000000000000
-      internalID: -7041910008490334127
+      spriteID: 4643279f499c57300800000000000000
+      internalID: 249326996066284644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GravParticles_2
+      name: NeuParticles_2
       rect:
         serializedVersion: 2
         x: 0
@@ -162,14 +165,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cf9ff3a592c13110800000000000000
-      internalID: 1238985320460951497
+      spriteID: 1d5747a32fa471c60800000000000000
+      internalID: 7788776484783814097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GravParticles_3
+      name: NeuParticles_3
       rect:
         serializedVersion: 2
         x: 256
@@ -183,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 712d68723df7a8ef0800000000000000
-      internalID: -105131096411811305
+      spriteID: 17bdb3be022ab4b30800000000000000
+      internalID: 4272686933760269169
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GravParticles_4
+      name: NeuParticles_4
       rect:
         serializedVersion: 2
         x: 0
@@ -204,8 +207,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1510f6d5925014f80800000000000000
-      internalID: -8124206577580310191
+      spriteID: 63908a59decd0f790800000000000000
+      internalID: -7498250466595698378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NeuParticles_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80b6fb9eb68758c50800000000000000
+      internalID: 6666867228270357256
       vertices: []
       indices: 
       edges: []

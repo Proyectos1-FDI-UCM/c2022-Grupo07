@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: eaacdc8743c41e948b9d6199c95827d7
+guid: 5dc7da11c15d2bc4a9eb72701fbb2139
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3656652511836394076
-    second: NeuParticles_0
+      213: -9147742306386595061
+    second: WallParticles_0
   - first:
-      213: 249326996066284644
-    second: NeuParticles_1
+      213: -2691602373439962971
+    second: WallParticles_1
   - first:
-      213: 7788776484783814097
-    second: NeuParticles_2
-  - first:
-      213: 4272686933760269169
-    second: NeuParticles_3
-  - first:
-      213: -7498250466595698378
-    second: NeuParticles_4
-  - first:
-      213: 6666867228270357256
-    second: NeuParticles_5
+      213: -3644422128451597780
+    second: WallParticles_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NeuParticles_0
+      name: WallParticles_0
       rect:
         serializedVersion: 2
         x: 0
         y: 512
-        width: 256
-        height: 256
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,20 +114,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ada3fc0ae5f04dc0800000000000000
-      internalID: -3656652511836394076
+      spriteID: b03b303d6d0bc0180800000000000000
+      internalID: -9147742306386595061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NeuParticles_1
+      name: WallParticles_1
       rect:
         serializedVersion: 2
-        x: 256
+        x: 512
         y: 512
-        width: 256
-        height: 256
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,62 +135,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4643279f499c57300800000000000000
-      internalID: 249326996066284644
+      spriteID: 5a0438ee6e185aad0800000000000000
+      internalID: -2691602373439962971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NeuParticles_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 256
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d5747a32fa471c60800000000000000
-      internalID: 7788776484783814097
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NeuParticles_3
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 256
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 17bdb3be022ab4b30800000000000000
-      internalID: 4272686933760269169
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NeuParticles_4
+      name: WallParticles_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,29 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63908a59decd0f790800000000000000
-      internalID: -7498250466595698378
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NeuParticles_5
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 80b6fb9eb68758c50800000000000000
-      internalID: 6666867228270357256
+      spriteID: c2ac11612696c6dc0800000000000000
+      internalID: -3644422128451597780
       vertices: []
       indices: 
       edges: []
