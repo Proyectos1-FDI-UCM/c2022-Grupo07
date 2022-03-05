@@ -3382,6 +3382,14 @@ PrefabInstance:
       propertyPath: _dashForce
       value: 400
       objectReference: {fileID: 0}
+    - target: {fileID: 6243002863010358820, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
+      propertyPath: _dashSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6243002863010358820, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
+      propertyPath: _dashDuration
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
 --- !u!1001 &1079398619

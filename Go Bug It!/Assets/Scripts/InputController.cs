@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
-    #region parameters
-    [SerializeField] private float _dashcooldown;
-    #endregion
     
     #region references
     private MovementController _movController;
@@ -16,16 +13,22 @@ public class InputController : MonoBehaviour
     #endregion
 
     #region properties
-    private float _horizontal;
     private bool _changeGravity;
     [HideInInspector] public bool _isGrounded;
     private float _elapsedash;
     private bool _dashcooldown_ok;
     public bool _doDash;
+    // Axis
+    private float _horizontal;
+    private float _jump;
+    private float _dash;
+    private float _selectShot;
+    private float _shoot;
     #endregion
 
     #region parameters
     private float direction;
+    [SerializeField] private float _dashcooldown;
     #endregion
 
     #region methods
@@ -70,20 +73,25 @@ public class InputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _horizontal = Input.GetAxis("Horizontal");  
+        // Ejes de inputs
+        _horizontal = Input.GetAxis("Horizontal");
+        _jump = Input.GetAxis("Jump");
+        _dash = Input.GetAxis("Dash");
+        _selectShot = Input.GetAxis("SelectShot");
+        _shoot = Input.GetAxis("Shoot");
 
         //Movimiento del personaje
         _movController.SetMovementDirection(_horizontal);
 
         // Cambio de gravedad
-        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)             //Si presiono espacio y estoy tocando una superficie...
+        if (_jump > 0 && _isGrounded)                               //Si presiono espacio y estoy tocando una superficie...
         {
-            _changeGravity = !_changeGravity;                           //Negamos el booleano gravedad para q ahora sea lo contrario
-            _myGravityComponent.ChangeGravity(_changeGravity);          //Llamamos al metodo ChangeGravity del script de gravedad
+            _changeGravity = !_changeGravity;                       //Negamos el booleano gravedad para q ahora sea lo contrario
+            _myGravityComponent.ChangeGravity(_changeGravity);      //Llamamos al metodo ChangeGravity del script de gravedad
         }
 
         // Dash
-        if (_dashcooldown_ok && Input.GetKeyDown(KeyCode.LeftShift))
+        if (_dashcooldown_ok && _dash > 0)
         {
             _doDash = true;
             _dashcooldown_ok = false;
@@ -91,10 +99,10 @@ public class InputController : MonoBehaviour
         }
         
         // Selección de disparo
-        if (Input.GetKeyDown(KeyCode.Mouse1)) _myGunpoint.ChangeShoot();
+        if (_selectShot > 0) _myGunpoint.ChangeShoot();
 
         // Disparo y orientación de la bala
-        if (Input.GetKeyDown(KeyCode.Mouse0) && _isGrounded) _myGunpoint.Shoot();
+        if (_shoot > 0 && _isGrounded) _myGunpoint.Shoot();
         Switch();
 
         // Calcula el cooldown de los dashes (Nota Rafa Malo: Se podria hacer un scrpit que lleve los cooldowns en su update, ya que parece el unico sitio donde funciona)
