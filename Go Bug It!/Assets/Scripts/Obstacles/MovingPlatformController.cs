@@ -19,6 +19,22 @@ public class MovingPlatformController : MonoBehaviour
     [SerializeField] private Vector2 _movementDirection;
     #endregion
 
+    #region methods
+    // Hacer hijo al jugador si está en la plataforma
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        InputController _player = collision.gameObject.GetComponent<InputController>();
+        if (_player != null) collision.gameObject.transform.parent = gameObject.transform;
+    }
+
+    // Soltar al jugador si deja de estar en la plataforma
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        InputController _player = collision.gameObject.GetComponent<InputController>();
+        if (_player != null) collision.gameObject.transform.parent = null;
+    }
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {

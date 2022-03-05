@@ -197,8 +197,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838b10e23a5f20345ad780d13c1d4957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dashcooldown: 0
   _isGrounded: 0
+  _dashCooldown: 2
+  _doDash: 0
+  _shootCooldown: 2
+  _shotSelectCooldown: 2
 --- !u!114 &6243002863010358820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +217,8 @@ MonoBehaviour:
   _acceleration: 3
   _maxspeed: 3
   _airSpeed: 2
-  _dashForce: 0
+  _dashDuration: 1
+  _dashSpeed: 5
 --- !u!114 &968069071213106447
 MonoBehaviour:
   m_ObjectHideFlags: 0

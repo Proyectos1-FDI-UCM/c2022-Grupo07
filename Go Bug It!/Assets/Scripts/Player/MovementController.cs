@@ -23,7 +23,7 @@ public class MovementController : MonoBehaviour
     private float _elapsedtime;
     private float _movementDirection;
     private float _speed;
-    private bool _dash;
+    private bool _dash = false;
     private float _elapsedDash;
     #endregion
 
@@ -31,7 +31,7 @@ public class MovementController : MonoBehaviour
     // Asigna la dirección del movimiento seleccionada a través del input del jugador
     public void SetMovementDirection(float horizontal)
     {
-        if (!_dash)_movementDirection = horizontal;//Da un vector en la dirección de movimiento para aplicar la fuerza.
+        if (!_dash) _movementDirection = horizontal; // Da un vector en la dirección de movimiento para aplicar la fuerza.
     }
 
     // Cálculo de la velocidad del jugador
@@ -52,24 +52,31 @@ public class MovementController : MonoBehaviour
         return _speed;
     }
 
+    // Activar el dash
+    public void SetDash()
+    {
+        _dash = true;
+    }
+
     // Impulso
     public void Dash()
     {
-            _dash = true;
+        // Guardar tiempo transcurrido en las físicas
+        _elapsedDash += Time.fixedDeltaTime;
+
+        // Si se está haciendo el dash
+        if (_elapsedDash <= _dashDuration)
+        {
             _speed = _dashSpeed;
-            _rigidbody2D.velocity = new Vector2(_movementDirection * _speed, _rigidbody2D.velocity.y);   
-    }
-
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        MovingPlatformController _plataform = collision.gameObject.GetComponent<MovingPlatformController>();
-        if (_plataform!=null) _myTransform.parent = collision.gameObject.transform;
-    }
-
-    public void OnCollisionExit2D(Collision2D collision)
-    {
-        MovingPlatformController _plataform = collision.gameObject.GetComponent<MovingPlatformController>();
-        if (_plataform != null) _myTransform.parent = null;
+            if (_movementDirection > 0) _movementDirection = 1;
+            else if (_movementDirection < 0) _movementDirection = -1;
+            _rigidbody2D.velocity = new Vector2(_movementDirection * _speed, _rigidbody2D.velocity.y);
+        }
+        else // Si se termina de hacer
+        {
+            _dash = false;
+            _elapsedDash = 0;
+        }
     }
     #endregion
 
@@ -83,36 +90,19 @@ public class MovementController : MonoBehaviour
     private void Update()
     {
          // Guardar tiempo transcurrido para los cálculos
-         if (_movementDirection!= 0) _elapsedtime += Time.deltaTime;
+         if (_movementDirection != 0) _elapsedtime += Time.deltaTime;
          else  _elapsedtime = 0;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!_dash) _speed = Speed(_elapsedtime, _acceleration);
-        // Aplicar movimiento
-        if(_myInput._doDash)
-        {
-            _elapsedDash += Time.fixedDeltaTime;
-            if (_movementDirection > 0) _movementDirection = 1;
-            else if (_movementDirection < 0) _movementDirection = -1;
-            Dash();
-            if(_elapsedDash>=_dashDuration)
-            {
-                _myInput._doDash = false;
-                _dash = false;
-                _elapsedDash = 0;
-            }
-        }
-        
         if (!_dash)
         {
-            _myInput._doDash = false;
+            _speed = Speed(_elapsedtime, _acceleration);
             _rigidbody2D.velocity = new Vector2(_movementDirection * _speed, _rigidbody2D.velocity.y);
         }
-         
-        
+        else Dash();   
     }
    
 }
