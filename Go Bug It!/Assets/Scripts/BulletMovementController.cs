@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletMovementController : MonoBehaviour
 {
     #region parameters
-    [SerializeField] private float _shotSpeed = 1.0f;
+    [SerializeField] private float _shotSpeed = 2.0f;
     private bool velocityRight;
     private bool velocityLeft;
     #endregion

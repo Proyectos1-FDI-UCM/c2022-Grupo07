@@ -11,7 +11,12 @@ public class McAfeeComponent : MonoBehaviour
     [SerializeField]
     private GameObject _myBullet;
     private Transform _myTransform;
-    private Collider2D _myDetectionZone;
+    private GameObject _myPlayer;
+    private float _offsetDisparo = 0.78f;
+    private int _direction = -1;    // -1 es izquierda y +1 es derecha
+    private double _lastShot;
+    [SerializeField] private GameObject _myOffsetDisparo;
+    [SerializeField] private bool lookingRight = false;
     #endregion
 
     #region properties
@@ -19,37 +24,60 @@ public class McAfeeComponent : MonoBehaviour
     #endregion
 
     #region methods
-    private void OnTriggerEnter2D(Collider2D collision)
+    
+    
+    public void SwitchDirection()
     {
-        PlayerLifeComponent _myPlayer;
-        _myPlayer = collision.gameObject.GetComponent<PlayerLifeComponent>();
-        RaycastHit2D _hitInfo = new RaycastHit2D();
-        if (_myPlayer != null)
-        {
-            int _layerMask = _myPlayer.gameObject.layer;
-            _targetPosition = (_myTransform.position - _myPlayer.transform.position);
-            
-            //Physics2D.Raycast(_myTransform.position, _targetPosition, _hitInfo, _layerMask, 10000);
-            //Physics2D.Raycast(_myTransform.position, _targetPosition, 1000, )
-        }
+        _direction *= -1;
     }
 
     public void Shoot()
-    {
-
+    {  
+        if (Vector2.Distance(_myPlayer.transform.position, transform.position) < 4  && Time.time > _lastShot + 1)
+        {
+            /*
+            Vector3 posBullet = _myTransform.position;
+            posBullet.x += _offsetDisparo * _direction;
+            Instantiate(_myBullet, posBullet, Quaternion.identity);
+            _lastShot = Time.time;
+            */
+            Vector3 posBullet = _myOffsetDisparo.transform.position;
+            Instantiate(_myBullet, posBullet, Quaternion.identity);
+            _lastShot = Time.time;
+        }
+        Debug.Log("distancia entre el enemigo y el jugador: " + Vector2.Distance(_myPlayer.transform.position, transform.position));
+        
+        
     }
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        _myDetectionZone = GetComponentInChildren<Collider2D>();
+       
         _myTransform = transform;
+        _myPlayer = GameObject.FindGameObjectWithTag("Player");
+ 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
+       
+        if (_myPlayer.transform.position.x - transform.position.x > 0 && lookingRight)
+        {
+            Shoot();
+            //transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+        }
+        else if (_myPlayer.transform.position.x - transform.position.x <= 0 && !lookingRight)  //
+        {
+            Shoot();
+            //   transform.localScale = new Vector3(transform.localScale.x * 1, transform.localScale.y, transform.localScale.z);
+        }
+        // Debug.Log(Vector2.Distance(_myPlayer.transform.position, transform.position)); 
+
+
+   
     }
 }
