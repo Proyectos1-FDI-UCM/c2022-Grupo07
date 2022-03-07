@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
-    #region parameters
-    [SerializeField] private float _dashcooldown;
-    #endregion
     
     #region references
     private MovementController _movController;
@@ -15,25 +12,38 @@ public class InputController : MonoBehaviour
     private GunpointController _myGunpoint;
     #endregion
 
-    #region properties
-    private float _horizontal;
-    private bool _changeGravity;
-    [HideInInspector] public bool _isGrounded;
-    private float _elapsedash;
-    private bool _dashcooldown_ok;
+    #region parameters
+    // Gravedad
+    private bool _changeGravity = false;
+    [HideInInspector] public bool _isGrounded = false;
     #endregion
 
-    #region parameters
+    #region properties
     private float direction;
+    // Dash
+    private float _elapseDash;
+    [SerializeField] private float _dashCooldown;
+    // Disparo
+    private float _elapsedShoot;
+    [SerializeField] private float _shootCooldown;
+    private float _elapsedSelect;
+    [SerializeField] private float _shotSelectCooldown;
+    // Axis
+    private float _horizontal;
+    private float _jump;
+    private float _dash;
+    private float _selectShot;
+    private float _shoot;
     #endregion
 
     #region methods
-    //Metodo que nos informa sobre si el jugador esta tocando una superficie o no
+    // Saber si el jugador esta tocando una superficie o no
     public void OnCollisionStay2D(Collision2D collision)
     {
         if (collision != null) _isGrounded = true;
     }
 
+    // Marcar que el jugador no está tocando el suelo
     public void OnCollisionExit2D(Collision2D collision)
     {
         _isGrounded = false;
@@ -66,46 +76,53 @@ public class InputController : MonoBehaviour
         _myGravityComponent = GetComponent<GravityComponent>();         // Accedemos al script de gravedad del jugador
         _myCollider = GetComponentInChildren<Collider2D>();                       // Accedemos al collider de nuestro jugador
         _myGunpoint = transform.GetChild(0).GetComponent<GunpointController>(); // Accedemos al script de la pistola
-        _changeGravity = false;                                         // Inicializamos el booleano de la gravedad a negativo para que la gravedad sea normal
-        _isGrounded = false;                                            // Inicializamos el booleano de tocar una superficie a false
-        _elapsedash = 0;
-        _dashcooldown_ok = false;
+        _elapsedShoot = _shootCooldown;
+        _elapsedSelect = _shotSelectCooldown;
     }
 
     // Update is called once per frame
     void Update()
     {
-        _horizontal = Input.GetAxis("Horizontal");  
+        // Ejes de inputs
+        _horizontal = Input.GetAxis("Horizontal");
+        _jump = Input.GetAxis("Jump");
+        _dash = Input.GetAxis("Dash");
+        _selectShot = Input.GetAxis("SelectShot");
+        _shoot = Input.GetAxis("Shoot");
 
-        // Impulso del personaje
-        _movController.SetDashDirection(_horizontal);
         //Movimiento del personaje
         _movController.SetMovementDirection(_horizontal);
 
         // Cambio de gravedad
-        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)             //Si presiono espacio y estoy tocando una superficie...
+        if (_isGrounded && _jump > 0)                               //Si presiono espacio y estoy tocando una superficie...
         {
-            _changeGravity = !_changeGravity;                           //Negamos el booleano gravedad para q ahora sea lo contrario
-            _myGravityComponent.ChangeGravity(_changeGravity);          //Llamamos al metodo ChangeGravity del script de gravedad
+            _changeGravity = !_changeGravity;                       //Negamos el booleano gravedad para q ahora sea lo contrario
+            _myGravityComponent.ChangeGravity(_changeGravity);      //Llamamos al metodo ChangeGravity del script de gravedad
         }
 
         // Dash
-        if (_dashcooldown_ok && Input.GetKeyDown(KeyCode.LeftShift))
+        if (_elapseDash > _dashCooldown && _isGrounded && _dash > 0)
         {
-            _movController.Dash();
-            _dashcooldown_ok = false;
-            _elapsedash = 0;
+            _movController.SetDash();
+            _elapseDash = 0;
         }
-        
+        else _elapseDash += Time.deltaTime;
+
         // Selección de disparo
-        if (Input.GetKeyDown(KeyCode.Mouse1)) _myGunpoint.ChangeShoot();
+        if (_elapsedSelect > _shotSelectCooldown && _selectShot > 0)
+        {
+             _myGunpoint.ChangeShoot();
+            _elapsedSelect = 0;
+        }
+        else _elapsedSelect += Time.deltaTime;
 
         // Disparo y orientación de la bala
-        if (Input.GetKeyDown(KeyCode.Mouse0) && _isGrounded) _myGunpoint.Shoot();
-        Switch();
-
-        // Calcula el cooldown de los dashes (Nota Rafa Malo: Se podria hacer un scrpit que lleve los cooldowns en su update, ya que parece el unico sitio donde funciona)
-        if (_elapsedash >= _dashcooldown && _isGrounded) _dashcooldown_ok = true;
-        else _elapsedash += Time.deltaTime;
+        if (_elapsedShoot > _shootCooldown && _isGrounded && _shoot > 0)
+        {
+            Switch();
+            _myGunpoint.Shoot();
+            _elapsedShoot = 0;
+        }
+        else _elapsedShoot += Time.deltaTime;
     }
 }
