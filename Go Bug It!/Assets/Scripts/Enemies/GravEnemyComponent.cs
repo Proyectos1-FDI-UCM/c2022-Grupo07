@@ -12,6 +12,8 @@ public class GravEnemyComponent : MonoBehaviour
     private Collider2D _myCollider;
     private Rigidbody2D _myRigidbody;
     private Transform _myTransform;
+    [SerializeField]
+    private Animator _myAnimator;
     #endregion
     
     #region methods
@@ -24,9 +26,11 @@ public class GravEnemyComponent : MonoBehaviour
 
     public void ChangeGravity()
     {
-        _myTransform.Rotate(180, 0, 0);
+        //_myTransform.Rotate(180, 0, 0);
         _gravity *= -1;
         _myRigidbody.gravityScale = _gravity;
+
+        _myAnimator.SetBool("changingGrav", true);
     }
     #endregion
 
