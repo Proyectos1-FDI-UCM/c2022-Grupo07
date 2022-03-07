@@ -77,7 +77,7 @@
     <Compile Include="Assets\Scripts\Bullets\LifeTimeController.cs" />
     <Compile Include="Assets\Scripts\Pickups\CodigoRestauradorComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\GravEnemyComponent.cs" />
-    <Compile Include="Assets\Scripts\Bullets\BulletAnimationComponent.cs" />
+    <Compile Include="Assets\Scripts\Bullets\BulletFinishedAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\AssemblyDefinition.asmdef" />
