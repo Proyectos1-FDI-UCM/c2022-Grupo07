@@ -60,7 +60,13 @@ public class InputController : MonoBehaviour
     public float GetDirection()
     {
         return direction;
-    } 
+    }
+
+    // Devuelve la variable booleana que determina si está o no tocando el suelo
+    public bool GetGrounded()
+    {
+        return _isGrounded;
+    }
     #endregion
 
     // Start is called before the first frame update

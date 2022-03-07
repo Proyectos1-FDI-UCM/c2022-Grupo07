@@ -9,6 +9,7 @@ public class MovementController : MonoBehaviour
     private InputController _myInput;
     private Transform _myTransform;
     private Rigidbody2D _rigidbody2D;
+    private Animator _myAnimator;
     #endregion
 
     #region parameters
@@ -22,9 +23,8 @@ public class MovementController : MonoBehaviour
     #region properties
     private float _elapsedtime;
     private float _movementDirection;
-    private float _speed;
-    private bool _dash = false;
-    private float _elapsedDash;
+    private Vector3 _dashDirection;
+    private float _currentSpeed;
     #endregion
 
     #region methods
@@ -86,6 +86,7 @@ public class MovementController : MonoBehaviour
         _myInput = GetComponent<InputController>();
         _myTransform = transform;
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _myAnimator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -97,12 +98,17 @@ public class MovementController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!_dash)
-        {
-            _speed = Speed(_elapsedtime, _acceleration);
-            _rigidbody2D.velocity = new Vector2(_movementDirection * _speed, _rigidbody2D.velocity.y);
-        }
-        else Dash();   
+        // Calcular velocidad
+        _currentSpeed = Speed(_elapsedtime, _acceleration);
+        
+        // Aplicar movimiento
+        _myTransform.Translate(_dashDirection * _currentSpeed * Time.fixedDeltaTime);
+
+        // Animación
+        if (_myInput.GetGrounded()) _myAnimator.SetFloat("Speed", _currentSpeed);
+        else _myAnimator.SetFloat("Speed", 0);
+
+        /* _rigidbody2D.velocity = new Vector2(_movementDirection*Speed(_elapsedtime,_acceleration), _rigidbody2D.velocity.y);*
     }
    
 }

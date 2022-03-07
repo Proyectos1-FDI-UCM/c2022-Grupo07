@@ -35,12 +35,10 @@ public class NeuEnemyComponent : MonoBehaviour
     {
         if (_neutralized == true)
         {
-            Debug.Log("NEUTRALIZED");
             _elapsedTime += Time.deltaTime;
             if (_elapsedTime > _neutralizeDuration)
             {
                 _neutralized = false;
-                Debug.Log("DENEUTRALIZED");
                 _elapsedTime = 0;
             }
         }
