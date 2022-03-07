@@ -205,3 +205,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4c5334b90b947d4c8aba73ad240d57e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _myActivatedCheckpoint: {fileID: 5613143422339489870}
