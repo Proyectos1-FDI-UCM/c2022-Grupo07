@@ -157,10 +157,10 @@ TextureImporter:
       name: while(true)_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 2095
-        width: 689
-        height: 177
+        x: 0
+        y: 2080
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +178,10 @@ TextureImporter:
       name: while(true)_1
       rect:
         serializedVersion: 2
-        x: 735
-        y: 2095
-        width: 689
-        height: 177
+        x: 720
+        y: 2080
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,10 +199,10 @@ TextureImporter:
       name: while(true)_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 1887
-        width: 689
-        height: 178
+        x: 0
+        y: 1872
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,10 +220,10 @@ TextureImporter:
       name: while(true)_3
       rect:
         serializedVersion: 2
-        x: 735
-        y: 1887
-        width: 689
-        height: 178
+        x: 720
+        y: 1872
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,10 +241,10 @@ TextureImporter:
       name: while(true)_4
       rect:
         serializedVersion: 2
-        x: 16
-        y: 1679
-        width: 689
-        height: 178
+        x: 0
+        y: 1664
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,10 +262,10 @@ TextureImporter:
       name: while(true)_5
       rect:
         serializedVersion: 2
-        x: 735
-        y: 1679
-        width: 689
-        height: 178
+        x: 720
+        y: 1664
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,10 +283,10 @@ TextureImporter:
       name: while(true)_6
       rect:
         serializedVersion: 2
-        x: 16
-        y: 1471
-        width: 689
-        height: 178
+        x: 0
+        y: 1456
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,10 +304,10 @@ TextureImporter:
       name: while(true)_7
       rect:
         serializedVersion: 2
-        x: 735
-        y: 1471
-        width: 689
-        height: 178
+        x: 720
+        y: 1456
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -325,10 +325,10 @@ TextureImporter:
       name: while(true)_8
       rect:
         serializedVersion: 2
-        x: 16
-        y: 1264
-        width: 689
-        height: 177
+        x: 0
+        y: 1248
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -346,10 +346,10 @@ TextureImporter:
       name: while(true)_9
       rect:
         serializedVersion: 2
-        x: 735
-        y: 1264
-        width: 689
-        height: 177
+        x: 720
+        y: 1248
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -367,10 +367,10 @@ TextureImporter:
       name: while(true)_10
       rect:
         serializedVersion: 2
-        x: 16
-        y: 1056
-        width: 689
-        height: 176
+        x: 0
+        y: 1040
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -388,10 +388,10 @@ TextureImporter:
       name: while(true)_11
       rect:
         serializedVersion: 2
-        x: 735
-        y: 1056
-        width: 689
-        height: 176
+        x: 720
+        y: 1040
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -409,10 +409,10 @@ TextureImporter:
       name: while(true)_12
       rect:
         serializedVersion: 2
-        x: 16
-        y: 847
-        width: 689
-        height: 177
+        x: 0
+        y: 832
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -430,10 +430,10 @@ TextureImporter:
       name: while(true)_13
       rect:
         serializedVersion: 2
-        x: 735
-        y: 847
-        width: 689
-        height: 177
+        x: 720
+        y: 832
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -451,10 +451,10 @@ TextureImporter:
       name: while(true)_14
       rect:
         serializedVersion: 2
-        x: 16
-        y: 639
-        width: 689
-        height: 178
+        x: 0
+        y: 624
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -472,10 +472,10 @@ TextureImporter:
       name: while(true)_15
       rect:
         serializedVersion: 2
-        x: 735
-        y: 639
-        width: 689
-        height: 178
+        x: 720
+        y: 624
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -493,10 +493,10 @@ TextureImporter:
       name: while(true)_16
       rect:
         serializedVersion: 2
-        x: 16
-        y: 431
-        width: 689
-        height: 178
+        x: 0
+        y: 416
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -514,10 +514,10 @@ TextureImporter:
       name: while(true)_17
       rect:
         serializedVersion: 2
-        x: 735
-        y: 431
-        width: 689
-        height: 178
+        x: 720
+        y: 416
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -535,10 +535,10 @@ TextureImporter:
       name: while(true)_18
       rect:
         serializedVersion: 2
-        x: 16
-        y: 223
-        width: 689
-        height: 178
+        x: 0
+        y: 208
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -556,10 +556,10 @@ TextureImporter:
       name: while(true)_19
       rect:
         serializedVersion: 2
-        x: 735
-        y: 223
-        width: 689
-        height: 178
+        x: 720
+        y: 208
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -577,10 +577,10 @@ TextureImporter:
       name: while(true)_20
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 689
-        height: 177
+        x: 0
+        y: 0
+        width: 720
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
