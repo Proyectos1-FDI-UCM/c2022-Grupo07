@@ -326,6 +326,10 @@ PrefabInstance:
       propertyPath: _gravity
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4595834596808464848, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
+      propertyPath: _animationCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457368, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_Name
       value: WindowsDefender
@@ -614,6 +618,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4595834596808464848, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
+      propertyPath: _animationCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457368, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_Name
       value: WindowsDefender (1)
