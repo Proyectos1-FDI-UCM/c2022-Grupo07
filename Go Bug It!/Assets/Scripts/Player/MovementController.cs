@@ -24,7 +24,13 @@ public class MovementController : MonoBehaviour
     private float _elapsedtime;
     private float _movementDirection;
     private Vector3 _dashDirection;
+    private float _speed;
     private float _currentSpeed;
+    #endregion
+
+    #region parameters
+    private bool _dash = false;
+    private float _elapsedDash;
     #endregion
 
     #region methods
@@ -100,15 +106,18 @@ public class MovementController : MonoBehaviour
     {
         // Calcular velocidad
         _currentSpeed = Speed(_elapsedtime, _acceleration);
-        
+
+        // Aplicar giro
+        if (_movementDirection < 0 && (_myTransform.rotation.y > -179 && _myTransform.rotation.y < -181)) _myTransform.Rotate(new Vector3(0, 180, 0));
+
         // Aplicar movimiento
-        _myTransform.Translate(_dashDirection * _currentSpeed * Time.fixedDeltaTime);
+        _rigidbody2D.velocity = new Vector2(_movementDirection * Speed(_elapsedtime, _acceleration), _rigidbody2D.velocity.y);
+        // _myTransform.Translate(_dashDirection * _currentSpeed * Time.fixedDeltaTime);
+        // Debug.Log(_dashDirection);
 
         // Animación
         if (_myInput.GetGrounded()) _myAnimator.SetFloat("Speed", _currentSpeed);
         else _myAnimator.SetFloat("Speed", 0);
-
-        /* _rigidbody2D.velocity = new Vector2(_movementDirection*Speed(_elapsedtime,_acceleration), _rigidbody2D.velocity.y);*
     }
    
 }

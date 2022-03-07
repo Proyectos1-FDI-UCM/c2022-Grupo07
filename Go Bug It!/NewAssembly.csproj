@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Bullets\GravBulletComponent.cs" />
     <Compile Include="Assets\Scripts\Pickups\SpamComponent.cs" />
+    <Compile Include="Assets\Scripts\Bullets\McAfee Bullet.cs" />
     <Compile Include="Assets\Scripts\Camera\RoomManager.cs" />
     <Compile Include="Assets\Scripts\Bullets\BulletMovementController.cs" />
     <Compile Include="Assets\Scripts\Bullets\NeuBulletComponent.cs" />
@@ -69,23 +70,16 @@
     <Compile Include="Assets\Scripts\UI\UIAnimationController.cs" />
     <Compile Include="Assets\Scripts\Bullets\GunpointController.cs" />
     <Compile Include="Assets\Scripts\Obstacles\DeathZoneComponent.cs" />
-    <Compile Include="Assets\Scripts\Bullets\GunpointController.cs" />
     <Compile Include="Assets\Scripts\Obstacles\MovingPlatformController.cs" />
+    <Compile Include="Assets\Scripts\Bullets\BulletFinishedAnimation.cs" />
     <Compile Include="Assets\Scripts\Player\GravityComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\NeuEnemyComponent.cs" />
     <Compile Include="Assets\Scripts\InputController.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Enemies\McAfeeComponent.cs" />
     <Compile Include="Assets\Scripts\Bullets\LifeTimeController.cs" />
     <Compile Include="Assets\Scripts\Pickups\CodigoRestauradorComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\GravEnemyComponent.cs" />
-    <Compile Include="Assets\Scripts\Bullets\BulletFinishedAnimation.cs" />
-    <Compile Include="Assets\Scripts\Enemies\GravEnemyComponent.cs" />
-    <Compile Include="Assets\Scripts\Obstacles\DeathZoneComponent.cs" />
-    <Compile Include="Assets\Scripts\Pickups\SpamComponent.cs" />
-    <Compile Include="Assets\Scripts\Pickups\CodigoRestauradorComponent.cs" />
-    <Compile Include="Assets\Scripts\UI\UIAnimationController.cs" />
-    <Compile Include="Assets\Scripts\Bullets\McAfee Bullet.cs" />
-    <Compile Include="Assets\Scripts\Enemies\McAfeeComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\AssemblyDefinition.asmdef" />
