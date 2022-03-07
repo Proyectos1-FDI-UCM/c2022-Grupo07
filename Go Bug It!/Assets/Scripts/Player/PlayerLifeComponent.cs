@@ -59,6 +59,12 @@ public class PlayerLifeComponent : MonoBehaviour
             transform.position = new Vector2(_respawnX, _respawnY);
         }
     }
+
+    public void SetRespawnPosition(Vector2 _newRespawnPosition)
+    {
+        _respawnX = _newRespawnPosition.x;
+        _respawnY = _newRespawnPosition.y;
+    }
     #endregion
 
     // Start is called before the first frame update
