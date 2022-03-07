@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _puntuation: 1000
+  _myAnimator: {fileID: 7942644546473370134}
 --- !u!114 &4595834596808464848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gravity: 1
+  _myAnimator: {fileID: 7942644546473370134}
 --- !u!95 &7942644546473370134
 Animator:
   serializedVersion: 3

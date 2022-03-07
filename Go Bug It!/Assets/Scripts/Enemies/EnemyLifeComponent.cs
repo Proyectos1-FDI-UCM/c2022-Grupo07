@@ -8,9 +8,15 @@ public class EnemyLifeComponent : MonoBehaviour
     [SerializeField] private int _puntuation;
     #endregion
 
+    #region references
+    [SerializeField]
+    private Animator _myAnimator;
+    #endregion
+
     #region methods
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        _myAnimator.SetBool("changingGrav", false);
         if(collision.gameObject.layer==7)// Si el enemigo toca una deathzone, muere, se destruye.
         {
             GameManager.Instance.OnEnemyDies(_puntuation);
