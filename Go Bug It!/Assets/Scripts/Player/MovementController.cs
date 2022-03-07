@@ -31,6 +31,7 @@ public class MovementController : MonoBehaviour
     #region parameters
     private bool _dash = false;
     private float _elapsedDash;
+    private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     #endregion
 
     #region methods
@@ -84,6 +85,17 @@ public class MovementController : MonoBehaviour
             _elapsedDash = 0;
         }
     }
+
+    private void Flip()
+    {
+        // Switch the way the player is labelled as facing.
+        m_FacingRight = !m_FacingRight;
+
+        // Multiply the player's x local scale by -1.
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
     #endregion
 
     // Start is called before the first frame update
@@ -106,18 +118,21 @@ public class MovementController : MonoBehaviour
     {
         // Calcular velocidad
         _currentSpeed = Speed(_elapsedtime, _acceleration);
+        Debug.Log(_currentSpeed);
 
         // Aplicar giro
-        if (_movementDirection < 0 && (_myTransform.rotation.y > -179 && _myTransform.rotation.y < -181)) _myTransform.Rotate(new Vector3(0, 180, 0));
+        if (_movementDirection > 0 && !m_FacingRight) Flip(); // Si no mira hacia la derecha
+        else if (_movementDirection < 0 && m_FacingRight) Flip(); // Si mira hacia la derecha
 
         // Aplicar movimiento
-        _rigidbody2D.velocity = new Vector2(_movementDirection * Speed(_elapsedtime, _acceleration), _rigidbody2D.velocity.y);
-        // _myTransform.Translate(_dashDirection * _currentSpeed * Time.fixedDeltaTime);
-        // Debug.Log(_dashDirection);
+        _rigidbody2D.velocity = new Vector2(_movementDirection * _currentSpeed, _rigidbody2D.velocity.y);
+    }
 
+    private void LateUpdate()
+    {
         // Animación
         if (_myInput.GetGrounded()) _myAnimator.SetFloat("Speed", _currentSpeed);
         else _myAnimator.SetFloat("Speed", 0);
     }
-   
+
 }

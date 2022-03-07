@@ -33,8 +33,7 @@ public class GravBulletComponent : MonoBehaviour
 
     public void OnEnemyOrWallCollision()
     {
-        _myAnimator.SetBool("OnEnemyCollision", false);
-        _myAnimator.SetBool("OnWallCollision", false);
+        Destroy(gameObject);
     }
     #endregion
 
