@@ -5,6 +5,7 @@ using UnityEngine;
 public class McAfeeComponent : MonoBehaviour
 {
     #region parameters
+    [SerializeField] private int _range = 4;
     #endregion
 
     #region references
@@ -12,8 +13,6 @@ public class McAfeeComponent : MonoBehaviour
     private GameObject _myBullet;
     private Transform _myTransform;
     private GameObject _myPlayer;
-    private float _offsetDisparo = 0.78f;
-    private int _direction = -1;    // -1 es izquierda y +1 es derecha
     private double _lastShot;
     [SerializeField] private GameObject _myOffsetDisparo;
     [SerializeField] private bool lookingRight = false;
@@ -25,28 +24,15 @@ public class McAfeeComponent : MonoBehaviour
 
     #region methods
     
-    
-    public void SwitchDirection()
-    {
-        _direction *= -1;
-    }
-
     public void Shoot()
     {  
-        if (Vector2.Distance(_myPlayer.transform.position, transform.position) < 4  && Time.time > _lastShot + 1)
+        if (Vector2.Distance(_myPlayer.transform.position, transform.position) < _range && Time.time > _lastShot + 1)
         {
-            /*
-            Vector3 posBullet = _myTransform.position;
-            posBullet.x += _offsetDisparo * _direction;
-            Instantiate(_myBullet, posBullet, Quaternion.identity);
-            _lastShot = Time.time;
-            */
             Vector3 posBullet = _myOffsetDisparo.transform.position;
             Instantiate(_myBullet, posBullet, Quaternion.identity);
             _lastShot = Time.time;
         }
-        Debug.Log("distancia entre el enemigo y el jugador: " + Vector2.Distance(_myPlayer.transform.position, transform.position));
-        
+        Debug.Log("distancia entre el enemigo y el jugador: " + Vector2.Distance(_myPlayer.transform.position, transform.position));   
         
     }
     #endregion
@@ -62,22 +48,17 @@ public class McAfeeComponent : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-       
+    {    
        
         if (_myPlayer.transform.position.x - transform.position.x > 0 && lookingRight)
         {
             Shoot();
-            //transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+           
         }
-        else if (_myPlayer.transform.position.x - transform.position.x <= 0 && !lookingRight)  //
+        else if (_myPlayer.transform.position.x - transform.position.x <= 0 && !lookingRight)  
         {
             Shoot();
-            //   transform.localScale = new Vector3(transform.localScale.x * 1, transform.localScale.y, transform.localScale.z);
-        }
-        // Debug.Log(Vector2.Distance(_myPlayer.transform.position, transform.position)); 
-
-
-   
+            
+        } 
     }
 }
