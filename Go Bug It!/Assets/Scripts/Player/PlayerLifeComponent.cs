@@ -60,7 +60,7 @@ public class PlayerLifeComponent : MonoBehaviour
         }
     }
 
-    public void SetRespawnPosition(Vector2 _newRespawnPosition)
+    public void SetRespawnPosition(Vector3 _newRespawnPosition)
     {
         _respawnX = _newRespawnPosition.x;
         _respawnY = _newRespawnPosition.y;
