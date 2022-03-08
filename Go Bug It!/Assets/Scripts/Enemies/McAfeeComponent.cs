@@ -32,7 +32,6 @@ public class McAfeeComponent : MonoBehaviour
             Instantiate(_myBullet, posBullet, Quaternion.identity);
             _lastShot = Time.time;
         }
-        Debug.Log("distancia entre el enemigo y el jugador: " + Vector2.Distance(_myPlayer.transform.position, transform.position));
 
     }
     #endregion
