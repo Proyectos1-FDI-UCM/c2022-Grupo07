@@ -60,7 +60,6 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-
     public void OnPlayerHeals(int lifePoints)
     {
         _myUIManager.UpdatePlayerLife(lifePoints-1, true);

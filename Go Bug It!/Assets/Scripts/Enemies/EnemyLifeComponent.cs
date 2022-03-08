@@ -24,5 +24,10 @@ public class EnemyLifeComponent : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    public int GetPoints()
+    {
+        return _puntuation;
+    }
     #endregion
 }

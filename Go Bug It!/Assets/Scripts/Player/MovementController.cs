@@ -125,7 +125,6 @@ public class MovementController : MonoBehaviour
 
         // Aplicar movimiento
         _rigidbody2D.velocity = new Vector2(_movementDirection * _currentSpeed, _rigidbody2D.velocity.y);
-        Debug.Log(_currentSpeed);
     }
 
     private void LateUpdate()
