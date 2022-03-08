@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Pickups\CodigoRestauradorComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\GravEnemyComponent.cs" />
     <Compile Include="Assets\Scripts\OnGoal.cs" />
+    <Compile Include="Assets\Scripts\Checkpoint_teleport.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\AssemblyDefinition.asmdef" />

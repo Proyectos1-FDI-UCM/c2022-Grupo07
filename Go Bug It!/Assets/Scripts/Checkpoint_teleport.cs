@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OnGoal : MonoBehaviour
+public class Checkpoint_teleport : MonoBehaviour
 {
+    #region parameters
+    [SerializeField]private float X_teleport;
+    [SerializeField] private float Y_teleport;
+    #endregion
     #region methods
     public void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerLifeComponent _player;
         _player = collision.gameObject.GetComponent<PlayerLifeComponent>();
-        if(_player!=null)
+        if (_player != null)
         {
-            GameManager.Instance.OnGoalAdvance();
+            _player.transform.position = new Vector2(X_teleport, Y_teleport);
         }
     }
     #endregion
