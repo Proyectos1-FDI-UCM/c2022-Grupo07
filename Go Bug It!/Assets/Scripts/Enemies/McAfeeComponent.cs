@@ -20,19 +20,19 @@ public class McAfeeComponent : MonoBehaviour
 
     #region properties
     private Vector2 _targetPosition;
+    [HideInInspector] public bool _neutralized = false; 
     #endregion
 
     #region methods
 
     public void Shoot()
     {
-        if (Vector2.Distance(_myPlayer.transform.position, transform.position) < _range && Time.time > _lastShot + 1)
+        if (Vector2.Distance(_myPlayer.transform.position, transform.position) < _range && Time.time > _lastShot + 1 && !_neutralized)
         {
             Vector3 posBullet = _myOffsetDisparo.transform.position;
             Instantiate(_myBullet, posBullet, Quaternion.identity);
             _lastShot = Time.time;
         }
-        Debug.Log("distancia entre el enemigo y el jugador: " + Vector2.Distance(_myPlayer.transform.position, transform.position));
 
     }
     #endregion

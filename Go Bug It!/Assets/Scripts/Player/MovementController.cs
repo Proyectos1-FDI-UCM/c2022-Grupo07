@@ -72,10 +72,9 @@ public class MovementController : MonoBehaviour
         // Si se está haciendo el dash
         if (_elapsedDash <= _dashDuration)
         {
-            _speed = _dashSpeed;
             if (_movementDirection > 0) _movementDirection = 1;
             else if (_movementDirection < 0) _movementDirection = -1;
-            _rigidbody2D.velocity = new Vector2(_movementDirection * _speed, _rigidbody2D.velocity.y);
+            _rigidbody2D.velocity = new Vector2(_movementDirection * _currentSpeed, _rigidbody2D.velocity.y);
         }
         else // Si se termina de hacer
         {
@@ -116,7 +115,8 @@ public class MovementController : MonoBehaviour
     void FixedUpdate()
     {
         // Calcular velocidad
-        _currentSpeed = Speed(_elapsedtime, _acceleration);
+       if(!_dash) _currentSpeed = Speed(_elapsedtime, _acceleration);
+       else if(_dash) _currentSpeed = _dashSpeed;
 
         // Aplicar giro
         if (_movementDirection > 0 && !m_FacingRight) Flip(); // Si no mira hacia la derecha

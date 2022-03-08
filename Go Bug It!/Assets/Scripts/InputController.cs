@@ -121,12 +121,13 @@ public class InputController : MonoBehaviour
         
 
         // Dash
-        if (_elapseDash > _dashCooldown && _isGrounded && _dash > 0)
+        if (_elapseDash > _dashCooldown && _dash > 0)
         {
             _movController.SetDash();
             _elapseDash = 0;
+            Debug.Log("Dash");
         }
-        else _elapseDash += Time.deltaTime;
+        else if(_isGrounded) _elapseDash += Time.deltaTime;
 
         // Selección de disparo
         if (_elapsedSelect > _shotSelectCooldown && _selectShot > 0)

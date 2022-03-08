@@ -14,15 +14,8 @@ public class McAfeeBullet : MonoBehaviour
     private float _shotSpeed = 2.0f;
     [SerializeField]
     private bool left;
-
     #endregion
-
-    #region references
-    private InputController _myInputController;
-    private Rigidbody2D _myRigidBody;
-
-    #endregion
-
+    
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -31,11 +24,9 @@ public class McAfeeBullet : MonoBehaviour
         {
             _myPlayer.Damage();
         }
-
-        Destroy(gameObject);
     }
     #endregion
-    
+
     // Update is called once per frame
     void Update()
     {
