@@ -57,12 +57,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Enemies\EnemyLifeComponent.cs" />
+    <Compile Include="Assets\Scripts\Pickups\DesencriptarComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyComponent.cs" />
     <Compile Include="Assets\Scripts\Player\MovementController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Bullets\GravBulletComponent.cs" />
     <Compile Include="Assets\Scripts\Pickups\SpamComponent.cs" />
     <Compile Include="Assets\Scripts\Bullets\McAfee Bullet.cs" />
+    <Compile Include="Assets\Scripts\Pickups\CheckpointComponent.cs" />
     <Compile Include="Assets\Scripts\Camera\RoomManager.cs" />
     <Compile Include="Assets\Scripts\Bullets\BulletMovementController.cs" />
     <Compile Include="Assets\Scripts\Tutorial\SingMovement.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Assets\Scripts\Bullets\LifeTimeController.cs" />
     <Compile Include="Assets\Scripts\Pickups\CodigoRestauradorComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\GravEnemyComponent.cs" />
+    <Compile Include="Assets\Scripts\StartMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\AssemblyDefinition.asmdef" />

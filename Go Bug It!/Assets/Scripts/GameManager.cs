@@ -12,13 +12,14 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region references
-    // Patrón singleton
+    // PatrÃ³n singleton
     static private GameManager _instance;
     static public GameManager Instance { get { return _instance; } }
     // UI
     [SerializeField] private GameObject _myUIObject;
     private UIManager _myUIManager;
-    private GameObject _player;
+    [SerializeField] private GameObject _player;
+    private InputController _myinput;
     #endregion
 
     #region methods
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
         _myUIManager.UpdatePoints(_puntuation);
     }
 
-    // Daño al jugador
+    // DaÃ±o al jugador
     public void OnPlayerDamage(int lifePoints)
     {
         _myUIManager.UpdatePlayerLife(lifePoints, false);
@@ -36,6 +37,16 @@ public class GameManager : MonoBehaviour
     public void OnChangingShoot(int shot)
     {
         _myUIManager.UpdateShot(shot);
+    }
+    public void Pause()//Pausa el juego y abre el menu de pausa
+    {
+        _myUIManager.Pause();
+        if (_myinput.Pause() == true) Time.timeScale = 0;
+        else if (_myinput.Pause() == false) Time.timeScale = 1;
+    }
+    public void Quit()
+    {
+        Application.Quit();
     }
     #endregion
 
@@ -55,6 +66,7 @@ public class GameManager : MonoBehaviour
     {
         _timeLeft = _levelDuration;
         _myUIManager = _myUIObject.GetComponent<UIManager>();
+        _myinput = _player.GetComponent<InputController>();
     }
 
     // Update is called once per frame

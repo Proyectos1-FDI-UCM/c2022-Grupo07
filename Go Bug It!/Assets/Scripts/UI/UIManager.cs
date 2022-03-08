@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
     // Recuadros
     [SerializeField] private GameObject _cornersUI;
     [SerializeField] private Sprite _corner;
+    [SerializeField] private GameObject _pauseMenu;
     #endregion
 
     #region parameters
@@ -88,6 +89,18 @@ public class UIManager : MonoBehaviour
             _shots[0].sprite = _gravDeactivated;
             _shots[1].sprite = _neuActivated;
         }
+    }
+    public void Pause()//Activa o desactiva el menu de pausa en función de su estado anterior.
+    {
+        if(!_pauseMenu.activeInHierarchy)
+        {
+          _pauseMenu.SetActive(true);
+        }
+        else if(_pauseMenu.activeInHierarchy)
+        {
+            _pauseMenu.SetActive(false);
+        }
+        
     }
     #endregion
 
