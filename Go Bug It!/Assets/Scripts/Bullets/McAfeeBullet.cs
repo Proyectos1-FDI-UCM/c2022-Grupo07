@@ -24,15 +24,18 @@ public class McAfeeBullet : MonoBehaviour
     #endregion
 
     #region methods
-
-    #endregion
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        PlayerLifeComponent _myPlayer = collision.gameObject.GetComponent<PlayerLifeComponent>();
+        if (_myPlayer != null)
+        {
+            _myPlayer.Damage();
+        }
 
-
+        Destroy(gameObject);
     }
+    #endregion
+    
     // Update is called once per frame
     void Update()
     {
@@ -46,8 +49,6 @@ public class McAfeeBullet : MonoBehaviour
         {
             transform.Translate(_shotSpeed * Vector3.right * Time.deltaTime);
         }
-
-
     }
 }
 

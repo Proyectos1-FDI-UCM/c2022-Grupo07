@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6415116342387420919}
   - component: {fileID: 7956004338453469188}
   - component: {fileID: 1657703167128761568}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: McAfeeBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 6596825724063556826}
   - component: {fileID: 4863509118200628711}
   - component: {fileID: 2552691119384421120}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: McAfeeBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

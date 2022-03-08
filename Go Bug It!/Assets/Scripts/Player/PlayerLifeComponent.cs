@@ -24,7 +24,7 @@ public class PlayerLifeComponent : MonoBehaviour
     #endregion
 
     #region methods
-    private void Damage()
+    public void Damage()
     {
         _currLife -= _hitDamage;
         GameManager.Instance.OnPlayerDamage(_currLife);

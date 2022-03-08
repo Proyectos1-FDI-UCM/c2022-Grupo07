@@ -40,7 +40,6 @@ public class McAfeeComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         _myTransform = transform;
         _myPlayer = GameObject.FindGameObjectWithTag("Player");
 
