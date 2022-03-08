@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class NeuEnemyComponent : MonoBehaviour
 {
+    #region references
+    private Animator _myAnimator;
+    #endregion
+
     #region parameters
     private float _elapsedTime;
     [SerializeField] private int _neutralizeDuration = 5;
@@ -20,7 +24,11 @@ public class NeuEnemyComponent : MonoBehaviour
 
         if (_bulletCollision != null)
         {
-            if (_neutralized == false) _neutralized = true;
+            if (_neutralized == false)
+            {
+                _myAnimator.SetBool("Neutralize", true);
+                _neutralized = true;
+            }
         }
     }
 
@@ -29,6 +37,11 @@ public class NeuEnemyComponent : MonoBehaviour
         return _neutralized;
     }
     #endregion
+
+    private void Start()
+    {
+        _myAnimator = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -39,6 +52,7 @@ public class NeuEnemyComponent : MonoBehaviour
             if (_elapsedTime > _neutralizeDuration)
             {
                 _neutralized = false;
+                _myAnimator.SetBool("Neutralize", false);
                 _elapsedTime = 0;
             }
         }
