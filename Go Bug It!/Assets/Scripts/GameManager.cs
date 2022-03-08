@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region references
-    // Patrón singleton
+    // PatrÃ³n singleton
     static private GameManager _instance;
     static public GameManager Instance { get { return _instance; } }
     // UI
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         _myUIManager.UpdatePoints(_puntuation);
     }
 
-    // Daño al jugador
+    // DaÃ±o al jugador
     public void OnPlayerDamage(int lifePoints)
     {
         _myUIManager.UpdatePlayerLife(lifePoints, false);
