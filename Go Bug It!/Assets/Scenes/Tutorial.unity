@@ -2131,7 +2131,7 @@ PrefabInstance:
     - target: {fileID: 4729239257457353065, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
       propertyPath: _pauseMenu
       value: 
-      objectReference: {fileID: 7695450327556563109, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+      objectReference: {fileID: 1345236513}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
 --- !u!1001 &717703628
@@ -2387,6 +2387,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5497f484bfd34e743a01166088c988f9, type: 3}
+--- !u!1 &1345236513 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7695450327556563109, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+  m_PrefabInstance: {fileID: 1753825182}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1399137743
 PrefabInstance:
   m_ObjectHideFlags: 0

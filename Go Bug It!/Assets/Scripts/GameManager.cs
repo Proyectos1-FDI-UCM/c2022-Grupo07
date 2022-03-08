@@ -47,11 +47,11 @@ public class GameManager : MonoBehaviour
     {
         _myUIManager.UpdateShot(shot);
     }
-    public void Pause()//Pausa el juego y abre el menu de pausa
+    public void Pause(bool pause)//Pausa el juego y abre el menu de pausa
     {
         _myUIManager.Pause();
-        if (_myinput.Pause() == true) Time.timeScale = 0;
-        else if (_myinput.Pause() == false) Time.timeScale = 1;
+        if (pause == true)Time.timeScale = 0;      
+        else Time.timeScale = 1;           
     }
     public void Quit()
     {
