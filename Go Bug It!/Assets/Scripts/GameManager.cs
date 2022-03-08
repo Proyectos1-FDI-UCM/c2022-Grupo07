@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     // Temporizador del nivel
     [SerializeField] private int _levelDuration;
     private float _timeLeft;
+    private int _actualLevel;
     #endregion
 
     #region references
@@ -23,6 +25,12 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region methods
+    public void OnGoalAdvance()
+    {
+        _actualLevel++;
+        DontDestroyOnLoad(this.gameObject);
+        SceneManager.LoadScene(_actualLevel);
+    }
     public void OnEnemyDies (int _puntuation)
     {
         _myUIManager.UpdatePoints(_puntuation);
@@ -50,6 +58,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+
     public void OnPlayerHeals(int lifePoints)
     {
         _myUIManager.UpdatePlayerLife(lifePoints-1, true);
@@ -65,6 +74,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _timeLeft = _levelDuration;
+        _actualLevel = 0;
         _myUIManager = _myUIObject.GetComponent<UIManager>();
         _myinput = _player.GetComponent<InputController>();
     }
