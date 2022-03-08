@@ -118,7 +118,6 @@ public class MovementController : MonoBehaviour
     {
         // Calcular velocidad
         _currentSpeed = Speed(_elapsedtime, _acceleration);
-        Debug.Log(_currentSpeed);
 
         // Aplicar giro
         if (_movementDirection > 0 && !m_FacingRight) Flip(); // Si no mira hacia la derecha

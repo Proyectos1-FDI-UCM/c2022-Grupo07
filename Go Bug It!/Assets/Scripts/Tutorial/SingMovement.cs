@@ -33,6 +33,6 @@ public class SingMovement : MonoBehaviour
         _time += Time.deltaTime;
         x = _xAmplitude * Mathf.Cos(_xOmega * _time);
         y = Mathf.Abs(_yAmplitude * Mathf.Sin(_yOmega * _time));
-        _myTransform.localPosition = new Vector3(x, y, 0);
+        _myTransform.position = new Vector3(x, y, 0);
     }
 }

@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     // UI
     [SerializeField] private GameObject _myUIObject;
     private UIManager _myUIManager;
+    private GameObject _player;
     #endregion
 
     #region methods

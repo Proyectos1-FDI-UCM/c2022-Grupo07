@@ -77,11 +77,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.6666667
-    functionName: OnEnemyOrWallCollision()
-    data: 
-    objectReferenceParameter: {fileID: 8139773162008822916, guid: 66b270ae0bb1f3747a4a117e131fcd59, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []
