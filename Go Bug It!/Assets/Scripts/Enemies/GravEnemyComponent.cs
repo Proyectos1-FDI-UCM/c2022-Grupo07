@@ -38,8 +38,8 @@ public class GravEnemyComponent : MonoBehaviour
         _myRigidbody.gravityScale = _gravity;
         _gravityChanged = true;
 
-        if (_gravity < 0) _myAnimator.SetBool("changingGrav", true);
-        else _myAnimator.SetBool("changingGrav+", true);
+        if (_gravity < 0) _myAnimator.SetBool("ChangingGrav", true);
+        else _myAnimator.SetBool("ChangingGrav+", true);
     }
     #endregion
 
@@ -60,8 +60,8 @@ public class GravEnemyComponent : MonoBehaviour
             _elapsedTime -= Time.deltaTime;
             if (_elapsedTime <= 0 && _gravityChanged)
             {
-                _myAnimator.SetBool("changingGrav", false);
-                _myAnimator.SetBool("changingGrav+", false);
+                _myAnimator.SetBool("ChangingGrav", false);
+                _myAnimator.SetBool("ChangingGrav+", false);
                 _gravityChanged = false;
                 _elapsedTime = _animationCooldown;
             }
