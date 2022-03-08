@@ -34,6 +34,7 @@ public class InputController : MonoBehaviour
     private float _dash;
     private float _selectShot;
     private float _shoot;
+    private bool _ispaused;
     #endregion
 
     #region methods
@@ -66,6 +67,10 @@ public class InputController : MonoBehaviour
     public bool GetGrounded()
     {
         return _isGrounded;
+    }
+    public bool Pause()//Describe si el boton de pausa se aprieta una vez o dos para pausar y despausar.
+    {
+        return _ispaused;
     }
     #endregion
 
@@ -124,5 +129,16 @@ public class InputController : MonoBehaviour
             _elapsedShoot = 0;
         }
         else _elapsedShoot += Time.deltaTime;
+        // Detecta si ya estaba pausado o no
+        if(Input.GetKeyDown(KeyCode.P)&&_ispaused==false)
+        {
+            _ispaused = true;
+            GameManager.Instance.Pause();
+        }
+        else if(Input.GetKeyDown(KeyCode.P) && _ispaused == true)
+        {
+            _ispaused = false;
+            GameManager.Instance.Pause();
+        }
     }
 }
