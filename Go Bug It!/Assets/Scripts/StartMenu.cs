@@ -8,7 +8,7 @@ public class StartMenu : MonoBehaviour
     #region methods
     public void StartGame()//Carga la escena del tutorial (primer nivel)
     {
-        SceneManager.LoadScene("Sprint 2");// poner el nombre de la escena tutorial cuando la tengamos hecha
+        SceneManager.LoadScene("Tutorial");// Al darle al start, te mete en el tutorial.
     }
     public void Quit()//Cierra la aplicación
     {
