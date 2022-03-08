@@ -2447,14 +2447,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4729239257457353064, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
-      propertyPath: m_Name
-      value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 4729239257457353065, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
-      propertyPath: _pauseMenu
-      value: 
-      objectReference: {fileID: 1345236513}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7976ec05349696d45b2cc6896527fcd8, type: 3}
 --- !u!4 &298642777 stripped
@@ -5660,13 +5652,8 @@ PrefabInstance:
       value: ShootTutorial
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5497f484bfd34e743a01166088c988f9, type: 3}
---- !u!1 &1345236513 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7695450327556563109, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
-  m_PrefabInstance: {fileID: 1753825182}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1399137743
+  m_SourcePrefab: {fileID: 100100000, guid: 5504fe10acd96d7408532c2a0b264a69, type: 3}
+--- !u!1001 &2011821075
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
