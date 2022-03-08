@@ -19,22 +19,24 @@ public class NeuBulletComponent : MonoBehaviour
             _myMovementController.enabled = false;
             transform.GetChild(0).localScale = new Vector3(0.5f, 0.5f, 0);
             _myAnimator.SetBool("OnEnemyCollision", true);
-            // Destroy(gameObject);
+            Destroy(gameObject, 0.5f);
         }
         else
         {
             _myMovementController.enabled = false;
             transform.GetChild(0).localScale = new Vector3(0.3f, 0.3f, 0);
             _myAnimator.SetBool("OnWallCollision", true);
-            // Destroy(gameObject);
+            Destroy(gameObject, 0.25f);
         }
     }
 
+    /*
     public void OnEnemyOrWallCollision()
     {
         _myAnimator.SetBool("OnEnemyCollision", false);
         _myAnimator.SetBool("OnWallCollision", false);
     }
+    */
     #endregion
 
     // Start is called before the first frame update
