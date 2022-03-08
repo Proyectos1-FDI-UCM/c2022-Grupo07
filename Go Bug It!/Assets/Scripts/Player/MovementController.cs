@@ -68,8 +68,6 @@ public class MovementController : MonoBehaviour
     // Impulso
     public void Dash()
     {
-        // Guardar tiempo transcurrido en las físicas
-        _elapsedDash += Time.fixedDeltaTime;
 
         // Si se está haciendo el dash
         if (_elapsedDash <= _dashDuration)
@@ -108,6 +106,7 @@ public class MovementController : MonoBehaviour
     }
     private void Update()
     {
+        if (_dash) _elapsedDash += Time.deltaTime;
          // Guardar tiempo transcurrido para los cálculos
          if (_movementDirection != 0) _elapsedtime += Time.deltaTime;
          else  _elapsedtime = 0;
@@ -122,6 +121,7 @@ public class MovementController : MonoBehaviour
         // Aplicar giro
         if (_movementDirection > 0 && !m_FacingRight) Flip(); // Si no mira hacia la derecha
         else if (_movementDirection < 0 && m_FacingRight) Flip(); // Si mira hacia la derecha
+        if (_dash) Dash();
 
         // Aplicar movimiento
         _rigidbody2D.velocity = new Vector2(_movementDirection * _currentSpeed, _rigidbody2D.velocity.y);

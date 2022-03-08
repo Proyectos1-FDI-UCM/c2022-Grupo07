@@ -10,6 +10,7 @@ public class InputController : MonoBehaviour
     private GravityComponent _myGravityComponent;
     private GunpointController _myGunpoint;
     private Animator _myAnimator;
+    [SerializeField] private Collider2D _myGroundDetector;
     #endregion
 
     #region parameters
@@ -39,13 +40,13 @@ public class InputController : MonoBehaviour
 
     #region methods
     // Saber si el jugador esta tocando una superficie o no
-    public void OnCollisionStay2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision != null) _isGrounded = true;
+        _isGrounded = true;
     }
 
     // Marcar que el jugador no está tocando el suelo
-    public void OnCollisionExit2D(Collision2D collision)
+    public void OnTriggerExit2D(Collider2D collision)
     {
         _isGrounded = false;
     }
@@ -93,6 +94,7 @@ public class InputController : MonoBehaviour
         _myAnimator = GetComponent<Animator>();
         _elapsedShoot = _shootCooldown;
         _elapsedSelect = _shotSelectCooldown;
+        _ispaused = false;
     }
 
     // Update is called once per frame
@@ -147,11 +149,13 @@ public class InputController : MonoBehaviour
         {
             _ispaused = true;
             GameManager.Instance.Pause();
+            Debug.Log("Pausado");
         }
         else if(Input.GetKeyDown(KeyCode.P) && _ispaused == true)
         {
             _ispaused = false;
             GameManager.Instance.Pause();
+            Debug.Log("Despausado");
         }
     }
     
