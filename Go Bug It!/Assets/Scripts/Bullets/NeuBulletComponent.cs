@@ -12,7 +12,7 @@ public class NeuBulletComponent : MonoBehaviour
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        EnemyComponent _enemy = collision.gameObject.GetComponent<EnemyComponent>();
+        NeuEnemyComponent _enemy = collision.gameObject.GetComponent<NeuEnemyComponent>();
         // _enemy = null;
         if (_enemy != null)
         {

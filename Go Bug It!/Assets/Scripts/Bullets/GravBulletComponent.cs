@@ -13,7 +13,7 @@ public class GravBulletComponent : MonoBehaviour
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        EnemyComponent _enemy = collision.gameObject.GetComponent<EnemyComponent>();
+        GravEnemyComponent _enemy = collision.gameObject.GetComponent<GravEnemyComponent>();
         if (_enemy != null)
         {
             _myMovementController.enabled = false;

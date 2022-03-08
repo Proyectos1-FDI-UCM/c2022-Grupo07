@@ -43,7 +43,7 @@ public class PlayerLifeComponent : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Colisión con un enemigo
-        EnemyComponent _enemy = collision.gameObject.GetComponent<EnemyComponent>();
+        EnemyLifeComponent _enemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
         
         if (_enemy != null)
         {
