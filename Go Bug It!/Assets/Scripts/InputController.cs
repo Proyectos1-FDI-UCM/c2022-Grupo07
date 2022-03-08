@@ -69,10 +69,6 @@ public class InputController : MonoBehaviour
     {
         return _isGrounded;
     }
-    public bool Pause()//Describe si el boton de pausa se aprieta una vez o dos para pausar y despausar.
-    {
-        return _ispaused;
-    }
     #endregion
 
     IEnumerator changeGrav()
@@ -149,15 +145,14 @@ public class InputController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.P)&&_ispaused==false)
         {
             _ispaused = true;
-            GameManager.Instance.Pause();
-            Debug.Log("Pausado");
+            GameManager.Instance.Pause(_ispaused);
         }
         else if(Input.GetKeyDown(KeyCode.P) && _ispaused == true)
         {
             _ispaused = false;
-            GameManager.Instance.Pause();
-            Debug.Log("Despausado");
+            GameManager.Instance.Pause(_ispaused);
         }
+        Debug.Log(_ispaused);
     }
     
 }
