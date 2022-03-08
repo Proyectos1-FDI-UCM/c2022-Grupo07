@@ -8,8 +8,8 @@ public class InputController : MonoBehaviour
     #region references
     private MovementController _movController;
     private GravityComponent _myGravityComponent;
+    private Collider2D _myCollider;
     private GunpointController _myGunpoint;
-    private Animator _myAnimator;
     #endregion
 
     #region parameters
@@ -79,8 +79,8 @@ public class InputController : MonoBehaviour
     {
         _movController = GetComponent<MovementController>();            // Accedemos al script de movimiento del jugador
         _myGravityComponent = GetComponent<GravityComponent>();         // Accedemos al script de gravedad del jugador
+        _myCollider = GetComponentInChildren<Collider2D>();                       // Accedemos al collider de nuestro jugador
         _myGunpoint = transform.GetChild(0).GetComponent<GunpointController>(); // Accedemos al script de la pistola
-        _myAnimator = GetComponent<Animator>();
         _elapsedShoot = _shootCooldown;
         _elapsedSelect = _shotSelectCooldown;
     }

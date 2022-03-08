@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bba4ddea068c9f44b0ecef55acff133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spritesFull:
+  _sprites:
   - {fileID: 2350297403280568894, guid: a05d456700c228146a30b8123ec855b0, type: 3}
   - {fileID: -7601109241220244812, guid: a05d456700c228146a30b8123ec855b0, type: 3}
   - {fileID: -8180400557922001129, guid: a05d456700c228146a30b8123ec855b0, type: 3}
@@ -172,18 +172,7 @@ MonoBehaviour:
   - {fileID: -7026239795229651328, guid: a05d456700c228146a30b8123ec855b0, type: 3}
   - {fileID: -6241930439825534099, guid: a05d456700c228146a30b8123ec855b0, type: 3}
   - {fileID: -5498844017945300022, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  _spritesEmpty:
-  - {fileID: -705465144167411356, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 4685238931682063667, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -3817360706560389721, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -4344711318742404362, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -2021871367212907227, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 5951405135114829826, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -8399690186985791338, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 6442341497752771511, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  _myUIObject: {fileID: 4729239257457353064}
   _spritesPerFrame: 25
-  _posUI: 1
 --- !u!1 &4729239256364886913
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bba4ddea068c9f44b0ecef55acff133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spritesFull:
+  _sprites:
   - {fileID: 2350297403280568894, guid: a05d456700c228146a30b8123ec855b0, type: 3}
   - {fileID: -7601109241220244812, guid: a05d456700c228146a30b8123ec855b0, type: 3}
   - {fileID: -8180400557922001129, guid: a05d456700c228146a30b8123ec855b0, type: 3}
@@ -281,18 +270,7 @@ MonoBehaviour:
   - {fileID: -7026239795229651328, guid: a05d456700c228146a30b8123ec855b0, type: 3}
   - {fileID: -6241930439825534099, guid: a05d456700c228146a30b8123ec855b0, type: 3}
   - {fileID: -5498844017945300022, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  _spritesEmpty:
-  - {fileID: -705465144167411356, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 4685238931682063667, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -3817360706560389721, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -4344711318742404362, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -2021871367212907227, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 5951405135114829826, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -8399690186985791338, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 6442341497752771511, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  _myUIObject: {fileID: 4729239257457353064}
   _spritesPerFrame: 25
-  _posUI: 3
 --- !u!1 &4729239256714414050
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,7 +937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bba4ddea068c9f44b0ecef55acff133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spritesFull:
+  _sprites:
   - {fileID: 2350297403280568894, guid: a05d456700c228146a30b8123ec855b0, type: 3}
   - {fileID: -7601109241220244812, guid: a05d456700c228146a30b8123ec855b0, type: 3}
   - {fileID: -8180400557922001129, guid: a05d456700c228146a30b8123ec855b0, type: 3}
@@ -968,18 +946,7 @@ MonoBehaviour:
   - {fileID: -7026239795229651328, guid: a05d456700c228146a30b8123ec855b0, type: 3}
   - {fileID: -6241930439825534099, guid: a05d456700c228146a30b8123ec855b0, type: 3}
   - {fileID: -5498844017945300022, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  _spritesEmpty:
-  - {fileID: -705465144167411356, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 4685238931682063667, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -3817360706560389721, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -4344711318742404362, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -2021871367212907227, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 5951405135114829826, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -8399690186985791338, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 6442341497752771511, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  _myUIObject: {fileID: 4729239257457353064}
   _spritesPerFrame: 25
-  _posUI: 0
 --- !u!1 &4729239258162767470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,7 +1114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bba4ddea068c9f44b0ecef55acff133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spritesFull:
+  _sprites:
   - {fileID: 2350297403280568894, guid: a05d456700c228146a30b8123ec855b0, type: 3}
   - {fileID: -7601109241220244812, guid: a05d456700c228146a30b8123ec855b0, type: 3}
   - {fileID: -8180400557922001129, guid: a05d456700c228146a30b8123ec855b0, type: 3}
@@ -1156,18 +1123,7 @@ MonoBehaviour:
   - {fileID: -7026239795229651328, guid: a05d456700c228146a30b8123ec855b0, type: 3}
   - {fileID: -6241930439825534099, guid: a05d456700c228146a30b8123ec855b0, type: 3}
   - {fileID: -5498844017945300022, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  _spritesEmpty:
-  - {fileID: -705465144167411356, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 4685238931682063667, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -3817360706560389721, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -4344711318742404362, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -2021871367212907227, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 5951405135114829826, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -8399690186985791338, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 6442341497752771511, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  _myUIObject: {fileID: 4729239257457353064}
   _spritesPerFrame: 25
-  _posUI: 2
 --- !u!1 &7414868112238270976
 GameObject:
   m_ObjectHideFlags: 0

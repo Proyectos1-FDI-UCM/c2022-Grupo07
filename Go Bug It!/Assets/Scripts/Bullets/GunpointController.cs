@@ -10,19 +10,18 @@ public class GunpointController : MonoBehaviour
     [SerializeField] private GameObject _gravShot; // Bala gravitatoria
     [SerializeField] private GameObject _neuShot; // Bala neutralizadora
     [SerializeField] private Transform Gun; // Posición del label Gun
-    private InputController _myinput;
+    InputController _myinput;
     private Transform _playerTransform;
-    private Animator _playerAnimator;
     #endregion
 
     #region properties
     public enum ShootType {Gravity, Neutralize}
-    [SerializeField, Range(0, 1)] private ShootType _shot = 0;
-    private Vector2 _direction;
+    [SerializeField, Range(0, 1)] ShootType _shot = 0;
+    Vector2 _direction;
     #endregion
-
     #region parameters
-    [SerializeField] private float _offset;
+    [SerializeField]
+    private float _offset;
     #endregion
 
     #region methods
@@ -49,16 +48,13 @@ public class GunpointController : MonoBehaviour
         {
             _shot = ShootType.Neutralize;
             GameManager.Instance.OnChangingShoot(1);
-            _playerAnimator.SetBool("NeuShot", true);
-            _playerAnimator.SetBool("GravShot", false);
         }
         else
         {
             _shot = ShootType.Gravity;
             GameManager.Instance.OnChangingShoot(0);
-            _playerAnimator.SetBool("NeuShot", false);
-            _playerAnimator.SetBool("GravShot", true);
         }
+        
     }
 
     #endregion
@@ -69,7 +65,5 @@ public class GunpointController : MonoBehaviour
         _myTransform = transform;
         _playerTransform = GetComponentInParent<Transform>();
         _myinput = GetComponentInParent<InputController>();
-        _playerAnimator = GetComponentInParent<Animator>();
-        _playerAnimator.SetBool("GravShot", true);
     }
 }

@@ -200,8 +200,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isGrounded: 0
   _dashCooldown: 2
-  _shootCooldown: 1
-  _shotSelectCooldown: 1
+  _doDash: 0
+  _shootCooldown: 2
+  _shotSelectCooldown: 2
 --- !u!114 &6243002863010358820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,8 +216,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _acceleration: 3
-  _maxspeed: 5
-  _airSpeed: 0.6
+  _maxspeed: 3
+  _airSpeed: 2
   _dashDuration: 1
   _dashSpeed: 5
 --- !u!114 &968069071213106447
@@ -293,7 +294,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5187658933480842213}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.27, y: -1.293, z: 0}
+  m_LocalPosition: {x: -0.27, y: -1.329, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3002044054825558893}
