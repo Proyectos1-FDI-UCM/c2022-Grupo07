@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     private UIManager _myUIManager;
     [SerializeField] private GameObject _player;
     private InputController _myinput;
+    private PlayerLifeComponent _myLife;
     #endregion
 
     #region methods
@@ -78,12 +79,13 @@ public class GameManager : MonoBehaviour
         _actualLevel = 0;
         _myUIManager = _myUIObject.GetComponent<UIManager>();
         _myinput = _player.GetComponent<InputController>();
+        _myLife = _player.GetComponent<PlayerLifeComponent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_timeLeft <= 0) Debug.Log("Perdiste");
+        if (_timeLeft <= 0) _myLife.Dies();
         else
         {
             _timeLeft -= Time.deltaTime;
