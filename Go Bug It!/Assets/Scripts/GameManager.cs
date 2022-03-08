@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
     {
         _actualLevel++;
         DontDestroyOnLoad(this.gameObject);
-        SceneManager.LoadScene(_actualLevel);
+        DontDestroyOnLoad(_myUIObject);
+        SceneManager.LoadScene("Level 1");
     }
     public void OnEnemyDies (int _puntuation)
     {
