@@ -32,7 +32,6 @@ public class GravEnemyComponent : MonoBehaviour
 
     public void ChangeGravity()
     {
-        //_myTransform.Rotate(180, 0, 0);
         _gravity *= -1;
         _myRigidbody.gravityScale = _gravity;
         _gravityChanged = true;
