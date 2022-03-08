@@ -146,18 +146,16 @@ public class InputController : MonoBehaviour
         }
         else _elapsedShoot += Time.deltaTime;
         // Detecta si ya estaba pausado o no
-        if(Input.GetKeyDown(KeyCode.P)&&_ispaused==false)
+        if (Input.GetKeyDown(KeyCode.P) && _ispaused == false)
         {
             _ispaused = true;
-            GameManager.Instance.Pause();
-            Debug.Log("Pausado");
+            GameManager.Instance.Pause(_ispaused);
         }
-        else if(Input.GetKeyDown(KeyCode.P) && _ispaused == true)
+        else if (Input.GetKeyDown(KeyCode.P) && _ispaused == true)
         {
             _ispaused = false;
-            GameManager.Instance.Pause();
-            Debug.Log("Despausado");
+            GameManager.Instance.Pause(_ispaused);
         }
     }
-    
+
 }

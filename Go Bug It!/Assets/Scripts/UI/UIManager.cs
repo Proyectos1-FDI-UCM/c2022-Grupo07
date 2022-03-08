@@ -90,17 +90,17 @@ public class UIManager : MonoBehaviour
             _shots[1].sprite = _neuActivated;
         }
     }
+
     public void Pause()//Activa o desactiva el menu de pausa en función de su estado anterior.
     {
-        if(!_pauseMenu.activeInHierarchy)
+        if (!_pauseMenu.activeInHierarchy)
         {
-          _pauseMenu.SetActive(true);
+            _pauseMenu.SetActive(true);
         }
-        else if(_pauseMenu.activeInHierarchy)
+        else if (_pauseMenu.activeInHierarchy)
         {
             _pauseMenu.SetActive(false);
         }
-        
     }
     #endregion
 
