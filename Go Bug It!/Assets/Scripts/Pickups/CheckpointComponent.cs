@@ -7,9 +7,8 @@ public class CheckpointComponent : MonoBehaviour
     #region references
     private Collider2D _myCollider;
     private Transform _myTransform;
-    private SpriteRenderer _mySpriteRenderer;
     [SerializeField]
-    private SpriteRenderer _myActivatedCheckpoint;
+    private Animator _myAnimator;
     #endregion
 
     #region properties
@@ -24,23 +23,16 @@ public class CheckpointComponent : MonoBehaviour
         {
             _newRespawnPosition = _myTransform.position;
             _myPlayer.SetRespawnPosition(_newRespawnPosition);
-            _mySpriteRenderer.enabled = false;
-            _myActivatedCheckpoint.enabled = true;
             _myCollider.enabled = false;
-            this.enabled = false;
+            _myAnimator.SetBool("activated", true);
         }
     }
     #endregion
-
-    public void ShowActivatedCheckpoint()
-    { 
-}
-
+    
     // Start is called before the first frame update
     void Start()
     {
         _myTransform = transform;
-        _mySpriteRenderer = GetComponent<SpriteRenderer>();
         _myCollider = GetComponent<Collider2D>();
     }
 }
