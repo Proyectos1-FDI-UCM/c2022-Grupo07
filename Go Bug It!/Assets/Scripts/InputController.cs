@@ -74,9 +74,19 @@ public class InputController : MonoBehaviour
     }
     #endregion
 
+    IEnumerator changeGrav()
+    {
+        yield return new WaitForSeconds(0.2f);
+        
+        if (_myAnimator.GetBool("OnGravityChange") == true)
+        {
+            _myAnimator.SetBool("OnGravityChange", false);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
+        
         _movController = GetComponent<MovementController>();            // Accedemos al script de movimiento del jugador
         _myGravityComponent = GetComponent<GravityComponent>();         // Accedemos al script de gravedad del jugador
         _myGunpoint = transform.GetChild(0).GetComponent<GunpointController>(); // Accedemos al script de la pistola
@@ -101,9 +111,12 @@ public class InputController : MonoBehaviour
         // Cambio de gravedad
         if (_isGrounded && _jump > 0)                               //Si presiono espacio y estoy tocando una superficie...
         {
+            _myAnimator.SetBool("OnGravityChange", true);
             _changeGravity = !_changeGravity;                       //Negamos el booleano gravedad para q ahora sea lo contrario
             _myGravityComponent.ChangeGravity(_changeGravity);      //Llamamos al metodo ChangeGravity del script de gravedad
+            StartCoroutine(changeGrav());
         }
+        
 
         // Dash
         if (_elapseDash > _dashCooldown && _isGrounded && _dash > 0)
@@ -141,4 +154,5 @@ public class InputController : MonoBehaviour
             GameManager.Instance.Pause();
         }
     }
+    
 }
