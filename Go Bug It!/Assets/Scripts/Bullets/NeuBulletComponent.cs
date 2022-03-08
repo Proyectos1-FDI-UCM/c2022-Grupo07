@@ -28,6 +28,7 @@ public class NeuBulletComponent : MonoBehaviour
             _myAnimator.SetBool("OnWallCollision", true);
             Destroy(gameObject, 0.25f);
         }
+        Destroy(gameObject); //
     }
 
     /*

@@ -29,9 +29,9 @@ public class GunpointController : MonoBehaviour
     // Instanciación de la bala
     public void Shoot()
     {
-        bool _prevdirection=true;
-         if (_myinput.GetDirection() > 0) _prevdirection=true;// decide cual es la dirección de disparo según la dirección anterior.
-        else if (_myinput.GetDirection() < 0)_prevdirection= false;
+        bool _prevdirection = true;
+        if (_myinput.GetDirection() > 0) _prevdirection = true; // decide cual es la dirección de disparo según la dirección anterior.
+        else if (_myinput.GetDirection() < 0) _prevdirection = false;
         if (_prevdirection == false)
         {
             _direction = _myTransform.position;
