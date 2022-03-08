@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Pickups\CheckpointComponent.cs" />
     <Compile Include="Assets\Scripts\Camera\RoomManager.cs" />
     <Compile Include="Assets\Scripts\Bullets\BulletMovementController.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\SingMovement.cs" />
     <Compile Include="Assets\Scripts\Bullets\NeuBulletComponent.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLifeComponent.cs" />
     <Compile Include="Assets\Scripts\UI\UIAnimationController.cs" />
