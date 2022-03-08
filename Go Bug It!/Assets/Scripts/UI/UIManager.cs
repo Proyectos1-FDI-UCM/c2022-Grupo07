@@ -43,10 +43,8 @@ public class UIManager : MonoBehaviour
     {
         if (life <= 3 && life >= 0) // Comprobar si está entre los límites de vida posible del jugador
         {
-            UIAnimationController heart = _hearts[life].GetComponent<UIAnimationController>();
-
-            if (powerup == false) heart.UpdateStatus(false); // Si se resta vida [ _hearts[life].sprite = _emptyHeartImg; ]
-            else heart.UpdateStatus(true); // Si se suma con un powerup [ _hearts[life].sprite = _fullHeartImg; ] 
+            if (powerup == false) _hearts[life].sprite = _emptyHeartImg; // Si se resta vida
+            else _hearts[life].sprite = _fullHeartImg; // Si se suma con un powerup
         }
     }
 
@@ -105,13 +103,23 @@ public class UIManager : MonoBehaviour
     #endregion
 
     // Initializes own references
-    void Awake()
+    private void Awake()
     {
         // Inicializar recuadros
         for(int i = 0; i < _corners.Length; i++)
         {
             _corners[i] = _cornersUI.transform.GetChild(i).GetComponent<Image>();
             _corners[i].sprite = _corner;
+
+            /*
+            switch (i)
+            {
+                case 0: _corners[i].sprite = _upLeft; break;
+                case 1: _corners[i].sprite = _upRight; break;
+                case 2: _corners[i].sprite = _downLeft; break;
+                case 3: _corners[i].sprite = _downRight; break;
+            }
+            */
         }
 
         // Inicializar vida

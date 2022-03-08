@@ -11,7 +11,6 @@ public class GravityComponent : MonoBehaviour
 
     #region references 
     private Rigidbody2D _myRigidbody;
-    private Animator _myAnimator;
     #endregion
 
     #region methods
@@ -21,9 +20,8 @@ public class GravityComponent : MonoBehaviour
         //Dependiendo del booleano grav se crea una gravedad positiva o negativa
         if (grav) _myRigidbody.gravityScale = -_myGravityScale;
         else _myRigidbody.gravityScale = _myGravityScale;
-        _myAnimator.SetBool("OnGravityChange", true);
+
         gameObject.transform.Rotate(0, 180, 180);
-        // _myAnimator.SetBool("OnGravityChange", false);
     }
     #endregion
 
@@ -31,6 +29,5 @@ public class GravityComponent : MonoBehaviour
     void Start()
     {
         _myRigidbody = GetComponent<Rigidbody2D>();     //Accedo al rigidbody de mi jugador
-        _myAnimator = GetComponent<Animator>();
     }
 }

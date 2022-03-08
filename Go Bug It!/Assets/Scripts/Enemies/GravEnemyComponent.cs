@@ -25,11 +25,9 @@ public class GravEnemyComponent : MonoBehaviour
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GravBulletComponent _gravBullet = collision.gameObject.GetComponent<GravBulletComponent>();
-        NeuBulletComponent _neuBullet = collision.gameObject.GetComponent<NeuBulletComponent>();
-
-        if (_gravBullet != null) ChangeGravity();
-        else if (_neuBullet != null) _myAnimator.SetTrigger("NeuBullet");
+        GravBulletComponent _myBullet = collision.gameObject.GetComponent<GravBulletComponent>();
+        
+        if (_myBullet != null) ChangeGravity();
     }
 
     public void ChangeGravity()
