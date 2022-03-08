@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerLifeComponent : MonoBehaviour
 {
+    #region references
+    private Animator _myAnimator;
+    private MovementController _myMov;
+    private Rigidbody2D _myRigidbody;
+    #endregion
 
     #region parameters
     // Starting Life of the player
@@ -60,6 +65,14 @@ public class PlayerLifeComponent : MonoBehaviour
         }
     }
 
+    public void Dies()
+    {
+        _myAnimator.SetBool("Dies", true);
+        _myMov.enabled = false;
+        _myRigidbody.simulated = false;
+        Destroy(gameObject, 1.1f);
+    }
+
     public void SetRespawnPosition(Vector3 _newRespawnPosition)
     {
         _respawnX = _newRespawnPosition.x;
@@ -71,11 +84,15 @@ public class PlayerLifeComponent : MonoBehaviour
     void Start()
     {
         _currLife = _playerLife;
+        _myMov = GetComponent<MovementController>();
+        _myAnimator = GetComponent<Animator>();
+        _myAnimator.SetBool("Dies", false);
+        _myRigidbody = GetComponent<Rigidbody2D>();
     }
     
     // Update is called once per frame
     void Update()
     {
-        if (_currLife == 0) Destroy(gameObject);
+        if (_currLife == 0) Dies();
     }
 }
