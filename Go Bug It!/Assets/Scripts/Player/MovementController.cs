@@ -23,9 +23,9 @@ public class MovementController : MonoBehaviour
     #region properties
     private float _elapsedtime;
     private float _movementDirection;
-    private Vector3 _dashDirection;
-    private float _speed;
     private float _currentSpeed;
+    private bool _prevgrav_ok; //Detecta cuando coger la gravedad previa una sola vez
+    private float _prevgrav; //Guarda la gravedad previa
     #endregion
 
     #region parameters
@@ -74,10 +74,12 @@ public class MovementController : MonoBehaviour
         {
             if (_movementDirection > 0) _movementDirection = 1;
             else if (_movementDirection < 0) _movementDirection = -1;
-            _rigidbody2D.velocity = new Vector2(_movementDirection * _currentSpeed, _rigidbody2D.velocity.y);
+            _rigidbody2D.gravityScale = 0;
+            _rigidbody2D.velocity = new Vector2(_movementDirection * _currentSpeed,0);
         }
         else // Si se termina de hacer
         {
+            _rigidbody2D.gravityScale = _prevgrav;
             _dash = false;
             _elapsedDash = 0;
         }
@@ -115,14 +117,17 @@ public class MovementController : MonoBehaviour
     void FixedUpdate()
     {
         // Calcular velocidad
-       if(!_dash) _currentSpeed = Speed(_elapsedtime, _acceleration);
-       else if(_dash) _currentSpeed = _dashSpeed;
+        if (!_dash)
+        {
+            _prevgrav = _rigidbody2D.gravityScale;
+            _currentSpeed = Speed(_elapsedtime, _acceleration);
+        }
+        else if (_dash) _currentSpeed = _dashSpeed;
 
         // Aplicar giro
         if (_movementDirection > 0 && !m_FacingRight) Flip(); // Si no mira hacia la derecha
         else if (_movementDirection < 0 && m_FacingRight) Flip(); // Si mira hacia la derecha
-        if (_dash) Dash();
-
+        if (_dash)Dash();
         // Aplicar movimiento
         _rigidbody2D.velocity = new Vector2(_movementDirection * _currentSpeed, _rigidbody2D.velocity.y);
     }
