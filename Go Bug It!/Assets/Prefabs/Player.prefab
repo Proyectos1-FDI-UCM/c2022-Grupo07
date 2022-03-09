@@ -200,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myGroundDetector: {fileID: 5453095105715680625}
   _isGrounded: 0
-  _dashCooldown: 0.3
+  _dashCooldown: 0.45
   _shootCooldown: 1
   _shotSelectCooldown: 1
 --- !u!114 &6243002863010358820
