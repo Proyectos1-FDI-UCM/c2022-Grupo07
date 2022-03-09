@@ -39,6 +39,7 @@ public class InputController : MonoBehaviour
     #endregion
 
     #region methods
+    
     // Saber si el jugador esta tocando una superficie o no
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -48,7 +49,8 @@ public class InputController : MonoBehaviour
     // Marcar que el jugador no está tocando el suelo
     public void OnTriggerExit2D(Collider2D collision)
     {
-        _isGrounded = false;
+        if (!collision.isTrigger)
+            _isGrounded = false;
     }
 
     // Asignar la orientación de la bala según la del jugador
