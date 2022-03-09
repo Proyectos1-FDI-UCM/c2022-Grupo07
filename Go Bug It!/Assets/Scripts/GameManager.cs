@@ -29,8 +29,6 @@ public class GameManager : MonoBehaviour
     public void OnGoalAdvance()
     {
         _actualLevel++;
-        DontDestroyOnLoad(this.gameObject);
-        DontDestroyOnLoad(_myUIObject);
         SceneManager.LoadScene("Level 1");
     }
     public void OnEnemyDies (int _puntuation)
