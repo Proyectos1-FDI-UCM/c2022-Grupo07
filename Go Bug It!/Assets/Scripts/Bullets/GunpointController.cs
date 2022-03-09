@@ -38,8 +38,8 @@ public class GunpointController : MonoBehaviour
             _direction.x -= (2 * _offset); 
         }
         else if (_prevdirection == true) _direction = _myTransform.position;// si es positivo, se dispara desde la posición del gunpoint (a la dcha.)
-        if (_shot == ShootType.Gravity) GameObject.Instantiate(_gravShot, _direction, _myTransform.rotation);
-        else GameObject.Instantiate(_neuShot, _direction, _myTransform.rotation);
+        if (_shot == ShootType.Gravity) GameObject.Instantiate(_gravShot, new Vector3(_direction.x, _direction.y, 0.0f), _myTransform.rotation);
+        else GameObject.Instantiate(_neuShot, new Vector3(_direction.x, _direction.y, 0.0f), _myTransform.rotation);
     }
 
     // Cambio de disparo

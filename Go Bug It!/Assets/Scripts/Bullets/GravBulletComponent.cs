@@ -23,7 +23,7 @@ public class GravBulletComponent : MonoBehaviour
             _myAnimator.SetBool("OnEnemyCollision", true);
             Destroy(gameObject, 0.8f);
         }
-        else
+        if (!collision.isTrigger)
         {
             _myMovementController.enabled = false;
             transform.GetChild(0).localScale = new Vector3(0.3f, 0.3f, 0);
