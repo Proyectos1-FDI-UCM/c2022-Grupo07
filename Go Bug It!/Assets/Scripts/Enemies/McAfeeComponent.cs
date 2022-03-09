@@ -12,7 +12,7 @@ public class McAfeeComponent : MonoBehaviour
     [SerializeField]
     private GameObject _myBullet;
     private Transform _myTransform;
-    [SerializeField]private GameObject _myPlayer;
+    private GameObject _myPlayer;
     private double _lastShot;
     [SerializeField] private GameObject _myOffsetDisparo;
     [SerializeField] private bool lookingRight = false;
@@ -48,18 +48,16 @@ public class McAfeeComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_myPlayer != null)
+
+        if (_myPlayer.transform.position.x - transform.position.x > 0 && lookingRight)
         {
-            if (_myPlayer.transform.position.x - transform.position.x > 0 && lookingRight )
-            {
-                Shoot();
+            Shoot();
 
-            }
-            else if (_myPlayer.transform.position.x - transform.position.x <= 0 && !lookingRight)
-            {
-                Shoot();
+        }
+        else if (_myPlayer.transform.position.x - transform.position.x <= 0 && !lookingRight)
+        {
+            Shoot();
 
-            }
         }
     }
 }
