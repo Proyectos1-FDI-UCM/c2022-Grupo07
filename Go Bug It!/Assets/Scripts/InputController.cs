@@ -113,7 +113,7 @@ public class InputController : MonoBehaviour
         _movController.SetMovementDirection(_horizontal);
 
         // Cambio de gravedad
-        if (_isGrounded && _jump > 0)                               //Si presiono espacio y estoy tocando una superficie...
+        if (_isGrounded && _jump > 0 &&!_movController._dash) //Si presiono espacio, estoy tocando una superficie y no estoy en mitad de un dash...
         {
             _myAnimator.SetBool("OnGravityChange", true);
             _changeGravity = !_changeGravity;                       //Negamos el booleano gravedad para q ahora sea lo contrario
@@ -127,7 +127,6 @@ public class InputController : MonoBehaviour
         {
             _movController.SetDash();
             _elapseDash = 0;
-            Debug.Log("Dash");
         }
         else if(_isGrounded) _elapseDash += Time.deltaTime;
 

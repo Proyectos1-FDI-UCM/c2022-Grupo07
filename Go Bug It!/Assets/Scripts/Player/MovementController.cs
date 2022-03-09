@@ -24,12 +24,8 @@ public class MovementController : MonoBehaviour
     private float _elapsedtime;
     private float _movementDirection;
     private float _currentSpeed;
-    private bool _prevgrav_ok; //Detecta cuando coger la gravedad previa una sola vez
     private float _prevgrav; //Guarda la gravedad previa
-    #endregion
-
-    #region parameters
-    private bool _dash = false;
+    public bool _dash = false;
     private float _elapsedDash;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     #endregion
