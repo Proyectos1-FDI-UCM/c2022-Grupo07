@@ -14,18 +14,25 @@ public class McAfeeBullet : MonoBehaviour
     private float _shotSpeed = 2.0f;
     [SerializeField]
     private bool left;
+    private Collider2D _myCollider;
     #endregion
     
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerLifeComponent _myPlayer = collision.gameObject.GetComponent<PlayerLifeComponent>();
+        Destroy(gameObject);
         if (_myPlayer != null)
         {
             _myPlayer.Damage();
         }
     }
     #endregion
+
+    void Start()
+    {
+        _myCollider = GetComponent<Collider2D>();
+    }
 
     // Update is called once per frame
     void Update()
