@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6420719085311566096}
   - component: {fileID: 1429769400135454308}
   m_Layer: 0
-  m_Name: frictionless wall
+  m_Name: FrictionlessWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
