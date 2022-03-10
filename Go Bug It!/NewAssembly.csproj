@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\Player\MovementController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Bullets\GravBulletComponent.cs" />
+    <Compile Include="Assets\Scripts\Enemies\AvastController.cs" />
     <Compile Include="Assets\Scripts\Pickups\SpamComponent.cs" />
     <Compile Include="Assets\Scripts\UI\StartMenu.cs" />
     <Compile Include="Assets\Scripts\Bullets\McAfeeBullet.cs" />
@@ -70,13 +71,18 @@
     <Compile Include="Assets\Scripts\Tutorial\SingMovement.cs" />
     <Compile Include="Assets\Scripts\Bullets\NeuBulletComponent.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLifeComponent.cs" />
+    <Compile Include="Assets\Scripts\Pickups\StructComponent.cs" />
     <Compile Include="Assets\Scripts\UI\UIAnimationController.cs" />
+    <Compile Include="Assets\Scripts\UI\GameOver.cs" />
     <Compile Include="Assets\Scripts\Bullets\GunpointController.cs" />
+    <Compile Include="Assets\Scripts\Pickups\StackPointerComponent.cs" />
     <Compile Include="Assets\Scripts\Obstacles\DeathZoneComponent.cs" />
     <Compile Include="Assets\Scripts\Obstacles\MovingPlatformController.cs" />
+    <Compile Include="Assets\Scripts\Pickups\EscudoComponent.cs" />
     <Compile Include="Assets\Scripts\Player\GravityComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\NeuEnemyComponent.cs" />
     <Compile Include="Assets\Scripts\InputController.cs" />
+    <Compile Include="Assets\Scripts\Player\PowerUpController.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\Enemies\McAfeeComponent.cs" />
     <Compile Include="Assets\Scripts\CheckpointTeleportComponent.cs" />
@@ -85,7 +91,6 @@
     <Compile Include="Assets\Scripts\Pickups\CodigoRestauradorComponent.cs" />
     <Compile Include="Assets\Scripts\OnGoal.cs" />
     <Compile Include="Assets\Scripts\Enemies\GravEnemyComponent.cs" />
-    <Compile Include="Assets\Scripts\UI\GameOver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\AssemblyDefinition.asmdef" />

@@ -887,11 +887,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6985363054149110097, guid: f754358ccc1ad3945a2d7227f477a26b, type: 3}
       propertyPath: X_teleport
-      value: -4
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 6985363054149110097, guid: f754358ccc1ad3945a2d7227f477a26b, type: 3}
       propertyPath: Y_teleport
-      value: -4
+      value: -4.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f754358ccc1ad3945a2d7227f477a26b, type: 3}
@@ -1851,11 +1851,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6985363054149110097, guid: f754358ccc1ad3945a2d7227f477a26b, type: 3}
       propertyPath: X_teleport
-      value: -4
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 6985363054149110097, guid: f754358ccc1ad3945a2d7227f477a26b, type: 3}
       propertyPath: Y_teleport
-      value: -4
+      value: -4.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f754358ccc1ad3945a2d7227f477a26b, type: 3}

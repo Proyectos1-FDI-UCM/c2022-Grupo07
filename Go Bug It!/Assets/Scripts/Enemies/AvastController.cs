@@ -2,21 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Avast_controller : MonoBehaviour
+public class AvastController : MonoBehaviour
 {
+
     #region references
     private Transform _mytransform;
     #endregion
+
     #region parameters
     [SerializeField] private float _rayCoolDown;
     [SerializeField] private float _rayDuration;
     [SerializeField] private Vector2 _rayDirection;//Dirección del raycast
     #endregion
+
     #region properties
     private float _elapsedCoolDown;
     private float _elapsedDuration;
     private bool _shooting;
     #endregion
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,7 +55,6 @@ public class Avast_controller : MonoBehaviour
                     Debug.Log("Pillado");
                   }
                 }
-                
             }
             else
             {
