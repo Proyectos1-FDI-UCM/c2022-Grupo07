@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLifeComponent : MonoBehaviour
 {
@@ -71,6 +72,7 @@ public class PlayerLifeComponent : MonoBehaviour
         _myMov.enabled = false;
         _myRigidbody.simulated = false;
         Destroy(gameObject, 1.1f);
+        SceneManager.LoadScene("GameOver");
     }
 
     public void SetRespawnPosition(Vector3 _newRespawnPosition)

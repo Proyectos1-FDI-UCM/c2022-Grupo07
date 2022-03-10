@@ -14,7 +14,6 @@ public class UIManager : MonoBehaviour
     // Tiempo
     [SerializeField] private GameObject _timeUI;
     private Text _timeText;
-    [SerializeField] private Sprite _timer;
     // Puntos
     [SerializeField] private GameObject _pointsUI;
     private Text _pointsText;
@@ -24,16 +23,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite _gravDeactivated;
     [SerializeField] private Sprite _neuActivated;
     [SerializeField] private Sprite _neuDeactivated;
-    // Recuadros
-    [SerializeField] private GameObject _cornersUI;
-    [SerializeField] private Sprite _corner;
+    // Pausa
     [SerializeField] private GameObject _pauseMenu;
     #endregion
 
     #region parameters
     private Image[] _hearts= new Image[4];
     private Image[] _shots = new Image[2];
-    private Image[] _corners = new Image[4];
     private int _points = 0;
     #endregion
 
@@ -93,47 +89,24 @@ public class UIManager : MonoBehaviour
 
     public void Pause()//Activa o desactiva el menu de pausa en función de su estado anterior.
     {
-        if (!_pauseMenu.activeInHierarchy)
-        {
-            _pauseMenu.SetActive(true);
-        }
-        else if (_pauseMenu.activeInHierarchy)
-        {
-            _pauseMenu.SetActive(false);
-        }
+        if (!_pauseMenu.activeInHierarchy) _pauseMenu.SetActive(true);
+        else if (_pauseMenu.activeInHierarchy) _pauseMenu.SetActive(false);
     }
     #endregion
 
     // Initializes own references
     void Awake()
     {
-        // Inicializar recuadros
-        for(int i = 0; i < _corners.Length; i++)
-        {
-            _corners[i] = _cornersUI.transform.GetChild(i).GetComponent<Image>();
-            _corners[i].sprite = _corner;
-        }
-
         // Inicializar vida
-        for (int i = 0; i < _hearts.Length; i++)
-        {
-            _hearts[i] = _lifeUI.transform.GetChild(i).GetComponent<Image>();
-            _hearts[i].sprite = _fullHeartImg;
-        }
+        for (int i = 0; i < _hearts.Length; i++) _hearts[i] = _lifeUI.transform.GetChild(i).GetComponent<Image>();
 
         // Inicializar temporizador
         _timeText = _timeUI.transform.GetChild(1).GetComponent<Text>();
-        _timeUI.transform.GetChild(0).GetComponent<Image>().sprite = _timer;
 
         // Inicializar puntos
         _pointsText = _pointsUI.transform.GetChild(0).GetComponent<Text>();
 
         // Inicializar disparos
-        for (int i = 0; i < _shots.Length; i++)
-        {
-            _shots[i] = _shotsUI.transform.GetChild(i).GetComponent<Image>();
-            if (i == 0) _shots[i].sprite = _gravActivated; // Disparo gravedad
-            else if (i == 1) _shots[i].sprite = _neuDeactivated; // Disparo neutralizado
-        }
+        for (int i = 0; i < _shots.Length; i++) _shots[i] = _shotsUI.transform.GetChild(i).GetComponent<Image>();
     }
 }

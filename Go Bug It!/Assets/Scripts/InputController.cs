@@ -21,6 +21,7 @@ public class InputController : MonoBehaviour
 
     #region properties
     private float direction;
+    private bool _isPaused;
     // Dash
     private float _elapseDash;
     [SerializeField] private float _dashCooldown;
@@ -35,11 +36,10 @@ public class InputController : MonoBehaviour
     private float _dash;
     private float _selectShot;
     private float _shoot;
-    private bool _ispaused;
+    private float _pause;
     #endregion
 
     #region methods
-    
     // Saber si el jugador esta tocando una superficie o no
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -71,16 +71,17 @@ public class InputController : MonoBehaviour
     {
         return _isGrounded;
     }
-    public bool Pause()//Describe si el boton de pausa se aprieta una vez o dos para pausar y despausar.
+
+    //Describe si el boton de pausa se aprieta una vez o dos para pausar y despausar.
+    public bool Pause()
     {
-        return _ispaused;
+        return _isPaused;
     }
-    #endregion
 
     IEnumerator changeGrav()
     {
         yield return new WaitForSeconds(0.2f);
-        
+
         if (_myAnimator.GetBool("OnGravityChange") == true)
         {
             _myAnimator.SetBool("OnGravityChange", false);
@@ -100,6 +101,8 @@ public class InputController : MonoBehaviour
         Debug.Log(_myAnimator.GetBool("Dash"));
  
     }
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {
@@ -110,7 +113,7 @@ public class InputController : MonoBehaviour
         _myAnimator = GetComponent<Animator>();
         _elapsedShoot = _shootCooldown;
         _elapsedSelect = _shotSelectCooldown;
-        _ispaused = false;
+        _isPaused = false;
     }
 
     // Update is called once per frame
@@ -122,6 +125,7 @@ public class InputController : MonoBehaviour
         _dash = Input.GetAxis("Dash");
         _selectShot = Input.GetAxis("SelectShot");
         _shoot = Input.GetAxis("Shoot");
+        _pause = Input.GetAxis("Pause");
 
         //Movimiento del personaje
         _movController.SetMovementDirection(_horizontal);
@@ -134,7 +138,6 @@ public class InputController : MonoBehaviour
             _myGravityComponent.ChangeGravity(_changeGravity);      //Llamamos al metodo ChangeGravity del script de gravedad
             StartCoroutine(changeGrav());
         }
-        
 
         // Dash
         if (_elapseDash > _dashCooldown && _dash > 0)
@@ -166,16 +169,17 @@ public class InputController : MonoBehaviour
             _elapsedShoot = 0;
         }
         else _elapsedShoot += Time.deltaTime;
-        // Detecta si ya estaba pausado o no
-        if (Input.GetKeyDown(KeyCode.P) && _ispaused == false)
+
+        // Pausa (se detecta si ya estaba pausado o no)
+        if ((Input.GetKeyDown(KeyCode.JoystickButton7) || Input.GetKeyDown(KeyCode.Escape)) && _isPaused == false)
         {
-            _ispaused = true;
-            GameManager.Instance.Pause(_ispaused);
+            _isPaused = true;
+            GameManager.Instance.Pause(_isPaused);
         }
-        else if (Input.GetKeyDown(KeyCode.P) && _ispaused == true)
+        else if ((Input.GetKeyDown(KeyCode.JoystickButton7) || Input.GetKeyDown(KeyCode.Escape)) && _isPaused == true)
         {
-            _ispaused = false;
-            GameManager.Instance.Pause(_ispaused);
+            _isPaused = false;
+            GameManager.Instance.Pause(_isPaused);
         }
     }
 

@@ -26,13 +26,14 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region methods
+    // Avance de nivel
     public void OnGoalAdvance()
     {
         _actualLevel++;
-        DontDestroyOnLoad(this.gameObject);
-        DontDestroyOnLoad(_myUIObject);
         SceneManager.LoadScene("Level 1");
     }
+
+    // Muerte de un enemigo
     public void OnEnemyDies (int _puntuation)
     {
         _myUIManager.UpdatePoints(_puntuation);
@@ -44,26 +45,36 @@ public class GameManager : MonoBehaviour
         _myUIManager.UpdatePlayerLife(lifePoints, false);
     }
 
+    // Cambio de disparo
     public void OnChangingShoot(int shot)
     {
         _myUIManager.UpdateShot(shot);
     }
-    public void Pause(bool pause)//Pausa el juego y abre el menu de pausa
+
+    //Pausa el juego y abre el menu de pausa
+    public void Pause(bool pause)
     {
         _myUIManager.Pause();
         if (pause == true) Time.timeScale = 0;
         else Time.timeScale = 1;
     }
 
+    // Cerrar juego
     public void Quit()
     {
         Application.Quit();
     }
     #endregion
 
+    // Curación del jugador
     public void OnPlayerHeals(int lifePoints)
     {
         _myUIManager.UpdatePlayerLife(lifePoints-1, true);
+    }
+
+    public void OnPlayerDies()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 
     // Initializes GameManager instance and list of enemies.
