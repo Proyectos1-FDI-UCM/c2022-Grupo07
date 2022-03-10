@@ -86,6 +86,20 @@ public class InputController : MonoBehaviour
         {
             _myAnimator.SetBool("OnGravityChange", false);
         }
+        Debug.Log(_myAnimator.GetBool("Dash"));
+   
+    }
+
+    IEnumerator changeDash()
+    {
+        yield return new WaitForSeconds(0.65f);
+
+        if (_myAnimator.GetBool("Dash") == true)
+        {
+            _myAnimator.SetBool("Dash", false);
+        }
+        Debug.Log(_myAnimator.GetBool("Dash"));
+ 
     }
     #endregion
 
@@ -128,10 +142,16 @@ public class InputController : MonoBehaviour
         // Dash
         if (_elapseDash > _dashCooldown && _dash > 0)
         {
+            _myAnimator.SetBool("Dash", true);
             _movController.SetDash();
             _elapseDash = 0;
+            _myAnimator.SetBool("Dash", true);
+            StartCoroutine(changeDash());
+            Debug.Log(_myAnimator.GetBool("Dash"));
+            
         }
         else if(_isGrounded) _elapseDash += Time.deltaTime;
+        
 
         // Selección de disparo
         if (_elapsedSelect > _shotSelectCooldown && _selectShot > 0)
