@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &803591904461156996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2624207983960938261}
+  - component: {fileID: 7267830585329733516}
+  m_Layer: 0
+  m_Name: privateEscudo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2624207983960938261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803591904461156996}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2, y: 0, z: 0}
+  m_LocalScale: {x: 4.7, y: 3, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3002044054825558893}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &7267830585329733516
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803591904461156996}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &2069476445085253241
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,6 +111,7 @@ GameObject:
   - component: {fileID: 6243002863010358820}
   - component: {fileID: 968069071213106447}
   - component: {fileID: -2211591195652529424}
+  - component: {fileID: -9025358035622383297}
   - component: {fileID: 4551726149934083768}
   m_Layer: 0
   m_Name: Player
@@ -85,6 +133,7 @@ Transform:
   m_Children:
   - {fileID: 1875590936885397656}
   - {fileID: 2417297778872714800}
+  - {fileID: 2624207983960938261}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -250,6 +299,22 @@ MonoBehaviour:
   _hitDamage: 1
   _respawnX: -5
   _respawnY: 0
+--- !u!114 &-9025358035622383297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523253112470009940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af4068ae00a0baa4a9da218822ef19ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shieldDuration: 0
+  _structDuration: 0
+  _spDuration: 0
+  _myShield: {fileID: 0}
 --- !u!95 &4551726149934083768
 Animator:
   serializedVersion: 3
