@@ -157,11 +157,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457368, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_Name
-      value: WindowsDefender (4)
+      value: WindowsDefender 5
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457371, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457371, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_LocalPosition.x
@@ -338,7 +338,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5874486140335431798, guid: f754358ccc1ad3945a2d7227f477a26b, type: 3}
       propertyPath: m_Name
-      value: ChekpointBlock (3)
+      value: ChekpointBlock 4
       objectReference: {fileID: 0}
     - target: {fileID: 6089521286043704676, guid: f754358ccc1ad3945a2d7227f477a26b, type: 3}
       propertyPath: m_RootOrder
@@ -470,7 +470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457368, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_Name
-      value: WindowsDefender
+      value: WindowsDefender 1
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457371, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_RootOrder
@@ -522,6 +522,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5238146096993457371, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
   m_PrefabInstance: {fileID: 298860493}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &330018949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4523253112470009940, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
+  m_PrefabInstance: {fileID: 656898166}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &385272792 stripped
 GameObject:
@@ -627,7 +632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4878665261889845128, guid: 7976ec05349696d45b2cc6896527fcd8, type: 3}
       propertyPath: m_Name
-      value: Mcafee (2)
+      value: Mcafee 3
       objectReference: {fileID: 0}
     - target: {fileID: 4878665261889845128, guid: 7976ec05349696d45b2cc6896527fcd8, type: 3}
       propertyPath: m_IsActive
@@ -835,7 +840,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5874486140335431798, guid: f754358ccc1ad3945a2d7227f477a26b, type: 3}
       propertyPath: m_Name
-      value: ChekpointBlock
+      value: ChekpointBlock 1
       objectReference: {fileID: 0}
     - target: {fileID: 6089521286043704676, guid: f754358ccc1ad3945a2d7227f477a26b, type: 3}
       propertyPath: m_RootOrder
@@ -941,7 +946,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8656381694770222096, guid: c00e3b88f639f1c4ba984e2c1de12a84, type: 3}
       propertyPath: m_Name
-      value: Room (1)
+      value: Room 1
       objectReference: {fileID: 0}
     - target: {fileID: 8656381694770222097, guid: c00e3b88f639f1c4ba984e2c1de12a84, type: 3}
       propertyPath: m_RootOrder
@@ -1497,6 +1502,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2680697669183223878, guid: f42427efad87f0246a1e8c185e4c86d1, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 330018949}
+    - target: {fileID: 2680697669183223878, guid: f42427efad87f0246a1e8c185e4c86d1, type: 3}
       propertyPath: _myUIObject
       value: 
       objectReference: {fileID: 223665151}
@@ -1557,7 +1566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457368, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_Name
-      value: WindowsDefender (1)
+      value: WindowsDefender 2
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457371, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_RootOrder
@@ -1636,7 +1645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4878665261889845128, guid: 7976ec05349696d45b2cc6896527fcd8, type: 3}
       propertyPath: m_Name
-      value: Mcafee (1)
+      value: Mcafee 2
       objectReference: {fileID: 0}
     - target: {fileID: 4878665261889845128, guid: 7976ec05349696d45b2cc6896527fcd8, type: 3}
       propertyPath: m_IsActive
@@ -1799,7 +1808,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5874486140335431798, guid: f754358ccc1ad3945a2d7227f477a26b, type: 3}
       propertyPath: m_Name
-      value: ChekpointBlock (2)
+      value: ChekpointBlock 3
       objectReference: {fileID: 0}
     - target: {fileID: 6089521286043704676, guid: f754358ccc1ad3945a2d7227f477a26b, type: 3}
       propertyPath: m_RootOrder
@@ -2311,7 +2320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4878665261889845128, guid: 7976ec05349696d45b2cc6896527fcd8, type: 3}
       propertyPath: m_Name
-      value: Mcafee (3)
+      value: Mcafee 4
       objectReference: {fileID: 0}
     - target: {fileID: 4878665261889845128, guid: 7976ec05349696d45b2cc6896527fcd8, type: 3}
       propertyPath: m_IsActive
@@ -2319,7 +2328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6078720254043927575, guid: 7976ec05349696d45b2cc6896527fcd8, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6078720254043927575, guid: 7976ec05349696d45b2cc6896527fcd8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2385,11 +2394,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457368, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_Name
-      value: WindowsDefender (3)
+      value: WindowsDefender 3
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457371, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457371, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2447,7 +2456,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5874486140335431798, guid: f754358ccc1ad3945a2d7227f477a26b, type: 3}
       propertyPath: m_Name
-      value: ChekpointBlock (1)
+      value: ChekpointBlock 2
       objectReference: {fileID: 0}
     - target: {fileID: 6089521286043704676, guid: f754358ccc1ad3945a2d7227f477a26b, type: 3}
       propertyPath: m_RootOrder
@@ -2662,7 +2671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4878665261889845128, guid: 7976ec05349696d45b2cc6896527fcd8, type: 3}
       propertyPath: m_Name
-      value: Mcafee
+      value: Mcafee 1
       objectReference: {fileID: 0}
     - target: {fileID: 6078720254043927575, guid: 7976ec05349696d45b2cc6896527fcd8, type: 3}
       propertyPath: m_RootOrder
@@ -2904,7 +2913,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8656381694770222096, guid: c00e3b88f639f1c4ba984e2c1de12a84, type: 3}
       propertyPath: m_Name
-      value: Room
+      value: Room 2
       objectReference: {fileID: 0}
     - target: {fileID: 8656381694770222097, guid: c00e3b88f639f1c4ba984e2c1de12a84, type: 3}
       propertyPath: m_RootOrder
@@ -3241,10 +3250,10 @@ Transform:
   - {fileID: 1036127722}
   - {fileID: 1086534186}
   - {fileID: 603955216}
-  - {fileID: 2056859645}
   - {fileID: 1358465895}
-  - {fileID: 1351799557}
+  - {fileID: 2056859645}
   - {fileID: 122985505}
+  - {fileID: 1351799557}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4810,11 +4819,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457368, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_Name
-      value: WindowsDefender (2)
+      value: WindowsDefender 4
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457371, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457371, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_LocalPosition.x
