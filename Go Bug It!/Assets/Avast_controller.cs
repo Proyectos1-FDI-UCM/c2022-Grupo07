@@ -50,7 +50,6 @@ public class Avast_controller : MonoBehaviour
                     _player.Damage();
                     Debug.Log("Pillado");
                   }
-                    Debug.Log("Casi Pillado");
                 }
                 
             }
