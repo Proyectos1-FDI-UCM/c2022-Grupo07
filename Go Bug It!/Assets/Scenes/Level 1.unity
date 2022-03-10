@@ -2810,8 +2810,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4729239257457353065, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
+      propertyPath: _pauseMenu
+      value: 
+      objectReference: {fileID: 1579916392}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
+--- !u!1 &1579916392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7695450327556563109, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+  m_PrefabInstance: {fileID: 1957229474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1613838089 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8036633235697378647, guid: 3a7a9571803eceb46816844f80bcc83c, type: 3}
