@@ -29,6 +29,7 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         _currLife -= _hitDamage;
         GameManager.Instance.OnPlayerDamage(_currLife);
+
         transform.position = new Vector2(_respawnX, _respawnY);
     }
 

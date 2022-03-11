@@ -7,6 +7,7 @@ public class AvastController : MonoBehaviour
 
     #region references
     private Transform _mytransform;
+    private Animator _myanimator;
     #endregion
 
     #region parameters
@@ -28,6 +29,7 @@ public class AvastController : MonoBehaviour
         _elapsedCoolDown = 0;
         _elapsedDuration = 0;
         _shooting = false;
+        _myanimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,7 @@ public class AvastController : MonoBehaviour
         if (!_shooting) _elapsedCoolDown += Time.deltaTime; //Podemos dejar una parte del cooldown con la animaciónd e idle y otra con la de carga
         if (_shooting) _elapsedDuration += Time.deltaTime;
         else if (!_shooting) _elapsedDuration = 0;
+        _myanimator.SetFloat("_elapsedCoolDown", _elapsedCoolDown);
         if (_elapsedCoolDown >= _rayCoolDown)
         {
             _shooting = true;
