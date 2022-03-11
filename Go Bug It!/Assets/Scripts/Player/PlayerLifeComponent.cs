@@ -56,15 +56,20 @@ public class PlayerLifeComponent : MonoBehaviour
             } 
         }
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
         // Colisión con la zona de muerte
         DeathZoneComponent _deathZone = collision.gameObject.GetComponent<DeathZoneComponent>();
-        
+
         if (_deathZone != null)
         {
             Damage();
             transform.position = new Vector2(_respawnX, _respawnY);
         }
     }
+
 
     public void Dies()
     {
