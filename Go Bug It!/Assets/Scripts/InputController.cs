@@ -43,7 +43,8 @@ public class InputController : MonoBehaviour
     // Saber si el jugador esta tocando una superficie o no
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        _isGrounded = true;
+        if (!collision.isTrigger)
+            _isGrounded = true;
     }
 
     // Marcar que el jugador no está tocando el suelo
