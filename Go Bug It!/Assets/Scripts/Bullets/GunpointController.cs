@@ -10,15 +10,15 @@ public class GunpointController : MonoBehaviour
     [SerializeField] private GameObject _gravShot; // Bala gravitatoria
     [SerializeField] private GameObject _neuShot; // Bala neutralizadora
     [SerializeField] private Transform Gun; // Posición del label Gun
+    [SerializeField] private Transform _playerTransform; // Posición del label Gun
     private InputController _myinput;
-    private Transform _playerTransform;
     private Animator _playerAnimator;
     #endregion
 
     #region properties
     public enum ShootType {Gravity, Neutralize}
     [SerializeField, Range(0, 1)] private ShootType _shot = 0;
-    private Vector2 _direction;
+    private Vector3 _direction;
     #endregion
 
     #region parameters
@@ -27,19 +27,42 @@ public class GunpointController : MonoBehaviour
 
     #region methods
     // Instanciación de la bala
-    public void Shoot()
+    public void RegularShoot()
     {
-        bool _prevdirection = true;
-        if (_myinput.GetDirection() > 0) _prevdirection = true; // decide cual es la dirección de disparo según la dirección anterior.
-        else if (_myinput.GetDirection() < 0) _prevdirection = false;
-        if (_prevdirection == false)
+        if (_shot == ShootType.Gravity)
         {
-            _direction = _myTransform.position;
-            _direction.x -= (2 * _offset); 
+            GameObject _grav = GameObject.Instantiate(_gravShot, _direction, _myTransform.rotation);
+            _grav.GetComponent<BulletMovementController>().SetMovementDirection(BulletOrientation());
         }
-        else if (_prevdirection == true) _direction = _myTransform.position;// si es positivo, se dispara desde la posición del gunpoint (a la dcha.)
-        if (_shot == ShootType.Gravity) GameObject.Instantiate(_gravShot, new Vector3(_direction.x, _direction.y, 0.0f), _myTransform.rotation);
-        else GameObject.Instantiate(_neuShot, new Vector3(_direction.x, _direction.y, 0.0f), _myTransform.rotation);
+        else
+        {
+            GameObject _neu = GameObject.Instantiate(_neuShot, _direction, _myTransform.rotation);
+            _neu.GetComponent<BulletMovementController>().SetMovementDirection(BulletOrientation());
+        }
+    }
+
+    public void TripleShoot()
+    {
+
+    }
+
+    // Asignar la orientación de la bala según la del jugador
+    public int  BulletOrientation()
+    {
+        int sign = 0;
+
+        if (_playerTransform.localScale.x > 0)
+        {
+            _direction = new Vector3(_myTransform.position.x + _offset, _myTransform.position.y, 0.0f);
+            sign = 1;
+        }
+        else
+        {
+            _direction = new Vector3(_myTransform.position.x - _offset, _myTransform.position.y, 0.0f);
+            sign = -1;
+        }
+
+        return sign;
     }
 
     // Cambio de disparo
@@ -67,7 +90,6 @@ public class GunpointController : MonoBehaviour
     void Start()
     {
         _myTransform = transform;
-        _playerTransform = GetComponentInParent<Transform>();
         _myinput = GetComponentInParent<InputController>();
         _playerAnimator = GetComponentInParent<Animator>();
         _playerAnimator.SetBool("GravShot", true);
