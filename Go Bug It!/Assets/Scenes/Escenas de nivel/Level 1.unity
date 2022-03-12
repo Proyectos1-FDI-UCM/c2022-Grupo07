@@ -756,6 +756,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5626999219870058935, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
+      propertyPath: _offset
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626999219870058935, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
+      propertyPath: _playerTransform
+      value: 
+      objectReference: {fileID: 1065148628}
     - target: {fileID: 6243002863010358820, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
       propertyPath: _maxspeed
       value: 7

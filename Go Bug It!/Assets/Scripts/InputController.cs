@@ -20,7 +20,7 @@ public class InputController : MonoBehaviour
     #endregion
 
     #region properties
-    private float direction;
+    private float _localScale;
     private bool _isPaused;
     // Dash
     private float _elapseDash;
@@ -54,29 +54,16 @@ public class InputController : MonoBehaviour
             _isGrounded = false;
     }
 
-    // Asignar la orientación de la bala según la del jugador
-    public void Switch()
-    {
-        if (_horizontal > 0) direction = 1;
-        else if (_horizontal < 0) direction = -1;
-    }
-
     // Devuelve la dirección
     public float GetDirection()
     {
-        return direction;
+        return _localScale;
     }
 
     // Devuelve la variable booleana que determina si está o no tocando el suelo
     public bool GetGrounded()
     {
         return _isGrounded;
-    }
-
-    //Describe si el boton de pausa se aprieta una vez o dos para pausar y despausar.
-    public bool Pause()
-    {
-        return _isPaused;
     }
 
     IEnumerator changeGrav()
@@ -165,8 +152,8 @@ public class InputController : MonoBehaviour
         // Disparo y orientación de la bala
         if (_elapsedShoot > _shootCooldown && _isGrounded && _shoot > 0)
         {
-            Switch();
-            _myGunpoint.Shoot();
+            _localScale = gameObject.transform.localScale.x;
+            _myGunpoint.RegularShoot();
             _elapsedShoot = 0;
         }
         else _elapsedShoot += Time.deltaTime;
