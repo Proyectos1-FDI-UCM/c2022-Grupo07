@@ -29,15 +29,16 @@ public class GunpointController : MonoBehaviour
     // Instanciación de la bala
     public void RegularShoot()
     {
+        int _sign = BulletOrientation();
         if (_shot == ShootType.Gravity)
         {
             GameObject _grav = GameObject.Instantiate(_gravShot, _direction, _myTransform.rotation);
-            _grav.GetComponent<BulletMovementController>().SetMovementDirection(BulletOrientation());
+            _grav.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
         }
         else
         {
             GameObject _neu = GameObject.Instantiate(_neuShot, _direction, _myTransform.rotation);
-            _neu.GetComponent<BulletMovementController>().SetMovementDirection(BulletOrientation());
+            _neu.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
         }
     }
 
