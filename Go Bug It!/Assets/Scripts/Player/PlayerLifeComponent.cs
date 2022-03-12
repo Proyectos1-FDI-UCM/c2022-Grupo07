@@ -75,9 +75,10 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         _myAnimator.SetBool("Dies", true);
         _myMov.enabled = false;
-        _myRigidbody.simulated = false;
+        _myRigidbody.velocity = new Vector2(0, 0);
+        //Si da problemas lo de subir mientras mueres, _myrigidboy.gravityscale=0.
         Destroy(gameObject, 1.1f);
-        SceneManager.LoadScene("GameOver");
+        GameManager.Instance.OnPlayerDies();
     }
 
     public void SetRespawnPosition(Vector3 _newRespawnPosition)
