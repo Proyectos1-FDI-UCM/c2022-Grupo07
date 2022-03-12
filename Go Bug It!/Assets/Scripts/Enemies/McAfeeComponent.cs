@@ -6,6 +6,8 @@ public class McAfeeComponent : MonoBehaviour
 {
     #region parameters
     [SerializeField] private int _range = 4;
+    [SerializeField] private float _shootCooldown = 2.0f;
+    [SerializeField] private float _offset;
     #endregion
 
     #region references
@@ -13,51 +15,54 @@ public class McAfeeComponent : MonoBehaviour
     private GameObject _myBullet;
     private Transform _myTransform;
     private GameObject _myPlayer;
-    private double _lastShot;
-    [SerializeField] private GameObject _myOffsetDisparo;
-    [SerializeField] private bool lookingRight = false;
+    private bool lookingRight = false;
     #endregion
 
     #region properties
-    private Vector2 _targetPosition;
-    [HideInInspector] public bool _neutralized = false; 
+    [HideInInspector] public bool _neutralized = false;
+    private float _elapsedTime;
+    private float _playerDistance;
+    private Vector3 _instancePosition;
     #endregion
 
     #region methods
 
     public void Shoot()
     {
-        if (Vector2.Distance(_myPlayer.transform.position, transform.position) < _range && Time.time > _lastShot + 1 && !_neutralized)
-        {
-            Vector3 posBullet = _myOffsetDisparo.transform.position;
-            Instantiate(_myBullet, posBullet, Quaternion.identity);
-            _lastShot = Time.time;
-        }
+        GameObject _bulletShot = GameObject.Instantiate(_myBullet, _instancePosition, Quaternion.identity);
+        _bulletShot.GetComponent<McAfeeBullet>().SetDirection(SetBulletDirection());
+        _elapsedTime = _shootCooldown;
+    }
 
+    public Vector3 SetBulletDirection()
+    {
+        if (lookingRight) return Vector3.right;
+        else return Vector3.left;
     }
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        _myTransform = transform;
+        _myTransform = gameObject.transform;
         _myPlayer = GameObject.FindGameObjectWithTag("Player");
+        _elapsedTime = _shootCooldown;
 
+        if (_myTransform.rotation.y == 180) lookingRight = true;
+
+        if (lookingRight) _instancePosition = _myTransform.position + new Vector3(_offset, 0, 0);
+        else _instancePosition = _myTransform.position - new Vector3(_offset, 0, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
+        _playerDistance = Mathf.Abs(Vector3.Distance(_myPlayer.transform.position, _myTransform.position));
 
-        if (_myPlayer.transform.position.x - transform.position.x > 0 && lookingRight)
+        _elapsedTime -= Time.deltaTime;
+        if (_elapsedTime <= 0 && _playerDistance <= _range && !_neutralized)
         {
             Shoot();
-
-        }
-        else if (_myPlayer.transform.position.x - transform.position.x <= 0 && !lookingRight)
-        {
-            Shoot();
-
         }
     }
 }
