@@ -45,7 +45,8 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         // Colisión con un enemigo
         EnemyLifeComponent _enemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
-        
+        WhileTrue_controller _whiletrue= collision.gameObject.GetComponent<WhileTrue_controller>();
+
         if (_enemy != null)
         {
             NeuEnemyComponent _neuEnemy = _enemy.GetComponent<NeuEnemyComponent>();
@@ -53,8 +54,9 @@ public class PlayerLifeComponent : MonoBehaviour
             if (_neuEnemy != null)
             {
                 if (_neuEnemy.GetNeutralization() != true) Damage();
-            } 
+            }
         }
+        else if (_whiletrue != null) Damage();
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
