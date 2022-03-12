@@ -14,17 +14,6 @@ public class EnemyLifeComponent : MonoBehaviour
     #endregion
 
     #region methods
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        _myAnimator.SetBool("ChangingGrav", false);
-
-        if(collision.gameObject.layer==7)// Si el enemigo toca una deathzone, muere, se destruye.
-        {
-            GameManager.Instance.OnEnemyDies(_puntuation);
-            Destroy(this.gameObject);
-        }
-    }
-
     public int GetPoints()
     {
         return _puntuation;

@@ -26,6 +26,12 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region methods
+    //Espera hasta que termine la animación de muerte
+    IEnumerator WaitDeath()
+    {
+        yield return new WaitForSeconds(1.1f);
+        SceneManager.LoadScene("GameOver");
+    }
     // Avance de nivel
     public void OnGoalAdvance()
     {
@@ -74,7 +80,7 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerDies()
     {
-        SceneManager.LoadScene("GameOver");
+        StartCoroutine(WaitDeath());
     }
 
     // Initializes GameManager instance and list of enemies.

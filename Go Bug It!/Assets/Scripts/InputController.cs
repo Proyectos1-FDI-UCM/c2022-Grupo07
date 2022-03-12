@@ -74,8 +74,6 @@ public class InputController : MonoBehaviour
         {
             _myAnimator.SetBool("OnGravityChange", false);
         }
-        Debug.Log(_myAnimator.GetBool("Dash"));
-   
     }
 
     IEnumerator changeDash()
@@ -86,8 +84,6 @@ public class InputController : MonoBehaviour
         {
             _myAnimator.SetBool("Dash", false);
         }
-        Debug.Log(_myAnimator.GetBool("Dash"));
- 
     }
     #endregion
 
