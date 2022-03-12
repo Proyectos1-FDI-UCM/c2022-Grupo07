@@ -249,6 +249,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1834584765, guid: deea0086779ca214f84cfdbe1ac39329, type: 3}
+      propertyPath: m_FirstSelected
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2338108167503545351, guid: deea0086779ca214f84cfdbe1ac39329, type: 3}
       propertyPath: m_Name
       value: StartMenu
