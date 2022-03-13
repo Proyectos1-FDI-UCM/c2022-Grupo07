@@ -242,17 +242,13 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
---- !u!1001 &5372781453324571560
+--- !u!1001 &674928194
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1834584765, guid: deea0086779ca214f84cfdbe1ac39329, type: 3}
-      propertyPath: m_FirstSelected
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2338108167503545351, guid: deea0086779ca214f84cfdbe1ac39329, type: 3}
       propertyPath: m_Name
       value: StartMenu
@@ -263,11 +259,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4981478370311297505, guid: deea0086779ca214f84cfdbe1ac39329, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 220.781
       objectReference: {fileID: 0}
     - target: {fileID: 4981478370311297505, guid: deea0086779ca214f84cfdbe1ac39329, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 332.7223
       objectReference: {fileID: 0}
     - target: {fileID: 4981478370311297505, guid: deea0086779ca214f84cfdbe1ac39329, type: 3}
       propertyPath: m_LocalPosition.z

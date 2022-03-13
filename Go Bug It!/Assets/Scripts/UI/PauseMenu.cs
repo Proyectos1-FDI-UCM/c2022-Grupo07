@@ -4,32 +4,39 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
-public class StartMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
     #region references
-    [SerializeField] private GameObject _startFirtsButton;
+    [SerializeField] private GameObject _firstPauseButton;
     #endregion
 
     #region methods
-    //Carga la escena del tutorial (primer nivel)
-    public void StartGame()
+    // Volver al menú
+    public void MainMenu()
     {
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("MainMenu");
     }
 
-    //Cierra el juego
-    public void Quit()
+    // Mostrar controles
+    public void ControllsMenu()
     {
-        Application.Quit();
+
+    }
+
+    // Mostrar las opciones
+    public void OptionsMenu()
+    {
+
     }
     #endregion
 
+    // Start is called before the first frame update
     void Start()
     {
         // Asegurarse de que no se selecciona ningún botón de base
         EventSystem.current.SetSelectedGameObject(null);
 
         // Asignar el botón inicial del menú
-        EventSystem.current.SetSelectedGameObject(_startFirtsButton);
+        EventSystem.current.SetSelectedGameObject(_firstPauseButton);
     }
 }

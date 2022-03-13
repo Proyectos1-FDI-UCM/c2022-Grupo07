@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 8181ccaa3bc20cb44a15698f52a9b605
+guid: e76c6143e30756e4dbabc5e6932b3aa1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -873763351372525546
-    second: QuitButtonAnim_0
+      213: -5467991084090682498
+    second: StartButtonAnim_0
   - first:
-      213: -7481177609157975403
-    second: QuitButtonAnim_1
+      213: -4442395799649808650
+    second: StartButtonAnim_1
+  - first:
+      213: 3939834756094199239
+    second: StartButtonAnim_2
+  - first:
+      213: 3760765889470677293
+    second: StartButtonAnim_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: QuitButtonAnim_0
+      name: StartButtonAnim_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 528.5
-        width: 512
-        height: 528.5
+        y: 544
+        width: 527
+        height: 544
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +117,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6109faf7cd4cfd3f0800000000000000
-      internalID: -873763351372525546
+      spriteID: e7395c5641bcd14b0800000000000000
+      internalID: -5467991084090682498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: QuitButtonAnim_1
+      name: StartButtonAnim_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0.5
-        width: 512
-        height: 528.5
+        x: 527
+        y: 544
+        width: 527
+        height: 544
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +138,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5926888f9948d2890800000000000000
-      internalID: -7481177609157975403
+      spriteID: 6fe8f2a9e807952c0800000000000000
+      internalID: -4442395799649808650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StartButtonAnim_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 527
+        height: 544
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c58bb626da1da630800000000000000
+      internalID: 3939834756094199239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StartButtonAnim_3
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 0
+        width: 527
+        height: 544
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d214e4da6ace03430800000000000000
+      internalID: 3760765889470677293
       vertices: []
       indices: 
       edges: []

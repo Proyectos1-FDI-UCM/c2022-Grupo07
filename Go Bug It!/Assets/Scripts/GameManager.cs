@@ -17,9 +17,11 @@ public class GameManager : MonoBehaviour
     // Patrón singleton
     static private GameManager _instance;
     static public GameManager Instance { get { return _instance; } }
-    // UI
+    // UI y pausa
     [SerializeField] private GameObject _myUIObject;
     private UIManager _myUIManager;
+    [SerializeField] private GameObject _myPauseObject;
+    // Jugador
     [SerializeField] private GameObject _player;
     private InputController _myinput;
     private PlayerLifeComponent _myLife;
@@ -91,6 +93,7 @@ public class GameManager : MonoBehaviour
         _myUIManager = _myUIObject.GetComponent<UIManager>();
         _myinput = _player.GetComponent<InputController>();
         _myLife = _player.GetComponent<PlayerLifeComponent>();
+        _myPauseObject.SetActive(false);
     }
 
     // Update is called once per frame
