@@ -39,6 +39,7 @@ public class AvastController : MonoBehaviour
         if (_shooting) _elapsedDuration += Time.deltaTime;
         else if (!_shooting) _elapsedDuration = 0;
         _myanimator.SetFloat("_elapsedCoolDown", _elapsedCoolDown);
+        _myanimator.SetBool("_shooting", _shooting);
         if (_elapsedCoolDown >= _rayCoolDown)
         {
             _shooting = true;
