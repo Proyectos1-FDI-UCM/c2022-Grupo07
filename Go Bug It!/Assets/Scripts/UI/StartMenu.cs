@@ -2,17 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class StartMenu : MonoBehaviour
 {
+    #region references
+    [SerializeField] private GameObject _startFirtsButton;
+    #endregion
+
     #region methods
-    public void StartGame() //Carga la escena del tutorial (primer nivel)
+    //Carga la escena del tutorial (primer nivel)
+    public void StartGame()
     {
-        SceneManager.LoadScene("Tutorial");// Al darle al start, te mete en el tutorial.
+        SceneManager.LoadScene("Tutorial");
     }
-    public void Quit() //Cierra la aplicación
+
+    //Cierra el juego
+    public void Quit()
     {
         Application.Quit();
     }
     #endregion
+
+    void Start()
+    {
+        // Asegurarse de que no se selecciona ningún botón de base
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Asignar el botón inicial del menú
+        EventSystem.current.SetSelectedGameObject(_startFirtsButton);
+    }
 }
