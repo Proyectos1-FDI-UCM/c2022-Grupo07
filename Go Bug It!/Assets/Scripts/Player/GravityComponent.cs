@@ -22,7 +22,13 @@ public class GravityComponent : MonoBehaviour
         if (grav) _myRigidbody.gravityScale = -_myGravityScale;
         else _myRigidbody.gravityScale = _myGravityScale;
         gameObject.transform.Rotate(0, 180, 180);
-        
+
+    }
+
+    public void SetNewGravValue(float multiplier)
+    {
+        _myGravityScale /= multiplier;
+        Debug.Log("Valor grav " + _myGravityScale);
     }
     #endregion
 
