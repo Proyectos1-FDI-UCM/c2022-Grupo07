@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &447787370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4505385846977662615, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
+  m_PrefabInstance: {fileID: 1145690057}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &853310090
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +480,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9025358035622383297, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
+      propertyPath: _myShield
+      value: 
+      objectReference: {fileID: 447787370}
+    - target: {fileID: -9025358035622383297, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
+      propertyPath: _myBulletMovController
+      value: 
+      objectReference: {fileID: 2605744409412045724, guid: 66b270ae0bb1f3747a4a117e131fcd59, type: 3}
     - target: {fileID: 3002044054825558893, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
       propertyPath: m_RootOrder
       value: 2

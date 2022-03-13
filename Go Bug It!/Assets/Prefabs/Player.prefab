@@ -46,8 +46,56 @@ MonoBehaviour:
   _gravShot: {fileID: 8139773162008822916, guid: 66b270ae0bb1f3747a4a117e131fcd59, type: 3}
   _neuShot: {fileID: 8139773162008822916, guid: 38641e983279917458a9db43236fbc1b, type: 3}
   Gun: {fileID: 1875590936885397656}
+  _playerTransform: {fileID: 0}
   _shot: 0
   _offset: 0.9
+--- !u!1 &4505385846977662615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2311081658469301392}
+  - component: {fileID: 5376364959642948379}
+  m_Layer: 0
+  m_Name: privateEscudo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2311081658469301392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4505385846977662615}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3002044054825558893}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &5376364959642948379
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4505385846977662615}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &4523253112470009940
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +134,7 @@ Transform:
   m_Children:
   - {fileID: 1875590936885397656}
   - {fileID: 2417297778872714800}
+  - {fileID: 2311081658469301392}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -267,7 +316,10 @@ MonoBehaviour:
   _shieldDuration: 0
   _structDuration: 0
   _spDuration: 0
+  _spamDuration: 0
+  _slowValue: 0.5
   _myShield: {fileID: 0}
+  _myBulletMovController: {fileID: 0}
 --- !u!95 &4551726149934083768
 Animator:
   serializedVersion: 3

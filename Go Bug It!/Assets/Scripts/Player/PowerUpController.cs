@@ -6,13 +6,13 @@ public class PowerUpController : MonoBehaviour
 {
     #region parameters
     [SerializeField]
-    private float _shieldDuration;
+    private float _shieldDuration = 1.0f;
     [SerializeField]
-    private float _structDuration;
+    private float _structDuration = 1.0f;
     [SerializeField]
-    private float _spDuration;
+    private float _spDuration = 1.0f;
     [SerializeField]
-    private float _spamDuration;
+    private float _spamDuration = 1.0f;
     [SerializeField] private float _slowValue = 0.5f;
     #endregion
 
@@ -35,6 +35,11 @@ public class PowerUpController : MonoBehaviour
     #endregion
 
     #region methods
+    private void Awake()
+    {
+        _myShield.SetActive(false);
+    }
+
     public void ShieldControl(bool state)
     {
         _shieldPowerUp = state;
