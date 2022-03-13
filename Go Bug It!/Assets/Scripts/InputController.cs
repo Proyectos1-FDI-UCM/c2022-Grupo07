@@ -153,7 +153,7 @@ public class InputController : MonoBehaviour
         if (_elapsedShoot > _shootCooldown && _isGrounded && _shoot > 0)
         {
             _localScale = gameObject.transform.localScale.x;
-            _myGunpoint.RegularShoot();
+            _myGunpoint.TripleShoot();
             _elapsedShoot = 0;
         }
         else _elapsedShoot += Time.deltaTime;
