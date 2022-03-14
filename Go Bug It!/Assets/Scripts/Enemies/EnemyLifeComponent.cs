@@ -18,5 +18,11 @@ public class EnemyLifeComponent : MonoBehaviour
     {
         return _puntuation;
     }
+
+    public void Dies()
+    {
+        GameManager.Instance.OnEnemyDies(GetPoints());
+        Destroy(gameObject);
+    }
     #endregion
 }

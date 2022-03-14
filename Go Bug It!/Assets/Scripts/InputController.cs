@@ -41,7 +41,7 @@ public class InputController : MonoBehaviour
 
     #region methods
     // Saber si el jugador esta tocando una superficie o no
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerStay2D(Collider2D collision)
     {
         if (!collision.isTrigger)
             _isGrounded = true;
@@ -149,7 +149,7 @@ public class InputController : MonoBehaviour
         if (_elapsedShoot > _shootCooldown && _isGrounded && _shoot > 0)
         {
             _localScale = gameObject.transform.localScale.x;
-            _myGunpoint.RegularShoot();
+            _myGunpoint.RaycastShoot();
             _elapsedShoot = 0;
         }
         else _elapsedShoot += Time.deltaTime;

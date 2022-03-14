@@ -25,6 +25,11 @@ public class BulletMovementController : MonoBehaviour
     {
         _myMovement *= sign;
     }
+
+    public void SetNewSpeed(float multiplier)
+    {
+        _shotSpeed *= multiplier;
+    }
     #endregion
 
     // Start is called before the first frame update

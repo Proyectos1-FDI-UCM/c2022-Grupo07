@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EscudoComponent : MonoBehaviour
+public class PrivShieldComponent : MonoBehaviour
 {
     #region references
     private Collider2D _myCollider;
