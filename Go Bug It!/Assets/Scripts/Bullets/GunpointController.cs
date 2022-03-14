@@ -23,6 +23,7 @@ public class GunpointController : MonoBehaviour
 
     #region parameters
     [SerializeField] private float _offset;
+    [SerializeField] private float _tripleShotAngle = 45;
     #endregion
 
     #region methods
@@ -44,7 +45,31 @@ public class GunpointController : MonoBehaviour
 
     public void TripleShoot()
     {
-
+        int _sign = BulletOrientation();
+        if (_shot == ShootType.Gravity)
+        {
+            //Bala 1
+            GameObject _grav = GameObject.Instantiate(_gravShot, _direction, _myTransform.rotation);
+            _grav.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            //Bala 2
+            GameObject _grav1 = GameObject.Instantiate(_gravShot, _direction, Quaternion.AngleAxis(_tripleShotAngle, transform.forward));
+            _grav1.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            //Bala 3
+            GameObject _grav2 = GameObject.Instantiate(_gravShot, _direction, Quaternion.AngleAxis(-_tripleShotAngle, transform.forward));
+            _grav2.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+        }
+        else
+        {
+            //Bala 1
+            GameObject _neu = GameObject.Instantiate(_neuShot, _direction, _myTransform.rotation);
+            _neu.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            //Bala 2
+            GameObject _neu1 = GameObject.Instantiate(_neuShot, _direction, Quaternion.AngleAxis(_tripleShotAngle, transform.forward));
+            _neu1.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            //Bala 3
+            GameObject _neu2 = GameObject.Instantiate(_neuShot, _direction, Quaternion.AngleAxis(-_tripleShotAngle, transform.forward));
+            _neu2.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+        }
     }
 
     // Asignar la orientación de la bala según la del jugador
