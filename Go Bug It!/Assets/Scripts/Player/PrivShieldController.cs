@@ -14,6 +14,7 @@ public class PrivShieldController : MonoBehaviour
     {
         if (collision.gameObject.layer == 6) _myPowerUpController.ShieldControl(false);
     }
+    
     #endregion
     // Start is called before the first frame update
     void Start()

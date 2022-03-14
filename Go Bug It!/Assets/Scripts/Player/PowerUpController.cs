@@ -65,6 +65,11 @@ public class PowerUpController : MonoBehaviour
         else _durationTime = 0;
     }
 
+    public void ShootSP()
+    {
+
+    }
+
     public void SpamControl(bool state)
     {
         _spamPowerUp = state;

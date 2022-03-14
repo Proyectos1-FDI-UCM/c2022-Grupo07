@@ -13,6 +13,7 @@ public class GunpointController : MonoBehaviour
     [SerializeField] private Transform _playerTransform; // Posición del label Gun
     private InputController _myinput;
     private Animator _playerAnimator;
+    private LineRenderer _myRay;
     #endregion
 
     #region properties
@@ -45,6 +46,31 @@ public class GunpointController : MonoBehaviour
     public void TripleShoot()
     {
 
+    }
+
+    public void RaycastShot()
+    {
+        int sign = BulletOrientation();
+
+        RaycastHit2D _objectHit =  Physics2D.Raycast(_myTransform.position, _myTransform.right * sign);
+
+        if (_objectHit)
+        {
+            EnemyLifeComponent _enemy = _objectHit.transform.GetComponent<EnemyLifeComponent>();
+            if (_enemy != null)
+            {
+                _enemy.Dies();
+            }
+
+            _myRay.SetPosition(0, _myTransform.position);
+            _myRay.SetPosition(1, _objectHit.point);
+        }
+
+        else
+        {
+            _myRay.SetPosition(0, _myTransform.position);
+            _myRay.SetPosition(1, _myTransform.position + _myTransform.right * sign * 100);
+        }
     }
 
     // Asignar la orientación de la bala según la del jugador

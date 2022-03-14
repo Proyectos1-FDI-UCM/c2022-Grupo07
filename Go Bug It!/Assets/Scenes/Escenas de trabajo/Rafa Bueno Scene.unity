@@ -634,6 +634,14 @@ PrefabInstance:
       propertyPath: _myBulletMovController
       value: 
       objectReference: {fileID: 2605744409412045724, guid: 66b270ae0bb1f3747a4a117e131fcd59, type: 3}
+    - target: {fileID: 1416395100564703089, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1416395100564703089, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 648302198d7274d449cc3f605c0bee79, type: 2}
     - target: {fileID: 3002044054825558893, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
       propertyPath: m_RootOrder
       value: 3
