@@ -8,12 +8,15 @@ public class AvastController : MonoBehaviour
     #region references
     private Transform _mytransform;
     private Animator _myanimator;
+    [SerializeField]
+    private LineRenderer _myRay;
     #endregion
 
     #region parameters
     [SerializeField] private float _rayCoolDown;
     [SerializeField] private float _rayDuration;
     [SerializeField] private Vector2 _rayDirection;//Dirección del raycast
+    [SerializeField] private float _rayOffset; //Para subir o bajar el rayo respecto a Avast (visual) 
     #endregion
 
     #region properties
@@ -39,7 +42,6 @@ public class AvastController : MonoBehaviour
         if (_shooting) _elapsedDuration += Time.deltaTime;
         else if (!_shooting) _elapsedDuration = 0;
         _myanimator.SetFloat("_elapsedCoolDown", _elapsedCoolDown);
-        _myanimator.SetBool("_shooting", _shooting);
         if (_elapsedCoolDown >= _rayCoolDown)
         {
             _shooting = true;
@@ -50,19 +52,25 @@ public class AvastController : MonoBehaviour
             {
                 //Llamar a la animación de disparo
                 RaycastHit2D hit2D = Physics2D.Raycast(_mytransform.position, _rayDirection.normalized, 1000,3);
+                _myRay.enabled = true;
+                _myRay.SetPosition(0, _mytransform.position+_rayOffset*_mytransform.up); //Se renderiza la linea desde la posición del avast al choque con collider.
+                _myRay.SetPosition(1, hit2D.point);
+              
+                Debug.Log("Pium");
                 if(hit2D)
                 {
+                    Debug.Log("Pium");
                   PlayerLifeComponent _player = hit2D.collider.gameObject.GetComponent<PlayerLifeComponent>();
                   if (_player != null)
                   {
                     _player.Damage();
-                    Debug.Log("Pillado");
                   }
                 }
             }
             else
             {
                 _shooting = false;
+                _myRay.enabled = false; //Se deja de ver el rayo.
                 _elapsedDuration = 0;
                 _elapsedCoolDown = 0;
             }
