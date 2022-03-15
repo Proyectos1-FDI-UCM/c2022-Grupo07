@@ -13,6 +13,7 @@ public class GunpointController : MonoBehaviour
     [SerializeField] private Transform _playerTransform; // Posición del label Gun
     private InputController _myinput;
     private Animator _playerAnimator;
+    [SerializeField]private LineRenderer _myRay;
     #endregion
 
     #region properties
@@ -70,6 +71,45 @@ public class GunpointController : MonoBehaviour
             GameObject _neu2 = GameObject.Instantiate(_neuShot, _direction, Quaternion.AngleAxis(-_tripleShotAngle, transform.forward));
             _neu2.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
         }
+    }
+
+    IEnumerator LineDrawer()
+    {
+        _myRay.enabled = true;
+
+        //Esperar un frame
+        yield return new WaitForSeconds(0.02f);
+
+        _myRay.enabled = false;
+    }
+    public void RaycastShoot()
+    {
+        int layermask = 1 << 3;
+        layermask = ~layermask;
+        int sign = BulletOrientation();
+
+        RaycastHit2D _objectHit =  Physics2D.Raycast(Gun.position, Gun.right*sign, 1000, layermask);
+
+        if (_objectHit)
+        {
+            Debug.Log(_objectHit.transform.name);
+            EnemyLifeComponent _enemy = _objectHit.transform.GetComponent<EnemyLifeComponent>();
+            if (_enemy != null)
+            {
+                _enemy.Dies();
+            }
+            
+            _myRay.SetPosition(0, Gun.position);
+            _myRay.SetPosition(1, _objectHit.point);
+        }
+
+        else
+        {
+            _myRay.SetPosition(0, Gun.position);
+            _myRay.SetPosition(1, Gun.position + Gun.right  *sign * 100);
+        }
+
+        StartCoroutine(LineDrawer());
     }
 
     // Asignar la orientación de la bala según la del jugador

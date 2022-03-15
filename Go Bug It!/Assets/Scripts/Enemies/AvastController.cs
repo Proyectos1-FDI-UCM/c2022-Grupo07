@@ -55,6 +55,7 @@ public class AvastController : MonoBehaviour
                 _myRay.enabled = true;
                 _myRay.SetPosition(0, _mytransform.position+_rayOffset*_mytransform.up); //Se renderiza la linea desde la posición del avast al choque con collider.
                 _myRay.SetPosition(1, hit2D.point);
+
                 if(hit2D)
                 {
                   PlayerLifeComponent _player = hit2D.collider.gameObject.GetComponent<PlayerLifeComponent>();

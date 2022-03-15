@@ -92,6 +92,12 @@ public class MovementController : MonoBehaviour
         transform.localScale = theScale;
         Debug.Log(transform.localScale.x);
     }
+    public void SetNewValues(float _multiplier)
+    {
+        _acceleration *= _multiplier;
+        _airSpeed *= _multiplier;
+        //_maxspeed *= _multiplier;
+    }
     #endregion
 
     // Start is called before the first frame update
