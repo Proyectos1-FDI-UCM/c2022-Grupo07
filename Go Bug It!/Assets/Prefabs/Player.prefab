@@ -341,8 +341,8 @@ MonoBehaviour:
   _spDuration: 5
   _spamDuration: 5
   _slowValue: 0.5
-  _myShield: {fileID: 0}
-  _myBulletMovController: {fileID: 0}
+  _myShield: {fileID: 4505385846977662615}
+  _myBulletMovController: {fileID: 2605744409412045724, guid: 66b270ae0bb1f3747a4a117e131fcd59, type: 3}
 --- !u!95 &4551726149934083768
 Animator:
   serializedVersion: 3
