@@ -87,7 +87,7 @@
     <Compile Include="Assets\Scripts\Player\PowerUpController.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\Enemies\McAfeeComponent.cs" />
-    <Compile Include="Assets\Scripts\CheckpointTeleportComponent.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\CheckpointTeleportComponent.cs" />
     <Compile Include="Assets\Scripts\EndDemo.cs" />
     <Compile Include="Assets\Scripts\Bullets\LifeTimeController.cs" />
     <Compile Include="Assets\Scripts\Pickups\CodigoRestauradorComponent.cs" />
