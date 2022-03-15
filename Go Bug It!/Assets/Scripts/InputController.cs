@@ -37,6 +37,7 @@ public class InputController : MonoBehaviour
     private float _selectShot;
     private float _shoot;
     private float _pause;
+    private int _typeShoot = 0;
     #endregion
 
     #region methods
@@ -64,6 +65,11 @@ public class InputController : MonoBehaviour
     public bool GetGrounded()
     {
         return _isGrounded;
+    }
+
+    public void SetNewTypeShoot(int newType)
+    {
+        _typeShoot = newType;
     }
 
     IEnumerator changeGrav()
@@ -150,7 +156,12 @@ public class InputController : MonoBehaviour
         {
             _localScale = gameObject.transform.localScale.x;
 
-            _myGunpoint.RegularShoot();
+            switch (_typeShoot)
+            {
+                case 0 : _myGunpoint.RegularShoot(); break;
+                case 1 : _myGunpoint.TripleShoot(); break;
+                case 2: _myGunpoint.RaycastShoot(); break;
+            }
             _elapsedShoot = 0;
         }
         else _elapsedShoot += Time.deltaTime;
