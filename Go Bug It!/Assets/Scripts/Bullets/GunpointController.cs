@@ -84,13 +84,13 @@ public class GunpointController : MonoBehaviour
     }
     public void RaycastShoot()
     {
-        int layermask = 1 << 3;
+        int layermask = 2 << 3;
         layermask = ~layermask;
         int sign = BulletOrientation();
 
-        RaycastHit2D _objectHit =  Physics2D.Raycast(Gun.position, Gun.right*sign, 1000, layermask);
+        RaycastHit2D _objectHit =  Physics2D.Raycast(Gun.position + new Vector3(_offset,0,0) * sign, Gun.right*sign, 1000, layermask);
 
-        if (_objectHit)
+        if (_objectHit && !_objectHit.transform.gameObject.GetComponent<PolygonCollider2D>().isTrigger)
         {
             Debug.Log(_objectHit.transform.name);
             EnemyLifeComponent _enemy = _objectHit.transform.GetComponent<EnemyLifeComponent>();
