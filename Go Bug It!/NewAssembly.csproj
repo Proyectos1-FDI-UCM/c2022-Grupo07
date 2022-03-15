@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Pickups\StackPointerComponent.cs" />
     <Compile Include="Assets\Scripts\Obstacles\DeathZoneComponent.cs" />
     <Compile Include="Assets\Scripts\Obstacles\MovingPlatformController.cs" />
+    <Compile Include="Assets\Scripts\Enemies\NortonComponent.cs" />
     <Compile Include="Assets\Scripts\Obstacles\WhileTrue_controller.cs" />
     <Compile Include="Assets\Scripts\Pickups\PrivShieldComponent.cs" />
     <Compile Include="Assets\Scripts\Player\GravityComponent.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Assets\Scripts\Pickups\CodigoRestauradorComponent.cs" />
     <Compile Include="Assets\Scripts\OnGoal.cs" />
     <Compile Include="Assets\Scripts\Enemies\GravEnemyComponent.cs" />
+    <Compile Include="Assets\Scripts\Enemies\RangeController.cs" />
     <Compile Include="Assets\Scripts\Player\PrivShieldController.cs" />
   </ItemGroup>
   <ItemGroup>
