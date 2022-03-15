@@ -15,7 +15,7 @@ public class McAfeeComponent : MonoBehaviour
     private GameObject _myBullet;
     private Transform _myTransform;
     private GameObject _myPlayer;
-    private bool lookingRight = false;
+    public bool lookingRight = false;
     #endregion
 
     #region properties

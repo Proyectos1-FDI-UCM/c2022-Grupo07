@@ -250,7 +250,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2253701208693668545}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -279,7 +279,7 @@ MonoBehaviour:
   _rayCoolDown: 5
   _rayDuration: 2
   _rayDirection: {x: 1, y: 0}
-  _rayOffset: 0
+  _rayOffset: 0.06
 --- !u!95 &3521430547850765538
 Animator:
   serializedVersion: 3

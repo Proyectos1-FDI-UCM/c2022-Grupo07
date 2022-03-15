@@ -23,6 +23,7 @@ public class PowerUpController : MonoBehaviour
     private BulletMovementController _myBulletMovController;
     private MovementController _myMovementController;
     private GravityComponent _myGravityComponent;
+    private InputController _myInputController;
     #endregion
 
     #region properties
@@ -53,21 +54,32 @@ public class PowerUpController : MonoBehaviour
     {
         _structPowerUp = state;
         _isPoweredUp = state;
-        if (state) _durationTime = _structDuration;
-        else _durationTime = 0;
+        if (state)
+        {
+            _myInputController.SetNewTypeShoot(1);
+            _durationTime = _structDuration;
+        }
+        else
+        {
+            _myInputController.SetNewTypeShoot(0);
+            _durationTime = 0;
+        }
     }
 
     public void StackPointerControl(bool state)
     {
         _spPowerUp = state;
         _isPoweredUp = state;
-        if (state) _durationTime = _spDuration;
-        else _durationTime = 0;
-    }
-
-    public void ShootSP()
-    {
-
+        if (state)
+        {
+            _myInputController.SetNewTypeShoot(2);
+            _durationTime = _spDuration;
+        }
+        else
+        {
+            _myInputController.SetNewTypeShoot(0);
+            _durationTime = 0;
+        }
     }
 
     public void SpamControl(bool state)
@@ -98,6 +110,7 @@ public class PowerUpController : MonoBehaviour
     {
         _myMovementController = GetComponent<MovementController>();
         _myGravityComponent = GetComponent<GravityComponent>();
+        _myInputController = GetComponent<InputController>();
         _isPoweredUp = false;
     }
 

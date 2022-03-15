@@ -51,6 +51,7 @@ MonoBehaviour:
   _myRay: {fileID: 0}
   _shot: 0
   _offset: 0.9
+  _tripleShotAngle: 45
 --- !u!1 &4505385846977662615
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,10 +336,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4068ae00a0baa4a9da218822ef19ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shieldDuration: 0
-  _structDuration: 0
-  _spDuration: 0
-  _spamDuration: 0
+  _shieldDuration: 7
+  _structDuration: 7
+  _spDuration: 5
+  _spamDuration: 5
   _slowValue: 0.5
   _myShield: {fileID: 0}
   _myBulletMovController: {fileID: 0}
