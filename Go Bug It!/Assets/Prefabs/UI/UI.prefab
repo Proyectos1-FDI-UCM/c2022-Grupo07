@@ -464,7 +464,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7e621e31686108141865b1f254e4f9ec, type: 3}
+  m_Sprite: {fileID: 5951312847808404741, guid: 778fec5ac7ee1094cb9246ad34478ca8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -597,10 +597,10 @@ MonoBehaviour:
   _timeUI: {fileID: 4729239256859108848}
   _pointsUI: {fileID: 4729239256714414050}
   _shotsUI: {fileID: 4729239257171462309}
-  _gravActivated: {fileID: 21300000, guid: 328605a31ff72b7438531f1fbe843f3d, type: 3}
-  _gravDeactivated: {fileID: 21300000, guid: 85d1c04b507fbf14b9b4cb7aeb466773, type: 3}
-  _neuActivated: {fileID: 21300000, guid: 143fb7b42147e3247b8b225c1db6cf99, type: 3}
-  _neuDeactivated: {fileID: 21300000, guid: 7e621e31686108141865b1f254e4f9ec, type: 3}
+  _gravActivated: {fileID: 1071515521834441319, guid: cb24e555456df4c4a818a79f764c3f10, type: 3}
+  _gravDeactivated: {fileID: -1333320639006561373, guid: cb24e555456df4c4a818a79f764c3f10, type: 3}
+  _neuActivated: {fileID: -7007719572738349731, guid: 778fec5ac7ee1094cb9246ad34478ca8, type: 3}
+  _neuDeactivated: {fileID: 5951312847808404741, guid: 778fec5ac7ee1094cb9246ad34478ca8, type: 3}
   _pauseMenu: {fileID: 7695450327556563109, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
 --- !u!1 &4729239257478058065
 GameObject:
@@ -780,7 +780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 328605a31ff72b7438531f1fbe843f3d, type: 3}
+  m_Sprite: {fileID: 1071515521834441319, guid: cb24e555456df4c4a818a79f764c3f10, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
