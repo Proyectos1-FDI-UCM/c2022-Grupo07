@@ -113,8 +113,8 @@ AnimatorController:
   m_Name: Avast
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: _shooting
-    m_Type: 4
+  - m_Name: _elapsedCoolDown
+    m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
