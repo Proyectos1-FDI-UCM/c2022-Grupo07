@@ -175,7 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175dd663a6ab1c0489030cfbfd27bda2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shotSpeed: 6
+  _myInputController: {fileID: -4900835068251396606, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
+  _shotSpeed: 64
 --- !u!114 &-9064116540444624523
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLifeComponent : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         _currLife -= _hitDamage;
         GameManager.Instance.OnPlayerDamage(_currLife);
+
         transform.position = new Vector2(_respawnX, _respawnY);
     }
 
@@ -44,7 +46,8 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         // Colisión con un enemigo
         EnemyLifeComponent _enemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
-        
+        WhileTrue_controller _whiletrue= collision.gameObject.GetComponent<WhileTrue_controller>();
+
         if (_enemy != null)
         {
             NeuEnemyComponent _neuEnemy = _enemy.GetComponent<NeuEnemyComponent>();
@@ -52,12 +55,17 @@ public class PlayerLifeComponent : MonoBehaviour
             if (_neuEnemy != null)
             {
                 if (_neuEnemy.GetNeutralization() != true) Damage();
-            } 
+            }
         }
+        else if (_whiletrue != null) Damage();
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
 
         // Colisión con la zona de muerte
         DeathZoneComponent _deathZone = collision.gameObject.GetComponent<DeathZoneComponent>();
-        
+
         if (_deathZone != null)
         {
             Damage();
@@ -65,12 +73,15 @@ public class PlayerLifeComponent : MonoBehaviour
         }
     }
 
+
     public void Dies()
     {
         _myAnimator.SetBool("Dies", true);
         _myMov.enabled = false;
-        _myRigidbody.simulated = false;
+        _myRigidbody.velocity = new Vector2(0, 0);
+        //Si da problemas lo de subir mientras mueres, _myrigidboy.gravityscale=0.
         Destroy(gameObject, 1.1f);
+        GameManager.Instance.OnPlayerDies();
     }
 
     public void SetRespawnPosition(Vector3 _newRespawnPosition)

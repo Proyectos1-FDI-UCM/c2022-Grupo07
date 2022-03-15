@@ -90,6 +90,13 @@ public class MovementController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+        Debug.Log(transform.localScale.x);
+    }
+    public void SetNewValues(float _multiplier)
+    {
+        _acceleration *= _multiplier;
+        _airSpeed *= _multiplier;
+        //_maxspeed *= _multiplier;
     }
     #endregion
 

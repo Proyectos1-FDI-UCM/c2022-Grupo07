@@ -16,7 +16,11 @@ public class McAfeeBullet : MonoBehaviour
     private bool left;
     private Collider2D _myCollider;
     #endregion
-    
+
+    #region properties
+    private Vector3 _direction;
+    #endregion
+
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -26,6 +30,11 @@ public class McAfeeBullet : MonoBehaviour
             _myPlayer.Damage();
         }
         Destroy(gameObject);
+    }
+
+    public void SetDirection(Vector3 _orientation)
+    {
+        _direction = _orientation;
     }
     #endregion
 
@@ -39,6 +48,8 @@ public class McAfeeBullet : MonoBehaviour
     {
         // Asignar velocidad según la dirección
 
+        transform.Translate(_shotSpeed * _direction * Time.deltaTime);
+        /*
         if (left)
         {
             transform.Translate(_shotSpeed * Vector2.left * Time.deltaTime);
@@ -46,7 +57,7 @@ public class McAfeeBullet : MonoBehaviour
         else
         {
             transform.Translate(_shotSpeed * Vector3.right * Time.deltaTime);
-        }
+        }*/
     }
 }
 
