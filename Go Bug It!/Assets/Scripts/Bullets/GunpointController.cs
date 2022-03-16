@@ -44,6 +44,7 @@ public class GunpointController : MonoBehaviour
         }
     }
 
+    // Disparo triple (*3)
     public void TripleShoot()
     {
         int _sign = BulletOrientation();
@@ -82,6 +83,8 @@ public class GunpointController : MonoBehaviour
 
         _myRay.enabled = false;
     }
+
+    // Disparo laser (Stackpointer)
     public void RaycastShoot()
     {
         int layermask = 2 << 3;

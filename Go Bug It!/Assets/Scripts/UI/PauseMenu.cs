@@ -37,6 +37,7 @@ public class PauseMenu : MonoBehaviour
         _optionsTransform.localPosition = new Vector3(0, 0, 0);
     }
 
+    // Volver atrás
     public void Back(string option)
     {
         if (option == "Options")
@@ -51,8 +52,23 @@ public class PauseMenu : MonoBehaviour
         }
 
         _pauseUI.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(_firstPauseButton);
+    }
+
+    // Comandos que ejecutar al salir del menú de pausa
+    public void ExitingPause()
+    {
+        Back("Options");
+        Back("");
     }
     #endregion
+
+    // Initializes own references
+    void Awake()
+    {
+        _controllsUI.SetActive(false);
+        _optionsUI.SetActive(false);
+    }
 
     // Start is called before the first frame update
     void Start()

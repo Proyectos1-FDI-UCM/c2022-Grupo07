@@ -117,7 +117,7 @@ public class InputController : MonoBehaviour
         _shoot = Input.GetAxis("Shoot");
         _pause = Input.GetAxis("Pause");
 
-        //Movimiento del personaje
+        // Movimiento del personaje
         _movController.SetMovementDirection(_horizontal);
 
         // Cambio de gravedad

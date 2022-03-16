@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite _neuDeactivated;
     // Pausa
     [SerializeField] private GameObject _pauseMenu;
+    private PauseMenu _pauseFirstScreen;
     #endregion
 
     #region parameters
@@ -37,12 +38,12 @@ public class UIManager : MonoBehaviour
     // Actualiza la vida del jugador
     public void UpdatePlayerLife(int life, bool powerup)
     {
-        if (life <= 3 && life >= 0) // Comprobar si está entre los límites de vida posible del jugador
+        if (life <= 3 && life >= 0)                                                 // Comprobar si está entre los límites de vida posible del jugador
         {
             UIAnimationController heart = _hearts[life].GetComponent<UIAnimationController>();
 
-            if (powerup == false) heart.UpdateStatus(false); // Si se resta vida [ _hearts[life].sprite = _emptyHeartImg; ]
-            else heart.UpdateStatus(true); // Si se suma con un powerup [ _hearts[life].sprite = _fullHeartImg; ] 
+            if (powerup == false) heart.UpdateStatus(false);                        // Si se resta vida [ _hearts[life].sprite = _emptyHeartImg; ]
+            else heart.UpdateStatus(true);                                          // Si se suma con un powerup [ _hearts[life].sprite = _fullHeartImg; ] 
         }
     }
 
@@ -58,14 +59,14 @@ public class UIManager : MonoBehaviour
     // Actualizar puntos
     public void UpdatePoints(int newPoints)
     {
-        _points += newPoints; // Sumar puntuación
-        string zerosText = ""; // Texto vacío (contenedor de ceros)
+        _points += newPoints;                                                           // Sumar puntuación
+        string zerosText = "";                                                          // Texto vacío (contenedor de ceros)
         if (_points > 9999) _points = 9999;
         else
         {
-            int maxZeros = 5; // Variable de control del nº de ceros máximo
-            string pointsText = "" + _points; // Contenedeor para el nº de dígitos de _points
-            for (int i = maxZeros; i > pointsText.Length + 1; i--) zerosText += "0"; // Añadir el nº de ceros correcto
+            int maxZeros = 5;                                                           // Variable de control del nº de ceros máximo
+            string pointsText = "" + _points;                                           // Contenedeor para el nº de dígitos de _points
+            for (int i = maxZeros; i > pointsText.Length + 1; i--) zerosText += "0";    // Añadir el nº de ceros correcto
         }
 
         // Aplicar suma en la UI
@@ -87,10 +88,15 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void Pause()//Activa o desactiva el menu de pausa en función de su estado anterior.
+    // Activa o desactiva el menu de pausa en función de su estado anterior
+    public void Pause()
     {
         if (!_pauseMenu.activeInHierarchy) _pauseMenu.SetActive(true);
-        else if (_pauseMenu.activeInHierarchy) _pauseMenu.SetActive(false);
+        else if (_pauseMenu.activeInHierarchy)
+        {
+            _pauseFirstScreen.ExitingPause();
+            _pauseMenu.SetActive(false);
+        }
     }
     #endregion
 
@@ -108,5 +114,11 @@ public class UIManager : MonoBehaviour
 
         // Inicializar disparos
         for (int i = 0; i < _shots.Length; i++) _shots[i] = _shotsUI.transform.GetChild(i).GetComponent<Image>();
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        _pauseFirstScreen = _pauseMenu.transform.GetChild(0).GetComponent<PauseMenu>();
     }
 }

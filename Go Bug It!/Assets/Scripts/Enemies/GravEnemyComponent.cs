@@ -53,6 +53,7 @@ public class GravEnemyComponent : MonoBehaviour
         _elapsedTime = _animationCooldown;
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (_gravityChanged)

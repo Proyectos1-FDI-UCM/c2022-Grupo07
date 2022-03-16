@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.1f);
         SceneManager.LoadScene("GameOver");
     }
+
     // Avance de nivel
     public void OnGoalAdvance()
     {
@@ -72,7 +73,6 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
-    #endregion
 
     // Curación del jugador
     public void OnPlayerHeals(int lifePoints)
@@ -80,16 +80,18 @@ public class GameManager : MonoBehaviour
         _myUIManager.UpdatePlayerLife(lifePoints-1, true);
     }
 
+    // Muerte del jugador
     public void OnPlayerDies()
     {
         StartCoroutine(WaitDeath());
     }
 
-    // Initializes GameManager instance and list of enemies.
+    // Initializes GameManager instance.
     private void Awake()
     {
         _instance = this;
     }
+    #endregion
 
     // Start is called before the first frame update
     void Start()

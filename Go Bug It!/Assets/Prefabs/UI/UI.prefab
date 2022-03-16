@@ -601,7 +601,7 @@ MonoBehaviour:
   _gravDeactivated: {fileID: -1333320639006561373, guid: cb24e555456df4c4a818a79f764c3f10, type: 3}
   _neuActivated: {fileID: -7007719572738349731, guid: 778fec5ac7ee1094cb9246ad34478ca8, type: 3}
   _neuDeactivated: {fileID: 5951312847808404741, guid: 778fec5ac7ee1094cb9246ad34478ca8, type: 3}
-  _pauseMenu: {fileID: 7695450327556563109, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+  _pauseMenu: {fileID: 0}
 --- !u!1 &4729239257478058065
 GameObject:
   m_ObjectHideFlags: 0
