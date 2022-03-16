@@ -211,6 +211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _range: 4
+  _shootCooldown: 2
+  _offset: 1
   _myBullet: {fileID: 8139773162008822916, guid: a0e819650f76b2e438079d618a63adee, type: 3}
-  _myOffsetDisparo: {fileID: 0}
   lookingRight: 0
+  _neutralized: 0

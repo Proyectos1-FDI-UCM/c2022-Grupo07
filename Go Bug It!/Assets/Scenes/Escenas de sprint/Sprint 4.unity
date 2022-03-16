@@ -131,6 +131,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 528256370}
     m_Modifications:
     - target: {fileID: -7927829604843761856, guid: 7976ec05349696d45b2cc6896527fcd8, type: 3}
+      propertyPath: _offset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7927829604843761856, guid: 7976ec05349696d45b2cc6896527fcd8, type: 3}
       propertyPath: _myOffsetDisparo
       value: 
       objectReference: {fileID: 0}
@@ -160,7 +164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6078720254043927575, guid: 7976ec05349696d45b2cc6896527fcd8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 106.70428
+      value: 90.71
       objectReference: {fileID: 0}
     - target: {fileID: 6078720254043927575, guid: 7976ec05349696d45b2cc6896527fcd8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -856,7 +860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2069476445085253241, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3002044054825558893, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
       propertyPath: m_RootOrder
@@ -916,7 +920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4505385846977662615, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4505385846977662615, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
       propertyPath: m_IsActive
@@ -928,11 +932,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4523253112470009940, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5187658933480842213, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5626999219870058935, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
       propertyPath: _myRay
@@ -953,6 +957,10 @@ PrefabInstance:
     - target: {fileID: 6243002863010358820, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
       propertyPath: _acceleration
       value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8193361719205889689, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
@@ -1609,7 +1617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457371, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 84.60479
+      value: 106.84
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457371, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_LocalPosition.y

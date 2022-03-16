@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gravity: 1
   _animationCooldown: 1
-  _myAnimator: {fileID: 0}
+  _myAnimator: {fileID: 3308406682026890722}
 --- !u!114 &3308406682026890649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _puntuation: 0
-  _myAnimator: {fileID: 0}
+  _myAnimator: {fileID: 3308406682026890722}
 --- !u!95 &3308406682026890722
 Animator:
   serializedVersion: 3

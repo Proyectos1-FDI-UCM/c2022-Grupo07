@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1875590936885397656}
   - component: {fileID: 5626999219870058935}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 5376364959642948379}
   - component: {fileID: 1416395100564703089}
   - component: {fileID: 475561765666266766}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: privateEscudo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: -2211591195652529424}
   - component: {fileID: -9025358035622383297}
   - component: {fileID: 4551726149934083768}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2417297778872714800}
   - component: {fileID: 5453095105715680625}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: groundDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4330891101712347004}
   - component: {fileID: 1931518240729220501}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
