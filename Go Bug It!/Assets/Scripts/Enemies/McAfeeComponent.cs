@@ -50,19 +50,22 @@ public class McAfeeComponent : MonoBehaviour
 
         if (_myTransform.rotation.y == 180) lookingRight = true;
 
-        if (lookingRight) _instancePosition = _myTransform.position + new Vector3(_offset, 0, 0);
-        else _instancePosition = _myTransform.position - new Vector3(_offset, 0, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        _playerDistance = Mathf.Abs(Vector3.Distance(_myPlayer.transform.position, _myTransform.position));
-
-        _elapsedTime -= Time.deltaTime;
-        if (_elapsedTime <= 0 && _playerDistance <= _range && !_neutralized)
+        if (_myPlayer != null)
         {
-            Shoot();
+            _playerDistance = Mathf.Abs(Vector3.Distance(_myPlayer.transform.position, _myTransform.position));
+
+            _elapsedTime -= Time.deltaTime;
+            if (_elapsedTime <= 0 && _playerDistance <= _range && !_neutralized)
+            {
+                if (lookingRight) _instancePosition = _myTransform.position + new Vector3(_offset, 0, 0);
+                else _instancePosition = _myTransform.position - new Vector3(_offset, 0, 0);
+                Shoot();
+            }
         }
     }
 }
