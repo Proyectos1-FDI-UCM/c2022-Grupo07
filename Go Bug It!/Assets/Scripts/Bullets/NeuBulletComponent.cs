@@ -14,7 +14,6 @@ public class NeuBulletComponent : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         NeuEnemyComponent _enemy = collision.gameObject.GetComponent<NeuEnemyComponent>();
-        Destroy(gameObject);
         // _enemy = null;
         if (_enemy != null)
         {

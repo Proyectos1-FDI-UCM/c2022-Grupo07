@@ -15,7 +15,6 @@ public class GravBulletComponent : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GravEnemyComponent _enemy = collision.gameObject.GetComponent<GravEnemyComponent>();
-        Destroy(gameObject);
         if (_enemy != null)
         {
             _myMovementController.enabled = false;
