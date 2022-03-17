@@ -56,9 +56,14 @@ public class InputController : MonoBehaviour
     }
 
     // Devuelve la dirección
-    public float GetDirection()
+    public bool GetGravity()
     {
-        return _localScale;
+        return _changeGravity;
+    }
+
+    public void SetGravity(bool grav)
+    {
+        _changeGravity = grav;
     }
 
     // Devuelve la variable booleana que determina si está o no tocando el suelo
@@ -123,7 +128,6 @@ public class InputController : MonoBehaviour
         // Cambio de gravedad
         if (_isGrounded && _jump > 0 &&!_movController._dash) //Si presiono espacio, estoy tocando una superficie y no estoy en mitad de un dash...
         {
-            _myAnimator.SetBool("OnGravityChange", true);
             _changeGravity = !_changeGravity;                       //Negamos el booleano gravedad para q ahora sea lo contrario
             _myGravityComponent.ChangeGravity(_changeGravity);      //Llamamos al metodo ChangeGravity del script de gravedad
             StartCoroutine(changeGrav());

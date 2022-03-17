@@ -9,6 +9,7 @@ public class PlayerLifeComponent : MonoBehaviour
     private Animator _myAnimator;
     private MovementController _myMov;
     private Rigidbody2D _myRigidbody;
+    private InputController _myInput;
     #endregion
 
     #region parameters
@@ -30,6 +31,14 @@ public class PlayerLifeComponent : MonoBehaviour
         _currLife -= _hitDamage;
         GameManager.Instance.OnPlayerDamage(_currLife);
 
+        if (_myRigidbody.gravityScale < 0)
+        {
+            gameObject.transform.Rotate(0, 180, 180);
+            _myRigidbody.gravityScale = 2;
+            _myRigidbody.velocity = new Vector2(0,0);
+            _myInput.SetGravity(!_myInput.GetGravity());
+        }
+        
         transform.position = new Vector2(_respawnX, _respawnY);
     }
 
@@ -79,7 +88,7 @@ public class PlayerLifeComponent : MonoBehaviour
         _myAnimator.SetBool("Dies", true);
         _myMov.enabled = false;
         _myRigidbody.velocity = new Vector2(0, 0);
-        //Si da problemas lo de subir mientras mueres, _myrigidboy.gravityscale=0.
+        //Si da problemas lo de subir mientras mueres, _myrigidboy.gravityscale = 0.
         Destroy(gameObject, 1.1f);
         GameManager.Instance.OnPlayerDies();
     }
@@ -99,6 +108,7 @@ public class PlayerLifeComponent : MonoBehaviour
         _myAnimator = GetComponent<Animator>();
         _myAnimator.SetBool("Dies", false);
         _myRigidbody = GetComponent<Rigidbody2D>();
+        _myInput = GetComponent<InputController>();
     }
     
     // Update is called once per frame
