@@ -6,57 +6,36 @@ public class NortonComponent : MonoBehaviour
 {
     #region parameters
     [SerializeField] private int _range = 4;
-    private bool _exploded = false;
+    //private bool _activated = false;
     #endregion
 
     #region references
     private Transform _myTransform;
     private GameObject _myPlayer;
     [SerializeField] private GameObject _myRango;
+    private Animator anim;
     #endregion
 
     #region properties
     [HideInInspector] public bool _neutralized = false;
+    private float _targetDistance;
     #endregion
 
     #region methods
-
-
-    private Animator anim;
-    
-    public bool Warning()
+    public void Activated()
     {
-        if (Vector2.Distance(_myPlayer.transform.position, transform.position) < _range  && !_neutralized && !_exploded )
-        {
-            Debug.Log("zona de peligro con Norton");
-            _exploded = true;
-            return true;
-        }
-        return false;
-    }
-    public void nortonRespawn()
-    {
-        Debug.Log("Llamada Norton Respawn");
-        
-        /*Invoke("sleep", 20);
-        _exploded = false;
-        gameObject.active = true;
-        //GetComponent<SpriteRenderer>().enabled = true;*/
-
+        anim.SetBool("Activated", true);
+        //_activated = true;
     }
     
     public void Explode()
     {
+        anim.SetBool("Explosion", true);
         _myRango.SetActive(true);
         Destroy(gameObject, 1.0f);
-
-    }
-
-    public void sleep()
-    {
-
     }
     #endregion
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,11 +47,18 @@ public class NortonComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Warning())
+        /*if (Warning())
         {
-            Debug.Log("Explosiona norton");
-            anim.SetBool("Dead", true);   //se activaría la animacion de explotar del NOrton
- 
+               //se activaría la animacion de explotar del NOrton
+        }*/
+
+        if (_myPlayer != null)
+        {
+            _targetDistance = Mathf.Abs(Vector2.Distance(_myPlayer.transform.position, _myTransform.position));
+            if (_targetDistance <= _range)
+            {
+                Activated();
+            }
         }
     }
 }
