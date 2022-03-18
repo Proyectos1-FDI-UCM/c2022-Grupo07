@@ -12,7 +12,7 @@ public class NortonComponent : MonoBehaviour
     #region references
     private Transform _myTransform;
     private GameObject _myPlayer;
-    [SerializeField] private GameObject _myRango;
+    [SerializeField] private CircleCollider2D _myRango;
     private Animator anim;
     #endregion
 
@@ -22,17 +22,35 @@ public class NortonComponent : MonoBehaviour
     #endregion
 
     #region methods
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        PlayerLifeComponent _myPlayer = collision.gameObject.GetComponent<PlayerLifeComponent>();
+        if (_myPlayer != null) _myPlayer.Damage();
+
+        EnemyLifeComponent _myEnemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
+        if (_myEnemy != null)
+        {
+            NortonComponent _otherNorton = collision.gameObject.GetComponent<NortonComponent>();
+            if (_otherNorton != null) _otherNorton.Activated();
+            else _myEnemy.Dies();
+        }
+    }
+
     public void Activated()
     {
         anim.SetBool("Activated", true);
-        //_activated = true;
     }
     
     public void Explode()
     {
         anim.SetBool("Explosion", true);
-        _myRango.SetActive(true);
+        _myRango.enabled = true;
         Destroy(gameObject, 1.0f);
+    }
+
+    public void AlreadyExploded()
+    {
+        _myRango.enabled = false;
     }
     #endregion
 
@@ -42,6 +60,8 @@ public class NortonComponent : MonoBehaviour
         _myTransform = transform;
         _myPlayer = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
+        _myRango = GetComponentInChildren<CircleCollider2D>();
+        _myRango.enabled = false;
     }
 
     // Update is called once per frame

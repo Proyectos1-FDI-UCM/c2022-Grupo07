@@ -84,8 +84,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.5
-    functionName: Explode
+  - time: 0.5833333
+    functionName: AlreadyExploded
     data: 
     objectReferenceParameter: {fileID: 2800000, guid: 286d67395ede1ab43a9e12ea2a448f15, type: 3}
     floatParameter: 0
