@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _myPauseObject;
     // Jugador
     [SerializeField] private GameObject _player;
-    private InputController _myinput;
     private PlayerLifeComponent _myLife;
     #endregion
 
@@ -99,7 +98,6 @@ public class GameManager : MonoBehaviour
         _timeLeft = _levelDuration;
         _actualLevel = 0;
         _myUIManager = _myUIObject.GetComponent<UIManager>();
-        _myinput = _player.GetComponent<InputController>();
         _myLife = _player.GetComponent<PlayerLifeComponent>();
         _myPauseObject.SetActive(false);
     }
