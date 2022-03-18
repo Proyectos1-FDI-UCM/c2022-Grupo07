@@ -49,7 +49,6 @@ public class McAfeeComponent : MonoBehaviour
         _elapsedTime = _shootCooldown;
 
         if (_myTransform.rotation.y == 180) lookingRight = true;
-
     }
 
     // Update is called once per frame

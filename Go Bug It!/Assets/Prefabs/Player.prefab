@@ -47,8 +47,8 @@ MonoBehaviour:
   _gravShot: {fileID: 8139773162008822916, guid: 66b270ae0bb1f3747a4a117e131fcd59, type: 3}
   _neuShot: {fileID: 8139773162008822916, guid: 38641e983279917458a9db43236fbc1b, type: 3}
   Gun: {fileID: 1875590936885397656}
-  _playerTransform: {fileID: 0}
-  _myRay: {fileID: 0}
+  _playerTransform: {fileID: 3002044054825558893}
+  _myRay: {fileID: 1931518240729220501}
   _shot: 0
   _offset: 0.9
   _tripleShotAngle: 45
