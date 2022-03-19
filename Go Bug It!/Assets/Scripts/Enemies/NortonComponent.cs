@@ -5,83 +5,74 @@ using UnityEngine;
 public class NortonComponent : MonoBehaviour
 {
     #region parameters
-    private float _range;
-    //private bool _activated = false;
+    [SerializeField] private int _range = 4;
+    private bool _exploded = false;
     #endregion
 
     #region references
     private Transform _myTransform;
     private GameObject _myPlayer;
-    private CircleCollider2D _myRango;
-    private Animator anim;
-    private Animator _rangeAnim;
+    [SerializeField] private GameObject _myRango;
     #endregion
 
     #region properties
     [HideInInspector] public bool _neutralized = false;
-    private float _targetDistance;
     #endregion
 
     #region methods
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        // Si es el jugador
-        PlayerLifeComponent _myPlayer = collision.gameObject.GetComponent<PlayerLifeComponent>();
-        if (_myPlayer != null) _myPlayer.Damage();
 
-        // Si es un enemigo
-        EnemyLifeComponent _myEnemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
-        if (_myEnemy != null)
+
+    private Animator anim;
+    
+    public bool Warning()
+    {
+        if (Vector2.Distance(_myPlayer.transform.position, transform.position) < _range  && !_neutralized && !_exploded )
         {
-            // Si es un Norton
-            NortonComponent _otherNorton = collision.gameObject.GetComponent<NortonComponent>();
-            if (_otherNorton != null) _otherNorton.Activated();
-            else _myEnemy.Dies();
+            Debug.Log("zona de peligro con Norton");
+            _exploded = true;
+            return true;
         }
+        return false;
     }
-
-    // Activar la animación anterior a la explosión
-    public void Activated()
+    public void nortonRespawn()
     {
-        anim.SetBool("Activated", true);
-    }
+        Debug.Log("Llamada Norton Respawn");
+        
+        /*Invoke("sleep", 20);
+        _exploded = false;
+        gameObject.active = true;
+        //GetComponent<SpriteRenderer>().enabled = true;*/
 
-    // Explosión (evento en animación)
+    }
+    
     public void Explode()
     {
-        anim.SetBool("Explosion", true);
-        _rangeAnim.SetTrigger("Explosion");
-        _myRango.enabled = true;
-        Destroy(gameObject, 0.5f);
+        _myRango.SetActive(true);
+        Destroy(gameObject, 1.0f);
+
     }
 
-    // 
-    public void AlreadyExploded()
+    public void sleep()
     {
-        _myRango.enabled = false;
+
     }
     #endregion
-
     // Start is called before the first frame update
     void Start()
     {
         _myTransform = transform;
         _myPlayer = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
-        _myRango = transform.GetChild(0).GetComponent<CircleCollider2D>();
-        _rangeAnim = transform.GetChild(0).GetComponent<Animator>();
-        _myRango.enabled = false;
-
-        _range = _myRango.gameObject.transform.localScale.x * Mathf.Pow(0.54f, 3);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_myPlayer != null)
+        if (Warning())
         {
-            _targetDistance = Mathf.Abs(Vector2.Distance(_myPlayer.transform.position, _myTransform.position));
-            if (_targetDistance <= _range) Activated();
+            Debug.Log("Explosiona norton");
+            anim.SetBool("Dead", true);   //se activaría la animacion de explotar del NOrton
+ 
         }
     }
 }

@@ -8,6 +8,7 @@ public class GravBulletComponent : MonoBehaviour
     #region references
     private Animator _myAnimator;
     private BulletMovementController _myMovementController;
+    private Collider2D _myCollider;
     #endregion
 
     #region methods
@@ -21,7 +22,7 @@ public class GravBulletComponent : MonoBehaviour
             _myAnimator.SetBool("OnEnemyCollision", true);
             Destroy(gameObject, 0.8f);
         }
-        else if (!collision.isTrigger)
+        if (!collision.isTrigger)
         {
             _myMovementController.enabled = false;
             transform.GetChild(0).localScale = new Vector3(0.3f, 0.3f, 0);
@@ -35,6 +36,7 @@ public class GravBulletComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _myCollider = GetComponent<Collider2D>();
         _myMovementController = GetComponent<BulletMovementController>();
         _myAnimator = transform.GetChild(0).GetComponent<Animator>();
     }

@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     #region references
     // Vida
     [SerializeField] private GameObject _lifeUI;
+    [SerializeField] private Sprite _fullHeartImg;
+    [SerializeField] private Sprite _emptyHeartImg;
     // Tiempo
     [SerializeField] private GameObject _timeUI;
     private Text _timeText;

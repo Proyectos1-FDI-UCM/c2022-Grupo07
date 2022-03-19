@@ -24,7 +24,6 @@ public class PowerUpController : MonoBehaviour
     private MovementController _myMovementController;
     private GravityComponent _myGravityComponent;
     private InputController _myInputController;
-    //private PlayerLifeComponent _myPlayerLifeComponent;
     #endregion
 
     #region properties
@@ -47,7 +46,6 @@ public class PowerUpController : MonoBehaviour
         _shieldPowerUp = state;
         _isPoweredUp = state;
         _myShield.SetActive(state);
-        //_myPlayerLifeComponent.enabled = !state;
         if (state) _durationTime = _shieldDuration;
         else _durationTime = 0;
     }
@@ -113,7 +111,6 @@ public class PowerUpController : MonoBehaviour
         _myMovementController = GetComponent<MovementController>();
         _myGravityComponent = GetComponent<GravityComponent>();
         _myInputController = GetComponent<InputController>();
-        //_myPlayerLifeComponent = GetComponent<PlayerLifeComponent>();
         _isPoweredUp = false;
     }
 

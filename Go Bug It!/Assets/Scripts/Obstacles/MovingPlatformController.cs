@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class MovingPlatformController : MonoBehaviour
 {
+
     #region references
     private Transform _mytransform;
     #endregion
 
     #region properties
     private Vector2 _startposition;
-    private Vector2 _movementRight = new Vector2(0.1f, 0);
-    private Vector2 _movementLeft = new Vector2(-0.1f, 0);
     #endregion
 
     #region parameters
+    [SerializeField] private float _distance;
     [SerializeField] private float _speed;
-    [SerializeField] private float _direction;
-    [SerializeField] private float limPlatformMax_X; //5;
-    [SerializeField] private float limPlatformMin_X; //-4;
+    [SerializeField] private Vector2 _movementDirection;
     #endregion
 
     #region methods
@@ -35,23 +33,6 @@ public class MovingPlatformController : MonoBehaviour
         InputController _player = collision.gameObject.GetComponent<InputController>();
         if (_player != null) collision.gameObject.transform.parent = null;
     }
-    public void Movement()
-    {
-        if (transform.position.x > limPlatformMax_X)
-        {
-            _direction = -1;          
-        }
-
-        else if (transform.position.x < limPlatformMin_X)
-        {
-            _direction = 1;
-            
-        }
-        gameObject.transform.Translate(transform.right * Time.deltaTime * _speed * _direction);
-
-    }
-
-
     #endregion
 
     // Start is called before the first frame update
@@ -59,14 +40,28 @@ public class MovingPlatformController : MonoBehaviour
     {
         _mytransform = transform;
         _startposition = _mytransform.position;
+        _movementDirection = _movementDirection.normalized;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        if (_movementDirection.x == 0)
+        {
+            if ((_mytransform.position.y <= _startposition.y- _distance || _mytransform.position.y  >= _startposition.y + _distance))
+            {
+                _movementDirection.y = -_movementDirection.y;
+            }
+        }
+        else if (_movementDirection.y == 0)
+        {
+            if ((_mytransform.position.x <= _startposition.x - _distance || _mytransform.position.x >= _startposition.x + _distance))
+            {
+                _movementDirection.x = -_movementDirection.x;
+            }
+         }
+        _mytransform.Translate(_movementDirection * _speed * Time.deltaTime);
     }
-
-   
 }
+
 

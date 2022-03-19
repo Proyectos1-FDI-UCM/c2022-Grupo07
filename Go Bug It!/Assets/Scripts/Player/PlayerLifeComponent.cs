@@ -71,10 +71,9 @@ public class PlayerLifeComponent : MonoBehaviour
         {
             gameObject.transform.Rotate(0, 180, 180);
             _myRigidbody.gravityScale = 2;
-            _myRigidbody.velocity = new Vector2(0, 0);
+            _myRigidbody.velocity = new Vector2(0,0);
             _myInput.SetGravity(!_myInput.GetGravity());
         }
-
 
         if(_boss != null) 
         {
@@ -86,9 +85,6 @@ public class PlayerLifeComponent : MonoBehaviour
             transform.position = new Vector2(_respawnX, _respawnY);
         }
         
-
-        transform.position = new Vector2(_respawnX, _respawnY);
-
     }
 
     public void Heal()
@@ -104,12 +100,8 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         // Colisión con un enemigo
         EnemyLifeComponent _enemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
-
         WhileTrue_controller _whiletrue= collision.gameObject.GetComponent<WhileTrue_controller>();
         Boss_life_controller _boss = collision.gameObject.GetComponent<Boss_life_controller>();
-
-        WhileTrue_controller _whiletrue = collision.gameObject.GetComponent<WhileTrue_controller>();
-
 
         if (_enemy != null)
         {
@@ -120,14 +112,9 @@ public class PlayerLifeComponent : MonoBehaviour
                 if (_neuEnemy.GetNeutralization() != true) Damage();
             }
         }
-
         else if (_whiletrue != null|| _boss != null) Damage();
 
-
-        else if (_whiletrue != null) Damage();
-
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -140,6 +127,7 @@ public class PlayerLifeComponent : MonoBehaviour
             transform.position = new Vector2(_respawnX, _respawnY);
         }
     }
+
 
     public void Dies()
     {
@@ -171,7 +159,7 @@ public class PlayerLifeComponent : MonoBehaviour
         _respawnBox2 = _respawn.transform.GetChild(1).gameObject.transform.GetComponent<BoxCollider2D>();
 
     }
-
+    
     // Update is called once per frame
     void Update()
     {
