@@ -6,16 +6,18 @@ public class NeuEnemyComponent : MonoBehaviour
 {
     #region references
     private Animator _myAnimator;
+    private McAfeeComponent _enemyM;
+    private NortonComponent _enemyN;
     #endregion
 
     #region parameters
     private float _elapsedTime;
-    [SerializeField] private int _neutralizeDuration = 5;
+    [SerializeField] private float _neutralizeDuration = 5;
+    public bool _enemyNorton;
     #endregion
 
     #region properties
     [SerializeField] private bool _neutralized = false;
-    private McAfeeComponent _enemy;
     #endregion
 
     #region methods
@@ -28,7 +30,8 @@ public class NeuEnemyComponent : MonoBehaviour
             if (_neutralized == false)
             {
                 _myAnimator.SetBool("Neutralize", true);
-                _enemy.enabled = false;
+                if (_enemyNorton) _enemyN.enabled = false;
+                else _enemyM.enabled = false;
                 _neutralized = true;
             }
         }
@@ -43,7 +46,9 @@ public class NeuEnemyComponent : MonoBehaviour
     private void Start()
     {
         _myAnimator = GetComponent<Animator>();
-        _enemy = GetComponent<McAfeeComponent>();
+
+        if (_enemyNorton) _enemyN = GetComponent<NortonComponent>();
+        else _enemyM = GetComponent<McAfeeComponent>();
     }
 
     // Update is called once per frame
@@ -55,7 +60,9 @@ public class NeuEnemyComponent : MonoBehaviour
             if (_elapsedTime > _neutralizeDuration)
             {
                 _neutralized = false;
-                _enemy.enabled = true;
+
+                if (_enemyNorton) _enemyN.enabled = true;
+                else _enemyM.enabled = true;
                 _myAnimator.SetBool("Neutralize", false);
                 _elapsedTime = 0;
             }

@@ -140,9 +140,7 @@ public class InputController : MonoBehaviour
             _movController.SetDash();
             _elapseDash = 0;
             _myAnimator.SetBool("Dash", true);
-            StartCoroutine(changeDash());
-            Debug.Log(_myAnimator.GetBool("Dash"));
-            
+            StartCoroutine(changeDash());            
         }
         else if(_isGrounded) _elapseDash += Time.deltaTime;
         

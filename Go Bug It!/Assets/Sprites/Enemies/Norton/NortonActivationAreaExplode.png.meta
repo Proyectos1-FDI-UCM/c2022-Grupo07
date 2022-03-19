@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: 2b4e44d9563ede841aba35591b0e20be
+guid: dc7385f3c816d6946b3b86c48c501dde
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8594842674957938761
-    second: NortonExplosion_0
+      213: -7316285301689035692
+    second: NortonActivationAreaExplode_0
   - first:
-      213: -6773974929067625740
-    second: NortonExplosion_1
+      213: 789145430124670513
+    second: NortonActivationAreaExplode_1
   - first:
-      213: 121777746160459235
-    second: NortonExplosion_2
+      213: 5009521659572687458
+    second: NortonActivationAreaExplode_2
   - first:
-      213: -8425877809547095932
-    second: NortonExplosion_3
-  - first:
-      213: 7420655320311161896
-    second: NortonExplosion_4
-  - first:
-      213: -7587408016148628237
-    second: NortonExplosion_5
+      213: 746168140885405415
+    second: NortonActivationAreaExplode_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -64,7 +58,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 450
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,49 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NortonExplosion_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1024
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9407c3d10e3074770800000000000000
-      internalID: 8594842674957938761
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NortonExplosion_1
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 1024
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4f2b58b21b10ef1a0800000000000000
-      internalID: -6773974929067625740
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NortonExplosion_2
+      name: NortonActivationAreaExplode_0
       rect:
         serializedVersion: 2
         x: 0
@@ -165,14 +117,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ed11750734a0b100800000000000000
-      internalID: 121777746160459235
+      spriteID: 454d96d0845577a90800000000000000
+      internalID: -7316285301689035692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NortonExplosion_3
+      name: NortonActivationAreaExplode_1
       rect:
         serializedVersion: 2
         x: 512
@@ -186,14 +138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 480591146c4411b80800000000000000
-      internalID: -8425877809547095932
+      spriteID: 13e24be669b93fa00800000000000000
+      internalID: 789145430124670513
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NortonExplosion_4
+      name: NortonActivationAreaExplode_2
       rect:
         serializedVersion: 2
         x: 0
@@ -207,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82462cf82b67bf660800000000000000
-      internalID: 7420655320311161896
+      spriteID: 26294756865658540800000000000000
+      internalID: 5009521659572687458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NortonExplosion_5
+      name: NortonActivationAreaExplode_3
       rect:
         serializedVersion: 2
         x: 512
@@ -228,8 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fc728feb9c14b690800000000000000
-      internalID: -7587408016148628237
+      spriteID: 7ee203488fbea5a00800000000000000
+      internalID: 746168140885405415
       vertices: []
       indices: 
       edges: []
