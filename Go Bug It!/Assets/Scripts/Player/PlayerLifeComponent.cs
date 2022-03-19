@@ -10,9 +10,17 @@ public class PlayerLifeComponent : MonoBehaviour
     private MovementController _myMov;
     private Rigidbody2D _myRigidbody;
     private InputController _myInput;
+    private BoxCollider2D _respawnBox1;
+    private BoxCollider2D _respawnBox2;
     #endregion
 
     #region parameters
+    // Boss Gameobject
+    [SerializeField] private GameObject _boss;
+    // Respawn point
+    [SerializeField] private GameObject _respawn;
+    // Respawn aid timer
+    [SerializeField] private float _respawnTimerAid = 1;
     // Starting Life of the player
     [SerializeField] private int _playerLife = 4;
     // Current Life of the player
@@ -26,6 +34,34 @@ public class PlayerLifeComponent : MonoBehaviour
     #endregion
 
     #region methods
+    IEnumerator respawn_aid()
+    {
+        //Timescale is reduced to give player time to react
+        Time.timeScale = 0.2f;
+
+        //Activates Respawn aid colliders and platforms.
+        //Colliders are activated due to the moving platform script needing them activated to drag the player with them
+        _respawn.transform.GetChild(0).gameObject.SetActive(true);
+        _respawn.transform.GetChild(1).gameObject.SetActive(true);
+        _respawnBox1.enabled = true;
+        _respawnBox2.enabled = true;
+        yield return new WaitForSecondsRealtime(_respawnTimerAid);
+
+        //Timescale reverted
+        Time.timeScale = 1f;
+
+        //Platforms last a bit longer than the slowdown timer
+        yield return new WaitForSecondsRealtime(_respawnTimerAid);
+
+        //Deactivates colliders in order to avoid errors when disabling gameobject
+        _respawnBox1.enabled = false;
+        _respawnBox2.enabled = false;
+
+        //Desactivates aiding platforms completely
+        _respawn.transform.GetChild(0).gameObject.SetActive(false);
+        _respawn.transform.GetChild(1).gameObject.SetActive(false);
+
+    }
     public void Damage()
     {
         _currLife -= _hitDamage;
@@ -38,8 +74,17 @@ public class PlayerLifeComponent : MonoBehaviour
             _myRigidbody.velocity = new Vector2(0,0);
             _myInput.SetGravity(!_myInput.GetGravity());
         }
+
+        if(_boss != null) 
+        {
+            transform.position = new Vector2(_respawn.transform.position.x, _respawn.transform.position.y);
+            StartCoroutine(respawn_aid());
+        }
+        else
+        {
+            transform.position = new Vector2(_respawnX, _respawnY);
+        }
         
-        transform.position = new Vector2(_respawnX, _respawnY);
     }
 
     public void Heal()
@@ -56,6 +101,7 @@ public class PlayerLifeComponent : MonoBehaviour
         // Colisión con un enemigo
         EnemyLifeComponent _enemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
         WhileTrue_controller _whiletrue= collision.gameObject.GetComponent<WhileTrue_controller>();
+        Boss_life_controller _boss = collision.gameObject.GetComponent<Boss_life_controller>();
 
         if (_enemy != null)
         {
@@ -66,7 +112,7 @@ public class PlayerLifeComponent : MonoBehaviour
                 if (_neuEnemy.GetNeutralization() != true) Damage();
             }
         }
-        else if (_whiletrue != null) Damage();
+        else if (_whiletrue != null|| _boss != null) Damage();
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -109,6 +155,9 @@ public class PlayerLifeComponent : MonoBehaviour
         _myAnimator.SetBool("Dies", false);
         _myRigidbody = GetComponent<Rigidbody2D>();
         _myInput = GetComponent<InputController>();
+        _respawnBox1 = _respawn.transform.GetChild(0).gameObject.transform.GetComponent<BoxCollider2D>();
+        _respawnBox2 = _respawn.transform.GetChild(1).gameObject.transform.GetComponent<BoxCollider2D>();
+
     }
     
     // Update is called once per frame

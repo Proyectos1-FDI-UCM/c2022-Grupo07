@@ -25,6 +25,10 @@ public class Boss_life_controller : MonoBehaviour
         {
             Damage();
         }
+        if(current_life <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     #endregion
