@@ -87,7 +87,7 @@ public class GunpointController : MonoBehaviour
     // Disparo laser (Stackpointer)
     public void RaycastShoot()
     {
-        int layermask = 2 << 3;
+        int layermask = 1 << 2;
         layermask = ~layermask;
         int sign = BulletOrientation();
 
