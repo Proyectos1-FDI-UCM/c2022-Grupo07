@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: 2b4e44d9563ede841aba35591b0e20be
+guid: e4f2044591caf7742b91191697893a0a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8594842674957938761
-    second: NortonExplosion_0
+      213: 9066470990595948078
+    second: CheckpointActivadoAnim_0
   - first:
-      213: -6773974929067625740
-    second: NortonExplosion_1
+      213: -8730040360518736327
+    second: CheckpointActivadoAnim_1
   - first:
-      213: 121777746160459235
-    second: NortonExplosion_2
+      213: 2771780128221443910
+    second: CheckpointActivadoAnim_2
   - first:
-      213: -8425877809547095932
-    second: NortonExplosion_3
-  - first:
-      213: 7420655320311161896
-    second: NortonExplosion_4
-  - first:
-      213: -7587408016148628237
-    second: NortonExplosion_5
+      213: 6915272834022155803
+    second: CheckpointActivadoAnim_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,49 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NortonExplosion_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1024
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9407c3d10e3074770800000000000000
-      internalID: 8594842674957938761
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NortonExplosion_1
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 1024
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4f2b58b21b10ef1a0800000000000000
-      internalID: -6773974929067625740
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NortonExplosion_2
+      name: CheckpointActivadoAnim_0
       rect:
         serializedVersion: 2
         x: 0
@@ -165,14 +117,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ed11750734a0b100800000000000000
-      internalID: 121777746160459235
+      spriteID: e2efad8645392dd70800000000000000
+      internalID: 9066470990595948078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NortonExplosion_3
+      name: CheckpointActivadoAnim_1
       rect:
         serializedVersion: 2
         x: 512
@@ -186,14 +138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 480591146c4411b80800000000000000
-      internalID: -8425877809547095932
+      spriteID: 936257cbb8aa8d680800000000000000
+      internalID: -8730040360518736327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NortonExplosion_4
+      name: CheckpointActivadoAnim_2
       rect:
         serializedVersion: 2
         x: 0
@@ -207,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82462cf82b67bf660800000000000000
-      internalID: 7420655320311161896
+      spriteID: 64730225757577620800000000000000
+      internalID: 2771780128221443910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NortonExplosion_5
+      name: CheckpointActivadoAnim_3
       rect:
         serializedVersion: 2
         x: 512
@@ -228,8 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fc728feb9c14b690800000000000000
-      internalID: -7587408016148628237
+      spriteID: b16acccf00cf7ff50800000000000000
+      internalID: 6915272834022155803
       vertices: []
       indices: 
       edges: []

@@ -35,10 +35,10 @@ public class PlayerLifeComponent : MonoBehaviour
         {
             gameObject.transform.Rotate(0, 180, 180);
             _myRigidbody.gravityScale = 2;
-            _myRigidbody.velocity = new Vector2(0,0);
+            _myRigidbody.velocity = new Vector2(0, 0);
             _myInput.SetGravity(!_myInput.GetGravity());
         }
-        
+
         transform.position = new Vector2(_respawnX, _respawnY);
     }
 
@@ -55,7 +55,7 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         // Colisión con un enemigo
         EnemyLifeComponent _enemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
-        WhileTrue_controller _whiletrue= collision.gameObject.GetComponent<WhileTrue_controller>();
+        WhileTrue_controller _whiletrue = collision.gameObject.GetComponent<WhileTrue_controller>();
 
         if (_enemy != null)
         {
@@ -67,8 +67,8 @@ public class PlayerLifeComponent : MonoBehaviour
             }
         }
         else if (_whiletrue != null) Damage();
-
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -81,7 +81,6 @@ public class PlayerLifeComponent : MonoBehaviour
             transform.position = new Vector2(_respawnX, _respawnY);
         }
     }
-
 
     public void Dies()
     {
@@ -110,7 +109,7 @@ public class PlayerLifeComponent : MonoBehaviour
         _myRigidbody = GetComponent<Rigidbody2D>();
         _myInput = GetComponent<InputController>();
     }
-    
+
     // Update is called once per frame
     void Update()
     {
