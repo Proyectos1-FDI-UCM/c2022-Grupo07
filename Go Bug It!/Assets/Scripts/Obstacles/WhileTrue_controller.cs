@@ -12,7 +12,8 @@ public class WhileTrue_controller : MonoBehaviour
         if (_enemy != null)
         {
             int puntuacion = _enemy.GetPoints();
-            Destroy(_enemy.gameObject);
+            _enemy.Dies();
+            _enemy.enabled = false;
             GameManager.Instance.OnEnemyDies(puntuacion);
         }
     }
