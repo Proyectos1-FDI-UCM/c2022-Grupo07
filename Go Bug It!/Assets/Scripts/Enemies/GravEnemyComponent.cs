@@ -6,7 +6,6 @@ public class GravEnemyComponent : MonoBehaviour
 {
     #region parameters
     [SerializeField] private float _gravity = 1.0f;
-    [SerializeField]private float _animationCooldown = 1.0f;
     #endregion
 
     #region references
@@ -16,11 +15,7 @@ public class GravEnemyComponent : MonoBehaviour
     [SerializeField]
     private Animator _myAnimator;
     #endregion
-
-    #region properties
-    private bool _gravityChanged = true;
-    private float _elapsedTime;
-    #endregion
+    
 
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,7 +31,6 @@ public class GravEnemyComponent : MonoBehaviour
     {
         _gravity *= -1;
         _myRigidbody.gravityScale = _gravity;
-        _gravityChanged = true;
 
         if (_gravity < 0) _myAnimator.SetBool("ChangingGrav", true);
         else _myAnimator.SetBool("ChangingGrav+", true);
@@ -49,23 +43,5 @@ public class GravEnemyComponent : MonoBehaviour
         _myCollider = gameObject.GetComponent<Collider2D>();
         _myRigidbody = gameObject.GetComponent<Rigidbody2D>();
         _myTransform = gameObject.transform;
-
-        _elapsedTime = _animationCooldown;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (_gravityChanged)
-        {
-            _elapsedTime -= Time.deltaTime;
-            if (_elapsedTime <= 0 && _gravityChanged)
-            {
-                _myAnimator.SetBool("ChangingGrav", false);
-                _myAnimator.SetBool("ChangingGrav+", false);
-                _gravityChanged = false;
-                _elapsedTime = _animationCooldown;
-            }
-        }
     }
 }
