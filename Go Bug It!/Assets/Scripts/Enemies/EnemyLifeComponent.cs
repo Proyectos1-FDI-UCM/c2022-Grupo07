@@ -22,7 +22,8 @@ public class EnemyLifeComponent : MonoBehaviour
     public void Dies()
     {
         GameManager.Instance.OnEnemyDies(GetPoints());
-        Destroy(gameObject);
+        _myAnimator.SetBool("Death", true);
+        Destroy(gameObject, 1.0f);
     }
     #endregion
 }
