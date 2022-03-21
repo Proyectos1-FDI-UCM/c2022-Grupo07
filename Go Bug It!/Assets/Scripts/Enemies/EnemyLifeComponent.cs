@@ -6,6 +6,7 @@ public class EnemyLifeComponent : MonoBehaviour
 {
     #region parameters
     [SerializeField] private int _puntuation;
+    [SerializeField] private float _animationDuration = 0.3f;
     #endregion
 
     #region references
@@ -22,8 +23,14 @@ public class EnemyLifeComponent : MonoBehaviour
     public void Dies()
     {
         GameManager.Instance.OnEnemyDies(GetPoints());
+        StartCoroutine( dyingAnimation());
+    }
+
+    IEnumerator dyingAnimation()
+    {
         _myAnimator.SetBool("Death", true);
-        Destroy(gameObject, 1.0f);
+        yield return new WaitForSecondsRealtime(_animationDuration);
+        Destroy(gameObject);
     }
     #endregion
 }
