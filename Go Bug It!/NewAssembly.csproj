@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Bullets\McAfeeBullet.cs" />
     <Compile Include="Assets\Scripts\Pickups\CheckpointComponent.cs" />
     <Compile Include="Assets\Scripts\Camera\RoomManager.cs" />
+    <Compile Include="Assets\Scripts\Boss_scripts\Boss_Movement_Controller.cs" />
     <Compile Include="Assets\Scripts\Bullets\BulletMovementController.cs" />
     <Compile Include="Assets\Scripts\Player\PrivShieldController.cs" />
     <Compile Include="Assets\Scripts\Tutorial\SinusoidalMovement.cs" />
@@ -98,7 +99,6 @@
     <Compile Include="Assets\Scripts\Pickups\CodigoRestauradorComponent.cs" />
     <Compile Include="Assets\Scripts\OnGoal.cs" />
     <Compile Include="Assets\Scripts\Enemies\GravEnemyComponent.cs" />
-    <Compile Include="Assets\Scripts\Boss_scripts\Boss_Movement_Controller.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\AssemblyDefinition.asmdef" />
