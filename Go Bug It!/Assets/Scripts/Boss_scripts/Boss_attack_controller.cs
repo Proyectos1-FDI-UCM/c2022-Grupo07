@@ -5,10 +5,11 @@ using UnityEngine;
 public class Boss_attack_controller : MonoBehaviour
 {
     #region references
-    [SerializeField] GameObject [] Avast;
-    [SerializeField] GameObject [] Norton;
-    [SerializeField] GameObject [] WDefender;
-    [SerializeField] GameObject[] McAfee;
+    [SerializeField] private GameObject [] Avast;
+    [SerializeField] private GameObject [] Norton;
+    [SerializeField] private GameObject [] WDefender;
+    [SerializeField] private GameObject[] McAfee;
+    [SerializeField] private GameObject _boss;
     #endregion
     #region methods
     IEnumerator DestroyAttack(float attackDuration, GameObject attackToDestroy)
@@ -19,22 +20,22 @@ public class Boss_attack_controller : MonoBehaviour
     }
     public void AvastAttack()
     {
-        GameObject currentAvastattack= Instantiate(Avast[Random.Range(0, Avast.GetLength(0) - 1)]);
+        GameObject currentAvastattack= Instantiate(Avast[Random.Range(0, Avast.GetLength(0) - 1)],_boss.transform);
         StartCoroutine(DestroyAttack(attackDuration, currentAvastattack));
     }
     public void NortonAttack()
     {
-        GameObject currentNortonattack = Instantiate(Norton[Random.Range(0, Norton.GetLength(0) - 1)]);
+        GameObject currentNortonattack = Instantiate(Norton[Random.Range(0, Norton.GetLength(0) - 1)],_boss.transform);
         StartCoroutine(DestroyAttack(attackDuration, currentNortonattack));
     }
     public void WDefenderAttack()
     {
-        GameObject currentDefenderattack = Instantiate(WDefender[Random.Range(0, WDefender.GetLength(0) - 1)]);
+        GameObject currentDefenderattack = Instantiate(WDefender[Random.Range(0, WDefender.GetLength(0) - 1)],_boss.transform);
         StartCoroutine(DestroyAttack(attackDuration, currentDefenderattack));
     }
     public void McAfeeAttack()
     {
-        GameObject currentMcAfeeattack = Instantiate(McAfee[Random.Range(0, McAfee.GetLength(0) - 1)]);
+        GameObject currentMcAfeeattack = Instantiate(McAfee[Random.Range(0, McAfee.GetLength(0) - 1)], _boss.transform);
         StartCoroutine(DestroyAttack(attackDuration, currentMcAfeeattack));
     }
 
@@ -44,12 +45,22 @@ public class Boss_attack_controller : MonoBehaviour
     [SerializeField] private float timeToAttack;
     #endregion
     #region properties
-
+    private float _elapsedCoolDown;
     #endregion
 
     // Update is called once per frame
     void Update()
     {
-        
+        _elapsedCoolDown += Time.deltaTime;
+        Debug.Log(_elapsedCoolDown);
+        if(_elapsedCoolDown>=timeToAttack)
+        {
+            int rnd = Random.Range(0, 3);
+            if (rnd == 0) AvastAttack();
+            else if (rnd == 1) NortonAttack();
+            else if (rnd == 2) McAfeeAttack();
+            else WDefenderAttack();
+            _elapsedCoolDown = 0;
+        }
     }
 }

@@ -126,7 +126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1231626135586561757
 Transform:
   m_ObjectHideFlags: 0
@@ -267,7 +267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1777745175570603556
 Transform:
   m_ObjectHideFlags: 0
@@ -477,6 +477,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2046370144425672376}
+  - component: {fileID: 324640233212994102}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -503,6 +504,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &324640233212994102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7179338958669403391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f04874c8d810e448ec073e856be5fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 1
 --- !u!1001 &4949877868423332955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -588,11 +602,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9066345102216394725, guid: c00e3b88f639f1c4ba984e2c1de12a84, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 115.35519
+      value: 113.28519
       objectReference: {fileID: 0}
     - target: {fileID: 9066345102216394725, guid: c00e3b88f639f1c4ba984e2c1de12a84, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.694553
+      value: 5.5234413
       objectReference: {fileID: 0}
     - target: {fileID: 9066345102216394725, guid: c00e3b88f639f1c4ba984e2c1de12a84, type: 3}
       propertyPath: m_LocalPosition.z
@@ -684,6 +698,46 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.03
       objectReference: {fileID: 0}
+    - target: {fileID: 4080047461706198507, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
+      propertyPath: timeToAttack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080047461706198507, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
+      propertyPath: attackDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080047461706198507, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
+      propertyPath: Avast.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080047461706198507, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
+      propertyPath: McAfee.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080047461706198507, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
+      propertyPath: Norton.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080047461706198507, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
+      propertyPath: Avast.Array.data[0]
+      value: 
+      objectReference: {fileID: 8407449676553477554, guid: 3173680d698960740a281dbb727fc6e8, type: 3}
+    - target: {fileID: 4080047461706198507, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
+      propertyPath: McAfee.Array.data[0]
+      value: 
+      objectReference: {fileID: 3405788306748348499, guid: 71ab90daeffc2e94695eada95d7d55a9, type: 3}
+    - target: {fileID: 4080047461706198507, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
+      propertyPath: Norton.Array.data[0]
+      value: 
+      objectReference: {fileID: 7865520599741421970, guid: c6c7078e3392ab14d82163ec404a26e9, type: 3}
+    - target: {fileID: 4080047461706198507, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
+      propertyPath: WDefender.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080047461706198507, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
+      propertyPath: WDefender.Array.data[0]
+      value: 
+      objectReference: {fileID: 261878831497635586, guid: 9cda8e607d6690d4eb4bfdac86c11048, type: 3}
     - target: {fileID: 7146208754195268974, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
       propertyPath: m_Name
       value: Boss
