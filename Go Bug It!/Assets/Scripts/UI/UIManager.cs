@@ -7,13 +7,9 @@ public class UIManager : MonoBehaviour
 {
 
     #region references
-    // Vida
-    [SerializeField] private GameObject _lifeUI;
     // Tiempo
-    [SerializeField] private GameObject _timeUI;
     private Text _timeText;
     // Puntos
-    [SerializeField] private GameObject _pointsUI;
     private Text _pointsText;
     // Disparos
     [SerializeField] private GameObject _shotsUI;
@@ -21,6 +17,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite _gravDeactivated;
     [SerializeField] private Sprite _neuActivated;
     [SerializeField] private Sprite _neuDeactivated;
+    // PowerUp
+    private Slider _powerupSlider;
+    private GameObject _powerupObject;
     // Pausa
     [SerializeField] private GameObject _pauseMenu;
     private PauseMenu _pauseFirstScreen;
@@ -86,6 +85,24 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    // Activa o desactiva el slider
+    public void SetSliderActive(bool active)
+    {
+        _powerupObject.SetActive(active);
+    }
+
+    // Actualizar el máximo valor del powerup
+    public void SetMaxSliderValue(float value)
+    {
+        _powerupSlider.maxValue = value;
+    }
+
+    // Actualizar el slider 
+    public void UpdatePowerUpSlider(float value)
+    {
+        _powerupSlider.value = value;
+    }
+
     // Activa o desactiva el menu de pausa en función de su estado anterior
     public void Pause()
     {
@@ -102,16 +119,21 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         // Inicializar vida
-        for (int i = 0; i < _hearts.Length; i++) _hearts[i] = _lifeUI.transform.GetChild(i).GetComponent<Image>();
+        for (int i = 0; i < _hearts.Length; i++) _hearts[i] = gameObject.transform.GetChild(1).GetChild(i).GetComponent<Image>();
 
         // Inicializar temporizador
-        _timeText = _timeUI.transform.GetChild(1).GetComponent<Text>();
+        _timeText = gameObject.transform.GetChild(2).GetChild(1).GetComponent<Text>();
 
         // Inicializar puntos
-        _pointsText = _pointsUI.transform.GetChild(0).GetComponent<Text>();
+        _pointsText = gameObject.transform.GetChild(3).GetChild(0).GetComponent<Text>();
 
         // Inicializar disparos
-        for (int i = 0; i < _shots.Length; i++) _shots[i] = _shotsUI.transform.GetChild(i).GetComponent<Image>();
+        for (int i = 0; i < _shots.Length; i++) _shots[i] = gameObject.transform.GetChild(4).GetChild(i).GetComponent<Image>();
+
+        // Inicializar slider de powerup y lo desactiva
+        _powerupObject = gameObject.transform.GetChild(5).gameObject;
+        _powerupObject.SetActive(false);
+        _powerupSlider = _powerupObject.transform.GetChild(0).GetComponent<Slider>();
     }
 
     // Start is called before the first frame update

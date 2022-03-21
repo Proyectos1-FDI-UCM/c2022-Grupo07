@@ -370,6 +370,18 @@ PrefabInstance:
       propertyPath: _pauseMenu
       value: 
       objectReference: {fileID: 1589028366}
+    - target: {fileID: 4907510636794128595, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460765243368435953, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460765243368435953, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
 --- !u!1001 &123133293
@@ -1743,11 +1755,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7315214018262129583, guid: 977464be376979c42b8cc6aeaa126d6a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.056755
+      value: -69.83
       objectReference: {fileID: 0}
     - target: {fileID: 7315214018262129583, guid: 977464be376979c42b8cc6aeaa126d6a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.200573
+      value: -8.21
       objectReference: {fileID: 0}
     - target: {fileID: 7315214018262129583, guid: 977464be376979c42b8cc6aeaa126d6a, type: 3}
       propertyPath: m_LocalPosition.z
