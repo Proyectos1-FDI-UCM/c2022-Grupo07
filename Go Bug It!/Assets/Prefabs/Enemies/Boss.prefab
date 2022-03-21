@@ -294,8 +294,9 @@ GameObject:
   - component: {fileID: 5679536964963629394}
   - component: {fileID: 4080047461706198507}
   - component: {fileID: 2176111004673833479}
-  - component: {fileID: 1880451210528021526}
   - component: {fileID: 6966349988155452609}
+  - component: {fileID: 2781261760048271785}
+  - component: {fileID: 3784570117557063453}
   m_Layer: 8
   m_Name: Boss
   m_TagString: Untagged
@@ -408,27 +409,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.2, y: 7.2}
   m_EdgeRadius: 0
---- !u!50 &1880451210528021526
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7146208754195268974}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &6966349988155452609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,6 +423,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life_points: 100
   current_life: 0
+--- !u!114 &2781261760048271785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146208754195268974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f04874c8d810e448ec073e856be5fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: -1
+--- !u!50 &3784570117557063453
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146208754195268974}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1001 &7737316313580832580
 PrefabInstance:
   m_ObjectHideFlags: 0

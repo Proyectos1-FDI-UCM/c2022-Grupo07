@@ -160,8 +160,20 @@ PrefabInstance:
       value: 6.1433306
       objectReference: {fileID: 0}
     - target: {fileID: 2176111004673833479, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
+      propertyPath: m_Size.y
+      value: 7.2545853
+      objectReference: {fileID: 0}
+    - target: {fileID: 2176111004673833479, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
       propertyPath: m_Offset.x
       value: -0.5283346
+      objectReference: {fileID: 0}
+    - target: {fileID: 2176111004673833479, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.027292848
+      objectReference: {fileID: 0}
+    - target: {fileID: 2176111004673833479, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2702061727224883950, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
       propertyPath: m_RootOrder
@@ -177,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7146208754195268974, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7146208754195268974, guid: bf2d68917120d314e9801c08a622c6b1, type: 3}
       propertyPath: m_IsActive
@@ -644,7 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f04874c8d810e448ec073e856be5fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: -1
+  _speed: 0
 --- !u!1 &961917178
 GameObject:
   m_ObjectHideFlags: 0
