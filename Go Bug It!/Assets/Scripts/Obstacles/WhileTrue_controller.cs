@@ -13,8 +13,9 @@ public class WhileTrue_controller : MonoBehaviour
         {
             int puntuacion = _enemy.GetPoints();
             _enemy.Dies();
-            _enemy.enabled = false;
             GameManager.Instance.OnEnemyDies(puntuacion);
+
+            _enemy.enabled = false;
         }
     }
     #endregion
