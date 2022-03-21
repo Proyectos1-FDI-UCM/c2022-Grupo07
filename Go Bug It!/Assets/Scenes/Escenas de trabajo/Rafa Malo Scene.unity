@@ -605,24 +605,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3598723817342602654, guid: db1fc87294e58364695053d5eb380c18, type: 3}
   m_PrefabInstance: {fileID: 3269543939236308873}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1353132204 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7179338958669403391, guid: db1fc87294e58364695053d5eb380c18, type: 3}
-  m_PrefabInstance: {fileID: 3269543939236308873}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1353132205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353132204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f04874c8d810e448ec073e856be5fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 1
 --- !u!1 &1445114521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,7 +1010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1488211060798355989, guid: db1fc87294e58364695053d5eb380c18, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2046370144425672376, guid: db1fc87294e58364695053d5eb380c18, type: 3}
       propertyPath: m_RootOrder
@@ -1074,13 +1056,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4135253781531407294, guid: db1fc87294e58364695053d5eb380c18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 115.35519
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135253781531407294, guid: db1fc87294e58364695053d5eb380c18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.694553
+      objectReference: {fileID: 0}
+    - target: {fileID: 4198581616882708539, guid: db1fc87294e58364695053d5eb380c18, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4198581616882708539, guid: db1fc87294e58364695053d5eb380c18, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4077548011159227044, guid: 78d9ea32c4e455847b528db31b6be266, type: 3}
     - target: {fileID: 4404135812286439127, guid: db1fc87294e58364695053d5eb380c18, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5479371082050266242, guid: db1fc87294e58364695053d5eb380c18, type: 3}
+      propertyPath: _boss
+      value: 
+      objectReference: {fileID: 1253686213}
+    - target: {fileID: 5479371082050266242, guid: db1fc87294e58364695053d5eb380c18, type: 3}
+      propertyPath: timeToAttack
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7179338958669403391, guid: db1fc87294e58364695053d5eb380c18, type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684977245868979054, guid: db1fc87294e58364695053d5eb380c18, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 10.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684977245868979054, guid: db1fc87294e58364695053d5eb380c18, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 10.24
       objectReference: {fileID: 0}
     - target: {fileID: 8102604732391566087, guid: db1fc87294e58364695053d5eb380c18, type: 3}
       propertyPath: m_LocalPosition.x
