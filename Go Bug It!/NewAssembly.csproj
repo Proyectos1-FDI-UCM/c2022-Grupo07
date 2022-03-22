@@ -95,6 +95,7 @@
     <Compile Include="Assets\Scripts\Pickups\CodigoRestauradorComponent.cs" />
     <Compile Include="Assets\Scripts\OnGoal.cs" />
     <Compile Include="Assets\Scripts\Enemies\GravEnemyComponent.cs" />
+    <Compile Include="Assets\Scripts\Bullets\DmgBulletComponent.cs" />
     <Compile Include="Assets\Scripts\Boss_scripts\Boss_life_controller.cs" />
     <Compile Include="Assets\Scripts\Boss_scripts\Boss_Movement_Controller.cs" />
     <Compile Include="Assets\Scripts\Boss_scripts\Boss_attack_controller.cs" />

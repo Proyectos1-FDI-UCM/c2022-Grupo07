@@ -66,7 +66,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 12b2a3f47d66e884f9ead4f2ad50d4d1, type: 2}
+  m_Motion: {fileID: 7400000, guid: 32a74a7e72e253f4186138694311c196, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -103,7 +103,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GravBullet
+  m_Name: DmgBullet
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: OnWallCollision
@@ -191,7 +191,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5b65fb18338a8c64fb596beedd4da9c8, type: 2}
+  m_Motion: {fileID: 7400000, guid: c8616f40fa974824780aea8fcc12158c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

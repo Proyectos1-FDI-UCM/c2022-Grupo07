@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gravShot: {fileID: 8139773162008822916, guid: 66b270ae0bb1f3747a4a117e131fcd59, type: 3}
   _neuShot: {fileID: 8139773162008822916, guid: 38641e983279917458a9db43236fbc1b, type: 3}
+  _dmgShot: {fileID: 8139773162008822916, guid: a930bff0069b2354db3b1a8e76ef5168, type: 3}
   Gun: {fileID: 1875590936885397656}
   _playerTransform: {fileID: 3002044054825558893}
   _myRay: {fileID: 1931518240729220501}
@@ -341,6 +342,7 @@ MonoBehaviour:
   _dashCooldown: 0.5
   _shootCooldown: 0.2
   _shotSelectCooldown: 1
+  _thirdBullet: 0
 --- !u!114 &6243002863010358820
 MonoBehaviour:
   m_ObjectHideFlags: 0

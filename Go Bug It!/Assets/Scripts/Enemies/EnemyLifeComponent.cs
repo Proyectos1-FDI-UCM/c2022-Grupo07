@@ -10,23 +10,25 @@ public class EnemyLifeComponent : MonoBehaviour
     #endregion
 
     #region references
-    [SerializeField]
-    private Animator _myAnimator;
+    [SerializeField] private Animator _myAnimator;
     #endregion
 
     #region methods
+    // Devuelve los puntos que da el enemigo
     public int GetPoints()
     {
         return _puntuation;
     }
 
+    // Muerte del enemigo
     public void Dies()
     {
         GameManager.Instance.OnEnemyDies(GetPoints());
-        StartCoroutine( dyingAnimation());
+        StartCoroutine(DyingAnimation());
     }
 
-    IEnumerator dyingAnimation()
+    // Animación de muerte y destrucción del enemigo
+    IEnumerator DyingAnimation()
     {
         _myAnimator.SetBool("Death", true);
         yield return new WaitForSecondsRealtime(_animationDuration);
