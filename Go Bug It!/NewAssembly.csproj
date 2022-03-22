@@ -68,12 +68,15 @@
     <Compile Include="Assets\Scripts\Bullets\McAfeeBullet.cs" />
     <Compile Include="Assets\Scripts\Pickups\CheckpointComponent.cs" />
     <Compile Include="Assets\Scripts\Camera\RoomManager.cs" />
+    <Compile Include="Assets\Scripts\Boss_scripts\Boss_Movement_Controller.cs" />
     <Compile Include="Assets\Scripts\Bullets\BulletMovementController.cs" />
     <Compile Include="Assets\Scripts\Player\PrivShieldController.cs" />
     <Compile Include="Assets\Scripts\Tutorial\SinusoidalMovement.cs" />
     <Compile Include="Assets\Scripts\Bullets\NeuBulletComponent.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLifeComponent.cs" />
+    <Compile Include="Assets\Scripts\Boss_scripts\Boss_attack_controller.cs" />
     <Compile Include="Assets\Scripts\Pickups\StructComponent.cs" />
+    <Compile Include="Assets\Scripts\Boss_scripts\Boss_life_controller.cs" />
     <Compile Include="Assets\Scripts\UI\UIAnimationController.cs" />
     <Compile Include="Assets\Scripts\UI\GameOver.cs" />
     <Compile Include="Assets\Scripts\Bullets\GunpointController.cs" />
