@@ -149,7 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2a31750c4b04924d8fa6c289604fb42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 4
   _neutralized: 0
 --- !u!114 &3308406682026890648
 MonoBehaviour:
@@ -178,7 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a53ebbf3cab06504a9544da2f1ff1fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _puntuation: 0
+  _puntuation: 30
+  _animationDuration: 0.3
   _myAnimator: {fileID: 3308406682026890722}
 --- !u!95 &3308406682026890722
 Animator:
