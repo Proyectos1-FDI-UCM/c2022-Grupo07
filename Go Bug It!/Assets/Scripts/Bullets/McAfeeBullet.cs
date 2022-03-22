@@ -29,6 +29,13 @@ public class McAfeeBullet : MonoBehaviour
         {
             _myPlayer.Damage();
         }
+
+        NortonComponent _myNorton = collision.gameObject.GetComponent<NortonComponent>();
+        if (_myNorton != null)
+        {
+            _myNorton.Activated();
+        }
+
         Destroy(gameObject);
     }
 
@@ -47,17 +54,7 @@ public class McAfeeBullet : MonoBehaviour
     void Update()
     {
         // Asignar velocidad según la dirección
-
         transform.Translate(_shotSpeed * _direction * Time.deltaTime);
-        /*
-        if (left)
-        {
-            transform.Translate(_shotSpeed * Vector2.left * Time.deltaTime);
-        }
-        else
-        {
-            transform.Translate(_shotSpeed * Vector3.right * Time.deltaTime);
-        }*/
     }
 }
 
