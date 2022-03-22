@@ -2,18 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
 
     #region references
-    // Vida
-    [SerializeField] private GameObject _lifeUI;
     // Tiempo
-    [SerializeField] private GameObject _timeUI;
     private Text _timeText;
+    private Animator _timeAnim;
     // Puntos
-    [SerializeField] private GameObject _pointsUI;
     private Text _pointsText;
     // Disparos
     [SerializeField] private GameObject _shotsUI;
@@ -21,9 +19,16 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite _gravDeactivated;
     [SerializeField] private Sprite _neuActivated;
     [SerializeField] private Sprite _neuDeactivated;
+    // PowerUp
+    private Slider _powerupSlider;
+    private GameObject _powerupObject;
     // Pausa
     [SerializeField] private GameObject _pauseMenu;
     private PauseMenu _pauseFirstScreen;
+    // TIME!
+    private GameObject _TIME;
+    private Animator _bg;
+    private Animator _timeEnd;
     #endregion
 
     #region parameters
@@ -50,7 +55,11 @@ public class UIManager : MonoBehaviour
     {
         // Mantener ceros a la izquierda según el nº de dígitos
         if (time >= 100) _timeText.text = "" + time;
-        else if (time >= 10) _timeText.text = "0" + time;
+        else if (time >= 10)
+        {
+            _timeText.text = "0" + time;
+            if (time < 30) _timeAnim.SetBool("Bellow", true);
+        }
         else _timeText.text = "00" + time;
     }
 
@@ -86,6 +95,24 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    // Activa o desactiva el slider
+    public void SetSliderActive(bool active)
+    {
+        _powerupObject.SetActive(active);
+    }
+
+    // Actualizar el máximo valor del powerup
+    public void SetMaxSliderValue(float value)
+    {
+        _powerupSlider.maxValue = value;
+    }
+
+    // Actualizar el slider 
+    public void UpdatePowerUpSlider(float value)
+    {
+        _powerupSlider.value = value;
+    }
+
     // Activa o desactiva el menu de pausa en función de su estado anterior
     public void Pause()
     {
@@ -96,22 +123,48 @@ public class UIManager : MonoBehaviour
             _pauseMenu.SetActive(false);
         }
     }
+
+    // Llama a la corrutina del rotulo de TIME!
+    public void Time()
+    {
+        StartCoroutine(TimeCoroutine());
+    }
+
+    // Activa el rotulo TIME!, espera y carga la escena de GameOver
+    IEnumerator TimeCoroutine()
+    {
+        _TIME.SetActive(true);
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("GameOver");
+    }
     #endregion
 
     // Initializes own references
     void Awake()
     {
         // Inicializar vida
-        for (int i = 0; i < _hearts.Length; i++) _hearts[i] = _lifeUI.transform.GetChild(i).GetComponent<Image>();
+        for (int i = 0; i < _hearts.Length; i++) _hearts[i] = gameObject.transform.GetChild(1).GetChild(i).GetComponent<Image>();
 
         // Inicializar temporizador
-        _timeText = _timeUI.transform.GetChild(1).GetComponent<Text>();
+        _timeText = gameObject.transform.GetChild(2).GetChild(1).GetComponent<Text>();
+        _timeAnim = gameObject.transform.GetChild(2).GetChild(1).GetComponent<Animator>();
 
         // Inicializar puntos
-        _pointsText = _pointsUI.transform.GetChild(0).GetComponent<Text>();
+        _pointsText = gameObject.transform.GetChild(3).GetChild(0).GetComponent<Text>();
 
         // Inicializar disparos
-        for (int i = 0; i < _shots.Length; i++) _shots[i] = _shotsUI.transform.GetChild(i).GetComponent<Image>();
+        for (int i = 0; i < _shots.Length; i++) _shots[i] = gameObject.transform.GetChild(4).GetChild(i).GetComponent<Image>();
+
+        // Inicializar slider de powerup y desactivarlo
+        _powerupObject = gameObject.transform.GetChild(5).gameObject;
+        _powerupObject.SetActive(false);
+        _powerupSlider = _powerupObject.transform.GetChild(0).GetComponent<Slider>();
+
+        // Inicializar rotulo TIME! y desactivarlo
+        _TIME = gameObject.transform.GetChild(6).gameObject;
+        _bg = _TIME.transform.GetChild(0).GetComponent<Animator>();
+        _timeEnd = _TIME.transform.GetChild(1).GetComponent<Animator>();
+        _TIME.SetActive(false);
     }
 
     // Start is called before the first frame update

@@ -47,3 +47,4 @@ MonoBehaviour:
   _myUIObject: {fileID: 0}
   _myPauseObject: {fileID: 7695450327556563109, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
   _player: {fileID: 0}
+  _myGameOver: {fileID: 5511066853763797289, guid: 86c25c652ca6e604a9dc077f4036ff03, type: 3}

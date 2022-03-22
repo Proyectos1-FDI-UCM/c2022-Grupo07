@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Go Bug It!/Assets/Prefabs/Boss.meta
+guid: fe998888803318a4999a2fe5df85fc8b
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+=======
+guid: ed05e3035ecf3db42b8f2069fd97cc51
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+>>>>>>> main:Go Bug It!/Assets/Animations/Enemies/McAfee/MA-Death.anim.meta
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

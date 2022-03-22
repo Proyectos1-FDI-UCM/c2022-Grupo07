@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     // Jugador
     [SerializeField] private GameObject _player;
     private PlayerLifeComponent _myLife;
+    // GameOver
+    [SerializeField] private GameObject _myGameOver;
+    private GameOver _gameOverScreen;
     #endregion
 
     #region methods
@@ -79,18 +82,34 @@ public class GameManager : MonoBehaviour
         _myUIManager.UpdatePlayerLife(lifePoints-1, true);
     }
 
-    // Muerte del jugador
+    // Muerte del jugador. Inicia la animación de muerte y marca la escena actual como la de reintento
     public void OnPlayerDies()
     {
-        StartCoroutine(WaitDeath());
+        // _gameOverScreen.SetRetryScene(SceneManager.GetActiveScene().name);
+        if (_timeLeft > 0) StartCoroutine(WaitDeath()); 
+        else _myUIManager.Time();
+        
     }
+
+    // Cuando se desactiva o activa un powerup
+    public void OnPowerUpActivate(float value, bool active)
+    {
+        _myUIManager.SetMaxSliderValue(value);
+        _myUIManager.SetSliderActive(active);
+    }
+
+    // Actualizar el valor del powerup mientras este está activo
+    public void WhilePowerUpActive(float value)
+    {
+        _myUIManager.UpdatePowerUpSlider(value);
+    }
+    #endregion
 
     // Initializes GameManager instance.
     private void Awake()
     {
         _instance = this;
     }
-    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -100,12 +119,13 @@ public class GameManager : MonoBehaviour
         _myUIManager = _myUIObject.GetComponent<UIManager>();
         _myLife = _player.GetComponent<PlayerLifeComponent>();
         _myPauseObject.SetActive(false);
+        _gameOverScreen = _myGameOver.GetComponent<GameOver>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_timeLeft <= 0) _myLife.Dies();
+        if (_timeLeft <= 0) OnPlayerDies();
         else
         {
             _timeLeft -= Time.deltaTime;
