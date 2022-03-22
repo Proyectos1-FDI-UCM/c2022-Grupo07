@@ -30,6 +30,7 @@ public class InputController : MonoBehaviour
     [SerializeField] private float _shootCooldown;
     private float _elapsedSelect;
     [SerializeField] private float _shotSelectCooldown;
+    [SerializeField] private bool _thirdBullet = false;
     // Axis
     private float _horizontal;
     private float _jump;
@@ -44,15 +45,13 @@ public class InputController : MonoBehaviour
     // Saber si el jugador esta tocando una superficie o no
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (!collision.isTrigger)
-            _isGrounded = true;
+        if (!collision.isTrigger) _isGrounded = true;
     }
 
     // Marcar que el jugador no está tocando el suelo
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (!collision.isTrigger)
-            _isGrounded = false;
+        if (!collision.isTrigger) _isGrounded = false;
     }
 
     // Devuelve la dirección
@@ -75,6 +74,12 @@ public class InputController : MonoBehaviour
     public void SetNewTypeShoot(int newType)
     {
         _typeShoot = newType;
+    }
+
+    // Actualiza el valor de si está o no disponible el tercer disparo
+    public void SetThirdShoot(bool set)
+    {
+        _thirdBullet = set;
     }
 
     IEnumerator changeGrav()
@@ -143,7 +148,6 @@ public class InputController : MonoBehaviour
             StartCoroutine(changeDash());            
         }
         else if(_isGrounded) _elapseDash += Time.deltaTime;
-        
 
         // Selección de disparo
         if (_elapsedSelect > _shotSelectCooldown && _selectShot > 0)
@@ -160,8 +164,8 @@ public class InputController : MonoBehaviour
 
             switch (_typeShoot)
             {
-                case 0 : _myGunpoint.RegularShoot(); break;
-                case 1 : _myGunpoint.TripleShoot(); break;
+                case 0 : _myGunpoint.RegularShoot(_thirdBullet); break;
+                case 1 : _myGunpoint.TripleShoot(_thirdBullet); break;
                 case 2: _myGunpoint.RaycastShoot(); break;
             }
             _elapsedShoot = 0;

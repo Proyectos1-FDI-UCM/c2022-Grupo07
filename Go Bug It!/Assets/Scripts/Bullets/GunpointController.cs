@@ -9,6 +9,7 @@ public class GunpointController : MonoBehaviour
     private Transform _myTransform;
     [SerializeField] private GameObject _gravShot; // Bala gravitatoria
     [SerializeField] private GameObject _neuShot; // Bala neutralizadora
+    [SerializeField] private GameObject _dmgShot; // Bala neutralizadora
     [SerializeField] private Transform Gun; // Posición del label Gun
     [SerializeField] private Transform _playerTransform; // Posición del label Gun
     private InputController _myinput;
@@ -28,49 +29,79 @@ public class GunpointController : MonoBehaviour
     #endregion
 
     #region methods
-    // Instanciación de la bala
-    public void RegularShoot()
+    // Disparo normal. Instanciación de la bala según su tipo y si es o no la tercera bala
+    public void RegularShoot(bool thirdShoot)
     {
+        // Dirección de la bala
         int _sign = BulletOrientation();
-        if (_shot == ShootType.Gravity)
+
+        // Si no es el tercer disparo
+        if (thirdShoot == false)
         {
-            GameObject _grav = GameObject.Instantiate(_gravShot, _direction, _myTransform.rotation);
-            _grav.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            // Instancia de la bala
+            if (_shot == ShootType.Gravity)                                 // Gravedad
+            {
+                GameObject _grav = GameObject.Instantiate(_gravShot, _direction, _myTransform.rotation);
+                _grav.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            }
+            else if (_shot == ShootType.Neutralize)                         // Neutralizador
+            {
+                GameObject _neu = GameObject.Instantiate(_neuShot, _direction, _myTransform.rotation);
+                _neu.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            }
         }
-        else
+        else                                                                // Daño
         {
-            GameObject _neu = GameObject.Instantiate(_neuShot, _direction, _myTransform.rotation);
-            _neu.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            GameObject _dmg = GameObject.Instantiate(_dmgShot, _direction, _myTransform.rotation);
+            _dmg.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
         }
     }
 
-    // Disparo triple (*3)
-    public void TripleShoot()
+    // Disparo triple (*3). Instanciación de las bala según su tipo y si es o no la tercera bala
+    public void TripleShoot(bool thirdShoot)
     {
+        // Dirección de la bala
         int _sign = BulletOrientation();
-        if (_shot == ShootType.Gravity)
+
+        // Instanciar tres balas (1: 0º, 2: 45º, 3: -45º)
+        if (thirdShoot == false)
         {
-            //Bala 1
-            GameObject _grav = GameObject.Instantiate(_gravShot, _direction, _myTransform.rotation);
-            _grav.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
-            //Bala 2
-            GameObject _grav1 = GameObject.Instantiate(_gravShot, _direction, Quaternion.AngleAxis(_tripleShotAngle, transform.forward));
-            _grav1.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
-            //Bala 3
-            GameObject _grav2 = GameObject.Instantiate(_gravShot, _direction, Quaternion.AngleAxis(-_tripleShotAngle, transform.forward));
-            _grav2.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            if (_shot == ShootType.Gravity)                                 // Gravedad
+            {
+                //Bala 1
+                GameObject _grav = GameObject.Instantiate(_gravShot, _direction, _myTransform.rotation);
+                _grav.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+                //Bala 2
+                GameObject _grav1 = GameObject.Instantiate(_gravShot, _direction, Quaternion.AngleAxis(_tripleShotAngle, transform.forward));
+                _grav1.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+                //Bala 3
+                GameObject _grav2 = GameObject.Instantiate(_gravShot, _direction, Quaternion.AngleAxis(-_tripleShotAngle, transform.forward));
+                _grav2.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            }
+            else                                                            // Neutralizardor
+            {
+                //Bala 1
+                GameObject _neu = GameObject.Instantiate(_neuShot, _direction, _myTransform.rotation);
+                _neu.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+                //Bala 2
+                GameObject _neu1 = GameObject.Instantiate(_neuShot, _direction, Quaternion.AngleAxis(_tripleShotAngle, transform.forward));
+                _neu1.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+                //Bala 3
+                GameObject _neu2 = GameObject.Instantiate(_neuShot, _direction, Quaternion.AngleAxis(-_tripleShotAngle, transform.forward));
+                _neu2.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            }
         }
-        else
+        else                                                                // Daño
         {
             //Bala 1
-            GameObject _neu = GameObject.Instantiate(_neuShot, _direction, _myTransform.rotation);
-            _neu.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            GameObject _dmg = GameObject.Instantiate(_dmgShot, _direction, _myTransform.rotation);
+            _dmg.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
             //Bala 2
-            GameObject _neu1 = GameObject.Instantiate(_neuShot, _direction, Quaternion.AngleAxis(_tripleShotAngle, transform.forward));
-            _neu1.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            GameObject _dmg1 = GameObject.Instantiate(_dmgShot, _direction, Quaternion.AngleAxis(_tripleShotAngle, transform.forward));
+            _dmg1.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
             //Bala 3
-            GameObject _neu2 = GameObject.Instantiate(_neuShot, _direction, Quaternion.AngleAxis(-_tripleShotAngle, transform.forward));
-            _neu2.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            GameObject _dmg2 = GameObject.Instantiate(_dmgShot, _direction, Quaternion.AngleAxis(-_tripleShotAngle, transform.forward));
+            _dmg2.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
         }
     }
 

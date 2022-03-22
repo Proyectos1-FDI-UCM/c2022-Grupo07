@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4239304138936502422}
   - component: {fileID: 502954455183045040}
   m_Layer: 0
-  m_Name: GravBullet
+  m_Name: AttackBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,12 +72,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a7e045c759b18b24687057af384f9c04, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8f4584d8e7aee24dbd30281b01d3856, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.25, y: 2}
+  m_Size: {x: 3.25, y: 3.01}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -93,7 +93,7 @@ Animator:
   m_GameObject: {fileID: 155210836139405092}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c2618f0b1ad4d634f8d7b7f453ece227, type: 2}
+  m_Controller: {fileID: 9100000, guid: d59bae529a4d0ea42996f2b633a51080, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -113,10 +113,10 @@ GameObject:
   - component: {fileID: 1225738135948540444}
   - component: {fileID: 6596825724063556826}
   - component: {fileID: 2605744409412045724}
-  - component: {fileID: -9064116540444624523}
   - component: {fileID: 4863509118200628711}
+  - component: {fileID: 9019940090359635570}
   m_Layer: 0
-  m_Name: GravBullet
+  m_Name: AttackBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,18 +177,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myInputController: {fileID: -4900835068251396606, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
   _shotSpeed: 64
---- !u!114 &-9064116540444624523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8139773162008822916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0451f0279210f14592a7734c688c8a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4863509118200628711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,3 +190,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeTime: 2
+--- !u!114 &9019940090359635570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8139773162008822916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d726116efe856e442a0b9536c5326532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
