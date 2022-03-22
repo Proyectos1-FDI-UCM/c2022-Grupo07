@@ -87,13 +87,14 @@ public class GunpointController : MonoBehaviour
     // Disparo laser (Stackpointer)
     public void RaycastShoot()
     {
-        int layermask = 2 << 3;
+        int layermask = 3 << 1;
         layermask = ~layermask;
+        Debug.Log("mascara : " + layermask);
         int sign = BulletOrientation();
 
         RaycastHit2D _objectHit =  Physics2D.Raycast(Gun.position + new Vector3(_offset,0,0) * sign, Gun.right*sign, 1000, layermask);
 
-        if (_objectHit && !_objectHit.transform.gameObject.GetComponent<PolygonCollider2D>().isTrigger)
+        if (_objectHit)
         {
             Debug.Log(_objectHit.transform.name);
             EnemyLifeComponent _enemy = _objectHit.transform.GetComponent<EnemyLifeComponent>();
