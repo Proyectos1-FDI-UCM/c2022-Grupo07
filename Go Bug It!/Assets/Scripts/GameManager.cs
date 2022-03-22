@@ -86,7 +86,9 @@ public class GameManager : MonoBehaviour
     public void OnPlayerDies()
     {
         // _gameOverScreen.SetRetryScene(SceneManager.GetActiveScene().name);
-        StartCoroutine(WaitDeath());
+        if (_timeLeft > 0) StartCoroutine(WaitDeath()); 
+        else _myUIManager.Time();
+        
     }
 
     // Cuando se desactiva o activa un powerup
@@ -123,7 +125,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_timeLeft <= 0) _myLife.Dies();
+        if (_timeLeft <= 0)
+        {
+            OnPlayerDies();
+        }
         else
         {
             _timeLeft -= Time.deltaTime;
