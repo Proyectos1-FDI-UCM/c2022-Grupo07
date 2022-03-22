@@ -56,7 +56,6 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\UI\VolumeManager.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyLifeComponent.cs" />
     <Compile Include="Assets\Scripts\Pickups\DesencriptarComponent.cs" />
     <Compile Include="Assets\Scripts\Player\MovementController.cs" />
@@ -99,6 +98,7 @@
     <Compile Include="Assets\Scripts\Boss_scripts\Boss_life_controller.cs" />
     <Compile Include="Assets\Scripts\Boss_scripts\Boss_Movement_Controller.cs" />
     <Compile Include="Assets\Scripts\Boss_scripts\Boss_attack_controller.cs" />
+    <Compile Include="Assets\Scripts\UI\VolumeManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\AssemblyDefinition.asmdef" />
