@@ -48,8 +48,16 @@ public class PowerUpController : MonoBehaviour
         _isPoweredUp = state;
         _myShield.SetActive(state);
         //_myPlayerLifeComponent.enabled = !state;
-        if (state) _durationTime = _shieldDuration;
-        else _durationTime = 0;
+        if (state)
+        {
+            _durationTime = _shieldDuration;
+            GameManager.Instance.OnPowerUpActivate(_shieldDuration, true);
+        }
+        else
+        {
+            _durationTime = 0;
+            GameManager.Instance.OnPowerUpActivate(0.0f, false);
+        }
     }
 
     public void StructControl(bool state)
@@ -60,11 +68,13 @@ public class PowerUpController : MonoBehaviour
         {
             _myInputController.SetNewTypeShoot(1);
             _durationTime = _structDuration;
+            GameManager.Instance.OnPowerUpActivate(_structDuration, true);
         }
         else
         {
             _myInputController.SetNewTypeShoot(0);
             _durationTime = 0;
+            GameManager.Instance.OnPowerUpActivate(0.0f, false);
         }
     }
 
@@ -76,11 +86,13 @@ public class PowerUpController : MonoBehaviour
         {
             _myInputController.SetNewTypeShoot(2);
             _durationTime = _spDuration;
+            GameManager.Instance.OnPowerUpActivate(_spDuration, true);
         }
         else
         {
             _myInputController.SetNewTypeShoot(0);
             _durationTime = 0;
+            GameManager.Instance.OnPowerUpActivate(0.0f, false);
         }
     }
 
@@ -95,6 +107,7 @@ public class PowerUpController : MonoBehaviour
             _myBulletMovController.SetNewSpeed(1 / _slowValue);
             _myGravityComponent.SetNewGravValue(_slowValue);
             _durationTime = _spamDuration;
+            GameManager.Instance.OnPowerUpActivate(_spamDuration, true);
         }
         else
         {
@@ -103,6 +116,7 @@ public class PowerUpController : MonoBehaviour
             _myBulletMovController.SetNewSpeed(_slowValue);
             _myGravityComponent.SetNewGravValue(1 / _slowValue);
             _durationTime = 0;
+            GameManager.Instance.OnPowerUpActivate(0.0f, false);
         }
     }
     #endregion
@@ -123,6 +137,7 @@ public class PowerUpController : MonoBehaviour
         if (_isPoweredUp)
         {
             _durationTime -= Time.deltaTime;
+            GameManager.Instance.WhilePowerUpActive(_durationTime);
             if (_durationTime <= 0)
             {
                 if (_shieldPowerUp) ShieldControl(false);
