@@ -125,10 +125,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_timeLeft <= 0)
-        {
-            OnPlayerDies();
-        }
+        if (_timeLeft <= 0) OnPlayerDies();
         else
         {
             _timeLeft -= Time.deltaTime;

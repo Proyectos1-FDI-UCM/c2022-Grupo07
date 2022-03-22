@@ -1349,6 +1349,7 @@ GameObject:
   - component: {fileID: 4729239258162767471}
   - component: {fileID: 4729239258162767469}
   - component: {fileID: 4729239258162767468}
+  - component: {fileID: 6888822598846594305}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -1417,6 +1418,25 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 000
+--- !u!95 &6888822598846594305
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4729239258162767470}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7e89c85f0a8b7094989b25fc76e9ca8f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4729239258187519087
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     #region references
     // Tiempo
     private Text _timeText;
+    private Animator _timeAnim;
     // Puntos
     private Text _pointsText;
     // Disparos
@@ -54,7 +55,11 @@ public class UIManager : MonoBehaviour
     {
         // Mantener ceros a la izquierda según el nº de dígitos
         if (time >= 100) _timeText.text = "" + time;
-        else if (time >= 10) _timeText.text = "0" + time;
+        else if (time >= 10)
+        {
+            _timeText.text = "0" + time;
+            if (time < 30) _timeAnim.SetBool("Bellow", true);
+        }
         else _timeText.text = "00" + time;
     }
 
@@ -142,6 +147,7 @@ public class UIManager : MonoBehaviour
 
         // Inicializar temporizador
         _timeText = gameObject.transform.GetChild(2).GetChild(1).GetComponent<Text>();
+        _timeAnim = gameObject.transform.GetChild(2).GetChild(1).GetComponent<Animator>();
 
         // Inicializar puntos
         _pointsText = gameObject.transform.GetChild(3).GetChild(0).GetComponent<Text>();
