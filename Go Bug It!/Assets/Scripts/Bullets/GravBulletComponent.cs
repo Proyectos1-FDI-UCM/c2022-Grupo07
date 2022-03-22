@@ -21,6 +21,10 @@ public class GravBulletComponent : MonoBehaviour
             _myAnimator.SetBool("OnEnemyCollision", true);
             Destroy(gameObject, 0.8f);
         }
+        /*
+        NortonComponent _myNorton = collision.gameObject.GetComponent<NortonComponent>();
+        if (_myNorton != null) _myNorton.Activated();
+        */
         else if (!collision.isTrigger)
         {
             _myMovementController.enabled = false;
