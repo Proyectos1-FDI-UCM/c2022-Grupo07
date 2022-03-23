@@ -56,7 +56,7 @@ public class McAfeeComponent : MonoBehaviour
     {
         if (_myPlayer != null)
         {
-            _playerDistance = Mathf.Abs(Vector3.Distance(_myPlayer.transform.position, _myTransform.position));
+            _playerDistance = Mathf.Abs(_myPlayer.transform.position.x - _myTransform.position.x);
 
             _elapsedTime -= Time.deltaTime;
             if (_elapsedTime <= 0 && _playerDistance <= _range && !_neutralized)

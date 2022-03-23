@@ -155,9 +155,11 @@ public class PlayerLifeComponent : MonoBehaviour
         _myAnimator.SetBool("Dies", false);
         _myRigidbody = GetComponent<Rigidbody2D>();
         _myInput = GetComponent<InputController>();
-        _respawnBox1 = _respawn.transform.GetChild(0).gameObject.transform.GetComponent<BoxCollider2D>();
-        _respawnBox2 = _respawn.transform.GetChild(1).gameObject.transform.GetComponent<BoxCollider2D>();
-
+        if (_boss != null)
+        {
+            _respawnBox1 = _respawn.transform.GetChild(0).gameObject.transform.GetComponent<BoxCollider2D>();
+            _respawnBox2 = _respawn.transform.GetChild(1).gameObject.transform.GetComponent<BoxCollider2D>();
+        }
     }
     
     // Update is called once per frame
