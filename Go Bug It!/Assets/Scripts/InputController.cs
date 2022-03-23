@@ -23,7 +23,7 @@ public class InputController : MonoBehaviour
     private float _localScale;
     private bool _isPaused;
     // Dash
-    public float _elapseDash;
+    private float _elapseDash;
     [SerializeField] private float _dashCooldown;
     // Disparo
     private float _elapsedShoot;
@@ -81,6 +81,11 @@ public class InputController : MonoBehaviour
     {
         _thirdBullet = set;
     }
+    public void SetElapsedDash(float fullCoolDown)
+    {
+         _elapseDash=fullCoolDown;
+    }
+    // Actualiza el valor del cooldown al recoger un desencriptar.
 
     IEnumerator changeGrav()
     {

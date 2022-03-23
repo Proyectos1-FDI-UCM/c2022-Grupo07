@@ -15,7 +15,7 @@ public class DesencriptarComponent : MonoBehaviour
         _myPlayer = collision.gameObject.GetComponent<InputController>();
         if (_myPlayer != null)
         {
-            _myPlayer._elapseDash = 10; //Setea el cooldown para que se disponga del dash de nuevo.
+            _myPlayer.SetElapsedDash(10); //Setea el cooldown para que se disponga del dash de nuevo.
             Destroy(gameObject);
         }
     }
