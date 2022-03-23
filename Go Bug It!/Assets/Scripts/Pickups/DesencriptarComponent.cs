@@ -11,11 +11,11 @@ public class DesencriptarComponent : MonoBehaviour
     #region methods
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        MovementController _myPlayer;
-        _myPlayer = collision.gameObject.GetComponent<MovementController>();
+        InputController _myPlayer;
+        _myPlayer = collision.gameObject.GetComponent<InputController>();
         if (_myPlayer != null)
         {
-            _myPlayer.SetDash();
+            _myPlayer._elapseDash = 10; //Setea el cooldown para que se disponga del dash de nuevo.
             Destroy(gameObject);
         }
     }

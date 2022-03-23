@@ -23,7 +23,7 @@ public class InputController : MonoBehaviour
     private float _localScale;
     private bool _isPaused;
     // Dash
-    private float _elapseDash;
+    public float _elapseDash;
     [SerializeField] private float _dashCooldown;
     // Disparo
     private float _elapsedShoot;
