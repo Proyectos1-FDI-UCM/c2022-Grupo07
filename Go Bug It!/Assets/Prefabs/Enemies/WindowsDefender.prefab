@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _puntuation: 20
-  _animationDuration: 0.3
+  _animationDuration: 1
   _myAnimator: {fileID: 7942644546473370134}
 --- !u!114 &4595834596808464848
 MonoBehaviour:
