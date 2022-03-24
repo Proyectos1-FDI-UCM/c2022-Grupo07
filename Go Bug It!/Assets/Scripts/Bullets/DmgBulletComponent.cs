@@ -15,6 +15,7 @@ public class DmgBulletComponent : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         EnemyLifeComponent _enemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
+
         if (_enemy != null)
         {
             _myMovementController.enabled = false;
