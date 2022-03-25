@@ -146,6 +146,11 @@ public class PlayerLifeComponent : MonoBehaviour
     }
     #endregion
 
+    private void Awake()
+    {
+        GameManager.Instance.PlayerRegistration(gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
