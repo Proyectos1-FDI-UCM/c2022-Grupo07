@@ -91,6 +91,12 @@ public class GameManager : MonoBehaviour
         
     }
 
+    // Llama a la UI para actualizar el indicador del dash según si está o no disponible
+    public void OnDashUpdate(bool canDo)
+    {
+        _myUIManager.UpdateDashIndicator(canDo);
+    }
+
     // Cuando se desactiva o activa un powerup
     public void OnPowerUpActivate(float value, bool active)
     {

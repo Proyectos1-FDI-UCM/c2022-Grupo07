@@ -57,13 +57,11 @@ public class AvastController : MonoBehaviour
 
                 if(hit2D)
                 {
-                  PlayerLifeComponent _player = hit2D.collider.gameObject.GetComponent<PlayerLifeComponent>();
-                  if (_player != null)
-                  {
-                    _player.Damage();
-                  }
+                    PlayerLifeComponent _player = hit2D.collider.gameObject.GetComponent<PlayerLifeComponent>();
+                    if (_player != null) _player.Damage();
+
                     EnemyLifeComponent _myEnemy = hit2D.collider.gameObject.GetComponent<EnemyLifeComponent>();
-                  if (_myEnemy != null)
+                    if (_myEnemy != null)
                     {
                         NortonComponent _myNorton = hit2D.collider.gameObject.GetComponent<NortonComponent>();
                         if (_myNorton != null) _myNorton.Activated();

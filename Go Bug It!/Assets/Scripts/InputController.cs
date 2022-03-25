@@ -91,20 +91,14 @@ public class InputController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
 
-        if (_myAnimator.GetBool("OnGravityChange") == true)
-        {
-            _myAnimator.SetBool("OnGravityChange", false);
-        }
+        if (_myAnimator.GetBool("OnGravityChange") == true) _myAnimator.SetBool("OnGravityChange", false);
     }
 
     IEnumerator changeDash()
     {
         yield return new WaitForSeconds(0.65f);
 
-        if (_myAnimator.GetBool("Dash") == true)
-        {
-            _myAnimator.SetBool("Dash", false);
-        }
+        if (_myAnimator.GetBool("Dash") == true) _myAnimator.SetBool("Dash", false);
     }
     #endregion
 
@@ -118,6 +112,7 @@ public class InputController : MonoBehaviour
         _myAnimator = GetComponent<Animator>();
         _elapsedShoot = _shootCooldown;
         _elapsedSelect = _shotSelectCooldown;
+        _elapseDash = _dashCooldown;
         _isPaused = false;
     }
 
@@ -144,15 +139,23 @@ public class InputController : MonoBehaviour
         }
 
         // Dash
-        if (_elapseDash > _dashCooldown && _dash > 0)
+        if (_elapseDash > _dashCooldown)
         {
-            _myAnimator.SetBool("Dash", true);
-            _movController.SetDash();
-            _elapseDash = 0;
-            _myAnimator.SetBool("Dash", true);
-            StartCoroutine(changeDash());            
+            GameManager.Instance.OnDashUpdate(true);
+            if (_dash > 0)
+            {
+                _myAnimator.SetBool("Dash", true);
+                _movController.SetDash();
+                _elapseDash = 0;
+                _myAnimator.SetBool("Dash", true);
+                StartCoroutine(changeDash());
+            }
         }
-        else if(_isGrounded) _elapseDash += Time.deltaTime;
+        else if (_isGrounded)
+        {
+            GameManager.Instance.OnDashUpdate(false);
+            _elapseDash += Time.deltaTime;
+        }
 
         // Selección de disparo
         if (_elapsedSelect > _shotSelectCooldown && _selectShot > 0)

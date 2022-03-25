@@ -15,6 +15,7 @@ public class DmgBulletComponent : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         EnemyLifeComponent _enemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
+
         if (_enemy != null)
         {
             _myMovementController.enabled = false;
@@ -31,7 +32,6 @@ public class DmgBulletComponent : MonoBehaviour
             Destroy(gameObject, 0.25f);
         }
     }
-    
     #endregion
 
     // Start is called before the first frame update
