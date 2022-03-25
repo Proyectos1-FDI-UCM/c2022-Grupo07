@@ -159,7 +159,9 @@ public class UIManager : MonoBehaviour
         // Activar disparo de daño
         _shotsObj[2].SetActive(true);
 
-        // _shotsCroner.transform.position = new Vector3(0, 0, 0);
+        // Reposicionar la esquina y el indicador de dash
+        _shotsCroner.transform.localPosition = new Vector3(1040, -490, 0);
+        _dashInd.transform.localPosition = new Vector3(813, 46, 0);
     }
     #endregion
 
@@ -186,7 +188,6 @@ public class UIManager : MonoBehaviour
             _shotsImg[i] = _shotsObj[i].GetComponent<Image>();                      // Imagen del disparo
         }
         _shotsObj[2].SetActive(false); // Desactivar disparo damage
-        // DmgShootActivate();
 
         // Inicializar dash
         _dashInd = gameObject.transform.GetChild(4).GetChild(3).gameObject;
@@ -199,6 +200,8 @@ public class UIManager : MonoBehaviour
         // Inicializar rotulo TIME! y desactivarlo
         _TIME = gameObject.transform.GetChild(6).gameObject;
         _TIME.SetActive(false);
+
+        // DmgShootActivate();
     }
 
     // Start is called before the first frame update
