@@ -13,7 +13,7 @@ public class PowerUpController : MonoBehaviour
     private float _spDuration = 1.0f;
     [SerializeField]
     private float _spamDuration = 1.0f;
-    [SerializeField] private float _slowValue = 0.5f;
+    public float _slowValue = 0.5f;
     #endregion
 
     #region references
@@ -102,19 +102,13 @@ public class PowerUpController : MonoBehaviour
         _isPoweredUp = state;
         if (state)
         {
-            Time.timeScale = 1 * _slowValue;
-            _myMovementController.SetNewValues(1 / _slowValue);
-            _myBulletMovController.SetNewSpeed(1 / _slowValue);
-            _myGravityComponent.SetNewGravValue(_slowValue);
+            GameManager.Instance._spam = true;
             _durationTime = _spamDuration;
             GameManager.Instance.OnPowerUpActivate(_spamDuration, true);
         }
         else
         {
-            Time.timeScale = 1;
-            _myMovementController.SetNewValues(_slowValue);
-            _myBulletMovController.SetNewSpeed(_slowValue);
-            _myGravityComponent.SetNewGravValue(1 / _slowValue);
+            GameManager.Instance._spam = false;
             _durationTime = 0;
             GameManager.Instance.OnPowerUpActivate(0.0f, false);
         }
@@ -134,6 +128,7 @@ public class PowerUpController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameManager.Instance._slowtimeFactor = _slowValue;
         if (_isPoweredUp)
         {
             _durationTime -= Time.deltaTime;
