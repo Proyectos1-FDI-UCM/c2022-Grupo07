@@ -42,7 +42,7 @@ public class AvastController : MonoBehaviour
         if (_shooting) _elapsedDuration += Time.deltaTime* GameManager.Instance._speedmod;
         else if (!_shooting) _elapsedDuration = 0;
         _myanimator.SetFloat("_elapsedCoolDown", _elapsedCoolDown);
-        _myanimator.speed *= GameManager.Instance._speedmod;//Adecua la animación al spam
+        _myanimator.speed =1* GameManager.Instance._speedmod;//Adecua la animación al spam
         if (_elapsedCoolDown >= _rayCoolDown)
         {
             _shooting = true;

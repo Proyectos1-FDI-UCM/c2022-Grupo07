@@ -79,7 +79,6 @@ public class NortonComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.speed *= GameManager.Instance._speedmod;//adecua la velocidad de animación al spam.
         if (_myPlayer != null)
         {
             _targetDistance = Mathf.Abs(Vector2.Distance(_myPlayer.transform.position, _myTransform.position));
