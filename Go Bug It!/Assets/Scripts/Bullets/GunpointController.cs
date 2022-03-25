@@ -130,6 +130,7 @@ public class GunpointController : MonoBehaviour
     // Disparo laser (Stackpointer)
     public void RaycastShoot()
     {
+        _myRay.gameObject.SetActive(true);
         int layermask = 3 << 1;
         layermask = ~layermask;
         Debug.Log("mascara : " + layermask);

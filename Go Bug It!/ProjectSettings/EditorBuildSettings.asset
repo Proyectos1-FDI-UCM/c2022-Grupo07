@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Escenas de nivel/Tutorial GDD.unity
     guid: 9548288fc54001c4dba079e28bbfad1b
+  - enabled: 1
+    path: Assets/Scenes/Escenas de trabajo/PruebaFlujo.unity
+    guid: fed246511c886254bb0647f189029a16
   m_configObjects: {}

@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
     // Curación del jugador
     public void OnPlayerHeals(int lifePoints)
     {
-        _myUIManager.UpdatePlayerLife(lifePoints--, true);
+        _myUIManager.UpdatePlayerLife(lifePoints-1, true);
     }
 
     // Muerte del jugador. Inicia la animación de muerte y marca la escena actual como la de reintento
