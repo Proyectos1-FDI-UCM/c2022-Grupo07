@@ -189,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7126814581038107284, guid: d6777a6027864bd4ba426badebacfa6e, type: 3}
       propertyPath: _nextSecene
-      value: Tutorial GDD
+      value: PruebaFlujo
       objectReference: {fileID: 0}
     - target: {fileID: 9137892142816707607, guid: d6777a6027864bd4ba426badebacfa6e, type: 3}
       propertyPath: m_Name
@@ -387,6 +387,10 @@ PrefabInstance:
       propertyPath: _myUIObject
       value: 
       objectReference: {fileID: 1164988376}
+    - target: {fileID: 2680697669183223878, guid: f42427efad87f0246a1e8c185e4c86d1, type: 3}
+      propertyPath: _myPauseObject
+      value: 
+      objectReference: {fileID: 924776610}
     - target: {fileID: 2680697669183223879, guid: f42427efad87f0246a1e8c185e4c86d1, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -528,6 +532,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &924776609
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8360367595115117, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360367595115117, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360367595115117, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360367595115117, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360367595115117, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360367595115117, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360367595115117, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360367595115117, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360367595115117, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360367595115117, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360367595115117, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695450327556563109, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+      propertyPath: m_Name
+      value: PauseMenu
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+--- !u!1 &924776610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7695450327556563109, guid: 9996bf700d337eb4c9ef7cacf5bf0ed0, type: 3}
+  m_PrefabInstance: {fileID: 924776609}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1029457880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +1100,10 @@ PrefabInstance:
       propertyPath: _timeUI
       value: 
       objectReference: {fileID: 1256499141}
+    - target: {fileID: 4729239257457353065, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
+      propertyPath: _pauseMenu
+      value: 
+      objectReference: {fileID: 924776610}
     - target: {fileID: 5460765243368435953, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

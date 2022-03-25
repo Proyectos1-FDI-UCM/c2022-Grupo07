@@ -20,8 +20,7 @@ public class GameManager : MonoBehaviour
     private UIManager _myUIManager;
     [SerializeField] private GameObject _myPauseObject;
     // Jugador
-    private GameObject _player;
-    private PlayerLifeComponent _myLife;
+    private PlayerLifeComponent _myplayerLife;
     // GameOver
     [SerializeField] private GameObject _myGameOver;
     private GameOver _gameOverScreen;
@@ -39,6 +38,7 @@ public class GameManager : MonoBehaviour
     public void OnGoalAdvance(string escena, float newTime)
     {
         _timeLeft = newTime;
+        _myplayerLife.FullyHealing();
         DontDestroyOnLoad(this);
         DontDestroyOnLoad(_myUIManager.gameObject);
         DontDestroyOnLoad(_myPauseObject.gameObject);
@@ -46,9 +46,9 @@ public class GameManager : MonoBehaviour
     }
 
     //Registro del jugador en el GameManager
-    public void PlayerRegistration(GameObject player)
+    public void PlayerRegistration(PlayerLifeComponent player)
     {
-        _player = player;
+        _myplayerLife = player;
     }
 
     // Muerte de un enemigo
@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
     // Curación del jugador
     public void OnPlayerHeals(int lifePoints)
     {
-        _myUIManager.UpdatePlayerLife(lifePoints-1, true);
+        _myUIManager.UpdatePlayerLife(lifePoints--, true);
     }
 
     // Muerte del jugador. Inicia la animación de muerte y marca la escena actual como la de reintento
@@ -123,7 +123,6 @@ public class GameManager : MonoBehaviour
     {
         _timeLeft = 300.0f;
         _myUIManager = _myUIObject.GetComponent<UIManager>();
-        _myLife = _player.GetComponent<PlayerLifeComponent>();
         _myPauseObject.SetActive(false);
         _gameOverScreen = _myGameOver.GetComponent<GameOver>();
     }

@@ -96,6 +96,12 @@ public class PlayerLifeComponent : MonoBehaviour
         }
     }
 
+    public void FullyHealing()
+    {
+        int j = _playerLife - _currLife;
+        for (int i = 0; i < j; i++) Heal();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Colisión con un enemigo
@@ -146,14 +152,10 @@ public class PlayerLifeComponent : MonoBehaviour
     }
     #endregion
 
-    private void Awake()
-    {
-        GameManager.Instance.PlayerRegistration(gameObject);
-    }
-
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.PlayerRegistration(this);
         _currLife = _playerLife;
         _myMov = GetComponent<MovementController>();
         _myAnimator = GetComponent<Animator>();
