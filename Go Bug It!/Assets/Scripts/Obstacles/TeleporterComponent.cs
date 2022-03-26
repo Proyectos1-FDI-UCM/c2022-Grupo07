@@ -5,16 +5,15 @@ using UnityEngine;
 public class TeleporterComponent : MonoBehaviour
 {
     #region parameters
-    public bool _isExit;
+    //public bool _isExit;
     #endregion
 
     #region References
-    [SerializeField] private Transform _myDestination;
+    [SerializeField] private Vector3 _myDestination;
     private Collider2D _myCollider;
     #endregion
 
     #region properties
-    private Vector3 _destination;
     private GameObject _playerObj;
     #endregion
 
@@ -22,10 +21,10 @@ public class TeleporterComponent : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerLifeComponent _myPlayer = collision.gameObject.GetComponent<PlayerLifeComponent>();
-        if (_myPlayer != null && !_isExit)
+        if (_myPlayer != null)
         {
             _playerObj = _myPlayer.gameObject;
-            _myPlayer.transform.position = _destination;
+            _myPlayer.transform.position = _myDestination;
             StartCoroutine(DeactivatesInput());
         }
     }
@@ -38,13 +37,5 @@ public class TeleporterComponent : MonoBehaviour
         _playerObj.GetComponent<InputController>().enabled = true;
         _playerObj.GetComponent<MovementController>().enabled = true;
     }
-
     #endregion
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        _myCollider = GetComponent<Collider2D>();
-        _destination = _myDestination.position;
-    }
 }
