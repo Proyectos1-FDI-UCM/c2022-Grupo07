@@ -47,6 +47,7 @@ public class GravEnemyComponent : MonoBehaviour
     {
         _myCollider = gameObject.GetComponent<Collider2D>();
         _myRigidbody = gameObject.GetComponent<Rigidbody2D>();
+        _myRigidbody.gravityScale = _gravity;
         _myTransform = gameObject.transform;
         _elapsedTime = _animationCooldown;
     }

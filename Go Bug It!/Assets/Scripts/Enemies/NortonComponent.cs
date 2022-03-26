@@ -5,7 +5,7 @@ using UnityEngine;
 public class NortonComponent : MonoBehaviour
 {
     #region parameters
-    private float _range;
+    [SerializeField]private float _range = 1;
     //private bool _activated = false;
     #endregion
 
@@ -73,7 +73,7 @@ public class NortonComponent : MonoBehaviour
         _rangeAnim = transform.GetChild(0).GetComponent<Animator>();
         _myRango.enabled = false;
 
-        _range = _myRango.gameObject.transform.localScale.x * Mathf.Pow(0.54f, 3);
+        //_range = _myRango.gameObject.transform.localScale.x * _myRango.radius;
     }
 
     // Update is called once per frame
