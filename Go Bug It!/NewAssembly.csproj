@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\VolumeManager.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\BackDoorComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyLifeComponent.cs" />
     <Compile Include="Assets\Scripts\Pickups\DesencriptarComponent.cs" />
     <Compile Include="Assets\Scripts\Player\MovementController.cs" />
@@ -96,7 +97,7 @@
     <Compile Include="Assets\Scripts\Bullets\LifeTimeController.cs" />
     <Compile Include="Assets\Scripts\Pickups\CodigoRestauradorComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\GravEnemyComponent.cs" />
-    <Compile Include="Assets\Scripts\Obstacles\BackDoorComponent.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\TeleporterComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\AssemblyDefinition.asmdef" />
