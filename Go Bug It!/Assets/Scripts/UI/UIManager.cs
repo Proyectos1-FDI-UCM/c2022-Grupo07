@@ -8,17 +8,22 @@ public class UIManager : MonoBehaviour
 {
 
     #region references
+    // Esquina
+    private GameObject _shotsCroner;
     // Tiempo
     private Text _timeText;
     private Animator _timeAnim;
     // Puntos
     private Text _pointsText;
     // Disparos
-    [SerializeField] private GameObject _shotsUI;
     [SerializeField] private Sprite _gravActivated;
     [SerializeField] private Sprite _gravDeactivated;
     [SerializeField] private Sprite _neuActivated;
     [SerializeField] private Sprite _neuDeactivated;
+    // Dash
+    private GameObject _dashInd;
+    [SerializeField] private Sprite _dashIndActive;
+    [SerializeField] private Sprite _dashIndDeactive;
     // PowerUp
     private Slider _powerupSlider;
     private GameObject _powerupObject;
@@ -27,13 +32,12 @@ public class UIManager : MonoBehaviour
     private PauseMenu _pauseFirstScreen;
     // TIME!
     private GameObject _TIME;
-    private Animator _bg;
-    private Animator _timeEnd;
     #endregion
 
     #region parameters
     private Image[] _hearts= new Image[4];
-    private Image[] _shots = new Image[2];
+    private Image[] _shotsImg = new Image[3];
+    private GameObject[] _shotsObj = new GameObject[3];
     private int _points = 0;
     #endregion
 
@@ -85,13 +89,13 @@ public class UIManager : MonoBehaviour
     {
         if (shot == 0)
         {
-            _shots[0].sprite = _gravActivated;
-            _shots[1].sprite = _neuDeactivated;
+            _shotsImg[0].sprite = _gravActivated;
+            _shotsImg[1].sprite = _neuDeactivated;
         }
         else
         {
-            _shots[0].sprite = _gravDeactivated;
-            _shots[1].sprite = _neuActivated;
+            _shotsImg[0].sprite = _gravDeactivated;
+            _shotsImg[1].sprite = _neuActivated;
         }
     }
 
@@ -137,11 +141,36 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene("GameOver");
     }
+
+    // Cambia el sprite del indicador del dash según si se puede o no hacer
+    public void UpdateDashIndicator(bool canDo)
+    {
+        if (canDo) _dashInd.GetComponent<Image>().sprite = _dashIndActive;
+        else _dashInd.GetComponent<Image>().sprite = _dashIndDeactive;
+    }
+    
+    // Activa el indicador del disparo de daño y desactiva el resto
+    public void DmgShootActivate()
+    {
+        // Desactivar disparos de gravedad y neutralizar
+        _shotsObj[0].SetActive(false);
+        _shotsObj[1].SetActive(false);
+
+        // Activar disparo de daño
+        _shotsObj[2].SetActive(true);
+
+        // Reposicionar la esquina y el indicador de dash
+        _shotsCroner.transform.localPosition = new Vector3(1040, -490, 0);
+        _dashInd.transform.localPosition = new Vector3(813, 46, 0);
+    }
     #endregion
 
     // Initializes own references
     void Awake()
     {
+        // Inicializar esquina derecha para su posterior manipulación
+        _shotsCroner = gameObject.transform.GetChild(0).GetChild(3).gameObject;
+
         // Inicializar vida
         for (int i = 0; i < _hearts.Length; i++) _hearts[i] = gameObject.transform.GetChild(1).GetChild(i).GetComponent<Image>();
 
@@ -153,7 +182,15 @@ public class UIManager : MonoBehaviour
         _pointsText = gameObject.transform.GetChild(3).GetChild(0).GetComponent<Text>();
 
         // Inicializar disparos
-        for (int i = 0; i < _shots.Length; i++) _shots[i] = gameObject.transform.GetChild(4).GetChild(i).GetComponent<Image>();
+        for (int i = 0; i < _shotsImg.Length; i++)
+        {
+            _shotsObj[i] = gameObject.transform.GetChild(4).GetChild(i).gameObject; // Objeto
+            _shotsImg[i] = _shotsObj[i].GetComponent<Image>();                      // Imagen del disparo
+        }
+        _shotsObj[2].SetActive(false); // Desactivar disparo damage
+
+        // Inicializar dash
+        _dashInd = gameObject.transform.GetChild(4).GetChild(3).gameObject;
 
         // Inicializar slider de powerup y desactivarlo
         _powerupObject = gameObject.transform.GetChild(5).gameObject;
@@ -162,14 +199,15 @@ public class UIManager : MonoBehaviour
 
         // Inicializar rotulo TIME! y desactivarlo
         _TIME = gameObject.transform.GetChild(6).gameObject;
-        _bg = _TIME.transform.GetChild(0).GetComponent<Animator>();
-        _timeEnd = _TIME.transform.GetChild(1).GetComponent<Animator>();
         _TIME.SetActive(false);
+
+        // DmgShootActivate();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        // Inicializar el menú de pausa
         _pauseFirstScreen = _pauseMenu.transform.GetChild(0).GetComponent<PauseMenu>();
     }
 }
