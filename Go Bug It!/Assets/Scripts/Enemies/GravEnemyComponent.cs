@@ -34,8 +34,8 @@ public class GravEnemyComponent : MonoBehaviour
 
     public void ChangeGravity()
     {
-        _gravity *= -1;
-        _myRigidbody.gravityScale = _gravity;
+        //_gravity *= -1;
+        _myRigidbody.gravityScale *= -1;
         _gravityChanged = true;
 
         if (_gravity < 0) _myAnimator.SetBool("ChangingGrav", true);
@@ -48,8 +48,8 @@ public class GravEnemyComponent : MonoBehaviour
     {
         _myCollider = gameObject.GetComponent<Collider2D>();
         _myRigidbody = gameObject.GetComponent<Rigidbody2D>();
+        _myRigidbody.gravityScale = _gravity;
         _myTransform = gameObject.transform;
-
         _elapsedTime = _animationCooldown;
     }
 

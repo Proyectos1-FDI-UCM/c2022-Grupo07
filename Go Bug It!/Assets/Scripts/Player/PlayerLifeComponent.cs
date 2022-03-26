@@ -66,23 +66,29 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         _currLife -= _hitDamage;
         GameManager.Instance.OnPlayerDamage(_currLife);
-
-        if (_myRigidbody.gravityScale < 0)
+        if (_currLife <= 0)
         {
-            gameObject.transform.Rotate(0, 180, 180);
-            _myRigidbody.gravityScale = 2;
-            _myRigidbody.velocity = new Vector2(0,0);
-            _myInput.SetGravity(!_myInput.GetGravity());
-        }
-
-        if(_boss != null) 
-        {
-            transform.position = new Vector2(_respawn.transform.position.x, _respawn.transform.position.y);
-            StartCoroutine(respawn_aid());
+            Dies();
         }
         else
         {
-            transform.position = new Vector2(_respawnX, _respawnY);
+            if (_myRigidbody.gravityScale < 0)
+            {
+                gameObject.transform.Rotate(0, 180, 180);
+                _myRigidbody.gravityScale = 2;
+                _myRigidbody.velocity = new Vector2(0, 0);
+                _myInput.SetGravity(!_myInput.GetGravity());
+            }
+
+            if (_boss != null)
+            {
+                transform.position = new Vector2(_respawn.transform.position.x, _respawn.transform.position.y);
+                StartCoroutine(respawn_aid());
+            }
+            else
+            {
+                transform.position = new Vector2(_respawnX, _respawnY);
+            }
         }
         
     }
@@ -94,6 +100,12 @@ public class PlayerLifeComponent : MonoBehaviour
             _currLife++;
             GameManager.Instance.OnPlayerHeals(_currLife);
         }
+    }
+
+    public void FullyHealing()
+    {
+        int j = _playerLife - _currLife;
+        for (int i = 0; i < j; i++) Heal();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -149,6 +161,7 @@ public class PlayerLifeComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.PlayerRegistration(this);
         _currLife = _playerLife;
         _myMov = GetComponent<MovementController>();
         _myAnimator = GetComponent<Animator>();

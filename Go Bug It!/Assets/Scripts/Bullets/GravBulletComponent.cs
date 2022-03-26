@@ -16,6 +16,8 @@ public class GravBulletComponent : MonoBehaviour
         GravEnemyComponent _enemy = collision.gameObject.GetComponent<GravEnemyComponent>();
         if (_enemy != null)
         {
+            NortonComponent _norton = collision.gameObject.GetComponent<NortonComponent>();
+            if (_norton != null) _norton.Activated();
             _myMovementController.enabled = false;
             transform.GetChild(0).localScale = new Vector3 (0.5f, 0.5f, 0);
             _myAnimator.SetBool("OnEnemyCollision", true);

@@ -4896,6 +4896,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3680420415572651202}
     m_Modifications:
+    - target: {fileID: -7927829604843761856, guid: 7976ec05349696d45b2cc6896527fcd8, type: 3}
+      propertyPath: _offset
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4878665261889845128, guid: 7976ec05349696d45b2cc6896527fcd8, type: 3}
       propertyPath: m_Name
       value: Mcafee
@@ -5786,7 +5790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457371, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 524.49457
+      value: 528
       objectReference: {fileID: 0}
     - target: {fileID: 5238146096993457371, guid: 43483ef3cca873b4d86b136727fa8f65, type: 3}
       propertyPath: m_LocalPosition.y
