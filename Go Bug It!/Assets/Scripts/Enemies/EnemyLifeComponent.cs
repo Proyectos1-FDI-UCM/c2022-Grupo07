@@ -35,10 +35,10 @@ public class EnemyLifeComponent : MonoBehaviour
         Destroy(gameObject);
     }
     #endregion
+
     public void Update()
     {
-        _myAnimator.speed =1* GameManager.Instance._speedmod;//Adecua la velocidad de la animación al spam
-        //this.gameObject.GetComponent<Rigidbody2D>().gravityScale =1* GameManager.Instance._speedmod;//La gravedad se modificará segun el valor del spam.
-    }
+        _myAnimator.speed = 1 * GameManager.Instance._speedmod;//Adecua la velocidad de la animación al spam
 
+    }
 }
