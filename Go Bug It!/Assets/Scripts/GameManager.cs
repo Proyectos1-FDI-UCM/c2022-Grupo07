@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     #region parameters
     // Temporizador del nivel
     private float _timeLeft;
+    private int _actualLevel;
+    public float _slowtimeFactor;
     #endregion
 
     #region references
@@ -27,6 +29,14 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region methods
+    public void Spammed()
+    {
+        if (_spam)
+        {
+            _speedmod = _slowtimeFactor;
+        }
+        else _speedmod = 1;
+    }
     //Espera hasta que termine la animación de muerte
     IEnumerator WaitDeath()
     {
@@ -117,8 +127,13 @@ public class GameManager : MonoBehaviour
         _myUIManager.UpdatePowerUpSlider(value);
     }
     #endregion
+    #region properties
+    [HideInInspector]public bool _spam;
+    [HideInInspector]public float _speedmod;
 
-    // Initializes GameManager instance.
+    #endregion
+
+    // Initializes GameManager instance.-
     private void Awake()
     {
         _instance = this;
@@ -127,6 +142,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        _spam = false;
+        _timeLeft = _levelDuration;
+        _actualLevel = 0;
         _timeLeft = 300.0f;
         _myUIManager = _myUIObject.GetComponent<UIManager>();
         _myPauseObject.SetActive(false);
@@ -142,5 +161,6 @@ public class GameManager : MonoBehaviour
             _timeLeft -= Time.deltaTime;
             _myUIManager.UpdateTime((int)_timeLeft);
         }
+        Spammed();//Comprueba constantemente si el spam está activado
     }
 }

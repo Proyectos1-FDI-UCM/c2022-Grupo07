@@ -58,7 +58,7 @@ public class McAfeeComponent : MonoBehaviour
         {
             _playerDistance = Mathf.Abs(_myPlayer.transform.position.x - _myTransform.position.x);
 
-            _elapsedTime -= Time.deltaTime;
+            _elapsedTime -= Time.deltaTime*GameManager.Instance._speedmod;
             if (_elapsedTime <= 0 && _playerDistance <= _range && !_neutralized)
             {
                 if (lookingRight) _instancePosition = _myTransform.position + new Vector3(_offset, 0, 0);
