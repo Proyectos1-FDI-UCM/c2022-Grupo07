@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CodigoRestauradorComponent : MonoBehaviour
+public class ReupCodeComponent : MonoBehaviour
 {
-    #region parameters
-
-    #endregion
 
     #region references
-    GameManager _myGameManager;
-    Collider2D _myCollider;
+    private Collider2D _myCollider;
+    private Animator _myAnimator;
     #endregion
 
     #region methods
@@ -22,7 +19,8 @@ public class CodigoRestauradorComponent : MonoBehaviour
         if(_myPlayer != null)
         {
             _myPlayer.Heal();
-            Destroy(gameObject);
+            _myAnimator.SetTrigger("Picked");
+            Destroy(gameObject, 0.59f);
         }
     }
 
@@ -33,5 +31,6 @@ public class CodigoRestauradorComponent : MonoBehaviour
     void Start()
     {
         _myCollider = GetComponent<Collider2D>();
+        _myAnimator = GetComponent<Animator>();
     }
 }

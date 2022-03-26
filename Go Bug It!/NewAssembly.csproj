@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\Obstacles\WhileTrue_controller.cs" />
     <Compile Include="Assets\Scripts\Pickups\PrivShieldComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\NortonComponent.cs" />
+    <Compile Include="Assets\Scripts\Pickups\DamageObjectComponent.cs" />
     <Compile Include="Assets\Scripts\Player\GravityComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\NeuEnemyComponent.cs" />
     <Compile Include="Assets\Scripts\InputController.cs" />
@@ -97,7 +98,7 @@
     <Compile Include="Assets\Scripts\Obstacles\CheckpointTeleportComponent.cs" />
     <Compile Include="Assets\Scripts\EndDemo.cs" />
     <Compile Include="Assets\Scripts\Bullets\LifeTimeController.cs" />
-    <Compile Include="Assets\Scripts\Pickups\CodigoRestauradorComponent.cs" />
+    <Compile Include="Assets\Scripts\Pickups\ReupCodeComponent.cs" />
     <Compile Include="Assets\Scripts\OnGoal.cs" />
     <Compile Include="Assets\Scripts\Enemies\GravEnemyComponent.cs" />
   </ItemGroup>

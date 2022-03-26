@@ -62,6 +62,11 @@ public class GameManager : MonoBehaviour
         _myUIManager.UpdateShot(shot);
     }
 
+    public void OnDmgShootActivate()
+    {
+        _myUIManager.DmgShootActivate();
+    }
+
     //Pausa el juego y abre el menu de pausa
     public void Pause(bool pause)
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrivShieldComponent : MonoBehaviour
+public class DamageObjectComponent : MonoBehaviour
 {
 
     #region references
@@ -13,13 +13,14 @@ public class PrivShieldComponent : MonoBehaviour
     #region methods
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        PowerUpController _myPlayer = collision.gameObject.GetComponent<PowerUpController>();
+        GunpointController _playerGun = collision.gameObject.transform.GetChild(0).GetComponent<GunpointController>();
 
-        if (_myPlayer != null)
+        if (_playerGun != null)
         {
-            _myPlayer.ShieldControl(true);
-            _myAnimator.SetTrigger("Picked");
-            Destroy(gameObject, 0.75f);
+            _playerGun.SetDmgShoot();
+            GameManager.Instance.OnDmgShootActivate();
+            _myAnimator.SetBool("Picked", true);
+            Destroy(gameObject, 1.01f);
         }
     }
     #endregion

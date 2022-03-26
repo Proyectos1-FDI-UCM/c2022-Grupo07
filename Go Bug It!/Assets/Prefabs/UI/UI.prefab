@@ -1797,6 +1797,7 @@ GameObject:
   - component: {fileID: 4181801073561956901}
   - component: {fileID: 5083653004969444594}
   - component: {fileID: 4437469144666690528}
+  - component: {fileID: 3033809326494868557}
   m_Layer: 0
   m_Name: DownRight
   m_TagString: Untagged
@@ -1861,6 +1862,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &3033809326494868557
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7414868112238270976}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: be9b177db1ebb974a96a7e48ac23b383, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8071600185509677455
 GameObject:
   m_ObjectHideFlags: 0
