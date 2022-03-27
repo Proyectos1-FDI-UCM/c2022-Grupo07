@@ -54,7 +54,7 @@ public class McAfeeBullet : MonoBehaviour
     void Update()
     {
         // Asignar velocidad según la dirección
-        transform.Translate(_shotSpeed * _direction * Time.deltaTime);
+        transform.Translate(_shotSpeed * _direction * Time.deltaTime*GameManager.Instance._speedmod);
     }
 }
 

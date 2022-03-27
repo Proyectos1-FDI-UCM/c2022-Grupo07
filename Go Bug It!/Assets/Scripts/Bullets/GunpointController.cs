@@ -51,17 +51,20 @@ public class GunpointController : MonoBehaviour
             {
                 GameObject _grav = GameObject.Instantiate(_gravShot, _direction, _myTransform.rotation);
                 _grav.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+                _grav.GetComponent<BulletMovementController>().BulletRotation(_sign);
             }
             else if (_shot == ShootType.Neutralize)                         // Neutralizador
             {
                 GameObject _neu = GameObject.Instantiate(_neuShot, _direction, _myTransform.rotation);
                 _neu.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+                _neu.GetComponent<BulletMovementController>().BulletRotation(_sign);
             }
         }
         else                                                                // Daño
         {
             GameObject _dmg = GameObject.Instantiate(_dmgShot, _direction, _myTransform.rotation);
             _dmg.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            _dmg.GetComponent<BulletMovementController>().BulletRotation(_sign);
         }
     }
 
@@ -79,24 +82,30 @@ public class GunpointController : MonoBehaviour
                 //Bala 1
                 GameObject _grav = GameObject.Instantiate(_gravShot, _direction, _myTransform.rotation);
                 _grav.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+                _grav.GetComponent<BulletMovementController>().BulletRotation(_sign);
                 //Bala 2
                 GameObject _grav1 = GameObject.Instantiate(_gravShot, _direction, Quaternion.AngleAxis(_tripleShotAngle, transform.forward));
                 _grav1.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+                _grav1.GetComponent<BulletMovementController>().BulletRotation(_sign);
                 //Bala 3
                 GameObject _grav2 = GameObject.Instantiate(_gravShot, _direction, Quaternion.AngleAxis(-_tripleShotAngle, transform.forward));
                 _grav2.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+                _grav2.GetComponent<BulletMovementController>().BulletRotation(_sign);
             }
             else                                                            // Neutralizardor
             {
                 //Bala 1
                 GameObject _neu = GameObject.Instantiate(_neuShot, _direction, _myTransform.rotation);
                 _neu.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+                _neu.GetComponent<BulletMovementController>().BulletRotation(_sign);
                 //Bala 2
                 GameObject _neu1 = GameObject.Instantiate(_neuShot, _direction, Quaternion.AngleAxis(_tripleShotAngle, transform.forward));
                 _neu1.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+                _neu1.GetComponent<BulletMovementController>().BulletRotation(_sign);
                 //Bala 3
                 GameObject _neu2 = GameObject.Instantiate(_neuShot, _direction, Quaternion.AngleAxis(-_tripleShotAngle, transform.forward));
                 _neu2.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+                _neu2.GetComponent<BulletMovementController>().BulletRotation(_sign);
             }
         }
         else                                                                // Daño
@@ -104,12 +113,15 @@ public class GunpointController : MonoBehaviour
             //Bala 1
             GameObject _dmg = GameObject.Instantiate(_dmgShot, _direction, _myTransform.rotation);
             _dmg.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            _dmg.GetComponent<BulletMovementController>().BulletRotation(_sign);
             //Bala 2
             GameObject _dmg1 = GameObject.Instantiate(_dmgShot, _direction, Quaternion.AngleAxis(_tripleShotAngle, transform.forward));
             _dmg1.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            _dmg1.GetComponent<BulletMovementController>().BulletRotation(_sign);
             //Bala 3
             GameObject _dmg2 = GameObject.Instantiate(_dmgShot, _direction, Quaternion.AngleAxis(-_tripleShotAngle, transform.forward));
             _dmg2.GetComponent<BulletMovementController>().SetMovementDirection(_sign);
+            _dmg2.GetComponent<BulletMovementController>().BulletRotation(_sign);
         }
     }
 
@@ -126,6 +138,7 @@ public class GunpointController : MonoBehaviour
     // Disparo laser (Stackpointer)
     public void RaycastShoot()
     {
+        _myRay.gameObject.SetActive(true);
         int layermask = 3 << 1;
         layermask = ~layermask;
         Debug.Log("mascara : " + layermask);

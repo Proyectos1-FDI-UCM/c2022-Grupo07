@@ -26,6 +26,16 @@ public class BulletMovementController : MonoBehaviour
         _myMovement *= sign;
     }
 
+    public void BulletRotation(int sign)
+    {
+        if (sign == -1)
+        {
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
+    }
+
     public void SetNewSpeed(float multiplier)
     {
         _shotSpeed *= multiplier;
