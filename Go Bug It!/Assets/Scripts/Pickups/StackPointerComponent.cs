@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class StackPointerComponent : MonoBehaviour
 {
+
     #region references
     private Collider2D _myCollider;
+    private Animator _myAnimator;
     #endregion
 
     #region methods
@@ -16,7 +18,8 @@ public class StackPointerComponent : MonoBehaviour
         if (_myPlayer != null)
         {
             _myPlayer.StackPointerControl(true);
-            Destroy(gameObject);
+            _myAnimator.SetTrigger("Picked");
+            Destroy(gameObject, 0.92f);
         }
     }
     #endregion
@@ -25,5 +28,6 @@ public class StackPointerComponent : MonoBehaviour
     void Start()
     {
         _myCollider = GetComponent<Collider2D>();
+        _myAnimator = GetComponent<Animator>();
     }
 }

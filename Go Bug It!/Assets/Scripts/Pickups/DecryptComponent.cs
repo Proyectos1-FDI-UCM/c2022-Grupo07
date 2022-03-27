@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DesencriptarComponent : MonoBehaviour
+public class DecryptComponent : MonoBehaviour
 {
+
     #region references
     private Collider2D _myCollider;
+    private Animator _myAnimator;
     #endregion
 
     #region methods
@@ -16,7 +18,8 @@ public class DesencriptarComponent : MonoBehaviour
         if (_myPlayer != null)
         {
             _myPlayer.SetElapsedDash(10); //Setea el cooldown para que se disponga del dash de nuevo.
-            Destroy(gameObject);
+            _myAnimator.SetTrigger("Picked");
+            Destroy(gameObject, 0.67f);
         }
     }
     #endregion
@@ -25,5 +28,6 @@ public class DesencriptarComponent : MonoBehaviour
     void Start()
     {
         _myCollider = GetComponent<Collider2D>();
+        _myAnimator = GetComponent<Animator>();
     }
 }
