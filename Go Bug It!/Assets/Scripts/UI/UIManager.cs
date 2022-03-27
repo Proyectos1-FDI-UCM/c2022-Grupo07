@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
 
     #region references
     // Esquina
-    private GameObject _shotsCroner;
+    private GameObject _shotsCorner;
     // Tiempo
     private Text _timeText;
     private Animator _timeAnim;
@@ -159,8 +159,9 @@ public class UIManager : MonoBehaviour
         // Activar disparo de daño
         _shotsObj[2].SetActive(true);
 
-        // Reposicionar la esquina y el indicador de dash
-        _shotsCroner.transform.localPosition = new Vector3(1040, -490, 0);
+        // Reposicionar la esquina y el indicador de dash y aplicar animaciones
+        _shotsCorner.transform.localPosition = new Vector3(1040, -490, 0);
+        _shotsCorner.GetComponent<Animator>().SetTrigger("DmgShoot");
         _dashInd.transform.localPosition = new Vector3(813, 46, 0);
     }
     #endregion
@@ -169,7 +170,7 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         // Inicializar esquina derecha para su posterior manipulación
-        _shotsCroner = gameObject.transform.GetChild(0).GetChild(3).gameObject;
+        _shotsCorner = gameObject.transform.GetChild(0).GetChild(3).gameObject;
 
         // Inicializar vida
         for (int i = 0; i < _hearts.Length; i++) _hearts[i] = gameObject.transform.GetChild(1).GetChild(i).GetComponent<Image>();

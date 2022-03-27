@@ -5,7 +5,8 @@ using UnityEngine;
 public class SpamComponent : MonoBehaviour
 {
     #region references
-    Collider2D _myCollider;
+    private Collider2D _myCollider;
+    private Animator _myAnimator;
     #endregion
 
     #region methods
@@ -17,7 +18,8 @@ public class SpamComponent : MonoBehaviour
         if (_myplayer != null)
         {
             _myplayer.SpamControl(true);
-            Destroy(gameObject);
+            _myAnimator.SetTrigger("Picked");
+            Destroy(gameObject, 0.59f);
         }
     }
 
@@ -27,5 +29,6 @@ public class SpamComponent : MonoBehaviour
     void Start()
     {
         _myCollider = GetComponent<Collider2D>();
+        _myAnimator = GetComponent<Animator>();
     }
 }
