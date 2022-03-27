@@ -13,20 +13,25 @@ public class GameManager : MonoBehaviour
     private int _actualLevel;
     #endregion
 
+    #region properties
+    private int[] _collectibles = { 0, 0, 0, 0 }; // 0 = no obtenido, 1 = obtenido
+    #endregion
+
     #region references
     // Patrón singleton
     static private GameManager _instance;
     static public GameManager Instance { get { return _instance; } }
-    // UI y pausa
+    // UI
     [SerializeField] private GameObject _myUIObject;
     private UIManager _myUIManager;
+    // Pausa
     [SerializeField] private GameObject _myPauseObject;
+    private PauseMenu _myPause;
     // Jugador
     [SerializeField] private GameObject _player;
-    private PlayerLifeComponent _myLife;
     // GameOver
-    [SerializeField] private GameObject _myGameOver;
-    private GameOver _gameOverScreen;
+    // [SerializeField] private GameObject ;
+    // private GameOver _gameOverScreen;
     #endregion
 
     #region methods
@@ -103,6 +108,19 @@ public class GameManager : MonoBehaviour
     {
         _myUIManager.UpdatePowerUpSlider(value);
     }
+
+    // Actualiza el array de coleccionables y lo aplica en el menú de pausa
+    public void OnCollectiblePicked(int posicion)
+    {
+        _collectibles[posicion] = 1;
+        _myPause.ActivateCollectibles(_collectibles);
+    }
+
+    // Devuelve el array de coleccionables
+    public int[] GetCollectibles()
+    {
+        return _collectibles;
+    }
     #endregion
 
     // Initializes GameManager instance.
@@ -117,9 +135,10 @@ public class GameManager : MonoBehaviour
         _timeLeft = _levelDuration;
         _actualLevel = 0;
         _myUIManager = _myUIObject.GetComponent<UIManager>();
-        _myLife = _player.GetComponent<PlayerLifeComponent>();
+        _myPause = _myPauseObject.transform.GetChild(0).GetComponent<PauseMenu>();
+        Debug.Log(_myPause);
         _myPauseObject.SetActive(false);
-        _gameOverScreen = _myGameOver.GetComponent<GameOver>();
+        // _gameOverScreen = _myGameOver.GetComponent<GameOver>();
     }
 
     // Update is called once per frame
