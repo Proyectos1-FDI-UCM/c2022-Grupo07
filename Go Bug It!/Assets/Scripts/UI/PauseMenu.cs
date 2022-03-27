@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class PauseMenu : MonoBehaviour
     // Pausa
     [SerializeField] private GameObject _pauseUI, _controllsUI, _optionsUI;
     private Transform _controllsTransform, _optionsTransform;
+    #endregion
+
+    #region parameters
+    private Image[] _collectiblesImg = new Image[4];
+    [SerializeField] private Sprite[] _activated = new Sprite[4];
+    [SerializeField] private Sprite[] _deactivated = new Sprite[4];
     #endregion
 
     #region methods
@@ -37,20 +44,21 @@ public class PauseMenu : MonoBehaviour
         _optionsTransform.localPosition = new Vector3(0, 0, 0);
     }
 
-    // Volver atrás
+    // Volver del menú de opciones y/o controles al de principal
     public void Back(string option)
     {
-        if (option == "Options")
+        if (option == "Options") // Si estaba en opciones
         {
             _optionsUI.SetActive(false);
             _optionsTransform.localPosition = new Vector3(-1920, 0, 0);
         }
-        else
+        else // Si estaba en controles
         {
             _controllsUI.SetActive(false);
             _controllsTransform.localPosition = new Vector3(1920, 0, 0);
         }
 
+        // Activar pausa y seleccionar botón
         _pauseUI.SetActive(true);
         EventSystem.current.SetSelectedGameObject(_firstPauseButton);
     }
@@ -61,18 +69,36 @@ public class PauseMenu : MonoBehaviour
         Back("Options");
         Back("");
     }
+
+    // Asigna la imagen del coleccionable obtenido a los indicadores de estos
+    public void ActivateCollectibles(int[] collectibles)
+    {
+        for (int i = 0; i < collectibles.Length; i++)
+        {
+            if (collectibles[i] == 1) _collectiblesImg[i].sprite = _activated[i];
+        }
+    }
     #endregion
 
     // Initializes own references
     void Awake()
     {
+        // Desactivar UI de controles y opciones
         _controllsUI.SetActive(false);
         _optionsUI.SetActive(false);
+
+        // Inicializar los indicadores de coleccionables a vacíos
+        for (int i = 0; i < _collectiblesImg.Length; i++)
+        {
+            _collectiblesImg[i] = gameObject.transform.GetChild(3).GetChild(i).GetComponent<Image>();
+            _collectiblesImg[i].sprite = _deactivated[i];
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        // Inicializar variable de posición
         _optionsTransform = _optionsUI.transform;
         _controllsTransform = _controllsUI.transform;
 
