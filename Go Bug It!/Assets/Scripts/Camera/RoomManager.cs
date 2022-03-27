@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class RoomManager : MonoBehaviour
 {
+
+    #region references
     [SerializeField]
     private GameObject CamManager;
+    #endregion
 
+    #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player")&& !collision.isTrigger)
@@ -21,5 +25,6 @@ public class RoomManager : MonoBehaviour
             CamManager.SetActive(false);
         }
     }
+    #endregion
 
 }

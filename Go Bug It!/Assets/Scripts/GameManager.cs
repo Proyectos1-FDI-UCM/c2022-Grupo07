@@ -8,9 +8,10 @@ public class GameManager : MonoBehaviour
 
     #region parameters
     // Temporizador del nivel
-    [SerializeField] private int _levelDuration;
     private float _timeLeft;
     private int _actualLevel;
+    public float _slowtimeFactor;
+    
     #endregion
 
     #region properties
@@ -35,6 +36,14 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region methods
+    public void Spammed()
+    {
+        if (_spam)
+        {
+            _speedmod = _slowtimeFactor;
+        }
+        else _speedmod = 1;
+    }
     //Espera hasta que termine la animación de muerte
     IEnumerator WaitDeath()
     {
@@ -43,10 +52,20 @@ public class GameManager : MonoBehaviour
     }
 
     // Avance de nivel
-    public void OnGoalAdvance()
+    public void OnGoalAdvance(string escena, float newTime)
     {
-        _actualLevel++;
-        SceneManager.LoadScene("Level 1");
+        _timeLeft = newTime;
+        _myplayerLife.FullyHealing();
+        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(_myUIManager.gameObject);
+        DontDestroyOnLoad(_myPauseObject.gameObject);
+        SceneManager.LoadScene(escena);
+    }
+
+    //Registro del jugador en el GameManager
+    public void PlayerRegistration(PlayerLifeComponent player)
+    {
+        _myplayerLife = player;
     }
 
     // Muerte de un enemigo
@@ -65,6 +84,11 @@ public class GameManager : MonoBehaviour
     public void OnChangingShoot(int shot)
     {
         _myUIManager.UpdateShot(shot);
+    }
+
+    public void OnDmgShootActivate()
+    {
+        _myUIManager.DmgShootActivate();
     }
 
     //Pausa el juego y abre el menu de pausa
@@ -96,6 +120,12 @@ public class GameManager : MonoBehaviour
         
     }
 
+    // Llama a la UI para actualizar el indicador del dash según si está o no disponible
+    public void OnDashUpdate(bool canDo)
+    {
+        _myUIManager.UpdateDashIndicator(canDo);
+    }
+
     // Cuando se desactiva o activa un powerup
     public void OnPowerUpActivate(float value, bool active)
     {
@@ -122,8 +152,13 @@ public class GameManager : MonoBehaviour
         return _collectibles;
     }
     #endregion
+    #region properties
+    [HideInInspector]public bool _spam;
+    [HideInInspector]public float _speedmod;
 
-    // Initializes GameManager instance.
+    #endregion
+
+    // Initializes GameManager instance.-
     private void Awake()
     {
         _instance = this;
@@ -132,8 +167,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _timeLeft = _levelDuration;
+
+        _spam = false;
         _actualLevel = 0;
+        _timeLeft = 300.0f;
         _myUIManager = _myUIObject.GetComponent<UIManager>();
         _myPause = _myPauseObject.transform.GetChild(0).GetComponent<PauseMenu>();
         Debug.Log(_myPause);
@@ -150,5 +187,6 @@ public class GameManager : MonoBehaviour
             _timeLeft -= Time.deltaTime;
             _myUIManager.UpdateTime((int)_timeLeft);
         }
+        Spammed();//Comprueba constantemente si el spam está activado
     }
 }

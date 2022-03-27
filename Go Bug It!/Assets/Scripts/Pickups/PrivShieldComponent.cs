@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PrivShieldComponent : MonoBehaviour
 {
+
     #region references
     private Collider2D _myCollider;
+    private Animator _myAnimator;
     #endregion
+
     #region methods
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,7 +18,8 @@ public class PrivShieldComponent : MonoBehaviour
         if (_myPlayer != null)
         {
             _myPlayer.ShieldControl(true);
-            Destroy(gameObject);
+            _myAnimator.SetTrigger("Picked");
+            Destroy(gameObject, 0.75f);
         }
     }
     #endregion
@@ -24,5 +28,6 @@ public class PrivShieldComponent : MonoBehaviour
     void Start()
     {
         _myCollider = GetComponent<Collider2D>();
+        _myAnimator = GetComponent<Animator>();
     }
 }

@@ -91,33 +91,27 @@ public class InputController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
 
-        if (_myAnimator.GetBool("OnGravityChange") == true)
-        {
-            _myAnimator.SetBool("OnGravityChange", false);
-        }
+        if (_myAnimator.GetBool("OnGravityChange") == true) _myAnimator.SetBool("OnGravityChange", false);
     }
 
     IEnumerator changeDash()
     {
         yield return new WaitForSeconds(0.65f);
 
-        if (_myAnimator.GetBool("Dash") == true)
-        {
-            _myAnimator.SetBool("Dash", false);
-        }
+        if (_myAnimator.GetBool("Dash") == true) _myAnimator.SetBool("Dash", false);
     }
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        
         _movController = GetComponent<MovementController>();            // Accedemos al script de movimiento del jugador
         _myGravityComponent = GetComponent<GravityComponent>();         // Accedemos al script de gravedad del jugador
         _myGunpoint = transform.GetChild(0).GetComponent<GunpointController>(); // Accedemos al script de la pistola
         _myAnimator = GetComponent<Animator>();
         _elapsedShoot = _shootCooldown;
         _elapsedSelect = _shotSelectCooldown;
+        _elapseDash = _dashCooldown;
         _isPaused = false;
     }
 
@@ -144,15 +138,23 @@ public class InputController : MonoBehaviour
         }
 
         // Dash
-        if (_elapseDash > _dashCooldown && _dash > 0)
+        if (_elapseDash > _dashCooldown)
         {
-            _myAnimator.SetBool("Dash", true);
-            _movController.SetDash();
-            _elapseDash = 0;
-            _myAnimator.SetBool("Dash", true);
-            StartCoroutine(changeDash());            
+            GameManager.Instance.OnDashUpdate(true);
+            if (_dash > 0)
+            {
+                _myAnimator.SetBool("Dash", true);
+                _movController.SetDash();
+                _elapseDash = 0;
+                _myAnimator.SetBool("Dash", true);
+                StartCoroutine(changeDash());
+            }
         }
-        else if(_isGrounded) _elapseDash += Time.deltaTime;
+        else if (_isGrounded)
+        {
+            GameManager.Instance.OnDashUpdate(false);
+            _elapseDash += Time.deltaTime;
+        }
 
         // Selección de disparo
         if (_elapsedSelect > _shotSelectCooldown && _selectShot > 0)
@@ -169,8 +171,8 @@ public class InputController : MonoBehaviour
 
             switch (_typeShoot)
             {
-                case 0 : _myGunpoint.RegularShoot(_thirdBullet); break;
-                case 1 : _myGunpoint.TripleShoot(_thirdBullet); break;
+                case 0 : _myGunpoint.RegularShoot(); break;
+                case 1 : _myGunpoint.TripleShoot(); break;
                 case 2: _myGunpoint.RaycastShoot(); break;
             }
             _elapsedShoot = 0;

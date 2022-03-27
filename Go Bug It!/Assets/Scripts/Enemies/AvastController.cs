@@ -27,6 +27,7 @@ public class AvastController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         _mytransform = transform;
         _elapsedCoolDown = 0;
         _elapsedDuration = 0;
@@ -37,10 +38,11 @@ public class AvastController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_shooting) _elapsedCoolDown += Time.deltaTime; //Podemos dejar una parte del cooldown con la animaciónd e idle y otra con la de carga
-        if (_shooting) _elapsedDuration += Time.deltaTime;
+        if (!_shooting) _elapsedCoolDown += Time.deltaTime*GameManager.Instance._speedmod; //Podemos dejar una parte del cooldown con la animaciónd e idle y otra con la de carga
+        if (_shooting) _elapsedDuration += Time.deltaTime* GameManager.Instance._speedmod;
         else if (!_shooting) _elapsedDuration = 0;
         _myanimator.SetFloat("_elapsedCoolDown", _elapsedCoolDown);
+        _myanimator.speed =1* GameManager.Instance._speedmod;//Adecua la animación al spam
         if (_elapsedCoolDown >= _rayCoolDown)
         {
             _shooting = true;
@@ -57,13 +59,11 @@ public class AvastController : MonoBehaviour
 
                 if(hit2D)
                 {
-                  PlayerLifeComponent _player = hit2D.collider.gameObject.GetComponent<PlayerLifeComponent>();
-                  if (_player != null)
-                  {
-                    _player.Damage();
-                  }
+                    PlayerLifeComponent _player = hit2D.collider.gameObject.GetComponent<PlayerLifeComponent>();
+                    if (_player != null) _player.Damage();
+
                     EnemyLifeComponent _myEnemy = hit2D.collider.gameObject.GetComponent<EnemyLifeComponent>();
-                  if (_myEnemy != null)
+                    if (_myEnemy != null)
                     {
                         NortonComponent _myNorton = hit2D.collider.gameObject.GetComponent<NortonComponent>();
                         if (_myNorton != null) _myNorton.Activated();

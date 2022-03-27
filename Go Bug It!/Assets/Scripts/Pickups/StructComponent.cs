@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class StructComponent : MonoBehaviour
 {
+
     #region references
     private Collider2D _myCollider;
+    private Animator _myAnimator;
     #endregion
 
     #region methods
@@ -16,7 +18,8 @@ public class StructComponent : MonoBehaviour
         if (_myPlayer != null)
         {
             _myPlayer.StructControl(true);
-            Destroy(gameObject);
+            _myAnimator.SetTrigger("Picked");
+            Destroy(gameObject, 1.2f);
         }
     }
     #endregion
@@ -25,5 +28,6 @@ public class StructComponent : MonoBehaviour
     void Start()
     {
         _myCollider = GetComponent<Collider2D>();
+        _myAnimator = GetComponent<Animator>();
     }
 }
