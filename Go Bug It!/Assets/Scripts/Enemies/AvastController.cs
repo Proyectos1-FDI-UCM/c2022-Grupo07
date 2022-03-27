@@ -16,12 +16,14 @@ public class AvastController : MonoBehaviour
     [SerializeField] private float _rayDuration;
     [SerializeField] private Vector2 _rayDirection;//Dirección del raycast
     [SerializeField] private float _rayOffset; //Para subir o bajar el rayo respecto a Avast (visual) 
+    [SerializeField] private float _firstTimeOffset;//Sirve para ajustar los disparos de un avas tras otro.
     #endregion
 
     #region properties
     private float _elapsedCoolDown;
     private float _elapsedDuration;
     private bool _shooting;
+    private bool _firstTimeShoot;//Identifica si es la primera vez que se dispara.
     #endregion
 
     // Start is called before the first frame update
@@ -32,6 +34,7 @@ public class AvastController : MonoBehaviour
         _elapsedDuration = 0;
         _shooting = false;
         _myanimator = GetComponent<Animator>();
+        _firstTimeShoot = true;
     }
 
     // Update is called once per frame
@@ -41,10 +44,12 @@ public class AvastController : MonoBehaviour
         if (_shooting) _elapsedDuration += Time.deltaTime;
         else if (!_shooting) _elapsedDuration = 0;
         _myanimator.SetFloat("_elapsedCoolDown", _elapsedCoolDown);
-        if (_elapsedCoolDown >= _rayCoolDown)
+        if (_firstTimeShoot && _elapsedCoolDown >= _rayCoolDown + _firstTimeOffset)
         {
             _shooting = true;
+            _firstTimeShoot = false;
         }
+        else if (!_firstTimeShoot && _elapsedCoolDown >= _rayCoolDown) _shooting = true;
         if (_shooting == true)
         {
             if (_elapsedDuration <= _rayDuration)
