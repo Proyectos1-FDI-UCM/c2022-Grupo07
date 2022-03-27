@@ -11,11 +11,12 @@ public class GameManager : MonoBehaviour
     private float _timeLeft;
     private int _actualLevel;
     public float _slowtimeFactor;
-    
     #endregion
 
     #region properties
     private int[] _collectibles = { 0, 0, 0, 0 }; // 0 = no obtenido, 1 = obtenido
+    [HideInInspector] public bool _spam;
+    [HideInInspector] public float _speedmod;
     #endregion
 
     #region references
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
     private PauseMenu _myPause;
     // Jugador
     [SerializeField] private GameObject _player;
+    private PlayerLifeComponent _myplayerLife;
     // GameOver
     // [SerializeField] private GameObject ;
     // private GameOver _gameOverScreen;
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
         }
         else _speedmod = 1;
     }
+
     //Espera hasta que termine la animación de muerte
     IEnumerator WaitDeath()
     {
@@ -152,11 +155,6 @@ public class GameManager : MonoBehaviour
         return _collectibles;
     }
     #endregion
-    #region properties
-    [HideInInspector]public bool _spam;
-    [HideInInspector]public float _speedmod;
-
-    #endregion
 
     // Initializes GameManager instance.-
     private void Awake()
@@ -167,13 +165,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         _spam = false;
         _actualLevel = 0;
         _timeLeft = 300.0f;
         _myUIManager = _myUIObject.GetComponent<UIManager>();
         _myPause = _myPauseObject.transform.GetChild(0).GetComponent<PauseMenu>();
-        Debug.Log(_myPause);
         _myPauseObject.SetActive(false);
         // _gameOverScreen = _myGameOver.GetComponent<GameOver>();
     }
