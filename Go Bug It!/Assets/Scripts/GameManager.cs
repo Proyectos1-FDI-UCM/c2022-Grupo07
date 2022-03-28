@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     #region parameters
     // Temporizador del nivel
     private float _timeLeft;
-    private int _actualLevel;
     public float _slowtimeFactor;
     #endregion
 
@@ -132,6 +131,7 @@ public class GameManager : MonoBehaviour
         _myUIManager.UpdatePowerUpSlider(value);
     }
     #endregion
+
     #region properties
     [HideInInspector]public bool _spam;
     [HideInInspector]public float _speedmod;
@@ -149,8 +149,6 @@ public class GameManager : MonoBehaviour
     {
 
         _spam = false;
-        _timeLeft = _levelDuration;
-        _actualLevel = 0;
         _timeLeft = 300.0f;
         _myUIManager = _myUIObject.GetComponent<UIManager>();
         _myPauseObject.SetActive(false);
