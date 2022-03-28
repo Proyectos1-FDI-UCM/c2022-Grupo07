@@ -58,7 +58,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\RespawnManager.cs" />
     <Compile Include="Assets\Scripts\UI\VolumeManager.cs" />
-    <Compile Include="Assets\Scripts\Obstacles\BackDoorComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyLifeComponent.cs" />
     <Compile Include="Assets\Scripts\Pickups\DecryptComponent.cs" />
     <Compile Include="Assets\Scripts\Pickups\CollectiblesComponent.cs" />
@@ -105,6 +104,8 @@
     <Compile Include="Assets\Scripts\Bullets\LifeTimeController.cs" />
     <Compile Include="Assets\Scripts\Pickups\ReupCodeComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\GravEnemyComponent.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\BackDoorComponent.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\TeleporterComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\AssemblyDefinition.asmdef" />
