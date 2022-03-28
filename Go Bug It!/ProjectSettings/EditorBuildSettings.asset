@@ -20,13 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Escenas de nivel/GameOver.unity
     guid: a7ac5692342248841a832c3c8b81a412
-  - enabled: 0
-    path: Assets/Scenes/Escenas de trabajo/Rafa Bueno Scene.unity
-    guid: edb83fb52de23b54bb299ff4bc1ea70d
   - enabled: 1
     path: Assets/Scenes/Escenas de nivel/Tutorial GDD.unity
     guid: 9548288fc54001c4dba079e28bbfad1b
-  - enabled: 1
-    path: Assets/Scenes/Escenas de trabajo/PruebaFlujo.unity
-    guid: fed246511c886254bb0647f189029a16
   m_configObjects: {}
