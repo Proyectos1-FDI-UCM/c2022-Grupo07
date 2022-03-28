@@ -27,7 +27,7 @@ public class McAfeeBullet : MonoBehaviour
         PlayerLifeComponent _myPlayer = collision.gameObject.GetComponent<PlayerLifeComponent>();
         if (_myPlayer != null)
         {
-            _myPlayer.Damage();
+            StartCoroutine(_myPlayer.hurted());
         }
 
         NortonComponent _myNorton = collision.gameObject.GetComponent<NortonComponent>();

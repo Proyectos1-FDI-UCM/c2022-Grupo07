@@ -62,14 +62,26 @@ public class PlayerLifeComponent : MonoBehaviour
         _respawn.transform.GetChild(1).gameObject.SetActive(false);
 
     }
+
+    public IEnumerator hurted()
+    {
+        _myAnimator.SetBool("Hurted", true);
+        // _myInput.enabled = false;
+        // .simulated = false;
+        Debug.Log("oo");
+        yield return new WaitForSeconds(0.1f);
+        Debug.Log("fin");
+        _myAnimator.SetBool("Hurted", false);
+        _myInput.enabled = true;
+        _myRigidbody.simulated = true;
+        Damage();
+    }
+
     public void Damage()
     {
         _currLife -= _hitDamage;
         GameManager.Instance.OnPlayerDamage(_currLife);
-        if (_currLife <= 0)
-        {
-            Dies();
-        }
+        if (_currLife <= 0) Dies();
         else
         {
             if (_myRigidbody.gravityScale < 0)
@@ -121,10 +133,10 @@ public class PlayerLifeComponent : MonoBehaviour
 
             if (_neuEnemy != null)
             {
-                if (_neuEnemy.GetNeutralization() != true) Damage();
+                if (_neuEnemy.GetNeutralization() != true) StartCoroutine(hurted());
             }
         }
-        else if (_whiletrue != null|| _boss != null) Damage();
+        else if (_whiletrue != null || _boss != null) Damage();
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -173,11 +185,5 @@ public class PlayerLifeComponent : MonoBehaviour
             _respawnBox1 = _respawn.transform.GetChild(0).gameObject.transform.GetComponent<BoxCollider2D>();
             _respawnBox2 = _respawn.transform.GetChild(1).gameObject.transform.GetComponent<BoxCollider2D>();
         }
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        if (_currLife == 0) Dies();
     }
 }

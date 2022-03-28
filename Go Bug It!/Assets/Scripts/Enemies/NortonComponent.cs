@@ -27,7 +27,7 @@ public class NortonComponent : MonoBehaviour
     {
         // Si es el jugador
         PlayerLifeComponent _myPlayer = collision.gameObject.GetComponent<PlayerLifeComponent>();
-        if (_myPlayer != null) _myPlayer.Damage();
+        if (_myPlayer != null) StartCoroutine(_myPlayer.hurted());
 
         // Si es un enemigo
         EnemyLifeComponent _myEnemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
