@@ -5,22 +5,16 @@ using UnityEngine;
 public class PowerUpController : MonoBehaviour
 {
     #region parameters
-    [SerializeField]
-    private float _shieldDuration = 1.0f;
-    [SerializeField]
-    private float _structDuration = 1.0f;
-    [SerializeField]
-    private float _spDuration = 1.0f;
-    [SerializeField]
-    private float _spamDuration = 1.0f;
+    [SerializeField] private float _shieldDuration = 1.0f;
+    [SerializeField] private float _structDuration = 1.0f;
+    [SerializeField] private float _spDuration = 1.0f;
+    [SerializeField] private float _spamDuration = 1.0f;
     public float _slowValue = 0.5f;
     #endregion
 
     #region references
-    [SerializeField]
-    private GameObject _myShield;
-    [SerializeField]
-    private BulletMovementController _myBulletMovController;
+    [SerializeField] private GameObject _myShield;
+    [SerializeField] private BulletMovementController _myBulletMovController;
     private MovementController _myMovementController;
     private GravityComponent _myGravityComponent;
     private InputController _myInputController;
@@ -51,12 +45,12 @@ public class PowerUpController : MonoBehaviour
         if (state)
         {
             _durationTime = _shieldDuration;
-            GameManager.Instance.OnPowerUpActivate(_shieldDuration, true);
+            GameManager.Instance.OnPowerUpActivate(_shieldDuration, true, 0);
         }
         else
         {
             _durationTime = 0;
-            GameManager.Instance.OnPowerUpActivate(0.0f, false);
+            GameManager.Instance.OnPowerUpActivate(0.0f, false, 0);
         }
     }
 
@@ -68,13 +62,13 @@ public class PowerUpController : MonoBehaviour
         {
             _myInputController.SetNewTypeShoot(1);
             _durationTime = _structDuration;
-            GameManager.Instance.OnPowerUpActivate(_structDuration, true);
+            GameManager.Instance.OnPowerUpActivate(_structDuration, true, 1);
         }
         else
         {
             _myInputController.SetNewTypeShoot(0);
             _durationTime = 0;
-            GameManager.Instance.OnPowerUpActivate(0.0f, false);
+            GameManager.Instance.OnPowerUpActivate(0.0f, false, 1);
         }
     }
 
@@ -86,13 +80,13 @@ public class PowerUpController : MonoBehaviour
         {
             _myInputController.SetNewTypeShoot(2);
             _durationTime = _spDuration;
-            GameManager.Instance.OnPowerUpActivate(_spDuration, true);
+            GameManager.Instance.OnPowerUpActivate(_spDuration, true, 2);
         }
         else
         {
             _myInputController.SetNewTypeShoot(0);
             _durationTime = 0;
-            GameManager.Instance.OnPowerUpActivate(0.0f, false);
+            GameManager.Instance.OnPowerUpActivate(0.0f, false, 2);
         }
     }
 
@@ -104,13 +98,13 @@ public class PowerUpController : MonoBehaviour
         {
             GameManager.Instance._spam = true;
             _durationTime = _spamDuration;
-            GameManager.Instance.OnPowerUpActivate(_spamDuration, true);
+            GameManager.Instance.OnPowerUpActivate(_spamDuration, true, 3);
         }
         else
         {
             GameManager.Instance._spam = false;
             _durationTime = 0;
-            GameManager.Instance.OnPowerUpActivate(0.0f, false);
+            GameManager.Instance.OnPowerUpActivate(0.0f, false, 3);
         }
     }
     #endregion

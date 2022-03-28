@@ -129,11 +129,12 @@ public class GameManager : MonoBehaviour
         _myUIManager.UpdateDashIndicator(canDo);
     }
 
-    // Cuando se desactiva o activa un powerup
-    public void OnPowerUpActivate(float value, bool active)
+    // Cuando se desactiva o activa un powerup, ajusta todos los componentes correspondientes
+    public void OnPowerUpActivate(float value, bool active, int powerup)
     {
         _myUIManager.SetMaxSliderValue(value);
         _myUIManager.SetSliderActive(active);
+        if(active) _myUIManager.UpdatePowerUpIcon(powerup);
     }
 
     // Actualizar el valor del powerup mientras este está activo

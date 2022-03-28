@@ -25,8 +25,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite _dashIndActive;
     [SerializeField] private Sprite _dashIndDeactive;
     // PowerUp
-    private Slider _powerupSlider;
     private GameObject _powerupObject;
+    private Slider _powerupSlider;
+    private Image _powerupIcon;
     // Pausa
     [SerializeField] private GameObject _pauseMenu;
     private PauseMenu _pauseFirstScreen;
@@ -38,6 +39,7 @@ public class UIManager : MonoBehaviour
     private Image[] _hearts= new Image[4];
     private Image[] _shotsImg = new Image[3];
     private GameObject[] _shotsObj = new GameObject[3];
+    [SerializeField] private Sprite[] _powerupImg = new Sprite[4];
     private int _points = 0;
     #endregion
 
@@ -164,6 +166,12 @@ public class UIManager : MonoBehaviour
         _shotsCorner.GetComponent<Animator>().SetTrigger("DmgShoot");
         _dashInd.transform.localPosition = new Vector3(813, 46, 0);
     }
+
+    // Cambia el sprite del icono del powerup según el valor recibido
+    public void UpdatePowerUpIcon(int powerup)
+    {
+        _powerupIcon.sprite = _powerupImg[powerup];
+    }
     #endregion
 
     // Initializes own references
@@ -193,10 +201,11 @@ public class UIManager : MonoBehaviour
         // Inicializar dash
         _dashInd = gameObject.transform.GetChild(4).GetChild(3).gameObject;
 
-        // Inicializar slider de powerup y desactivarlo
+        // Inicializar slider de powerup, imagen de powerup y desactivarlos
         _powerupObject = gameObject.transform.GetChild(5).gameObject;
         _powerupObject.SetActive(false);
         _powerupSlider = _powerupObject.transform.GetChild(0).GetComponent<Slider>();
+        _powerupIcon = _powerupObject.transform.GetChild(1).GetComponent<Image>();
 
         // Inicializar rotulo TIME! y desactivarlo
         _TIME = gameObject.transform.GetChild(6).gameObject;
