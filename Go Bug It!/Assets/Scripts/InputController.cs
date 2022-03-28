@@ -105,7 +105,6 @@ public class InputController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         _movController = GetComponent<MovementController>();            // Accedemos al script de movimiento del jugador
         _myGravityComponent = GetComponent<GravityComponent>();         // Accedemos al script de gravedad del jugador
         _myGunpoint = transform.GetChild(0).GetComponent<GunpointController>(); // Accedemos al script de la pistola
@@ -172,8 +171,8 @@ public class InputController : MonoBehaviour
 
             switch (_typeShoot)
             {
-                case 0 : _myGunpoint.RegularShoot(_thirdBullet); break;
-                case 1 : _myGunpoint.TripleShoot(_thirdBullet); break;
+                case 0 : _myGunpoint.RegularShoot(); break;
+                case 1 : _myGunpoint.TripleShoot(); break;
                 case 2: _myGunpoint.RaycastShoot(); break;
             }
             _elapsedShoot = 0;

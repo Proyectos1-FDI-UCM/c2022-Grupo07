@@ -37,6 +37,7 @@ public class NortonComponent : MonoBehaviour
             NortonComponent _otherNorton = collision.gameObject.GetComponent<NortonComponent>();
             if (_otherNorton != null) _otherNorton.Activated();
             else _myEnemy.Dies();
+            
         }
     }
 
@@ -52,7 +53,7 @@ public class NortonComponent : MonoBehaviour
         anim.SetBool("Explosion", true);
         _rangeAnim.SetTrigger("Explosion");
         _myRango.enabled = true;
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 0.5f/GameManager.Instance._speedmod);
     }
 
     // 

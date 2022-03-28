@@ -26,17 +26,25 @@ public class GunpointController : MonoBehaviour
     #region parameters
     [SerializeField] private float _offset;
     [SerializeField] private float _tripleShotAngle = 45;
+    private bool _dmgShoot = false;
     #endregion
 
     #region methods
+
+    // Asigna el valor true al _dmgShoot para poder hacer ese disparo
+    public void SetDmgShoot()
+    {
+        _dmgShoot = true;
+    }
+
     // Disparo normal. Instanciación de la bala según su tipo y si es o no la tercera bala
-    public void RegularShoot(bool thirdShoot)
+    public void RegularShoot()
     {
         // Dirección de la bala
         int _sign = BulletOrientation();
 
         // Si no es el tercer disparo
-        if (thirdShoot == false)
+        if (_dmgShoot == false)
         {
             // Instancia de la bala
             if (_shot == ShootType.Gravity)                                 // Gravedad
@@ -61,13 +69,13 @@ public class GunpointController : MonoBehaviour
     }
 
     // Disparo triple (*3). Instanciación de las bala según su tipo y si es o no la tercera bala
-    public void TripleShoot(bool thirdShoot)
+    public void TripleShoot()
     {
         // Dirección de la bala
         int _sign = BulletOrientation();
 
         // Instanciar tres balas (1: 0º, 2: 45º, 3: -45º)
-        if (thirdShoot == false)
+        if (_dmgShoot == false)
         {
             if (_shot == ShootType.Gravity)                                 // Gravedad
             {

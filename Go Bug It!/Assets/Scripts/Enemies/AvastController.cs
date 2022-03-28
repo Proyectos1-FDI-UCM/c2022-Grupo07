@@ -14,7 +14,7 @@ public class AvastController : MonoBehaviour
     #region parameters
     [SerializeField] private float _rayCoolDown;
     [SerializeField] private float _rayDuration;
-    [SerializeField] private Vector2 _rayDirection;//Direcci髇 del raycast
+    [SerializeField] private Vector2 _rayDirection;//Direcci贸n del raycast
     [SerializeField] private float _rayOffset; //Para subir o bajar el rayo respecto a Avast (visual) 
     [SerializeField] private float _firstTimeOffset;//Sirve para ajustar los disparos de un avas tras otro.
     #endregion
@@ -29,6 +29,7 @@ public class AvastController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         _mytransform = transform;
         _elapsedCoolDown = 0;
         _elapsedDuration = 0;
@@ -40,11 +41,13 @@ public class AvastController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_shooting) _elapsedCoolDown += Time.deltaTime; //Podemos dejar una parte del cooldown con la animaci髇d e idle y otra con la de carga
-        if (_shooting) _elapsedDuration += Time.deltaTime;
+        if (!_shooting) _elapsedCoolDown += Time.deltaTime*GameManager.Instance._speedmod; //Podemos dejar una parte del cooldown con la animaci贸nd e idle y otra con la de carga
+        if (_shooting) _elapsedDuration += Time.deltaTime* GameManager.Instance._speedmod;
         else if (!_shooting) _elapsedDuration = 0;
         _myanimator.SetFloat("_elapsedCoolDown", _elapsedCoolDown);
+        _myanimator.speed =1* GameManager.Instance._speedmod;//Adecua la animaci贸n al spam
         if (_firstTimeShoot && _elapsedCoolDown >= _rayCoolDown + _firstTimeOffset)
+
         {
             _shooting = true;
             _firstTimeShoot = false;
@@ -54,10 +57,10 @@ public class AvastController : MonoBehaviour
         {
             if (_elapsedDuration <= _rayDuration)
             {
-                //Llamar a la animaci髇 de disparo
+                //Llamar a la animaci贸n de disparo
                 RaycastHit2D hit2D = Physics2D.Raycast(_mytransform.position, _rayDirection.normalized, 1000,3);
                 _myRay.enabled = true;
-                _myRay.SetPosition(0, _mytransform.position+_rayOffset*_mytransform.up); //Se renderiza la linea desde la posici髇 del avast al choque con collider.
+                _myRay.SetPosition(0, _mytransform.position+_rayOffset*_mytransform.up); //Se renderiza la linea desde la posici贸n del avast al choque con collider.
                 _myRay.SetPosition(1, hit2D.point);
 
                 if(hit2D)

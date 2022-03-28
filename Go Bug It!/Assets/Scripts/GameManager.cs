@@ -9,24 +9,44 @@ public class GameManager : MonoBehaviour
     #region parameters
     // Temporizador del nivel
     private float _timeLeft;
+    private int _actualLevel;
+    public float _slowtimeFactor;
+    #endregion
+
+    #region properties
+    private int[] _collectibles = { 0, 0, 0, 0 }; // 0 = no obtenido, 1 = obtenido
+    [HideInInspector] public bool _spam;
+    [HideInInspector] public float _speedmod;
     #endregion
 
     #region references
     // Patrón singleton
     static private GameManager _instance;
     static public GameManager Instance { get { return _instance; } }
-    // UI y pausa
+    // UI
     [SerializeField] private GameObject _myUIObject;
     private UIManager _myUIManager;
+    // Pausa
     [SerializeField] private GameObject _myPauseObject;
+    private PauseMenu _myPause;
     // Jugador
+    [SerializeField] private GameObject _player;
     private PlayerLifeComponent _myplayerLife;
     // GameOver
-    [SerializeField] private GameObject _myGameOver;
-    private GameOver _gameOverScreen;
+    // [SerializeField] private GameObject ;
+    // private GameOver _gameOverScreen;
     #endregion
 
     #region methods
+    public void Spammed()
+    {
+        if (_spam)
+        {
+            _speedmod = _slowtimeFactor;
+        }
+        else _speedmod = 1;
+    }
+
     //Espera hasta que termine la animación de muerte
     IEnumerator WaitDeath()
     {
@@ -67,6 +87,11 @@ public class GameManager : MonoBehaviour
     public void OnChangingShoot(int shot)
     {
         _myUIManager.UpdateShot(shot);
+    }
+
+    public void OnDmgShootActivate()
+    {
+        _myUIManager.DmgShootActivate();
     }
 
     //Pausa el juego y abre el menu de pausa
@@ -116,9 +141,22 @@ public class GameManager : MonoBehaviour
     {
         _myUIManager.UpdatePowerUpSlider(value);
     }
+
+    // Actualiza el array de coleccionables y lo aplica en el menú de pausa
+    public void OnCollectiblePicked(int posicion)
+    {
+        _collectibles[posicion] = 1;
+        _myPause.ActivateCollectibles(_collectibles);
+    }
+
+    // Devuelve el array de coleccionables
+    public int[] GetCollectibles()
+    {
+        return _collectibles;
+    }
     #endregion
 
-    // Initializes GameManager instance.
+    // Initializes GameManager instance.-
     private void Awake()
     {
         _instance = this;
@@ -127,10 +165,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _spam = false;
+        _actualLevel = 0;
         _timeLeft = 300.0f;
         _myUIManager = _myUIObject.GetComponent<UIManager>();
+        _myPause = _myPauseObject.transform.GetChild(0).GetComponent<PauseMenu>();
         _myPauseObject.SetActive(false);
-        _gameOverScreen = _myGameOver.GetComponent<GameOver>();
+        // _gameOverScreen = _myGameOver.GetComponent<GameOver>();
     }
 
     // Update is called once per frame
@@ -142,5 +183,6 @@ public class GameManager : MonoBehaviour
             _timeLeft -= Time.deltaTime;
             _myUIManager.UpdateTime((int)_timeLeft);
         }
+        Spammed();//Comprueba constantemente si el spam está activado
     }
 }
