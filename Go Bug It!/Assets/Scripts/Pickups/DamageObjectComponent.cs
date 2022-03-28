@@ -6,7 +6,6 @@ public class DamageObjectComponent : MonoBehaviour
 {
 
     #region references
-    private Collider2D _myCollider;
     private Animator _myAnimator;
     #endregion
 
@@ -14,7 +13,7 @@ public class DamageObjectComponent : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         GunpointController _playerGun = collision.gameObject.transform.GetChild(0).GetComponent<GunpointController>();
-
+        Debug.Log(_playerGun);
         if (_playerGun != null)
         {
             _playerGun.SetDmgShoot();
@@ -28,7 +27,6 @@ public class DamageObjectComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _myCollider = GetComponent<Collider2D>();
         _myAnimator = GetComponent<Animator>();
     }
 }
