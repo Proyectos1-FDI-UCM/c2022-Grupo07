@@ -29,15 +29,14 @@ public class StartMenu : MonoBehaviour
     IEnumerator StartScene()
     {
         // Animación del logo de Ñintendo
-        yield return new WaitForSeconds(0.2f);
         _ñintendo.GetComponent<Animator>().SetBool("GoÑintendo", true);
 
         // Animación del rótulo de autores
-        yield return new WaitForSeconds(6.5f);
+        yield return new WaitForSeconds(3.5f);
         _authors.GetComponent<Animator>().SetBool("GoAuthors", true);
 
         // Animación de fundido a blanco
-        yield return new WaitForSeconds(5.3f);
+        yield return new WaitForSeconds(3.2f);
         _initialFlash.GetComponent<Animator>().SetBool("GoFlash", true);
 
         // Asignar el botón inicial del menú
