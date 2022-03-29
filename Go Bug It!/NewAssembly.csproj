@@ -53,6 +53,7 @@
     <UnityVersion>2020.3.13f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\UI\VictoryScreen.cs" />
     <Compile Include="Assets\Scripts\RespawnManager.cs" />
     <Compile Include="Assets\Scripts\UI\VolumeManager.cs" />
     <Compile Include="Assets\Scripts\Obstacles\BackDoorComponent.cs" />
