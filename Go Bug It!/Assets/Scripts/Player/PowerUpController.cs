@@ -36,6 +36,11 @@ public class PowerUpController : MonoBehaviour
         _myShield.SetActive(false);
     }
 
+    public bool IsShieldActive()
+    {
+        return _shieldPowerUp;
+    }
+
     public void ShieldControl(bool state)
     {
         _shieldPowerUp = state;
