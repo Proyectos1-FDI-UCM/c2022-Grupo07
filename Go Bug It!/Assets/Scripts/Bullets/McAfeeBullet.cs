@@ -25,16 +25,10 @@ public class McAfeeBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerLifeComponent _myPlayer = collision.gameObject.GetComponent<PlayerLifeComponent>();
-        if (_myPlayer != null)
-        {
-            _myPlayer.Damage();
-        }
+        if (_myPlayer != null) _myPlayer.CallForDamage();
 
         NortonComponent _myNorton = collision.gameObject.GetComponent<NortonComponent>();
-        if (_myNorton != null)
-        {
-            _myNorton.Activated();
-        }
+        if (_myNorton != null) _myNorton.Activated();
 
         Destroy(gameObject);
     }
