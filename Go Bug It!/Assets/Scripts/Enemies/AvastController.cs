@@ -58,7 +58,7 @@ public class AvastController : MonoBehaviour
             if (_elapsedDuration <= _rayDuration)
             {
                 //Llamar a la animación de disparo
-                RaycastHit2D hit2D = Physics2D.Raycast(_mytransform.position, _rayDirection.normalized, 1000,3);
+                RaycastHit2D hit2D = Physics2D.Raycast(_mytransform.position, _rayDirection.normalized, 1000, ~(1<<9));
                 _myRay.enabled = true;
                 _myRay.SetPosition(0, _mytransform.position+_rayOffset*_mytransform.up); //Se renderiza la linea desde la posición del avast al choque con collider.
                 _myRay.SetPosition(1, hit2D.point);

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3441533938927401773}
   - component: {fileID: 3762365988101988912}
   - component: {fileID: -4978441058081721827}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Desencriptar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

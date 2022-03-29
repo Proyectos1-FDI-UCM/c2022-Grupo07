@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2753691215989839374}
   - component: {fileID: 2163273475661509737}
   - component: {fileID: -5116600265294214886}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DmgShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

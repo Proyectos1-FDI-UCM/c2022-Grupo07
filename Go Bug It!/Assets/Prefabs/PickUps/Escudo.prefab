@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2981026378837543317}
   - component: {fileID: 8745421965565538343}
   - component: {fileID: -3951180593710526365}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Escudo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
