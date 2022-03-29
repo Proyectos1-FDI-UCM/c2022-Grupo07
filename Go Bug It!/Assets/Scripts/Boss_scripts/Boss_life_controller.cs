@@ -7,7 +7,7 @@ public class Boss_life_controller : MonoBehaviour
 {
     #region parameters
     [SerializeField] private int life_points = 100;
-    [SerializeField] private int current_life;
+     private int current_life;
     #endregion
     #region references
     private BulletMovementController _bulletMovementController;
@@ -27,6 +27,7 @@ public class Boss_life_controller : MonoBehaviour
         }
         if(current_life <= 0)
         {
+            GameManager.Instance.OnBossDies();
             Destroy(gameObject);
         }
     }
