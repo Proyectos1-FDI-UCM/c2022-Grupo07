@@ -34,12 +34,15 @@ public class VictoryScreen : MonoBehaviour
     IEnumerator ShowVictoryScreen()
     {
         //Desactivamos los objetos
+        Debug.Log(1);
         yield return new WaitForSeconds(10);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        Debug.Log(2);
 
         //Activamos la imagen de Windows error
         transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
         yield return new WaitForSeconds(30);
+        Debug.Log(3);
         Application.Quit();
     }
     #endregion
@@ -49,6 +52,6 @@ public class VictoryScreen : MonoBehaviour
     {
         _collectiblesMessage = transform.GetChild(0).GetChild(0).GetChild(4).GetComponent<Text>();
         ShowCollectibles();
-        ShowVictoryScreen();
+        StartCoroutine(ShowVictoryScreen());
     }
 }
