@@ -33,6 +33,9 @@ public class UIManager : MonoBehaviour
     private PauseMenu _pauseFirstScreen;
     // TIME!
     private GameObject _TIME;
+    // Transitions
+    private GameObject _damageTransition;
+    private GameObject _endTransition;
     #endregion
 
     #region parameters
@@ -51,9 +54,21 @@ public class UIManager : MonoBehaviour
         {
             UIAnimationController heart = _hearts[life].GetComponent<UIAnimationController>();
 
-            if (powerup == false) heart.UpdateStatus(false);                        // Si se resta vida [ _hearts[life].sprite = _emptyHeartImg; ]
+            if (powerup == false) // Si se resta vida [ _hearts[life].sprite = _emptyHeartImg; ]
+            {
+                heart.UpdateStatus(false);
+                if (life > 0) StartCoroutine(DamageAnimation());
+            }
             else heart.UpdateStatus(true);                                          // Si se suma con un powerup [ _hearts[life].sprite = _fullHeartImg; ] 
         }
+    }
+
+    // Reproducción de la animación
+    IEnumerator DamageAnimation()
+    {
+        _damageTransition.SetActive(true);
+        yield return new WaitForSeconds(1.1f);
+        _damageTransition.SetActive(false);
     }
 
     // Actualizar cronómetro
@@ -172,6 +187,12 @@ public class UIManager : MonoBehaviour
     {
         _powerupIcon.sprite = _powerupImg[powerup];
     }
+
+    // Aplica la animación de fin de nivel
+    public void SetTransition(bool fin)
+    {
+        _endTransition.GetComponent<Animator>().SetBool("End", fin);
+    }
     #endregion
 
     // Initializes own references
@@ -188,7 +209,7 @@ public class UIManager : MonoBehaviour
         _timeAnim = gameObject.transform.GetChild(2).GetChild(1).GetComponent<Animator>();
 
         // Inicializar puntos
-        _pointsText = gameObject.transform.GetChild(3).GetChild(0).GetComponent<Text>();
+        _pointsText = gameObject.transform.GetChild(3).GetComponent<Text>();
 
         // Inicializar disparos
         for (int i = 0; i < _shotsImg.Length; i++)
@@ -211,7 +232,10 @@ public class UIManager : MonoBehaviour
         _TIME = gameObject.transform.GetChild(6).gameObject;
         _TIME.SetActive(false);
 
-        // DmgShootActivate();
+        // Inicializar transiciones de daño y fin
+        _damageTransition = transform.GetChild(7).gameObject;
+        _damageTransition.SetActive(false);
+        _endTransition = transform.GetChild(8).gameObject;
     }
 
     // Start is called before the first frame update

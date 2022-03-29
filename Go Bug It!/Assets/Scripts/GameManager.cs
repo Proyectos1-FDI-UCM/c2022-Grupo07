@@ -40,18 +40,21 @@ public class GameManager : MonoBehaviour
     #region methods
     public void Spammed()
     {
-        if (_spam)
-        {
-            _speedmod = _slowtimeFactor;
-        }
+        if (_spam) _speedmod = _slowtimeFactor;
         else _speedmod = 1;
     }
 
-    //Espera hasta que termine la animación de muerte
+    // Espera hasta que termine la animación de muerte
     IEnumerator WaitDeath()
     {
         yield return new WaitForSeconds(1.1f);
         SceneManager.LoadScene("GameOver");
+    }
+
+    // Espera hasta que termine la animación de fin de nivel
+    IEnumerator LevelTransition()
+    {
+        yield return new WaitForSeconds(0);
     }
 
     // Avance de nivel
@@ -89,6 +92,7 @@ public class GameManager : MonoBehaviour
         _myUIManager.UpdateShot(shot);
     }
 
+    // Activar disparo de daño
     public void OnDmgShootActivate()
     {
         _myUIManager.DmgShootActivate();
@@ -120,7 +124,6 @@ public class GameManager : MonoBehaviour
         // _gameOverScreen.SetRetryScene(SceneManager.GetActiveScene().name);
         if (_timeLeft > 0) StartCoroutine(WaitDeath()); 
         else _myUIManager.Time();
-        
     }
 
     // Llama a la UI para actualizar el indicador del dash según si está o no disponible
