@@ -12,19 +12,28 @@ public class GameManager : MonoBehaviour
     public float _slowtimeFactor;
     #endregion
 
+    #region properties
+    private int[] _collectibles = { 0, 0, 0, 0 }; // 0 = no obtenido, 1 = obtenido
+    [HideInInspector] public bool _spam;
+    [HideInInspector] public float _speedmod;
+    #endregion
+
     #region references
     // Patrón singleton
     static private GameManager _instance;
     static public GameManager Instance { get { return _instance; } }
-    // UI y pausa
+    // UI
     [SerializeField] private GameObject _myUIObject;
     private UIManager _myUIManager;
+    // Pausa
     [SerializeField] private GameObject _myPauseObject;
+    private PauseMenu _myPause;
     // Jugador
+    [SerializeField] private GameObject _player;
     private PlayerLifeComponent _myplayerLife;
     // GameOver
-    [SerializeField] private GameObject _myGameOver;
-    private GameOver _gameOverScreen;
+    // [SerializeField] private GameObject ;
+    // private GameOver _gameOverScreen;
     #endregion
 
     #region methods
@@ -36,6 +45,7 @@ public class GameManager : MonoBehaviour
         }
         else _speedmod = 1;
     }
+
     //Espera hasta que termine la animación de muerte
     IEnumerator WaitDeath()
     {
@@ -118,11 +128,12 @@ public class GameManager : MonoBehaviour
         _myUIManager.UpdateDashIndicator(canDo);
     }
 
-    // Cuando se desactiva o activa un powerup
-    public void OnPowerUpActivate(float value, bool active)
+    // Cuando se desactiva o activa un powerup, ajusta todos los componentes correspondientes
+    public void OnPowerUpActivate(float value, bool active, int powerup)
     {
         _myUIManager.SetMaxSliderValue(value);
         _myUIManager.SetSliderActive(active);
+        if(active) _myUIManager.UpdatePowerUpIcon(powerup);
     }
 
     // Actualizar el valor del powerup mientras este está activo
@@ -136,6 +147,18 @@ public class GameManager : MonoBehaviour
     [HideInInspector]public bool _spam;
     [HideInInspector]public float _speedmod;
 
+    // Actualiza el array de coleccionables y lo aplica en el menú de pausa
+    public void OnCollectiblePicked(int posicion)
+    {
+        _collectibles[posicion] = 1;
+        _myPause.ActivateCollectibles(_collectibles);
+    }
+
+    // Devuelve el array de coleccionables
+    public int[] GetCollectibles()
+    {
+        return _collectibles;
+    }
     #endregion
 
     // Initializes GameManager instance.-
@@ -147,12 +170,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         _spam = false;
+        _actualLevel = 0;
         _timeLeft = 300.0f;
         _myUIManager = _myUIObject.GetComponent<UIManager>();
+        _myPause = _myPauseObject.transform.GetChild(0).GetComponent<PauseMenu>();
         _myPauseObject.SetActive(false);
-        _gameOverScreen = _myGameOver.GetComponent<GameOver>();
+        // _gameOverScreen = _myGameOver.GetComponent<GameOver>();
     }
 
     // Update is called once per frame
