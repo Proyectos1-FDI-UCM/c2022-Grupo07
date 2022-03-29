@@ -86,6 +86,12 @@ public class UIManager : MonoBehaviour
         _pointsText.text = "Puntos: " + zerosText + _points;
     }
 
+    //Actualizar puntos cuando muere el jefe
+    public void UpdatePointsBoss()
+    {
+        _pointsText.text = "&/$(%·&/o:";
+    }
+
     // Cambiar de disparo
     public void UpdateShot(int shot)
     {

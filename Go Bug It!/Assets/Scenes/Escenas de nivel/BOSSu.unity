@@ -645,6 +645,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4900835068251396606, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
+      propertyPath: _thirdBullet
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -2211591195652529424, guid: 8454ce0fd88933047bd6c3b80584e895, type: 3}
       propertyPath: _boss
       value: 
@@ -839,8 +843,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 270
       objectReference: {fileID: 0}
+    - target: {fileID: 1457175187569075624, guid: db1fc87294e58364695053d5eb380c18, type: 3}
+      propertyPath: life_points
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1488211060798355989, guid: db1fc87294e58364695053d5eb380c18, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709663085268339719, guid: db1fc87294e58364695053d5eb380c18, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1777745175570603556, guid: db1fc87294e58364695053d5eb380c18, type: 3}
@@ -1154,6 +1166,10 @@ PrefabInstance:
     - target: {fileID: 7684977245868979054, guid: db1fc87294e58364695053d5eb380c18, type: 3}
       propertyPath: m_Offset.x
       value: -0.041308403
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684977245868979054, guid: db1fc87294e58364695053d5eb380c18, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7684977245868979054, guid: db1fc87294e58364695053d5eb380c18, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x

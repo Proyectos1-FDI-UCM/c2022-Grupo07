@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     // Jugador
     [SerializeField] private GameObject _player;
     private PlayerLifeComponent _myplayerLife;
+    // Boss
+    private Boss_life_controller _boss;
     // GameOver
     // [SerializeField] private GameObject ;
     // private GameOver _gameOverScreen;
@@ -76,6 +78,12 @@ public class GameManager : MonoBehaviour
         _myUIManager.UpdatePoints(_puntuation);
     }
 
+    //Muerte del jefe
+    public void OnBossDies()
+    {
+        _myUIManager.UpdatePointsBoss();
+    }
+    
     // Daño al jugador
     public void OnPlayerDamage(int lifePoints)
     {
@@ -144,8 +152,8 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region properties
-    [HideInInspector]public bool _spam;
-    [HideInInspector]public float _speedmod;
+    //[HideInInspector]public bool _spam;
+    //[HideInInspector]public float _speedmod;
 
     // Actualiza el array de coleccionables y lo aplica en el menú de pausa
     public void OnCollectiblePicked(int posicion)
@@ -171,11 +179,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _spam = false;
-        _actualLevel = 0;
+        
         _timeLeft = 300.0f;
         _myUIManager = _myUIObject.GetComponent<UIManager>();
         _myPause = _myPauseObject.transform.GetChild(0).GetComponent<PauseMenu>();
         _myPauseObject.SetActive(false);
+        _boss = gameObject.GetComponent<Boss_life_controller>();
         // _gameOverScreen = _myGameOver.GetComponent<GameOver>();
     }
 
