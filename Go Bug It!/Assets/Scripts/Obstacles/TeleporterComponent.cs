@@ -24,8 +24,9 @@ public class TeleporterComponent : MonoBehaviour
         if (_myPlayer != null)
         {
             _playerObj = _myPlayer.gameObject;
-            _myPlayer.transform.position = _myDestination;
             StartCoroutine(DeactivatesInput());
+            _playerObj.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            _myPlayer.transform.position = _myDestination;
         }
     }
 

@@ -12,12 +12,6 @@ public class GameManager : MonoBehaviour
     public float _slowtimeFactor;
     #endregion
 
-    #region properties
-    private int[] _collectibles = { 0, 0, 0, 0 }; // 0 = no obtenido, 1 = obtenido
-    [HideInInspector] public bool _spam;
-    [HideInInspector] public float _speedmod;
-    #endregion
-
     #region references
     // Patrón singleton
     static private GameManager _instance;
@@ -147,6 +141,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region properties
+    private int[] _collectibles = { 0, 0, 0, 0 }; // 0 = no obtenido, 1 = obtenido
     [HideInInspector]public bool _spam;
     [HideInInspector]public float _speedmod;
 
@@ -174,7 +169,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _spam = false;
-        _actualLevel = 0;
         _timeLeft = 300.0f;
         _myUIManager = _myUIObject.GetComponent<UIManager>();
         _myPause = _myPauseObject.transform.GetChild(0).GetComponent<PauseMenu>();
