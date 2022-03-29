@@ -274,6 +274,30 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1580066868644199557, guid: 993683bf1aa90ae478199ecad2c4b859, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580066868644199557, guid: 993683bf1aa90ae478199ecad2c4b859, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580066868644199557, guid: 993683bf1aa90ae478199ecad2c4b859, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580066868644199557, guid: 993683bf1aa90ae478199ecad2c4b859, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580066868644199557, guid: 993683bf1aa90ae478199ecad2c4b859, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580066868644199557, guid: 993683bf1aa90ae478199ecad2c4b859, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 1670576120928698087, guid: 993683bf1aa90ae478199ecad2c4b859, type: 3}
       propertyPath: m_Name
       value: VictoryScreen
