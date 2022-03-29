@@ -27,8 +27,7 @@ public class NortonComponent : MonoBehaviour
     {
         // Si es el jugador
         PlayerLifeComponent _myPlayer = collision.gameObject.GetComponent<PlayerLifeComponent>();
-        if (_myPlayer != null && !_myPlayer.gameObject.GetComponent<PowerUpController>().IsShieldActive()) _myPlayer.Damage();
-
+        if (_myPlayer != null && !_myPlayer.gameObject.GetComponent<PowerUpController>().IsShieldActive()) _myPlayer.CallForDamage();
         // Si es un enemigo
         EnemyLifeComponent _myEnemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
         if (_myEnemy != null)
@@ -37,17 +36,16 @@ public class NortonComponent : MonoBehaviour
             NortonComponent _otherNorton = collision.gameObject.GetComponent<NortonComponent>();
             if (_otherNorton != null) _otherNorton.Activated();
             else _myEnemy.Dies();
-            
         }
     }
 
-    // Activar la animaci髇 anterior a la explosi髇
+    // Activar la animaci贸n anterior a la explosi贸n
     public void Activated()
     {
         anim.SetBool("Activated", true);
     }
 
-    // Explosi髇 (evento en animaci髇)
+    // Explosi贸n (evento en animaci贸n)
     public void Explode()
     {
         anim.SetBool("Explosion", true);

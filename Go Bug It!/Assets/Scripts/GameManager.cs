@@ -12,12 +12,6 @@ public class GameManager : MonoBehaviour
     public float _slowtimeFactor;
     #endregion
 
-    #region properties
-    private int[] _collectibles = { 0, 0, 0, 0 }; // 0 = no obtenido, 1 = obtenido
-    [HideInInspector] public bool _spam;
-    [HideInInspector] public float _speedmod;
-    #endregion
-
     #region references
     // Patrón singleton
     static private GameManager _instance;
@@ -41,18 +35,21 @@ public class GameManager : MonoBehaviour
     #region methods
     public void Spammed()
     {
-        if (_spam)
-        {
-            _speedmod = _slowtimeFactor;
-        }
+        if (_spam) _speedmod = _slowtimeFactor;
         else _speedmod = 1;
     }
 
-    //Espera hasta que termine la animación de muerte
+    // Espera hasta que termine la animación de muerte
     IEnumerator WaitDeath()
     {
         yield return new WaitForSeconds(1.1f);
         SceneManager.LoadScene("GameOver");
+    }
+
+    // Espera hasta que termine la animación de fin de nivel
+    IEnumerator LevelTransition()
+    {
+        yield return new WaitForSeconds(0);
     }
 
     // Avance de nivel
@@ -96,6 +93,7 @@ public class GameManager : MonoBehaviour
         _myUIManager.UpdateShot(shot);
     }
 
+    // Activar disparo de daño
     public void OnDmgShootActivate()
     {
         _myUIManager.DmgShootActivate();
@@ -127,7 +125,6 @@ public class GameManager : MonoBehaviour
         // _gameOverScreen.SetRetryScene(SceneManager.GetActiveScene().name);
         if (_timeLeft > 0) StartCoroutine(WaitDeath()); 
         else _myUIManager.Time();
-        
     }
 
     // Llama a la UI para actualizar el indicador del dash según si está o no disponible
@@ -152,8 +149,11 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region properties
-    //[HideInInspector]public bool _spam;
-    //[HideInInspector]public float _speedmod;
+
+    private int[] _collectibles = { 0, 0, 0, 0 }; // 0 = no obtenido, 1 = obtenido
+    [HideInInspector]public bool _spam;
+    [HideInInspector]public float _speedmod;
+
 
     // Actualiza el array de coleccionables y lo aplica en el menú de pausa
     public void OnCollectiblePicked(int posicion)
@@ -179,7 +179,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _spam = false;
-        
         _timeLeft = 300.0f;
         _myUIManager = _myUIObject.GetComponent<UIManager>();
         _myPause = _myPauseObject.transform.GetChild(0).GetComponent<PauseMenu>();
