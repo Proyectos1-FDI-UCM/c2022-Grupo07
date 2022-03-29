@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     #region parameters
     // Temporizador del nivel
     private float _timeLeft;
-    private int _actualLevel;
     public float _slowtimeFactor;
     #endregion
 
@@ -142,6 +141,11 @@ public class GameManager : MonoBehaviour
     {
         _myUIManager.UpdatePowerUpSlider(value);
     }
+    #endregion
+
+    #region properties
+    [HideInInspector]public bool _spam;
+    [HideInInspector]public float _speedmod;
 
     // Actualiza el array de coleccionables y lo aplica en el menú de pausa
     public void OnCollectiblePicked(int posicion)
