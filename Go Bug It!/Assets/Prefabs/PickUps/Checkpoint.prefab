@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8657855152227693255}
   - component: {fileID: 6681941194826519057}
   - component: {fileID: 5588112514183093150}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Checkpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
