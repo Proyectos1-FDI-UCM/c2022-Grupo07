@@ -30,7 +30,7 @@ public class InputController : MonoBehaviour
     [SerializeField] private float _shootCooldown;
     private float _elapsedSelect;
     [SerializeField] private float _shotSelectCooldown;
-    [SerializeField] private bool _thirdBullet = false;
+    private bool _thirdBullet = false;
     // Axis
     private float _horizontal;
     private float _jump;
@@ -42,18 +42,10 @@ public class InputController : MonoBehaviour
     #endregion
 
     #region methods
-    // Saber si el jugador esta tocando una superficie o no
-    public void OnTriggerStay2D(Collider2D collision)
+    public void SetGrounded(bool grounded)
     {
-        if (!collision.isTrigger) _isGrounded = true;
+        _isGrounded = grounded;
     }
-
-    // Marcar que el jugador no está tocando el suelo
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if (!collision.isTrigger) _isGrounded = false;
-    }
-
     // Devuelve la dirección
     public bool GetGravity()
     {

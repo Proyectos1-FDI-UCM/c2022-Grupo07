@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -2753691215989839374}
   - component: {fileID: 2163273475661509737}
   - component: {fileID: -5116600265294214886}
+  - component: {fileID: 7395066837392687762}
   m_Layer: 8
   m_Name: DmgShot
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8102019358978571675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -142,3 +143,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7f09e1878f5354e8f2dadb739c07d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7395066837392687762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8102019358978571675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e12bfaf62a2ae384e93163013a81d61e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _yAmplitude: 0.05

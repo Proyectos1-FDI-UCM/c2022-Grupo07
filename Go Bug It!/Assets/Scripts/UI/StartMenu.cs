@@ -17,7 +17,7 @@ public class StartMenu : MonoBehaviour
     //Carga la escena del tutorial (primer nivel)
     public void StartGame()
     {
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("Tutorial GDD");
     }
 
     //Cierra el juego

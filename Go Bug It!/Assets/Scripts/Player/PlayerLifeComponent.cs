@@ -38,8 +38,7 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         // Colisión con un enemigo
         EnemyLifeComponent _enemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
-        WhileTrue_controller _whiletrue = collision.gameObject.GetComponent<WhileTrue_controller>();
-        Boss_life_controller _boss = collision.gameObject.GetComponent<Boss_life_controller>();
+        BossLifeController _boss = collision.gameObject.GetComponent<BossLifeController>();
 
         if (_enemy != null)
         {
@@ -50,7 +49,7 @@ public class PlayerLifeComponent : MonoBehaviour
                 if (_neuEnemy.GetNeutralization() != true) StartCoroutine(hurted(1.65f));
             }
         }
-        else if (_whiletrue != null || _boss != null) Damage();
+        else if (_boss != null) StartCoroutine(hurted(1.65f));
 
     }
 
@@ -203,6 +202,7 @@ public class PlayerLifeComponent : MonoBehaviour
         {
             _respawnBox1 = _respawn.transform.GetChild(0).gameObject.transform.GetComponent<BoxCollider2D>();
             _respawnBox2 = _respawn.transform.GetChild(1).gameObject.transform.GetComponent<BoxCollider2D>();
+            StartCoroutine(respawn_aid());
         }
     }
 }
