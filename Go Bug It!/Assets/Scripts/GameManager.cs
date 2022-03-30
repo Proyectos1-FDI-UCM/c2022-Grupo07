@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     // Avance de nivel
     public void OnGoalAdvance(string escena, float newTime)
     {
+        _myUIManager.UpdatePoints(Mathf.RoundToInt(_timeLeft) * 2);
         _timeLeft = newTime;
         _myplayerLife.FullyHealing();
         DontDestroyOnLoad(this);

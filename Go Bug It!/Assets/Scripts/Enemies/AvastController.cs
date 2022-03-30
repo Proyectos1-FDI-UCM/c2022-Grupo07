@@ -24,6 +24,7 @@ public class AvastController : MonoBehaviour
     private float _elapsedDuration;
     private bool _shooting;
     private bool _firstTimeShoot;//Identifica si es la primera vez que se dispara.
+    private int _ignoreLayer = (1<< 2)|(1<<9)|(1<<8);
     #endregion
 
     // Start is called before the first frame update
@@ -58,7 +59,8 @@ public class AvastController : MonoBehaviour
             if (_elapsedDuration <= _rayDuration)
             {
                 //Llamar a la animación de disparo
-                RaycastHit2D hit2D = Physics2D.Raycast(_mytransform.position, _rayDirection.normalized, 1000, ~(1<<9));
+                RaycastHit2D hit2D = Physics2D.Raycast(_mytransform.position, _rayDirection.normalized, 1000, ~_ignoreLayer);
+                Debug.Log(hit2D.collider.gameObject.name);
                 _myRay.enabled = true;
                 _myRay.SetPosition(0, _mytransform.position+_rayOffset*_mytransform.up); //Se renderiza la linea desde la posición del avast al choque con collider.
                 _myRay.SetPosition(1, hit2D.point);
