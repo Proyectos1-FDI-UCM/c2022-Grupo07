@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class WhileTrueController : MonoBehaviour
 {
+
     #region methods
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Colisión con un enemigo
         EnemyLifeComponent _enemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
 
         if (_enemy != null)
         {
-            int puntuacion = _enemy.GetPoints();
+            GameManager.Instance.OnEnemyDies(_enemy.GetPoints());
             _enemy.Dies();
-            GameManager.Instance.OnEnemyDies(puntuacion);
-
             _enemy.enabled = false;
         }
+
+        // Colisión con el jugador
+        PlayerLifeComponent _player = collision.gameObject.GetComponent<PlayerLifeComponent>();
+
+        if (_player != null) _player.CallForDamage();
     }
     #endregion
+
 }

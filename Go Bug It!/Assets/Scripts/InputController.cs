@@ -30,7 +30,7 @@ public class InputController : MonoBehaviour
     [SerializeField] private float _shootCooldown;
     private float _elapsedSelect;
     [SerializeField] private float _shotSelectCooldown;
-    [SerializeField] private bool _thirdBullet = false;
+    private bool _thirdBullet = false;
     // Axis
     private float _horizontal;
     private float _jump;

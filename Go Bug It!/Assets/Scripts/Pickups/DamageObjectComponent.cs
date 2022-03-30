@@ -13,7 +13,7 @@ public class DamageObjectComponent : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         GunpointController _playerGun = collision.gameObject.transform.GetChild(0).GetComponent<GunpointController>();
-        Debug.Log(_playerGun);
+
         if (_playerGun != null)
         {
             _playerGun.SetDmgShoot();
