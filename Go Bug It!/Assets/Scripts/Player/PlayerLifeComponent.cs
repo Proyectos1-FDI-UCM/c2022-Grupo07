@@ -203,6 +203,7 @@ public class PlayerLifeComponent : MonoBehaviour
         {
             _respawnBox1 = _respawn.transform.GetChild(0).gameObject.transform.GetComponent<BoxCollider2D>();
             _respawnBox2 = _respawn.transform.GetChild(1).gameObject.transform.GetComponent<BoxCollider2D>();
+            StartCoroutine(respawn_aid());
         }
     }
 }
