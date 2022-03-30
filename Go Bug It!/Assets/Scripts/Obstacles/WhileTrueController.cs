@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WhileTrue_controller : MonoBehaviour
+public class WhileTrueController : MonoBehaviour
 {
     #region methods
     private void OnCollisionEnter2D(Collision2D collision)

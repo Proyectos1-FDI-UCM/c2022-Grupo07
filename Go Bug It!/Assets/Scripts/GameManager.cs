@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _player;
     private PlayerLifeComponent _myplayerLife;
     // Boss
-    private Boss_life_controller _boss;
+    private BossLifeController _boss;
     // GameOver
     // [SerializeField] private GameObject ;
     // private GameOver _gameOverScreen;
@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour
         _myUIManager = _myUIObject.GetComponent<UIManager>();
         _myPause = _myPauseObject.transform.GetChild(0).GetComponent<PauseMenu>();
         _myPauseObject.SetActive(false);
-        _boss = gameObject.GetComponent<Boss_life_controller>();
+        _boss = gameObject.GetComponent<BossLifeController>();
         // _gameOverScreen = _myGameOver.GetComponent<GameOver>();
     }
 

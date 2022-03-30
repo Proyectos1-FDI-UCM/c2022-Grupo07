@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss_attack_controller : MonoBehaviour
+public class BossAttackController : MonoBehaviour
 {
     #region references
     [SerializeField] private GameObject [] Avast;
@@ -12,6 +12,7 @@ public class Boss_attack_controller : MonoBehaviour
     [SerializeField] private GameObject _boss;
     private Animator _myAnimator;
     #endregion
+
     #region methods
     IEnumerator DestroyAttack(float attackDuration, GameObject attackToDestroy)
     {
@@ -46,6 +47,7 @@ public class Boss_attack_controller : MonoBehaviour
     }
 
     #endregion
+
     #region parameters
     [SerializeField] private float attackDuration;
     [SerializeField] private float timeToAttack;
@@ -53,6 +55,7 @@ public class Boss_attack_controller : MonoBehaviour
     private int _rnd;
     private bool _freezeTimeChoosing = true;
     #endregion
+
     #region properties
     private float _elapsedCoolDown;
     #endregion

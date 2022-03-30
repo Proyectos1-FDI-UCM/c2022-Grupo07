@@ -38,8 +38,8 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         // Colisión con un enemigo
         EnemyLifeComponent _enemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
-        WhileTrue_controller _whiletrue = collision.gameObject.GetComponent<WhileTrue_controller>();
-        Boss_life_controller _boss = collision.gameObject.GetComponent<Boss_life_controller>();
+        WhileTrueController _whiletrue = collision.gameObject.GetComponent<WhileTrueController>();
+        BossLifeController _boss = collision.gameObject.GetComponent<BossLifeController>();
 
         if (_enemy != null)
         {
