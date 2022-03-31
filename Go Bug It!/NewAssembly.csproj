@@ -56,9 +56,13 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\UI\VictoryScreen.cs" />
+    <Compile Include="Assets\Scripts\Enemies\RespawnManager.cs" />
     <Compile Include="Assets\Scripts\UI\VolumeManager.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\BackDoorComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyLifeComponent.cs" />
     <Compile Include="Assets\Scripts\Pickups\DecryptComponent.cs" />
+    <Compile Include="Assets\Scripts\Pickups\CollectiblesComponent.cs" />
     <Compile Include="Assets\Scripts\Player\MovementController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Bullets\GravBulletComponent.cs" />
@@ -67,7 +71,9 @@
     <Compile Include="Assets\Scripts\UI\StartMenu.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Bullets\McAfeeBullet.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\TeleporterComponent.cs" />
     <Compile Include="Assets\Scripts\Pickups\CheckpointComponent.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyRespawnManager.cs" />
     <Compile Include="Assets\Scripts\Bullets\DmgBulletComponent.cs" />
     <Compile Include="Assets\Scripts\Camera\RoomManager.cs" />
     <Compile Include="Assets\Scripts\BossScripts\BossMovementController.cs" />
@@ -79,7 +85,6 @@
     <Compile Include="Assets\Scripts\BossScripts\BossAttackController.cs" />
     <Compile Include="Assets\Scripts\Pickups\StructComponent.cs" />
     <Compile Include="Assets\Scripts\BossScripts\BossLifeController.cs" />
-    <Compile Include="Assets\Scripts\UI\UIAnimationController.cs" />
     <Compile Include="Assets\Scripts\UI\GameOver.cs" />
     <Compile Include="Assets\Scripts\Bullets\GunpointController.cs" />
     <Compile Include="Assets\Scripts\Pickups\StackPointerComponent.cs" />
@@ -88,25 +93,18 @@
     <Compile Include="Assets\Scripts\Obstacles\WhileTrueController.cs" />
     <Compile Include="Assets\Scripts\Pickups\PrivShieldComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\NortonComponent.cs" />
+    <Compile Include="Assets\Scripts\Pickups\DamageObjectComponent.cs" />
     <Compile Include="Assets\Scripts\Player\GravityComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\NeuEnemyComponent.cs" />
+    <Compile Include="Assets\Scripts\Player\GroundDetectorComponent.cs" />
     <Compile Include="Assets\Scripts\InputController.cs" />
     <Compile Include="Assets\Scripts\Player\PowerUpController.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\Enemies\McAfeeComponent.cs" />
     <Compile Include="Assets\Scripts\Obstacles\CheckpointTeleportComponent.cs" />
-    <Compile Include="Assets\Scripts\EndDemo.cs" />
     <Compile Include="Assets\Scripts\Bullets\LifeTimeController.cs" />
     <Compile Include="Assets\Scripts\Pickups\ReupCodeComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\GravEnemyComponent.cs" />
-    <Compile Include="Assets\Scripts\UI\VictoryScreen.cs" />
-    <Compile Include="Assets\Scripts\Pickups\DamageObjectComponent.cs" />
-    <Compile Include="Assets\Scripts\RespawnManager.cs" />
-    <Compile Include="Assets\Scripts\Pickups\CollectiblesComponent.cs" />
-    <Compile Include="Assets\Scripts\Obstacles\TeleporterComponent.cs" />
-    <Compile Include="Assets\Scripts\Enemies\EnemyRespawnManager.cs" />
-    <Compile Include="Assets\Scripts\Obstacles\BackDoorComponent.cs" />
-    <Compile Include="Assets\Scripts\Player\GroundDetectorComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\AssemblyDefinition.asmdef" />

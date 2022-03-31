@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 4729239256226173347}
   - component: {fileID: 4729239256226173345}
   - component: {fileID: 4729239256226173344}
-  - component: {fileID: 2119497439936330873}
+  - component: {fileID: 8846125390653874383}
   m_Layer: 5
   m_Name: Heart 2
   m_TagString: Untagged
@@ -786,37 +786,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2119497439936330873
-MonoBehaviour:
+--- !u!95 &8846125390653874383
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4729239256226173346}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bba4ddea068c9f44b0ecef55acff133, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spritesFull:
-  - {fileID: 2350297403280568894, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -7601109241220244812, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -8180400557922001129, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -7289349546784745838, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -4273535230264792488, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -7026239795229651328, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -6241930439825534099, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -5498844017945300022, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  _spritesEmpty:
-  - {fileID: -705465144167411356, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 4685238931682063667, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -3817360706560389721, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -4344711318742404362, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -2021871367212907227, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 5951405135114829826, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -8399690186985791338, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 6442341497752771511, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  _spritesPerFrame: 25
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5418cac1ffeb9c846b99b31e1151b3aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4729239256364886913
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,7 +816,7 @@ GameObject:
   - component: {fileID: 4729239256364886942}
   - component: {fileID: 4729239256364886940}
   - component: {fileID: 4729239256364886943}
-  - component: {fileID: 170218462391801485}
+  - component: {fileID: 3960322321221655050}
   m_Layer: 5
   m_Name: Heart 4
   m_TagString: Untagged
@@ -893,37 +881,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &170218462391801485
-MonoBehaviour:
+--- !u!95 &3960322321221655050
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4729239256364886913}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bba4ddea068c9f44b0ecef55acff133, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spritesFull:
-  - {fileID: 2350297403280568894, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -7601109241220244812, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -8180400557922001129, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -7289349546784745838, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -4273535230264792488, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -7026239795229651328, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -6241930439825534099, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -5498844017945300022, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  _spritesEmpty:
-  - {fileID: -705465144167411356, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 4685238931682063667, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -3817360706560389721, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -4344711318742404362, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -2021871367212907227, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 5951405135114829826, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -8399690186985791338, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 6442341497752771511, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  _spritesPerFrame: 25
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5418cac1ffeb9c846b99b31e1151b3aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4729239256859108848
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,18 +1172,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9a0d606ef4cb434796af38a60a0fb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gravActivated: {fileID: 1071515521834441319, guid: cb24e555456df4c4a818a79f764c3f10, type: 3}
-  _gravDeactivated: {fileID: -1333320639006561373, guid: cb24e555456df4c4a818a79f764c3f10, type: 3}
-  _neuActivated: {fileID: -7007719572738349731, guid: 778fec5ac7ee1094cb9246ad34478ca8, type: 3}
-  _neuDeactivated: {fileID: 5951312847808404741, guid: 778fec5ac7ee1094cb9246ad34478ca8, type: 3}
-  _dashIndActive: {fileID: 1795131806281423772, guid: 36fdcfefc3cdc7b44a8b1d194cbc8fab, type: 3}
-  _dashIndDeactive: {fileID: -2657594488629681760, guid: 36fdcfefc3cdc7b44a8b1d194cbc8fab, type: 3}
-  _pauseMenu: {fileID: 0}
+  _shotsInds:
+  - {fileID: 1071515521834441319, guid: cb24e555456df4c4a818a79f764c3f10, type: 3}
+  - {fileID: -1333320639006561373, guid: cb24e555456df4c4a818a79f764c3f10, type: 3}
+  - {fileID: -7007719572738349731, guid: 778fec5ac7ee1094cb9246ad34478ca8, type: 3}
+  - {fileID: 5951312847808404741, guid: 778fec5ac7ee1094cb9246ad34478ca8, type: 3}
+  _dashIndImg:
+  - {fileID: 1795131806281423772, guid: 36fdcfefc3cdc7b44a8b1d194cbc8fab, type: 3}
+  - {fileID: -2657594488629681760, guid: 36fdcfefc3cdc7b44a8b1d194cbc8fab, type: 3}
   _powerupImg:
   - {fileID: 21300000, guid: c63f2449268910d4ca1df3af2611b880, type: 3}
   - {fileID: 21300000, guid: d1b2196bd4757bb4ca29dc5918499633, type: 3}
   - {fileID: 21300000, guid: 4b6ca868dff98b64cba0a06bb8e24846, type: 3}
   - {fileID: 21300000, guid: 2851d0da9de2cf04ea2ee67f5c569149, type: 3}
+  _pauseMenu: {fileID: 0}
 --- !u!1 &4729239257478058065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,7 +1460,7 @@ GameObject:
   - component: {fileID: 4729239257916604716}
   - component: {fileID: 4729239257916604714}
   - component: {fileID: 4729239257916604717}
-  - component: {fileID: 2574913860045928267}
+  - component: {fileID: 683270088530882554}
   m_Layer: 5
   m_Name: Heart 1
   m_TagString: Untagged
@@ -1547,37 +1525,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2574913860045928267
-MonoBehaviour:
+--- !u!95 &683270088530882554
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4729239257916604719}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bba4ddea068c9f44b0ecef55acff133, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spritesFull:
-  - {fileID: 2350297403280568894, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -7601109241220244812, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -8180400557922001129, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -7289349546784745838, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -4273535230264792488, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -7026239795229651328, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -6241930439825534099, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -5498844017945300022, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  _spritesEmpty:
-  - {fileID: -705465144167411356, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 4685238931682063667, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -3817360706560389721, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -4344711318742404362, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -2021871367212907227, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 5951405135114829826, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -8399690186985791338, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 6442341497752771511, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  _spritesPerFrame: 25
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5418cac1ffeb9c846b99b31e1151b3aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4729239258162767470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,7 +1654,7 @@ GameObject:
   - component: {fileID: 4729239258187519084}
   - component: {fileID: 4729239258187519082}
   - component: {fileID: 4729239258187519085}
-  - component: {fileID: 6297999063396946382}
+  - component: {fileID: 7823827037664472141}
   m_Layer: 5
   m_Name: Heart 3
   m_TagString: Untagged
@@ -1753,37 +1719,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6297999063396946382
-MonoBehaviour:
+--- !u!95 &7823827037664472141
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4729239258187519087}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bba4ddea068c9f44b0ecef55acff133, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spritesFull:
-  - {fileID: 2350297403280568894, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -7601109241220244812, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -8180400557922001129, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -7289349546784745838, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -4273535230264792488, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -7026239795229651328, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -6241930439825534099, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  - {fileID: -5498844017945300022, guid: a05d456700c228146a30b8123ec855b0, type: 3}
-  _spritesEmpty:
-  - {fileID: -705465144167411356, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 4685238931682063667, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -3817360706560389721, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -4344711318742404362, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -2021871367212907227, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 5951405135114829826, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: -8399690186985791338, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  - {fileID: 6442341497752771511, guid: d407943340dfd3d499b02d944be30951, type: 3}
-  _spritesPerFrame: 25
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5418cac1ffeb9c846b99b31e1151b3aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6296384015109513717
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,21 +10,22 @@ public class UIManager : MonoBehaviour
     #region references
     // Esquina
     private GameObject _shotsCorner;
+    // Vida
+    private Image[] _hearts = new Image[4];
     // Tiempo
     private Text _timeText;
     private Animator _timeAnim;
     // Puntos
     private Text _pointsText;
     // Disparos
-    [SerializeField] private Sprite _gravActivated;
-    [SerializeField] private Sprite _gravDeactivated;
-    [SerializeField] private Sprite _neuActivated;
-    [SerializeField] private Sprite _neuDeactivated;
+    private Image[] _shotsImg = new Image[3];
+    private GameObject[] _shotsObj = new GameObject[3];
+    [SerializeField] private Sprite[] _shotsInds = new Sprite[4]; // [0, 1] grav actv/deactv - [2, 3] neu actv/deactv
     // Dash
     private GameObject _dashInd;
-    [SerializeField] private Sprite _dashIndActive;
-    [SerializeField] private Sprite _dashIndDeactive;
+    [SerializeField] private Sprite[] _dashIndImg = new Sprite[2]; // [0] activado - [1] desactivado
     // PowerUp
+    [SerializeField] private Sprite[] _powerupImg = new Sprite[4]; // [0] private shield -  [1] x3 - [2] stackpointer - [3] spam
     private GameObject _powerupObject;
     private Slider _powerupSlider;
     private Image _powerupIcon;
@@ -35,14 +36,10 @@ public class UIManager : MonoBehaviour
     private GameObject _TIME;
     // Transitions
     private GameObject _damageTransition;
-    private GameObject _endTransition;
+    private GameObject _endTransition;    
     #endregion
 
     #region parameters
-    private Image[] _hearts= new Image[4];
-    private Image[] _shotsImg = new Image[3];
-    private GameObject[] _shotsObj = new GameObject[3];
-    [SerializeField] private Sprite[] _powerupImg = new Sprite[4];
     private int _points = 0;
     #endregion
 
@@ -52,14 +49,14 @@ public class UIManager : MonoBehaviour
     {
         if (life <= 3 && life >= 0)                                                 // Comprobar si está entre los límites de vida posible del jugador
         {
-            UIAnimationController heart = _hearts[life].GetComponent<UIAnimationController>();
+            Animator _heartAnim = _hearts[life].GetComponent<Animator>();
 
             if (powerup == false) // Si se resta vida [ _hearts[life].sprite = _emptyHeartImg; ]
             {
-                heart.UpdateStatus(false);
+                _heartAnim.SetBool("Hurted", true);
                 if (life > 0) StartCoroutine(DamageAnimation());
             }
-            else heart.UpdateStatus(true);                                          // Si se suma con un powerup [ _hearts[life].sprite = _fullHeartImg; ] 
+            else _heartAnim.SetBool("Hurted", false); ;                             // Si se suma con un powerup [ _hearts[life].sprite = _fullHeartImg; ] 
         }
     }
 
@@ -101,7 +98,7 @@ public class UIManager : MonoBehaviour
         _pointsText.text = "Puntos: " + zerosText + _points;
     }
 
-    //Actualizar puntos cuando muere el jefe
+    // Actualizar puntos cuando muere el jefe
     public void UpdatePointsBoss()
     {
         _pointsText.text = "&/$(%·&/o:";
@@ -110,15 +107,15 @@ public class UIManager : MonoBehaviour
     // Cambiar de disparo
     public void UpdateShot(int shot)
     {
-        if (shot == 0)
+        if (shot == 0) // Si tenía el disparo nuetralizador activado
         {
-            _shotsImg[0].sprite = _gravActivated;
-            _shotsImg[1].sprite = _neuDeactivated;
+            _shotsImg[0].sprite = _shotsInds[0]; // Disparo gravedad activado
+            _shotsImg[1].sprite = _shotsInds[3]; // Disparo neutralizador desactivado
         }
-        else
+        else // Si tenía el disparo gravitatorio activado
         {
-            _shotsImg[0].sprite = _gravDeactivated;
-            _shotsImg[1].sprite = _neuActivated;
+            _shotsImg[0].sprite = _shotsInds[1]; // Disparo gravedad desactivado
+            _shotsImg[1].sprite = _shotsInds[2]; // Disparo neutralizador activado
         }
     }
 
@@ -134,13 +131,13 @@ public class UIManager : MonoBehaviour
         _powerupSlider.maxValue = value;
     }
 
-    // Actualizar el slider 
+    // Actualizar el valor del slider 
     public void UpdatePowerUpSlider(float value)
     {
         _powerupSlider.value = value;
     }
 
-    // Activa o desactiva el menu de pausa en función de su estado anterior
+    // Activa o desactiva el menu de pausa en función de si estaba o no activado previamente
     public void Pause()
     {
         if (!_pauseMenu.activeInHierarchy) _pauseMenu.SetActive(true);
@@ -151,7 +148,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    // Llama a la corrutina del rotulo de TIME!
+    // Llama a la corrutina del rotulo TIME!
     public void Time()
     {
         StartCoroutine(TimeCoroutine());
@@ -168,8 +165,8 @@ public class UIManager : MonoBehaviour
     // Cambia el sprite del indicador del dash según si se puede o no hacer
     public void UpdateDashIndicator(bool canDo)
     {
-        if (canDo) _dashInd.GetComponent<Image>().sprite = _dashIndActive;
-        else _dashInd.GetComponent<Image>().sprite = _dashIndDeactive;
+        if (canDo) _dashInd.GetComponent<Image>().sprite = _dashIndImg[0];
+        else _dashInd.GetComponent<Image>().sprite = _dashIndImg[1];
     }
     
     // Activa el indicador del disparo de daño y desactiva el resto

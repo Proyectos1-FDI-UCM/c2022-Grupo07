@@ -40,10 +40,4 @@ public class GroundDetectorComponent : MonoBehaviour
     {
         _myInput = GetComponentInParent<InputController>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

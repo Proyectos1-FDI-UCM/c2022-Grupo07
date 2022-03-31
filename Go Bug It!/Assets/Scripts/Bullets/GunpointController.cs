@@ -12,7 +12,6 @@ public class GunpointController : MonoBehaviour
     [SerializeField] private GameObject _dmgShot; // Bala neutralizadora
     [SerializeField] private Transform Gun; // Posición del label Gun
     [SerializeField] private Transform _playerTransform; // Posición del label Gun
-    private InputController _myinput;
     private Animator _playerAnimator;
     [SerializeField]private LineRenderer _myRay;
     #endregion
@@ -148,7 +147,7 @@ public class GunpointController : MonoBehaviour
 
         if (_objectHit)
         {
-            Debug.Log(_objectHit.transform.name);
+            // Debug.Log(_objectHit.transform.name);
             EnemyLifeComponent _enemy = _objectHit.transform.GetComponent<EnemyLifeComponent>();
             if (_enemy != null)
             {
@@ -212,7 +211,6 @@ public class GunpointController : MonoBehaviour
     void Start()
     {
         _myTransform = transform;
-        _myinput = GetComponentInParent<InputController>();
         _playerAnimator = GetComponentInParent<Animator>();
         _playerAnimator.SetBool("GravShot", true);
     }
