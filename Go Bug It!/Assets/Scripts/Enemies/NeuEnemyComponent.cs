@@ -14,7 +14,7 @@ public class NeuEnemyComponent : MonoBehaviour
     #region parameters
     private float _elapsedTime;
     [SerializeField] private float _neutralizeDuration = 5;
-    private bool _enemyNorton;
+    public bool _enemyNorton;
     #endregion
 
     #region properties

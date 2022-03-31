@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3308406682026890648}
   - component: {fileID: 3308406682026890649}
   - component: {fileID: -8034996464866141327}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Norton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _neutralizeDuration: 7.5
+  _enemyNorton: 1
   _neutralized: 0
 --- !u!1 &7801201331155976375
 GameObject:
@@ -226,7 +227,7 @@ GameObject:
   - component: {fileID: 2197299528146507207}
   - component: {fileID: 7053375931296427734}
   - component: {fileID: 4705826111403438845}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ActivationArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
