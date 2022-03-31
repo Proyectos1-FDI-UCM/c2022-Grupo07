@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     #region parameters
+    int _points = 0;
     // Temporizador del nivel
     private float _timeLeft;
     public float _slowtimeFactor;
@@ -32,7 +33,19 @@ public class GameManager : MonoBehaviour
     // private GameOver _gameOverScreen;
     #endregion
 
+    #region properties
+    private int[] _collectibles = { 0, 0, 0, 0 }; // 0 = no obtenido, 1 = obtenido
+    [HideInInspector] public bool _spam;
+    [HideInInspector] public float _speedmod;
+    #endregion
+
     #region methods
+    // Devuelve los puntos
+    public int GetPoints()
+    {
+        return _points;
+    }
+
     public void Spammed()
     {
         if (_spam) _speedmod = _slowtimeFactor;
@@ -70,13 +83,21 @@ public class GameManager : MonoBehaviour
         _myplayerLife = player;
     }
 
-    // Muerte de un enemigo
-    public void OnEnemyDies (int _puntuation)
+    // Actualiza la puntuación y llama la UI
+    public void UpdatePoints(int newPoints)
     {
-        _myUIManager.UpdatePoints(_puntuation);
+        _points += newPoints;               // Sumar puntuación
+        if (_points > 9999) _points = 9999; // Limitar puntuación
+        _myUIManager.UpdatePoints(_points);
     }
 
-    //Muerte del jefe
+    // Muerte de un enemigo
+    public void OnEnemyDies (int puntuation)
+    {
+        UpdatePoints(puntuation);
+    }
+
+    // Muerte del jefe
     public void OnBossDies()
     {
         _myUIManager.UpdatePointsBoss();
@@ -100,7 +121,7 @@ public class GameManager : MonoBehaviour
         _myUIManager.DmgShootActivate();
     }
 
-    //Pausa el juego y abre el menu de pausa
+    // Pausa el juego y abre el menu de pausa
     public void Pause(bool pause)
     {
         _myUIManager.Pause();
@@ -147,14 +168,6 @@ public class GameManager : MonoBehaviour
     {
         _myUIManager.UpdatePowerUpSlider(value);
     }
-    #endregion
-
-    #region properties
-
-    private int[] _collectibles = { 0, 0, 0, 0 }; // 0 = no obtenido, 1 = obtenido
-    [HideInInspector]public bool _spam;
-    [HideInInspector]public float _speedmod;
-
 
     // Actualiza el array de coleccionables y lo aplica en el menú de pausa
     public void OnCollectiblePicked(int posicion)
@@ -170,7 +183,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    // Initializes GameManager instance.-
+    // Initializes GameManager instance
     private void Awake()
     {
         _instance = this;

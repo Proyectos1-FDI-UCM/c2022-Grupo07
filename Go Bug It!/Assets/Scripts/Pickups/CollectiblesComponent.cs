@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollectiblesComponent : MonoBehaviour
 {
+
     #region references
     private Animator _myAnimator;
     #endregion

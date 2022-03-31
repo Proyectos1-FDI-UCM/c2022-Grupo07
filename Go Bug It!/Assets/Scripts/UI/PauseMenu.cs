@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+
     #region references
     // Botones EventSystem
     [SerializeField] private GameObject _firstPauseButton;

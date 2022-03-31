@@ -37,7 +37,7 @@ public class InputController : MonoBehaviour
     private float _dash;
     private float _selectShot;
     private float _shoot;
-    private float _pause;
+    // private float _pause;
     private int _typeShoot = 0;
     #endregion
 
@@ -116,7 +116,7 @@ public class InputController : MonoBehaviour
         _dash = Input.GetAxis("Dash");
         _selectShot = Input.GetAxis("SelectShot");
         _shoot = Input.GetAxis("Shoot");
-        _pause = Input.GetAxis("Pause");
+        // _pause = Input.GetAxis("Pause");
 
         // Movimiento del personaje
         _movController.SetMovementDirection(_horizontal);
@@ -140,13 +140,10 @@ public class InputController : MonoBehaviour
                 _elapseDash = 0;
                 _myAnimator.SetBool("Dash", true);
                 StartCoroutine(changeDash());
+                GameManager.Instance.OnDashUpdate(false);
             }
         }
-        else if (_isGrounded)
-        {
-            GameManager.Instance.OnDashUpdate(false);
-            _elapseDash += Time.deltaTime;
-        }
+        else if (_isGrounded) _elapseDash += Time.deltaTime;
 
         // Selección de disparo
         if (_elapsedSelect > _shotSelectCooldown && _selectShot > 0)
@@ -163,8 +160,8 @@ public class InputController : MonoBehaviour
 
             switch (_typeShoot)
             {
-                case 0 : _myGunpoint.RegularShoot(); break;
-                case 1 : _myGunpoint.TripleShoot(); break;
+                case 0: _myGunpoint.RegularShoot(); break;
+                case 1: _myGunpoint.TripleShoot(); break;
                 case 2: _myGunpoint.RaycastShoot(); break;
             }
             _elapsedShoot = 0;

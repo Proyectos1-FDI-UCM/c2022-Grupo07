@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PowerUpController : MonoBehaviour
 {
+
     #region parameters
     [SerializeField] private float _shieldDuration = 1.0f;
     [SerializeField] private float _structDuration = 1.0f;
@@ -15,8 +16,6 @@ public class PowerUpController : MonoBehaviour
     #region references
     [SerializeField] private GameObject _myShield;
     [SerializeField] private BulletMovementController _myBulletMovController;
-    private MovementController _myMovementController;
-    private GravityComponent _myGravityComponent;
     private InputController _myInputController;
     //private PlayerLifeComponent _myPlayerLifeComponent;
     #endregion
@@ -31,22 +30,20 @@ public class PowerUpController : MonoBehaviour
     #endregion
 
     #region methods
-    private void Awake()
-    {
-        _myShield.SetActive(false);
-    }
-
+    // Devuelve si el escudo está activado o no
     public bool IsShieldActive()
     {
         return _shieldPowerUp;
     }
 
+    // Gestión del escudo
     public void ShieldControl(bool state)
     {
         _shieldPowerUp = state;
         _isPoweredUp = state;
         _myShield.SetActive(state);
         //_myPlayerLifeComponent.enabled = !state;
+
         if (state)
         {
             _durationTime = _shieldDuration;
@@ -59,10 +56,12 @@ public class PowerUpController : MonoBehaviour
         }
     }
 
+    // Gestión del struct
     public void StructControl(bool state)
     {
         _structPowerUp = state;
         _isPoweredUp = state;
+
         if (state)
         {
             _myInputController.SetNewTypeShoot(1);
@@ -77,10 +76,12 @@ public class PowerUpController : MonoBehaviour
         }
     }
 
+    // Gestión del stackpointer
     public void StackPointerControl(bool state)
     {
         _spPowerUp = state;
         _isPoweredUp = state;
+
         if (state)
         {
             _myInputController.SetNewTypeShoot(2);
@@ -95,10 +96,12 @@ public class PowerUpController : MonoBehaviour
         }
     }
 
+    // Gestión del spam
     public void SpamControl(bool state)
     {
         _spamPowerUp = state;
         _isPoweredUp = state;
+
         if (state)
         {
             GameManager.Instance._spam = true;
@@ -114,11 +117,14 @@ public class PowerUpController : MonoBehaviour
     }
     #endregion
 
+    private void Awake()
+    {
+        _myShield.SetActive(false);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        _myMovementController = GetComponent<MovementController>();
-        _myGravityComponent = GetComponent<GravityComponent>();
         _myInputController = GetComponent<InputController>();
         //_myPlayerLifeComponent = GetComponent<PlayerLifeComponent>();
         _isPoweredUp = false;

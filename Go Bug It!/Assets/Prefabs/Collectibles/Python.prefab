@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 828975653126224159}
   - component: {fileID: 3418693299428569590}
   - component: {fileID: 828975653126224158}
+  - component: {fileID: 4927293132488673997}
   m_Layer: 0
   m_Name: Python
   m_TagString: Untagged
@@ -142,3 +143,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8370ff2110cdf4aa06e9d6a076d6bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4927293132488673997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828975653126224153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e12bfaf62a2ae384e93163013a81d61e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _yAmplitude: 0.15

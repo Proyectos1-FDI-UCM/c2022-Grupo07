@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovingPlatformController : MonoBehaviour
 {
+
     #region references
     private Transform _mytransform;
     #endregion
@@ -17,8 +18,8 @@ public class MovingPlatformController : MonoBehaviour
     #region parameters
     [SerializeField] private float _speed;
     [SerializeField] private float _direction;
-    [SerializeField] private float limPlatformMax_X; //5;
-    [SerializeField] private float limPlatformMin_X; //-4;
+    [SerializeField] private float limPlatformMax_X;
+    [SerializeField] private float limPlatformMin_X;
     #endregion
 
     #region methods
@@ -35,23 +36,16 @@ public class MovingPlatformController : MonoBehaviour
         InputController _player = collision.gameObject.GetComponent<InputController>();
         if (_player != null) collision.gameObject.transform.parent = null;
     }
+
+    // Comprueba la dirección de la plataforma y aplica el movimiento correspondiente
     public void Movement()
     {
-        if (transform.position.x > limPlatformMax_X)
-        {
-            _direction = -1;          
-        }
+        if (transform.position.x > limPlatformMax_X) _direction = -1;          
 
-        else if (transform.position.x < limPlatformMin_X)
-        {
-            _direction = 1;
-            
-        }
+        else if (transform.position.x < limPlatformMin_X) _direction = 1;
+
         gameObject.transform.Translate(transform.right * Time.deltaTime * _speed * _direction);
-
     }
-
-
     #endregion
 
     // Start is called before the first frame update
@@ -66,7 +60,5 @@ public class MovingPlatformController : MonoBehaviour
     {
         Movement();
     }
-
-   
 }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NeuEnemyComponent : MonoBehaviour
 {
+
     #region references
     private Animator _myAnimator;
     private McAfeeComponent _enemyM;
@@ -13,7 +14,7 @@ public class NeuEnemyComponent : MonoBehaviour
     #region parameters
     private float _elapsedTime;
     [SerializeField] private float _neutralizeDuration = 5;
-    public bool _enemyNorton;
+    private bool _enemyNorton;
     #endregion
 
     #region properties
@@ -37,12 +38,14 @@ public class NeuEnemyComponent : MonoBehaviour
         }
     }
 
+    // Devuelve la variable de neutralizado
     public bool GetNeutralization()
     {
         return _neutralized;
     }
     #endregion
 
+    // Start is called before the first frame update
     private void Start()
     {
         _myAnimator = GetComponent<Animator>();

@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 3308406682026890724}
   - component: {fileID: 3308406682026890725}
   - component: {fileID: 3308406682026890726}
+  - component: {fileID: 3308406682026890722}
   - component: {fileID: 3308406682026890727}
   - component: {fileID: 3308406682026890648}
   - component: {fileID: 3308406682026890649}
-  - component: {fileID: 3308406682026890722}
   - component: {fileID: -8034996464866141327}
   m_Layer: 0
   m_Name: Norton
@@ -137,6 +137,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!95 &3308406682026890722
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3308406682026890650}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3e5685fb45aa01940a3e8ca7f8f8a61b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &3308406682026890727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,25 +200,6 @@ MonoBehaviour:
   _puntuation: 30
   _animationDuration: 0.3
   _myAnimator: {fileID: 3308406682026890722}
---- !u!95 &3308406682026890722
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3308406682026890650}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3e5685fb45aa01940a3e8ca7f8f8a61b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &-8034996464866141327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +213,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _neutralizeDuration: 7.5
-  _enemyNorton: 1
   _neutralized: 0
 --- !u!1 &7801201331155976375
 GameObject:

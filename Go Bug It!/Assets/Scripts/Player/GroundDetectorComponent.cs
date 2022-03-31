@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GroundDetectorComponent : MonoBehaviour
 {
+
     #region references
     private InputController _myInput;
     #endregion
@@ -21,7 +22,6 @@ public class GroundDetectorComponent : MonoBehaviour
             _isGrounded = true;
             _myInput.SetGrounded(_isGrounded);
         }
-        
     }
 
     // Marcar que el jugador no está tocando el suelo

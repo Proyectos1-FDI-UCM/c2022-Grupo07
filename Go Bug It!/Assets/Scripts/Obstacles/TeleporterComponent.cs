@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class TeleporterComponent : MonoBehaviour
 {
-    #region parameters
-    //public bool _isExit;
-    #endregion
 
-    #region References
-    [SerializeField] private Vector3 _myDestination;
-    private Collider2D _myCollider;
+    #region references
+    private GameObject _playerObj;
     #endregion
 
     #region properties
-    private GameObject _playerObj;
+    [SerializeField] private Vector3 _myDestination;
     #endregion
 
     #region methods
@@ -30,6 +26,7 @@ public class TeleporterComponent : MonoBehaviour
         }
     }
 
+    // Desactiva el input durante la transición
     IEnumerator DeactivatesInput()
     {
         _playerObj.GetComponent<InputController>().enabled = false;
@@ -39,4 +36,5 @@ public class TeleporterComponent : MonoBehaviour
         _playerObj.GetComponent<MovementController>().enabled = true;
     }
     #endregion
+
 }

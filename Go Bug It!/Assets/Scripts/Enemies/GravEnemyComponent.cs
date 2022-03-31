@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class GravEnemyComponent : MonoBehaviour
 {
+
     #region parameters
     [SerializeField] private float _gravity = 1.0f;
-    [SerializeField]private float _animationCooldown = 1.0f;
+    [SerializeField] private float _animationCooldown = 1.0f;
     #endregion
 
     #region references
-    private Collider2D _myCollider;
     private Rigidbody2D _myRigidbody;
-    private Transform _myTransform;
     [SerializeField]
     private Animator _myAnimator;
     #endregion
@@ -29,9 +28,14 @@ public class GravEnemyComponent : MonoBehaviour
         NeuBulletComponent _neuBullet = collision.gameObject.GetComponent<NeuBulletComponent>();
 
         if (_gravBullet != null) ChangeGravity();
-        else if (_neuBullet != null) _myAnimator.SetTrigger("NeuBullet");
+        else if (_neuBullet != null)
+        {
+            _myAnimator.SetBool("NeuBullet", true);
+            StartCoroutine(WDInmune());
+        }
     }
 
+    // Cambio de gravedad
     public void ChangeGravity()
     {
         _gravity *= -1;
@@ -40,15 +44,20 @@ public class GravEnemyComponent : MonoBehaviour
         if (_gravity < 0) _myAnimator.SetBool("ChangingGrav", true);
         else _myAnimator.SetBool("ChangingGrav+", true);
     }
+
+    // Animación de inmunidad del Windows Defender que retrasa la asignación de NeuBullet
+    IEnumerator WDInmune()
+    {
+        yield return new WaitForSeconds(0.84f);
+        _myAnimator.SetBool("NeuBullet", false);
+    }
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        _myCollider = gameObject.GetComponent<Collider2D>();
         _myRigidbody = gameObject.GetComponent<Rigidbody2D>();
         _myRigidbody.gravityScale = _gravity;
-        _myTransform = gameObject.transform;
         _elapsedTime = _animationCooldown;
     }
 
@@ -66,13 +75,8 @@ public class GravEnemyComponent : MonoBehaviour
                 _elapsedTime = _animationCooldown;
             }
         }
-        if (GameManager.Instance._spam)
-        {
-            _myRigidbody.gravityScale = _gravity*GameManager.Instance._speedmod;
-        }
-        else
-        {
-            _myRigidbody.gravityScale = _gravity;
-        }
+
+        if (GameManager.Instance._spam) _myRigidbody.gravityScale = _gravity * GameManager.Instance._speedmod;
+        else _myRigidbody.gravityScale = _gravity;
     }
 }

@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class BackDoorComponent : MonoBehaviour
 {
+
     #region parameters
     [SerializeField] string _nextSecene = "";
     [SerializeField] float _newLevelDuration = 60;
-    #endregion
-
-    #region references
-    private Animator _myAnimator;
     #endregion
 
     #region methods
@@ -26,9 +23,4 @@ public class BackDoorComponent : MonoBehaviour
     }
     #endregion
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        _myAnimator = GetComponent<Animator>();
-    }
 }

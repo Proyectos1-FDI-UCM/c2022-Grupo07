@@ -9,15 +9,15 @@ public class GunpointController : MonoBehaviour
     private Transform _myTransform;
     [SerializeField] private GameObject _gravShot; // Bala gravitatoria
     [SerializeField] private GameObject _neuShot; // Bala neutralizadora
-    [SerializeField] private GameObject _dmgShot; // Bala neutralizadora
+    [SerializeField] private GameObject _dmgShot; // Bala dañina
     [SerializeField] private Transform Gun; // Posición del label Gun
     [SerializeField] private Transform _playerTransform; // Posición del label Gun
     private Animator _playerAnimator;
-    [SerializeField]private LineRenderer _myRay;
+    [SerializeField] private LineRenderer _myRay;
     #endregion
 
     #region properties
-    public enum ShootType {Gravity, Neutralize}
+    public enum ShootType {Gravity, Neutralize} // Tipos de disparo
     [SerializeField, Range(0, 1)] private ShootType _shot = 0;
     private Vector3 _direction;
     #endregion
@@ -29,14 +29,13 @@ public class GunpointController : MonoBehaviour
     #endregion
 
     #region methods
-
     // Asigna el valor true al _dmgShoot para poder hacer ese disparo
     public void SetDmgShoot()
     {
         _dmgShoot = true;
     }
 
-    // Disparo normal. Instanciación de la bala según su tipo y si es o no la tercera bala
+    // Disparo normal. Instanciación de la bala según su tipo y si es o no la bala de daño
     public void RegularShoot()
     {
         // Dirección de la bala
@@ -124,6 +123,7 @@ public class GunpointController : MonoBehaviour
         }
     }
 
+    // Representación gráfica del rayo del stackpointer
     IEnumerator LineDrawer()
     {
         _myRay.enabled = true;
@@ -140,28 +140,25 @@ public class GunpointController : MonoBehaviour
         _myRay.gameObject.SetActive(true);
         int layermask = 3 << 1;
         layermask = ~layermask;
-        Debug.Log("mascara : " + layermask);
+        // Debug.Log("mascara : " + layermask);
         int sign = BulletOrientation();
 
-        RaycastHit2D _objectHit =  Physics2D.Raycast(Gun.position + new Vector3(_offset,0,0) * sign, Gun.right*sign, 1000, layermask);
+        RaycastHit2D _objectHit =  Physics2D.Raycast(Gun.position + new Vector3(_offset, 0, 0) * sign, Gun.right * sign, 1000, layermask);
 
         if (_objectHit)
         {
             // Debug.Log(_objectHit.transform.name);
             EnemyLifeComponent _enemy = _objectHit.transform.GetComponent<EnemyLifeComponent>();
-            if (_enemy != null)
-            {
-                _enemy.Dies();
-            }
+
+            if (_enemy != null) _enemy.Dies();
             
             _myRay.SetPosition(0, Gun.position);
             _myRay.SetPosition(1, _objectHit.point);
         }
-
         else
         {
             _myRay.SetPosition(0, Gun.position);
-            _myRay.SetPosition(1, Gun.position + Gun.right  *sign * 100);
+            _myRay.SetPosition(1, Gun.position + Gun.right  * sign * 100);
         }
 
         StartCoroutine(LineDrawer());
@@ -189,14 +186,14 @@ public class GunpointController : MonoBehaviour
     // Cambio de disparo
     public void ChangeShoot()
     {
-        if (_shot == ShootType.Gravity)
+        if (_shot == ShootType.Gravity) // Si tengo el disparo de gravedad
         {
-            _shot = ShootType.Neutralize;
-            GameManager.Instance.OnChangingShoot(1);
-            _playerAnimator.SetBool("NeuShot", true);
+            _shot = ShootType.Neutralize;                   // Cambio de disparo
+            GameManager.Instance.OnChangingShoot(1);        // Llamada para el resto de entidades relacionadas
+            _playerAnimator.SetBool("NeuShot", true);       // Cambio de animación
             _playerAnimator.SetBool("GravShot", false);
         }
-        else
+        else // Si tengo el disparo neutralizador
         {
             _shot = ShootType.Gravity;
             GameManager.Instance.OnChangingShoot(0);
@@ -204,7 +201,6 @@ public class GunpointController : MonoBehaviour
             _playerAnimator.SetBool("GravShot", true);
         }
     }
-
     #endregion
 
     // Start is called before the first frame update

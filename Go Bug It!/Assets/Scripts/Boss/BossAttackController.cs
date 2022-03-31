@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BossAttackController : MonoBehaviour
 {
+
     #region references
-    [SerializeField] private GameObject [] Avast;
-    [SerializeField] private GameObject [] Norton;
-    [SerializeField] private GameObject [] WDefender;
+    [SerializeField] private GameObject[] Avast;
+    [SerializeField] private GameObject[] Norton;
+    [SerializeField] private GameObject[] WDefender;
     [SerializeField] private GameObject[] McAfee;
     [SerializeField] private GameObject _boss;
     private Animator _myAnimator;
@@ -25,27 +26,30 @@ public class BossAttackController : MonoBehaviour
         _myAnimator.SetInteger("Attack", -1);
 
     }
+
     private void AvastAttack()
     {
         GameObject currentAvastattack= Instantiate(Avast[Random.Range(0, Avast.GetLength(0))],_boss.transform);
         StartCoroutine(DestroyAttack(attackDuration, currentAvastattack));
     }
+
     private void NortonAttack()
     {
         GameObject currentNortonattack = Instantiate(Norton[Random.Range(0, Norton.GetLength(0))],_boss.transform);
         StartCoroutine(DestroyAttack(attackDuration, currentNortonattack));
     }
+
     private void WDefenderAttack()
     {
         GameObject currentDefenderattack = Instantiate(WDefender[Random.Range(0, WDefender.GetLength(0))],_boss.transform);
         StartCoroutine(DestroyAttack(attackDuration, currentDefenderattack));
     }
+
     private void McAfeeAttack()
     {
         GameObject currentMcAfeeattack = Instantiate(McAfee[Random.Range(0, McAfee.GetLength(0))], _boss.transform);
         StartCoroutine(DestroyAttack(attackDuration, currentMcAfeeattack));
     }
-
     #endregion
 
     #region parameters
@@ -60,17 +64,19 @@ public class BossAttackController : MonoBehaviour
     private float _elapsedCoolDown;
     #endregion
 
-    // Update is called once per frame
+    // Start is called before the first frame update
     private void Start()
     {
         _myAnimator = GetComponent<Animator>();
         _myAnimator.SetInteger("Attack", -1);
-         _rnd = -2;
+        _rnd = -2;
     }
+
+    // Update is called once per frame
     void Update()
     {
         _elapsedCoolDown += Time.deltaTime;
-        if(_elapsedCoolDown>=timeToAttack)
+        if (_elapsedCoolDown>=timeToAttack)
         {
             //
             if (_freezeTimeChoosing)
@@ -78,6 +84,7 @@ public class BossAttackController : MonoBehaviour
                 _rnd = Random.Range(0, 4);
                 _freezeTimeChoosing = false;
             }
+
             switch (_rnd)
             {
                 case 0: _myAnimator.SetInteger("Attack", 0); break;
@@ -92,11 +99,10 @@ public class BossAttackController : MonoBehaviour
                 else if (_rnd == 1) McAfeeAttack();
                 else if (_rnd == 2) NortonAttack();
                 else WDefenderAttack();
+
                 _freezeTimeChoosing = true;
                 _elapsedCoolDown = 0;
-                
-            }
-            
+            } 
         }
     }
 }

@@ -38,7 +38,6 @@ public class EnemyLifeComponent : MonoBehaviour
 
     public void Update()
     {
-        _myAnimator.speed = 1 * GameManager.Instance._speedmod;//Adecua la velocidad de la animación al spam
-
+        _myAnimator.speed = 1 * GameManager.Instance._speedmod; //Adecua la velocidad de la animación al spam
     }
 }

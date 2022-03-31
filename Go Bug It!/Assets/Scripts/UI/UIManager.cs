@@ -39,10 +39,6 @@ public class UIManager : MonoBehaviour
     private GameObject _endTransition;    
     #endregion
 
-    #region parameters
-    private int _points = 0;
-    #endregion
-
     #region methods
     // Actualiza la vida del jugador
     public void UpdatePlayerLife(int life, bool powerup)
@@ -81,21 +77,17 @@ public class UIManager : MonoBehaviour
         else _timeText.text = "00" + time;
     }
 
-    // Actualizar puntos
-    public void UpdatePoints(int newPoints)
+    // Actualizar puntos en la UI
+    public void UpdatePoints(int points)
     {
-        _points += newPoints;                                                           // Sumar puntuación
-        string zerosText = "";                                                          // Texto vacío (contenedor de ceros)
-        if (_points > 9999) _points = 9999;
-        else
-        {
-            int maxZeros = 5;                                                           // Variable de control del nº de ceros máximo
-            string pointsText = "" + _points;                                           // Contenedeor para el nº de dígitos de _points
-            for (int i = maxZeros; i > pointsText.Length + 1; i--) zerosText += "0";    // Añadir el nº de ceros correcto
-        }
+        string zerosText = "";                                                   // Texto vacío (contenedor de ceros)
+        int maxZeros = 5;                                                        // Variable de control del nº de ceros máximo
+        string pointsText = "" + points;                                         // Contenedeor para el nº de dígitos de points
+
+        for (int i = maxZeros; i > pointsText.Length + 1; i--) zerosText += "0"; // Añadir el nº de ceros correcto
 
         // Aplicar suma en la UI
-        _pointsText.text = "Puntos: " + zerosText + _points;
+        _pointsText.text = "Puntos: " + zerosText + points;
     }
 
     // Actualizar puntos cuando muere el jefe

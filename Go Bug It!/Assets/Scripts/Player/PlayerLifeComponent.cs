@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLifeComponent : MonoBehaviour
 {
+
     #region references
     private Animator _myAnimator;
     private Rigidbody2D _myRigidbody;
@@ -50,7 +51,6 @@ public class PlayerLifeComponent : MonoBehaviour
             }
         }
         else if (_boss != null) StartCoroutine(hurted(1.65f));
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -173,7 +173,6 @@ public class PlayerLifeComponent : MonoBehaviour
         _myAnimator.SetBool("Dies", true);
         _myInput.enabled = false;
         _myRigidbody.velocity = new Vector2(0, 0);
-        //Si da problemas lo de subir mientras mueres, _myrigidboy.gravityscale = 0.
         Destroy(gameObject, 1.1f);
         GameManager.Instance.OnPlayerDies();
     }
@@ -198,6 +197,7 @@ public class PlayerLifeComponent : MonoBehaviour
         _myRigidbody = GetComponent<Rigidbody2D>();
         _myInput = GetComponent<InputController>();
         _myCollider = GetComponent<BoxCollider2D>();
+
         if (_boss != null)
         {
             _respawnBox1 = _respawn.transform.GetChild(0).gameObject.transform.GetComponent<BoxCollider2D>();

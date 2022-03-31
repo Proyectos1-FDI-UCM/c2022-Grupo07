@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class DeathZoneComponent : MonoBehaviour
 {
-    #region references
-    private Collider2D _myCollider2D;
-    #endregion
 
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,9 +19,4 @@ public class DeathZoneComponent : MonoBehaviour
     }
     #endregion
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        _myCollider2D = GetComponent<Collider2D>();
-    }
 }

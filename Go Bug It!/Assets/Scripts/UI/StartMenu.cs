@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class StartMenu : MonoBehaviour
 {
+
     #region references
     [SerializeField] private GameObject _startFirtsButton;
     private GameObject _initialFlash;
@@ -26,6 +27,7 @@ public class StartMenu : MonoBehaviour
         Application.Quit();
     }
 
+    // Animación secuencial de splashscreen
     IEnumerator StartScene()
     {
         // Animación del logo de Ñintendo

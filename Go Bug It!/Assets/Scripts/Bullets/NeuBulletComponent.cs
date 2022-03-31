@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class NeuBulletComponent : MonoBehaviour
 {
+
     #region references
     private Animator _myAnimator;
     private BulletMovementController _myMovementController;
-    private Collider2D _myCollider;
     #endregion
 
     #region methods
@@ -30,14 +30,6 @@ public class NeuBulletComponent : MonoBehaviour
             Destroy(gameObject, 0.25f);
         } 
     }
-
-    
-    public void OnEnemyOrWallCollision()
-    {
-        _myAnimator.SetBool("OnEnemyCollision", false);
-        _myAnimator.SetBool("OnWallCollision", false);
-    }
-    
     #endregion
 
     // Start is called before the first frame update
@@ -45,6 +37,5 @@ public class NeuBulletComponent : MonoBehaviour
     {
         _myMovementController = GetComponent<BulletMovementController>();
         _myAnimator = transform.GetChild(0).GetComponent<Animator>();
-        _myCollider = GetComponent<Collider2D>();
     }
 }

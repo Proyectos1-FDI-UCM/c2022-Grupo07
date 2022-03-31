@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1497941172226475547}
   - component: {fileID: 8529396205168401503}
-  - component: {fileID: 8983570571320088260}
   - component: {fileID: 5513774468250991259}
   - component: {fileID: -952550501011943122}
+  - component: {fileID: 8983570571320088260}
   m_Layer: 0
   m_Name: Teleporter
   m_TagString: Untagged
@@ -85,25 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8983570571320088260
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7039095839096975580}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 570c4afe0ec59f9409e5a5b002214dbe, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &5513774468250991259
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -142,5 +123,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead0d1f8903259c41865caadca3b036d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isExit: 0
-  _myDestination: {fileID: 0}
+  _myDestination: {x: 0, y: 0, z: 0}
+--- !u!95 &8983570571320088260
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039095839096975580}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 570c4afe0ec59f9409e5a5b002214dbe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

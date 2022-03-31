@@ -15,17 +15,17 @@ public class BulletMovementController : MonoBehaviour
     #endregion
 
     #region properties
-    private bool _direction;
     private Vector3 _myMovement = new Vector3(0.1f, 0, 0);
     #endregion
 
     #region methods
-    // Devuelve true si va hacia la derecha, false si va hacia la izquierda
+    // Multiplica al vector de movimiento según si va a la izquierda (-1) o a la derecha (1)
     public void SetMovementDirection(int sign)
     {
         _myMovement *= sign;
     }
 
+    // Rota la bala a su orientación contraria si va hacia la izquierda
     public void BulletRotation(int sign)
     {
         if (sign == -1)
@@ -36,6 +36,7 @@ public class BulletMovementController : MonoBehaviour
         }
     }
 
+    // Asigna una nueva velocidad 
     public void SetNewSpeed(float multiplier)
     {
         _shotSpeed *= multiplier;

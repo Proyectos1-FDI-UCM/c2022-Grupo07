@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CheckpointComponent : MonoBehaviour
 {
+
     #region references
-    private Collider2D _myCollider;
     private Transform _myTransform;
-    [SerializeField]
+    private Collider2D _myCollider;
     private Animator _myAnimator;
     #endregion
 
@@ -33,6 +33,7 @@ public class CheckpointComponent : MonoBehaviour
     void Start()
     {
         _myTransform = transform;
+        _myAnimator = GetComponent<Animator>();
         _myCollider = GetComponent<Collider2D>();
     }
 }

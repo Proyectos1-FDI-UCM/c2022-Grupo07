@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class McAfeeComponent : MonoBehaviour
 {
+
     #region parameters
     [SerializeField] private int _range = 4;
     [SerializeField] private float _shootCooldown = 2.0f;
@@ -11,8 +12,7 @@ public class McAfeeComponent : MonoBehaviour
     #endregion
 
     #region references
-    [SerializeField]
-    private GameObject _myBullet;
+    [SerializeField] private GameObject _myBullet;
     private Transform _myTransform;
     private GameObject _myPlayer;
     public bool lookingRight = false;
@@ -26,7 +26,7 @@ public class McAfeeComponent : MonoBehaviour
     #endregion
 
     #region methods
-
+    // Disparo de McAfee
     public void Shoot()
     {
         GameObject _bulletShot = GameObject.Instantiate(_myBullet, _instancePosition, Quaternion.identity);
@@ -34,6 +34,7 @@ public class McAfeeComponent : MonoBehaviour
         _elapsedTime = _shootCooldown;
     }
 
+    // Asignar la dirección de la bala
     public Vector3 SetBulletDirection()
     {
         if (lookingRight) return Vector3.right;
@@ -63,6 +64,7 @@ public class McAfeeComponent : MonoBehaviour
             {
                 if (lookingRight) _instancePosition = _myTransform.position + new Vector3(_offset, 0, 0);
                 else _instancePosition = _myTransform.position - new Vector3(_offset, 0, 0);
+
                 Shoot();
             }
         }

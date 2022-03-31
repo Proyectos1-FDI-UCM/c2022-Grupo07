@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class EnemyRespawnManager : MonoBehaviour
 {
+
     #region parameters
     [SerializeField] private GameObject _enemyPrefab;
     private Transform _myTransform;
     [SerializeField] private float _respawnTimer = 1.5f;
     private int _counter = 1;
     #endregion
+
     #region references
     [SerializeField] private GameObject _enemy;
     private GameObject InstantiatedEnemy;
 
     
     #endregion
+
     #region methods
     private IEnumerator RespawnEnemy()
     {
@@ -26,6 +29,7 @@ public class EnemyRespawnManager : MonoBehaviour
         _counter = 1; //Restablece la posibilidad de respawnear al enemigo
     }
     #endregion
+
     // Start is called before the first frame update
     void Start()
     {

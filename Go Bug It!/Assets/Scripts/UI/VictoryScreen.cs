@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class VictoryScreen : MonoBehaviour
 {
     #region references
-    private GameObject _objects;
     private Text _collectiblesMessage;
     #endregion
 
     #region methods
-
+    // Según los coleccionables obtenidos cambia el texto de recompensa de los mismos
     public void ShowCollectibles()
     {
         int[] _collectibles = GameManager.Instance.GetCollectibles();
         int _nCollect = 0;
+
         for (int i = 0; i < _collectibles.Length; i++)
         {
             if (_collectibles[i] == 1) _nCollect++;
@@ -31,6 +31,7 @@ public class VictoryScreen : MonoBehaviour
         }
     }
 
+    // Gestión del tiempo al enseñar la pantalla de créditos para secuenciar comportamientos
     IEnumerator ShowVictoryScreen()
     {
         //Desactivamos los objetos
@@ -42,6 +43,8 @@ public class VictoryScreen : MonoBehaviour
         //Activamos la imagen de Windows error
         transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
         yield return new WaitForSeconds(30);
+        
+        // Cerrar juego
         Debug.Log(3);
         Application.Quit();
     }

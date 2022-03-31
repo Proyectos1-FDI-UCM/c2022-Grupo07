@@ -25,17 +25,18 @@ public class GravityComponent : MonoBehaviour
         gameObject.transform.Rotate(0, 180, 180);
     }
 
+    // Asigna un nuevo valor a la gravedad
     public void SetNewGravValue(float multiplier)
     {
         _myGravityScale /= multiplier;
-        Debug.Log("Valor grav " + _myGravityScale);
+        // Debug.Log("Valor grav " + _myGravityScale);
     }
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        _myRigidbody = GetComponent<Rigidbody2D>();     //Accedo al rigidbody de mi jugador
+        _myRigidbody = GetComponent<Rigidbody2D>();
         _myAnimator = GetComponent<Animator>();
     }
 }

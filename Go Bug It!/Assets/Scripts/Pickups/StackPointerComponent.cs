@@ -6,7 +6,6 @@ public class StackPointerComponent : MonoBehaviour
 {
 
     #region references
-    private Collider2D _myCollider;
     private Animator _myAnimator;
     #endregion
 
@@ -27,7 +26,6 @@ public class StackPointerComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _myCollider = GetComponent<Collider2D>();
         _myAnimator = GetComponent<Animator>();
     }
 }

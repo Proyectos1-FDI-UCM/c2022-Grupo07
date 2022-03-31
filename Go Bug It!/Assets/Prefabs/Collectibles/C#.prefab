@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3756038313745186712}
   - component: {fileID: 1501769349521774260}
   - component: {fileID: 3756038313745186713}
+  - component: {fileID: 8029672462756822632}
   m_Layer: 0
   m_Name: C#
   m_TagString: Untagged
@@ -142,3 +143,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8370ff2110cdf4aa06e9d6a076d6bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8029672462756822632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3756038313745186714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e12bfaf62a2ae384e93163013a81d61e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _yAmplitude: 0.15

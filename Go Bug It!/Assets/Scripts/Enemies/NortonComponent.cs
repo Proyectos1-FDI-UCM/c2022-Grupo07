@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class NortonComponent : MonoBehaviour
 {
+
     #region parameters
-    [SerializeField]private float _range = 1;
+    [SerializeField] private float _range = 1;
     //private bool _activated = false;
     #endregion
 
@@ -13,7 +14,7 @@ public class NortonComponent : MonoBehaviour
     private Transform _myTransform;
     private GameObject _myPlayer;
     private CircleCollider2D _myRango;
-    private Animator anim;
+    private Animator _myAnimator;
     private Animator _rangeAnim;
     #endregion
 
@@ -27,13 +28,17 @@ public class NortonComponent : MonoBehaviour
     {
         // Si es el jugador
         PlayerLifeComponent _myPlayer = collision.gameObject.GetComponent<PlayerLifeComponent>();
+
         if (_myPlayer != null && !_myPlayer.gameObject.GetComponent<PowerUpController>().IsShieldActive()) _myPlayer.CallForDamage();
+
         // Si es un enemigo
         EnemyLifeComponent _myEnemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
+
         if (_myEnemy != null)
         {
             // Si es un Norton
             NortonComponent _otherNorton = collision.gameObject.GetComponent<NortonComponent>();
+
             if (_otherNorton != null) _otherNorton.Activated();
             else _myEnemy.Dies();
         }
@@ -42,22 +47,16 @@ public class NortonComponent : MonoBehaviour
     // Activar la animación anterior a la explosión
     public void Activated()
     {
-        anim.SetBool("Activated", true);
+        _myAnimator.SetBool("Activated", true);
     }
 
     // Explosión (evento en animación)
     public void Explode()
     {
-        anim.SetBool("Explosion", true);
+        _myAnimator.SetBool("Explosion", true);
         _rangeAnim.SetTrigger("Explosion");
         _myRango.enabled = true;
         Destroy(gameObject, 0.5f/GameManager.Instance._speedmod);
-    }
-
-    // 
-    public void AlreadyExploded()
-    {
-        _myRango.enabled = false;
     }
     #endregion
 
@@ -66,7 +65,7 @@ public class NortonComponent : MonoBehaviour
     {
         _myTransform = transform;
         _myPlayer = GameObject.FindGameObjectWithTag("Player");
-        anim = GetComponent<Animator>();
+        _myAnimator = GetComponent<Animator>();
         _myRango = transform.GetChild(0).GetComponent<CircleCollider2D>();
         _rangeAnim = transform.GetChild(0).GetComponent<Animator>();
         _myRango.enabled = false;

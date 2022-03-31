@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2098628917036848374}
-  - component: {fileID: 2098628917036848375}
   - component: {fileID: 2098628917036848329}
+  - component: {fileID: 2098628917036848375}
   m_Layer: 0
   m_Name: Plataforma
   m_TagString: Untagged
@@ -35,21 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2098628917036848375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2098628917036848372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6f9d1404d8685a41b8a3e6fe4b8fd7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _distance: 2
-  _speed: 1
-  _movementDirection: {x: 1, y: 0}
 --- !u!61 &2098628917036848329
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -76,6 +61,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.0302837, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2098628917036848375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098628917036848372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f9d1404d8685a41b8a3e6fe4b8fd7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 1
+  _direction: 0
+  limPlatformMax_X: 0
+  limPlatformMin_X: 0
 --- !u!1001 &2098628917099756173
 PrefabInstance:
   m_ObjectHideFlags: 0

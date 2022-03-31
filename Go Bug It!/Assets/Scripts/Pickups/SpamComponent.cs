@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class SpamComponent : MonoBehaviour
 {
+
     #region references
-    private Collider2D _myCollider;
     private Animator _myAnimator;
     #endregion
 
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PowerUpController _myplayer;
-        _myplayer = collision.gameObject.GetComponent<PowerUpController>();
+        PowerUpController _myplayer = collision.gameObject.GetComponent<PowerUpController>();
 
         if (_myplayer != null)
         {
@@ -28,7 +27,6 @@ public class SpamComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _myCollider = GetComponent<Collider2D>();
         _myAnimator = GetComponent<Animator>();
     }
 }

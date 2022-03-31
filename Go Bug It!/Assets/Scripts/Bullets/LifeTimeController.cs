@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LifeTimeController : MonoBehaviour
 {
+
     #region parameters
     [SerializeField] private int _lifeTime = 2;
     private float _elapsedTime;

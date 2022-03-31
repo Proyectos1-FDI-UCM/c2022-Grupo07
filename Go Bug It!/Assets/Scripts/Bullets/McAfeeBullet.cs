@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class McAfeeBullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    // Update is called once per frame
-
 
     #region parameters
-    [SerializeField]
-    private float _shotSpeed = 2.0f;
-    [SerializeField]
-    private bool left;
-    private Collider2D _myCollider;
+    [SerializeField] private float _shotSpeed = 2.0f;
+    [SerializeField] private bool left;
     #endregion
 
     #region properties
@@ -33,16 +26,12 @@ public class McAfeeBullet : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // Aplica una orientación a la bala
     public void SetDirection(Vector3 _orientation)
     {
         _direction = _orientation;
     }
     #endregion
-
-    void Start()
-    {
-        _myCollider = GetComponent<Collider2D>();
-    }
 
     // Update is called once per frame
     void Update()

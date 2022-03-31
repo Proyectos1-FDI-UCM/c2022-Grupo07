@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 
 public class GameOver : MonoBehaviour
 {
+
     #region references
     [SerializeField] private GameObject _gameOverFirstButton;
     private GameObject _retryButton;

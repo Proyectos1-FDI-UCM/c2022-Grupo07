@@ -7,7 +7,6 @@ public class MovementController : MonoBehaviour
 
     #region references
     private InputController _myInput;
-    private Transform _myTransform;
     private Rigidbody2D _rigidbody2D;
     private Animator _myAnimator;
     #endregion
@@ -81,6 +80,7 @@ public class MovementController : MonoBehaviour
         }
     }
 
+    // Giro hacia la dirección contraria
     private void Flip()
     {
         // Switch the way the player is labelled as facing.
@@ -103,16 +103,18 @@ public class MovementController : MonoBehaviour
     void Start()
     {
         _myInput = GetComponent<InputController>();
-        _myTransform = transform;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _myAnimator = GetComponent<Animator>();
     }
+
+    // Update is called once per frame
     private void Update()
     {
         if (_dash) _elapsedDash += Time.deltaTime;
-         // Guardar tiempo transcurrido para los cálculos
-         if (_movementDirection != 0) _elapsedtime += Time.deltaTime;
-         else  _elapsedtime = 0;
+        
+        // Guardar tiempo transcurrido para los cálculos
+        if (_movementDirection != 0) _elapsedtime += Time.deltaTime;
+        else  _elapsedtime = 0;
     }
 
     // Update is called once per frame
@@ -129,7 +131,9 @@ public class MovementController : MonoBehaviour
         // Aplicar giro
         if (_movementDirection > 0 && !m_FacingRight) Flip(); // Si no mira hacia la derecha
         else if (_movementDirection < 0 && m_FacingRight) Flip(); // Si mira hacia la derecha
-        if (_dash)Dash();
+        
+        if (_dash) Dash();
+
         // Aplicar movimiento
         _rigidbody2D.velocity = new Vector2(_movementDirection * _currentSpeed, _rigidbody2D.velocity.y);
     }

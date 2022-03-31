@@ -35,7 +35,6 @@ public class GravBulletComponent : MonoBehaviour
             Destroy(gameObject, 0.25f);
         }
     }
-    
     #endregion
 
     // Start is called before the first frame update
