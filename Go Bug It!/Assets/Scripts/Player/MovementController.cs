@@ -56,7 +56,7 @@ public class MovementController : MonoBehaviour
 
     // Activar el dash
     public void SetDash()
-    {
+    {       
         _dash = true;
     }
 
@@ -67,7 +67,12 @@ public class MovementController : MonoBehaviour
         // Si se está haciendo el dash
         if (_elapsedDash <= _dashDuration)
         {
-            if (_movementDirection > 0) _movementDirection = 1;
+
+            if (_movementDirection > 0)
+            {
+                _movementDirection = 1;
+                SoundEffectController.PlaySound("dash");
+            }
             else if (_movementDirection < 0) _movementDirection = -1;
             _rigidbody2D.gravityScale = 0;
             _rigidbody2D.velocity = new Vector2(_movementDirection * _currentSpeed,0);
