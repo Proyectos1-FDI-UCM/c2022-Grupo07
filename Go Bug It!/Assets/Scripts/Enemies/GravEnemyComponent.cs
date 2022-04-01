@@ -11,6 +11,7 @@ public class GravEnemyComponent : MonoBehaviour
     #endregion
 
     #region references
+    [SerializeField]
     private Rigidbody2D _myRigidbody;
     [SerializeField]
     private Animator _myAnimator;
@@ -27,7 +28,11 @@ public class GravEnemyComponent : MonoBehaviour
         GravBulletComponent _gravBullet = collision.gameObject.GetComponent<GravBulletComponent>();
         NeuBulletComponent _neuBullet = collision.gameObject.GetComponent<NeuBulletComponent>();
 
-        if (_gravBullet != null) ChangeGravity();
+        if (_gravBullet != null)
+        {
+            Debug.Log("pulien");
+            ChangeGravity();
+        }
         else if (_neuBullet != null)
         {
             _myAnimator.SetBool("NeuBullet", true);
@@ -56,7 +61,7 @@ public class GravEnemyComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _myRigidbody = gameObject.GetComponent<Rigidbody2D>();
+        //_myRigidbody = gameObject.GetComponent<Rigidbody2D>();
         _myRigidbody.gravityScale = _gravity;
         _elapsedTime = _animationCooldown;
     }

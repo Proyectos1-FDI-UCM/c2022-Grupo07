@@ -47,7 +47,10 @@ public class PlayerLifeComponent : MonoBehaviour
 
             if (_neuEnemy != null)
             {
-                if (_neuEnemy.GetNeutralization() != true) StartCoroutine(hurted(1.65f));
+                if (_neuEnemy.GetNeutralization() != true)
+                {
+                    StartCoroutine(hurted(1.65f));
+                }
             }
         }
         else if (_boss != null) StartCoroutine(hurted(1.65f));
