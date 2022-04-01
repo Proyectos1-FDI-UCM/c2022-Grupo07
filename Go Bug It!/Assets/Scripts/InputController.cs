@@ -11,6 +11,7 @@ public class InputController : MonoBehaviour
     private GunpointController _myGunpoint;
     private Animator _myAnimator;
     [SerializeField] private Collider2D _myGroundDetector;
+    [SerializeField] private GameObject _sfx;
     #endregion
 
     #region parameters
@@ -88,6 +89,7 @@ public class InputController : MonoBehaviour
 
     IEnumerator changeDash()
     {
+        _sfx.GetComponent<SoundEffectController>().PlaySound("dash");
         yield return new WaitForSeconds(0.65f);
 
         if (_myAnimator.GetBool("Dash") == true) _myAnimator.SetBool("Dash", false);

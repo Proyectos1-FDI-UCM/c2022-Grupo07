@@ -6,11 +6,11 @@ public class SoundEffectController : MonoBehaviour
 {
     #region references
     public static AudioClip dash, playerdeath, shot, laser, gravity;
-    static AudioSource audioSrc;
+    private AudioSource audioSrc;
     #endregion
 
     #region methods
-    public static void PlaySound(string clip)
+    public void PlaySound(string clip)
     {
         switch (clip)
         {
@@ -35,6 +35,7 @@ public class SoundEffectController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSrc = gameObject.GetComponent<AudioSource>();
         dash = Resources.Load<AudioClip>("dash");
         playerdeath = Resources.Load<AudioClip>("playerdeath");
         shot = Resources.Load<AudioClip>("shot");
