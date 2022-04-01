@@ -56,8 +56,8 @@ public class NeuEnemyComponent : MonoBehaviour
         }
         else
         {
-            _enemyM = GetComponent<McAfeeComponent>();
-            _myAnimator = GetComponent<Animator>();
+            _enemyM = GetComponentInParent<McAfeeComponent>();
+            _myAnimator = GetComponentInParent<Animator>();
         }
     }
 

@@ -18,12 +18,12 @@ public class McAfeeBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerLifeComponent _myPlayer = collision.gameObject.GetComponent<PlayerLifeComponent>();
-        if (_myPlayer != null) _myPlayer.CallForDamage();
+        if (_myPlayer != null) { _myPlayer.CallForDamage(); Destroy(gameObject); }
 
         NortonComponent _myNorton = collision.gameObject.GetComponent<NortonComponent>();
-        if (_myNorton != null) _myNorton.Activated();
+        if (_myNorton != null) { _myNorton.Activated(); Destroy(gameObject); }
 
-        Destroy(gameObject);
+        
     }
 
     // Aplica una orientación a la bala
