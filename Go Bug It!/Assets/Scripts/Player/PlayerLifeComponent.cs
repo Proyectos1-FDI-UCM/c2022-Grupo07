@@ -49,6 +49,7 @@ public class PlayerLifeComponent : MonoBehaviour
             {
                 if (_neuEnemy.GetNeutralization() != true)
                 {
+                    Debug.Log("Hurted");
                     StartCoroutine(hurted(1.65f));
                 }
             }

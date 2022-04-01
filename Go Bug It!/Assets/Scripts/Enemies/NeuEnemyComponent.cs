@@ -48,10 +48,17 @@ public class NeuEnemyComponent : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        _myAnimator = GetComponent<Animator>();
 
-        if (_enemyNorton) _enemyN = GetComponent<NortonComponent>();
-        else _enemyM = GetComponent<McAfeeComponent>();
+        if (_enemyNorton)
+        {
+            _enemyN = GetComponentInParent<NortonComponent>();
+            _myAnimator = GetComponentInParent<Animator>();
+        }
+        else
+        {
+            _enemyM = GetComponent<McAfeeComponent>();
+            _myAnimator = GetComponent<Animator>();
+        }
     }
 
     // Update is called once per frame

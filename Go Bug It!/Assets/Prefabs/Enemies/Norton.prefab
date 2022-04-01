@@ -70,12 +70,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3308406682026890723}
   - component: {fileID: 3308406682026890724}
-  - component: {fileID: 3308406682026890725}
   - component: {fileID: 3308406682026890726}
   - component: {fileID: 3308406682026890722}
   - component: {fileID: 3308406682026890727}
-  - component: {fileID: 3308406682026890649}
-  - component: {fileID: -8034996464866141327}
   m_Layer: 6
   m_Name: Norton
   m_TagString: Untagged
@@ -96,7 +93,7 @@ Transform:
   m_Children:
   - {fileID: 6956859211018933105}
   - {fileID: 4277906368689389618}
-  - {fileID: 4220796479982290277}
+  - {fileID: 8887422184349194678}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -151,32 +148,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3308406682026890725
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3308406682026890650}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.48, y: 4.48}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.48, y: 4.48}
-  m_EdgeRadius: 0
 --- !u!50 &3308406682026890726
 Rigidbody2D:
   serializedVersion: 4
@@ -229,39 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2a31750c4b04924d8fa6c289604fb42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 3
   _neutralized: 0
---- !u!114 &3308406682026890649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3308406682026890650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a53ebbf3cab06504a9544da2f1ff1fa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _puntuation: 30
-  _animationDuration: 0.3
-  _myAnimator: {fileID: 3308406682026890722}
---- !u!114 &-8034996464866141327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3308406682026890650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be0447d19e1fc3b4ca77212ac686f5cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _neutralizeDuration: 7.5
-  _enemyNorton: 1
-  _neutralized: 0
---- !u!1 &6678578687442503709
+--- !u!1 &5939486176719920167
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -269,23 +209,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4220796479982290277}
-  - component: {fileID: 7459747344699067800}
-  - component: {fileID: 4194296171021609635}
+  - component: {fileID: 8887422184349194678}
+  - component: {fileID: 7544737544820216064}
+  - component: {fileID: 6741146882939151187}
+  - component: {fileID: 626486750462425011}
+  - component: {fileID: 3695689923289333754}
   m_Layer: 6
-  m_Name: GravCollider
+  m_Name: CollisionDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4220796479982290277
+--- !u!4 &8887422184349194678
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6678578687442503709}
+  m_GameObject: {fileID: 5939486176719920167}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -293,13 +235,13 @@ Transform:
   m_Father: {fileID: 3308406682026890723}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &7459747344699067800
+--- !u!61 &7544737544820216064
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6678578687442503709}
+  m_GameObject: {fileID: 5939486176719920167}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -317,15 +259,15 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 4.4}
+  m_Size: {x: 4.48, y: 4.48}
   m_EdgeRadius: 0
---- !u!114 &4194296171021609635
+--- !u!114 &6741146882939151187
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6678578687442503709}
+  m_GameObject: {fileID: 5939486176719920167}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9bd61c840cfebd4b9a304605109b1c9, type: 3}
@@ -334,6 +276,36 @@ MonoBehaviour:
   _gravity: 1
   _animationCooldown: 1
   _myRigidbody: {fileID: 3308406682026890726}
+  _myAnimator: {fileID: 3308406682026890722}
+--- !u!114 &626486750462425011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5939486176719920167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0447d19e1fc3b4ca77212ac686f5cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _neutralizeDuration: 5
+  _enemyNorton: 1
+  _neutralized: 0
+--- !u!114 &3695689923289333754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5939486176719920167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a53ebbf3cab06504a9544da2f1ff1fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _puntuation: 30
+  _animationDuration: 1
   _myAnimator: {fileID: 3308406682026890722}
 --- !u!1 &7801201331155976375
 GameObject:

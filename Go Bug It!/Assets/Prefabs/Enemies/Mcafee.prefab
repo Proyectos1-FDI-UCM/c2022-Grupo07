@@ -184,6 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gravity: 5
   _animationCooldown: 1
+  _myRigidbody: {fileID: -6401632399129430706}
   _myAnimator: {fileID: 316059790135495372}
 --- !u!114 &2832275972340523116
 MonoBehaviour:

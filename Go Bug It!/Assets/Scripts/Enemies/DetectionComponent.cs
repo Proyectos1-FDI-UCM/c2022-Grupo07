@@ -12,7 +12,10 @@ public class DetectionComponent : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         PlayerLifeComponent _player = collision.gameObject.GetComponent<PlayerLifeComponent>();
-        if (_player != null) { _myNorton.Activated(); Debug.Log("Ayuda"); }
+        if (_player != null)
+        {
+            _myNorton.Activated();
+        }
     }
     #endregion
 

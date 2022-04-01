@@ -30,7 +30,6 @@ public class GravEnemyComponent : MonoBehaviour
 
         if (_gravBullet != null)
         {
-            Debug.Log("pulien");
             ChangeGravity();
         }
         else if (_neuBullet != null)
