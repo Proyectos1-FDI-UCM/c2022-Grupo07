@@ -25,6 +25,8 @@ public class AvastController : MonoBehaviour
     private bool _shooting;
     private bool _firstTimeShoot;//Identifica si es la primera vez que se dispara.
     private int _ignoreLayer = (1<< 2)|(1<<9)|(1<<8);
+    private bool _isCharging;
+    private float anim_speed;
     #endregion
 
     // Start is called before the first frame update
@@ -36,6 +38,8 @@ public class AvastController : MonoBehaviour
         _shooting = false;
         _myanimator = GetComponent<Animator>();
         _firstTimeShoot = true;
+        _isCharging = false;
+        anim_speed = 1;
     }
 
     // Update is called once per frame
@@ -45,9 +49,14 @@ public class AvastController : MonoBehaviour
         
         if (_shooting) _elapsedDuration += Time.deltaTime* GameManager.Instance._speedmod;
         else if (!_shooting) _elapsedDuration = 0;
+        if (_elapsedCoolDown >= (3f / 5f) * _rayCoolDown && !_shooting)
+        {
+            _isCharging = true;
+            anim_speed = 1 * (5 / _rayCoolDown);
 
-        _myanimator.SetFloat("_elapsedCoolDown", _elapsedCoolDown);
-        _myanimator.speed =1* GameManager.Instance._speedmod; // Adecua la animación al spam
+        }
+        else anim_speed = 1;
+        _myanimator.speed =anim_speed* GameManager.Instance._speedmod; // Adecua la animación al spam
 
         if (_firstTimeShoot && _elapsedCoolDown >= _rayCoolDown + _firstTimeOffset)
         {
@@ -83,14 +92,18 @@ public class AvastController : MonoBehaviour
                         else _myEnemy.Dies();
                     }
                 }
+                
             }
             else
             {
+                _isCharging = false;
                 _shooting = false;
                 _myRay.enabled = false; //Se deja de ver el rayo.
                 _elapsedDuration = 0;
                 _elapsedCoolDown = 0;
+               
             }
         }
+        _myanimator.SetBool("_isCharging", _isCharging);
     }
 }
