@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     private PauseMenu _myPause;
     // Jugador
     [SerializeField] private GameObject _player;
-    private PlayerLifeComponent _myplayerLife;
+    private PlayerLifeComponent _myPlayerLife;
     // Boss
     private BossLifeController _boss;
     // GameOver
@@ -62,8 +62,16 @@ public class GameManager : MonoBehaviour
     // Espera hasta que termine la animación de fin de nivel
     IEnumerator LevelTransition(string scene)
     {
+        // Animación del jugador de fin del nivel
+        _player.GetComponent<Rigidbody2D>().simulated = false;
+        _player.GetComponent<Animator>().SetBool("End", true);
+        yield return new WaitForSeconds(0.5f);
+
+        // Transición
         _myUIManager.SetTransition(true);
         yield return new WaitForSeconds(1.5f);
+
+        // Cargar siguiente escena
         DontDestroyOnLoad(this);
         DontDestroyOnLoad(_myUIManager.gameObject);
         DontDestroyOnLoad(_myPauseObject.gameObject);
@@ -76,14 +84,14 @@ public class GameManager : MonoBehaviour
     {
         _myUIManager.UpdatePoints(Mathf.RoundToInt(_timeLeft) * 2);
         _timeLeft = newTime;
-        _myplayerLife.FullyHealing();
+        _myPlayerLife.FullyHealing();
         StartCoroutine(LevelTransition(scene));
     }
 
-    //Registro del jugador en el GameManager
+    // Registro del jugador en el GameManager
     public void PlayerRegistration(PlayerLifeComponent player)
     {
-        _myplayerLife = player;
+        _myPlayerLife = player;
     }
 
     // Actualiza la puntuación y llama la UI

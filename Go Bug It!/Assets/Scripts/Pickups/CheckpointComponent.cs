@@ -33,7 +33,7 @@ public class CheckpointComponent : MonoBehaviour
     IEnumerator CheckpointBanner()
     {
         _myBanner.SetActive(true);
-        yield return new WaitForSeconds(1.47f);
+        yield return new WaitForSeconds(1.67f);
         _myBanner.SetActive(false);
     }
     #endregion
