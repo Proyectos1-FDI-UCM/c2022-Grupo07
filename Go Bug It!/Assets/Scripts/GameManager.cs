@@ -60,21 +60,24 @@ public class GameManager : MonoBehaviour
     }
 
     // Espera hasta que termine la animación de fin de nivel
-    IEnumerator LevelTransition()
+    IEnumerator LevelTransition(string scene)
     {
-        yield return new WaitForSeconds(0);
+        _myUIManager.SetTransition(true);
+        yield return new WaitForSeconds(1.5f);
+        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(_myUIManager.gameObject);
+        DontDestroyOnLoad(_myPauseObject.gameObject);
+        SceneManager.LoadScene(scene);
+        _myUIManager.SetTransition(false);
     }
 
     // Avance de nivel
-    public void OnGoalAdvance(string escena, float newTime)
+    public void OnGoalAdvance(string scene, float newTime)
     {
         _myUIManager.UpdatePoints(Mathf.RoundToInt(_timeLeft) * 2);
         _timeLeft = newTime;
         _myplayerLife.FullyHealing();
-        DontDestroyOnLoad(this);
-        DontDestroyOnLoad(_myUIManager.gameObject);
-        DontDestroyOnLoad(_myPauseObject.gameObject);
-        SceneManager.LoadScene(escena);
+        StartCoroutine(LevelTransition(scene));
     }
 
     //Registro del jugador en el GameManager
