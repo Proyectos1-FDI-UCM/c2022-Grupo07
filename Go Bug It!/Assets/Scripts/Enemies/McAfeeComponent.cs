@@ -14,7 +14,7 @@ public class McAfeeComponent : MonoBehaviour
     [SerializeField] private GameObject _myBullet;
     private Transform _myTransform;
     private BoxCollider2D _myDetector;
-    private bool lookingRight = false;
+    [SerializeField]private bool lookingRight = false;
     #endregion
 
     #region properties
@@ -28,7 +28,14 @@ public class McAfeeComponent : MonoBehaviour
     // Disparo de McAfee
     public void Shoot()
     {
-        _myDetector.enabled = false;
+        if (!canShoot && !_neutralized)
+        {
+            _elapsedTime -= Time.deltaTime * GameManager.Instance._speedmod;
+            if (_elapsedTime <= 0)
+            {
+                canShoot = true;
+            }
+        }
         if (canShoot && !_neutralized)
         {
             if (lookingRight) _instancePosition = _myTransform.position + new Vector3(_offset, 0, 0);
@@ -52,26 +59,15 @@ public class McAfeeComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Asignamos nuestro transform e iniciamos el contador con el valor de cooldown
         _myTransform = gameObject.transform;
         _elapsedTime = _shootCooldown;
 
+        //Dependiendo de la rotacion del objeto sabemos si apunta a la derecha o no
         if (_myTransform.rotation.y == 180) lookingRight = true;
-        if (!lookingRight) _myDetector = transform.GetChild(0).GetComponent<BoxCollider2D>();
-        _myDetector.enabled = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!canShoot)
-        {
-            _elapsedTime -= Time.deltaTime * GameManager.Instance._speedmod;
-            if (_elapsedTime <= 0)
-            {
-                canShoot = true;
-                _myDetector.enabled = true;
-            }
-        }
+        
+        //cogemos el detector del jugador mediante codigo
+        _myDetector = transform.GetChild(0).GetComponent<BoxCollider2D>();
     }
 }
 

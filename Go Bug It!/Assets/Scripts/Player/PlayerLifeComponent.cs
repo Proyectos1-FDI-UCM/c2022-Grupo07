@@ -37,13 +37,14 @@ public class PlayerLifeComponent : MonoBehaviour
     #region methods
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Colisione con: " + collision.gameObject.name);
         // Colisión con un enemigo
-        EnemyLifeComponent _enemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
+        EnemyLifeComponent _enemy = collision.gameObject.GetComponentInChildren<EnemyLifeComponent>();
         BossLifeController _boss = collision.gameObject.GetComponent<BossLifeController>();
 
         if (_enemy != null)
         {
-            NeuEnemyComponent _neuEnemy = _enemy.GetComponent<NeuEnemyComponent>();
+            NeuEnemyComponent _neuEnemy = _enemy.GetComponentInChildren<NeuEnemyComponent>();
 
             if (_neuEnemy != null)
             {
@@ -55,6 +56,7 @@ public class PlayerLifeComponent : MonoBehaviour
             }
         }
         else if (_boss != null) StartCoroutine(hurted(1.65f));
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
