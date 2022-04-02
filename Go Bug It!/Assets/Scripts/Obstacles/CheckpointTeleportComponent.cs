@@ -13,13 +13,9 @@ public class CheckpointTeleportComponent : MonoBehaviour
     #region methods
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerLifeComponent _player;
-        _player = collision.gameObject.GetComponent<PlayerLifeComponent>();
+        PlayerLifeComponent _player = collision.gameObject.GetComponent<PlayerLifeComponent>();
 
-        if (_player != null)
-        {
-            _player.transform.position = new Vector2(X_teleport, Y_teleport);
-        }
+        if (_player != null) _player.transform.position = new Vector2(X_teleport, Y_teleport);
     }
     #endregion
 
