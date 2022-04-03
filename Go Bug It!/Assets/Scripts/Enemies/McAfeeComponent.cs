@@ -65,7 +65,6 @@ public class McAfeeComponent : MonoBehaviour
     {
         //Asignamos nuestro transform e iniciamos el contador con el valor de cooldown
         _myTransform = gameObject.transform;
-        _elapsedTime = _shootCooldown;
 
         //Dependiendo de la rotacion del objeto sabemos si apunta a la derecha o no
         if (_myTransform.rotation.y == 180) lookingRight = true;

@@ -31,9 +31,15 @@ public class NeuEnemyComponent : MonoBehaviour
             {
                 //Si me colisiona una bala neuralizadora y no estoy neutralizado ya activo la animacion y desactivo los componentes
                 _myAnimator.SetBool("Neutralize", true);
-                if (_enemyNorton) _enemyN.enabled = false;
-                else { _enemyM._neutralized = true;  _enemyM.enabled = false; }
+                if (_enemyNorton) { _enemyN._neutralized = true; _enemyN.enabled = false; }
+                else { _enemyM._neutralized = true; _enemyM.enabled = false; }
                 _neutralized = true;
+            }
+            else if (_neutralized && _elapsedTime >= -7.5)
+            {
+                if (_enemyNorton) _enemyN._neutralized = true;
+                else _enemyM._neutralized = true;
+                _elapsedTime -= _neutralizeDuration;
             }
         }
     }
