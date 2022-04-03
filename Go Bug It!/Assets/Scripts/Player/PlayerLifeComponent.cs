@@ -63,7 +63,10 @@ public class PlayerLifeComponent : MonoBehaviour
         // Colisión con la zona de muerte
         DeathZoneComponent _deathZone = collision.gameObject.GetComponent<DeathZoneComponent>();
 
-        if (_deathZone != null) StartCoroutine(hurted(0));
+        if (_deathZone != null)
+        {
+            StartCoroutine(hurted(0));
+        }
     }
 
     // Corrutina al reaparecer generando ayudas

@@ -32,7 +32,10 @@ public class EnemyLifeComponent : MonoBehaviour
     {
         _myAnimator.SetBool("Death",true);
         yield return new WaitForSecondsRealtime(_animationDuration);
-        Destroy(gameObject);
+
+        GameObject _myFather = gameObject.transform.GetComponentInParent<Rigidbody2D>().gameObject;
+        if (_myFather != null) Destroy(_myFather);
+        else Destroy(gameObject);
     }
     #endregion
 
