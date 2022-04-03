@@ -6,7 +6,6 @@ public class McAfeeComponent : MonoBehaviour
 {
 
     #region parameters
-    [SerializeField] private int _range = 4;
     [SerializeField] private float _shootCooldown = 2.0f;
     [SerializeField] private float _offset;
     #endregion
@@ -14,14 +13,14 @@ public class McAfeeComponent : MonoBehaviour
     #region references
     [SerializeField] private GameObject _myBullet;
     private Transform _myTransform;
-    private GameObject _myPlayer;
-    public bool lookingRight = false;
+    private BoxCollider2D _myDetector;
+    [SerializeField]private bool lookingRight = false;
     #endregion
 
     #region properties
     [HideInInspector] public bool _neutralized = false;
     private float _elapsedTime;
-    private float _playerDistance;
+    private bool canShoot = false;
     private Vector3 _instancePosition;
     #endregion
 
@@ -29,14 +28,33 @@ public class McAfeeComponent : MonoBehaviour
     // Disparo de McAfee
     public void Shoot()
     {
-        GameObject _bulletShot = GameObject.Instantiate(_myBullet, _instancePosition, Quaternion.identity);
-        _bulletShot.GetComponent<McAfeeBullet>().SetDirection(SetBulletDirection());
-        _elapsedTime = _shootCooldown;
+        //Mientras que no este neutralizado y aun no puedo disparar rebajo el cooldown
+        if (!canShoot && !_neutralized)
+        {
+            _elapsedTime -= Time.deltaTime * GameManager.Instance._speedmod;
+            if (_elapsedTime <= 0)
+            {
+                canShoot = true;
+            }
+        }
+        //Si el cooldown ya es 0 y no estoy neutralizado disparo
+        if (canShoot && !_neutralized)
+        {
+            //Dependiendo de donde miro instancio la bala en el offset positivo o negativo
+            if (lookingRight) _instancePosition = _myTransform.position + new Vector3(_offset, 0, 0);
+            else _instancePosition = _myTransform.position - new Vector3(_offset, 0, 0);
+            //Le aplico la orientacion a la bala al instanciarla, devuelvo el cooldown a su valor inicial y no puedo disparar
+            GameObject _bulletShot = GameObject.Instantiate(_myBullet, _instancePosition, Quaternion.identity);
+            _bulletShot.GetComponent<McAfeeBullet>().SetDirection(SetBulletDirection());
+            canShoot = false;
+            _elapsedTime = _shootCooldown;
+        }
     }
 
     // Asignar la dirección de la bala
     public Vector3 SetBulletDirection()
     {
+        //La direccion de la bala dependera de hacia donde mire el McAfees
         if (lookingRight) return Vector3.right;
         else return Vector3.left;
     }
@@ -45,29 +63,15 @@ public class McAfeeComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Asignamos nuestro transform e iniciamos el contador con el valor de cooldown
         _myTransform = gameObject.transform;
-        _myPlayer = GameObject.FindGameObjectWithTag("Player");
         _elapsedTime = _shootCooldown;
 
+        //Dependiendo de la rotacion del objeto sabemos si apunta a la derecha o no
         if (_myTransform.rotation.y == 180) lookingRight = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (_myPlayer != null)
-        {
-            _playerDistance = Mathf.Abs(_myPlayer.transform.position.x - _myTransform.position.x);
-
-            _elapsedTime -= Time.deltaTime*GameManager.Instance._speedmod;
-            if (_elapsedTime <= 0 && _playerDistance <= _range && !_neutralized)
-            {
-                if (lookingRight) _instancePosition = _myTransform.position + new Vector3(_offset, 0, 0);
-                else _instancePosition = _myTransform.position - new Vector3(_offset, 0, 0);
-
-                Shoot();
-            }
-        }
+        
+        //cogemos el detector del jugador mediante codigo
+        _myDetector = transform.GetChild(0).GetComponent<BoxCollider2D>();
     }
 }
 

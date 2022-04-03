@@ -38,19 +38,24 @@ public class PlayerLifeComponent : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Colisión con un enemigo
-        EnemyLifeComponent _enemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
+        EnemyLifeComponent _enemy = collision.gameObject.GetComponentInChildren<EnemyLifeComponent>();
         BossLifeController _boss = collision.gameObject.GetComponent<BossLifeController>();
 
+        //Si encuentro un enemigo y no esta neutralizado me hago daño
         if (_enemy != null)
         {
-            NeuEnemyComponent _neuEnemy = _enemy.GetComponent<NeuEnemyComponent>();
+            NeuEnemyComponent _neuEnemy = _enemy.GetComponentInChildren<NeuEnemyComponent>();
 
             if (_neuEnemy != null)
             {
-                if (_neuEnemy.GetNeutralization() != true) StartCoroutine(hurted(1.65f));
+                if (_neuEnemy.GetNeutralization() != true)
+                {
+                    StartCoroutine(hurted(1.65f));
+                }
             }
         }
         else if (_boss != null) StartCoroutine(hurted(1.65f));
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

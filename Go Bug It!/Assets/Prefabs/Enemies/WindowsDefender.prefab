@@ -182,4 +182,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gravity: 5
   _animationCooldown: 1.5
+  _myRigidbody: {fileID: -6401632399129430706}
   _myAnimator: {fileID: 7942644546473370134}
+  _isWD: 1
