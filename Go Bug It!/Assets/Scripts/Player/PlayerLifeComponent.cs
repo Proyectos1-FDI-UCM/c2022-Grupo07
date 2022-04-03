@@ -37,11 +37,11 @@ public class PlayerLifeComponent : MonoBehaviour
     #region methods
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Colisione con: " + collision.gameObject.name);
         // Colisión con un enemigo
         EnemyLifeComponent _enemy = collision.gameObject.GetComponentInChildren<EnemyLifeComponent>();
         BossLifeController _boss = collision.gameObject.GetComponent<BossLifeController>();
 
+        //Si encuentro un enemigo y no esta neutralizado me hago daño
         if (_enemy != null)
         {
             NeuEnemyComponent _neuEnemy = _enemy.GetComponentInChildren<NeuEnemyComponent>();
@@ -50,7 +50,6 @@ public class PlayerLifeComponent : MonoBehaviour
             {
                 if (_neuEnemy.GetNeutralization() != true)
                 {
-                    Debug.Log("Hurted");
                     StartCoroutine(hurted(1.65f));
                 }
             }

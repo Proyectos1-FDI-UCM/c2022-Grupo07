@@ -25,14 +25,14 @@ public class NeuEnemyComponent : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         NeuBulletComponent _bulletCollision = collision.gameObject.GetComponent<NeuBulletComponent>();
-
         if (_bulletCollision != null)
         {
             if (_neutralized == false)
             {
+                //Si me colisiona una bala neuralizadora y no estoy neutralizado ya activo la animacion y desactivo los componentes
                 _myAnimator.SetBool("Neutralize", true);
                 if (_enemyNorton) _enemyN.enabled = false;
-                else _enemyM.enabled = false;
+                else { _enemyM._neutralized = true;  _enemyM.enabled = false; }
                 _neutralized = true;
             }
         }
@@ -41,6 +41,7 @@ public class NeuEnemyComponent : MonoBehaviour
     // Devuelve la variable de neutralizado
     public bool GetNeutralization()
     {
+        //Devuelve el estado de neutralizacion del enemigo
         return _neutralized;
     }
     #endregion
@@ -48,7 +49,7 @@ public class NeuEnemyComponent : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-
+        //Dependiendo de que tipo de enemigo es se le asignan unas variables u otras
         if (_enemyNorton)
         {
             _enemyN = GetComponentInParent<NortonComponent>();
@@ -72,7 +73,7 @@ public class NeuEnemyComponent : MonoBehaviour
                 _neutralized = false;
 
                 if (_enemyNorton) _enemyN.enabled = true;
-                else _enemyM.enabled = true;
+                else { _enemyM._neutralized = false; _enemyM.enabled = true; }
                 _myAnimator.SetBool("Neutralize", false);
                 _elapsedTime = 0;
             }

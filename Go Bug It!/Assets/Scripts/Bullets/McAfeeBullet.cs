@@ -17,18 +17,23 @@ public class McAfeeBullet : MonoBehaviour
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Al chocarme con el player le hago daño
         PlayerLifeComponent _myPlayer = collision.gameObject.GetComponent<PlayerLifeComponent>();
-        if (_myPlayer != null) { _myPlayer.CallForDamage(); Destroy(gameObject); }
-
         NortonComponent _myNorton = collision.gameObject.GetComponentInParent<NortonComponent>();
-        if (_myNorton != null) { _myNorton.Activated(); Destroy(gameObject); }
 
-        
+        if (!collision.isTrigger)
+        {
+            //Al chocarme con un norton le activo y contra el player le mato
+            if (_myPlayer != null) _myPlayer.CallForDamage();
+            else if (_myNorton != null) _myNorton.Activated();
+            Destroy(gameObject);
+        }
     }
 
     // Aplica una orientación a la bala
     public void SetDirection(Vector3 _orientation)
     {
+        //La orientacion que reciba sera la que aplique en mi movimiento
         _direction = _orientation;
     }
     #endregion

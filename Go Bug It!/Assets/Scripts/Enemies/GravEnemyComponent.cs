@@ -7,7 +7,6 @@ public class GravEnemyComponent : MonoBehaviour
 
     #region parameters
     [SerializeField] private float _gravity = 1.0f;
-    [SerializeField] private float _animationCooldown = 1.0f;
     #endregion
 
     #region references
@@ -18,8 +17,7 @@ public class GravEnemyComponent : MonoBehaviour
     #endregion
 
     #region properties
-    private bool _gravityChanged = true;
-    private float _elapsedTime;
+    [SerializeField] private bool _isWD = false;
     #endregion
 
     #region methods
@@ -27,12 +25,14 @@ public class GravEnemyComponent : MonoBehaviour
     {
         GravBulletComponent _gravBullet = collision.gameObject.GetComponent<GravBulletComponent>();
         NeuBulletComponent _neuBullet = collision.gameObject.GetComponent<NeuBulletComponent>();
-
+        //Si me colisiona una bala de grav cambio de gravedad
         if (_gravBullet != null)
         {
             ChangeGravity();
+            StartCoroutine(ChanGrav());
         }
-        else if (_neuBullet != null)
+        //Si me colisiona una bala de neu y soy WD muestro que soy inmune
+        else if (_neuBullet != null && _isWD)
         {
             _myAnimator.SetBool("NeuBullet", true);
             StartCoroutine(WDInmune());
@@ -42,9 +42,9 @@ public class GravEnemyComponent : MonoBehaviour
     // Cambio de gravedad
     public void ChangeGravity()
     {
+        //Le cambio el signo a mi gravedad
         _gravity *= -1;
-        _gravityChanged = true;
-
+        //Dependiendo del signo de la gravedad ejecuto una animacion u otra
         if (_gravity < 0) _myAnimator.SetBool("ChangingGrav", true);
         else _myAnimator.SetBool("ChangingGrav+", true);
     }
@@ -52,34 +52,29 @@ public class GravEnemyComponent : MonoBehaviour
     // Animación de inmunidad del Windows Defender que retrasa la asignación de NeuBullet
     IEnumerator WDInmune()
     {
+        //Activo la animacion de inmunidad
         yield return new WaitForSeconds(0.84f);
         _myAnimator.SetBool("NeuBullet", false);
+    }
+
+    IEnumerator ChanGrav()
+    {
+        yield return new WaitForSeconds(1);
+        _myAnimator.SetBool("ChangingGrav", false);
+        _myAnimator.SetBool("ChangingGrav+", false);
     }
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        //_myRigidbody = gameObject.GetComponent<Rigidbody2D>();
         _myRigidbody.gravityScale = _gravity;
-        _elapsedTime = _animationCooldown;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_gravityChanged)
-        {
-            _elapsedTime -= Time.deltaTime;
-            if (_elapsedTime <= 0 && _gravityChanged)
-            {
-                _myAnimator.SetBool("ChangingGrav", false);
-                _myAnimator.SetBool("ChangingGrav+", false);
-                _gravityChanged = false;
-                _elapsedTime = _animationCooldown;
-            }
-        }
-
+        //Si esta activado el powerUp de spam cambio mis parametros de gravedad
         if (GameManager.Instance._spam) _myRigidbody.gravityScale = _gravity * GameManager.Instance._speedmod;
         else _myRigidbody.gravityScale = _gravity;
     }
