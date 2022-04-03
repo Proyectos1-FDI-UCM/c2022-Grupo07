@@ -6,7 +6,7 @@ public class DeathZoneComponent : MonoBehaviour
 {
 
     #region methods
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         EnemyLifeComponent _enemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
 

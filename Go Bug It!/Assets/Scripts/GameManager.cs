@@ -65,8 +65,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.1f);
         _myUIObject.SetActive(false);
         _myPauseObject.SetActive(false);
-        if (SceneManager.GetActiveScene().name != "BossFight") SceneManager.LoadScene("GameOver");
-        else SceneManager.LoadScene("GameOverBoss");
+        SceneManager.LoadScene("GameOver");
     }
 
     // Espera hasta que termine la animación de fin de nivel
