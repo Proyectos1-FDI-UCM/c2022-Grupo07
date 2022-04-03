@@ -152,6 +152,7 @@ public class PlayerLifeComponent : MonoBehaviour
             _currLife++;
             GameManager.Instance.OnPlayerHeals(_currLife);
         }
+        else GameManager.Instance.UpdatePoints(200);
     }
 
     // Curación completa
