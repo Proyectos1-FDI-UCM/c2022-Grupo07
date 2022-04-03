@@ -58,7 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\VictoryScreen.cs" />
     <Compile Include="Assets\Scripts\Enemies\RespawnManager.cs" />
-    <Compile Include="Assets\Scripts\UI\VolumeManager.cs" />
+    <Compile Include="Assets\Scripts\UI\OptionsMenuManager.cs" />
     <Compile Include="Assets\Scripts\Obstacles\BackDoorComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyLifeComponent.cs" />
     <Compile Include="Assets\Scripts\Pickups\DecryptComponent.cs" />
