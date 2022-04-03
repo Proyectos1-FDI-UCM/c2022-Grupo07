@@ -18,7 +18,7 @@ public class BossAttackController : MonoBehaviour
     IEnumerator DestroyAttack(float attackDuration, GameObject attackToDestroy)
     {
         yield return new WaitForSeconds(attackDuration);
-        Destroy(attackToDestroy);
+        if (gameObject != null) { Destroy(attackToDestroy); }
         _myAnimator.SetInteger("Attack", -1);
         yield return new WaitForSeconds(0.4f);
         _myAnimator.SetInteger("Attack", -2);
@@ -29,25 +29,33 @@ public class BossAttackController : MonoBehaviour
 
     private void AvastAttack()
     {
-        GameObject currentAvastattack= Instantiate(Avast[Random.Range(0, Avast.GetLength(0))],_boss.transform);
+        GameObject currentAvastattack = null;
+        try { currentAvastattack = Instantiate(Avast[Random.Range(0, Avast.GetLength(0))], _boss.transform); }
+        catch { }
         StartCoroutine(DestroyAttack(attackDuration, currentAvastattack));
     }
 
     private void NortonAttack()
     {
-        GameObject currentNortonattack = Instantiate(Norton[Random.Range(0, Norton.GetLength(0))],_boss.transform);
+        GameObject currentNortonattack = null;
+        try { currentNortonattack = Instantiate(Norton[Random.Range(0, Norton.GetLength(0))], _boss.transform); }
+        catch { }
         StartCoroutine(DestroyAttack(attackDuration, currentNortonattack));
     }
 
     private void WDefenderAttack()
     {
-        GameObject currentDefenderattack = Instantiate(WDefender[Random.Range(0, WDefender.GetLength(0))],_boss.transform);
+        GameObject currentDefenderattack = null;
+        try { currentDefenderattack = Instantiate(WDefender[Random.Range(0, WDefender.GetLength(0))], _boss.transform); }
+        catch { }
         StartCoroutine(DestroyAttack(attackDuration, currentDefenderattack));
     }
 
     private void McAfeeAttack()
     {
-        GameObject currentMcAfeeattack = Instantiate(McAfee[Random.Range(0, McAfee.GetLength(0))], _boss.transform);
+        GameObject currentMcAfeeattack = null;
+        try { currentMcAfeeattack = Instantiate(McAfee[Random.Range(0, McAfee.GetLength(0))], _boss.transform); }
+        catch { }
         StartCoroutine(DestroyAttack(attackDuration, currentMcAfeeattack));
     }
     #endregion

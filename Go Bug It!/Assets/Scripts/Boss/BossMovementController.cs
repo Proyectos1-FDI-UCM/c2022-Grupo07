@@ -9,6 +9,13 @@ public class BossMovementController : MonoBehaviour
     [SerializeField]private float _speed = 2;
     #endregion
 
+    #region Methods
+    public void SetSpeedZero()
+    {
+        _speed = 0;
+    }
+    #endregion
+
     // Update is called once per frame
     void Update()
     {
