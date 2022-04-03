@@ -28,7 +28,9 @@ public class BossLifeController : MonoBehaviour
             _myAnimator.SetBool("Death", true);
             Destroy(_bossSpawn);
             _myBossMovement.SetSpeedZero();
+            GameManager.Instance.EndGame(1.1f);
             Destroy(gameObject, 1.1f);
+            
         }
     }
 

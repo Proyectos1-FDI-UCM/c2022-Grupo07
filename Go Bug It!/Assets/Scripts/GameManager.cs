@@ -58,6 +58,15 @@ public class GameManager : MonoBehaviour
         if (_spam) _speedmod = _slowtimeFactor;//_speedmod es una variable que cogen todos los objetos afectados, si esta spameado, coge el valor realentizado
         else _speedmod = 1;// Cuando no está spameado, vale 1
     }
+    IEnumerator EndGameCo(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene("VictoryScene");
+    }
+    public void EndGame(float seconds)
+    {
+        StartCoroutine(EndGameCo(seconds));
+    }
 
     // Espera hasta que termine la animación de muerte
     IEnumerator WaitDeath()
