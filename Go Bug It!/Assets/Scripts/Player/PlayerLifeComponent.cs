@@ -40,6 +40,7 @@ public class PlayerLifeComponent : MonoBehaviour
         // Colisión con un enemigo
         EnemyLifeComponent _enemy = collision.gameObject.GetComponentInChildren<EnemyLifeComponent>();
         BossLifeController _boss = collision.gameObject.GetComponent<BossLifeController>();
+        DeathZoneComponent _deathZone = collision.gameObject.GetComponent<DeathZoneComponent>();
 
         //Si encuentro un enemigo y no esta neutralizado me hago daño
         if (_enemy != null)
@@ -48,25 +49,11 @@ public class PlayerLifeComponent : MonoBehaviour
 
             if (_neuEnemy != null)
             {
-                if (_neuEnemy.GetNeutralization() != true)
-                {
-                    StartCoroutine(hurted(1.65f));
-                }
+                if (_neuEnemy.GetNeutralization() != true) StartCoroutine(hurted(1.65f));
             }
         }
         else if (_boss != null) StartCoroutine(hurted(1.65f));
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // Colisión con la zona de muerte
-        DeathZoneComponent _deathZone = collision.gameObject.GetComponent<DeathZoneComponent>();
-
-        if (_deathZone != null)
-        {
-            StartCoroutine(hurted(0));
-        }
+        else if (_deathZone != null) StartCoroutine(hurted(0));
     }
 
     // Corrutina al reaparecer generando ayudas
@@ -96,7 +83,6 @@ public class PlayerLifeComponent : MonoBehaviour
         //Desactivates aiding platforms completely
         _respawn.transform.GetChild(0).gameObject.SetActive(false);
         _respawn.transform.GetChild(1).gameObject.SetActive(false);
-
     }
 
     // Corrutina al ser dañado
