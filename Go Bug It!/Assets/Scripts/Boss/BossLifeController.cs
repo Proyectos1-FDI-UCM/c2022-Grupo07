@@ -14,6 +14,9 @@ public class BossLifeController : MonoBehaviour
     [SerializeField] private int _lifePoints = 100;
     private int _currentLife;
     #endregion
+    #region references
+    [SerializeField] GameObject[] brokens;
+    #endregion
 
     #region methods
     public void Damage()
@@ -44,5 +47,11 @@ public class BossLifeController : MonoBehaviour
         _currentLife = _lifePoints;
         _myBossMovement = GetComponentInParent<BossMovementController>();
         _myAnimator = GetComponent<Animator>();
+    }
+    private void Update()
+    {
+        if (_currentLife <= (3f / 4f) * _lifePoints) brokens[0].SetActive(true);
+        if (_currentLife <= (2f / 4f) * _lifePoints) brokens[1].SetActive(true);
+        if (_currentLife <= (1f / 4f) * _lifePoints) brokens[2].SetActive(true);
     }
 }

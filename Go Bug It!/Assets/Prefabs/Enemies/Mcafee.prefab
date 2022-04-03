@@ -73,9 +73,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gravity: 1
-  _animationCooldown: 1
   _myRigidbody: {fileID: -6401632399129430706}
   _myAnimator: {fileID: 316059790135495372}
+  _isWD: 0
 --- !u!114 &64287680130843113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e198369677fd872459e9adcd87035204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shootCooldown: 2
+  _shootCooldown: 1
   _offset: 1
   _myBullet: {fileID: 8139773162008822916, guid: a0e819650f76b2e438079d618a63adee, type: 3}
   lookingRight: 0

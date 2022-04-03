@@ -113,6 +113,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3308406682026890726, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308406682026890726, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
       propertyPath: m_GravityScale
       value: 3
       objectReference: {fileID: 0}
@@ -189,6 +193,10 @@ PrefabInstance:
     - target: {fileID: 3308406682026890723, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308406682026890726, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
+      propertyPath: m_Constraints
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3308406682026890726, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
       propertyPath: m_GravityScale
@@ -269,6 +277,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3308406682026890726, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308406682026890726, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
       propertyPath: m_GravityScale
       value: 3
       objectReference: {fileID: 0}
@@ -347,6 +359,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3308406682026890726, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308406682026890726, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
@@ -423,6 +439,10 @@ PrefabInstance:
     - target: {fileID: 3308406682026890723, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308406682026890726, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
+      propertyPath: m_Constraints
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3308406682026890726, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
       propertyPath: m_GravityScale

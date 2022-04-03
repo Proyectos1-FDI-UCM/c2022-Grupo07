@@ -8,7 +8,7 @@ public class AvastController : MonoBehaviour
     #region references
     private Transform _mytransform;
     private Animator _myanimator;
-    [SerializeField] private LineRenderer _myRay;
+    [SerializeField] private GameObject _myRay;
     #endregion
 
     #region parameters
@@ -69,12 +69,13 @@ public class AvastController : MonoBehaviour
         {
             if (_elapsedDuration <= _rayDuration)
             {
+                _myRay.SetActive(true);
                 // Llamar a la animación de disparo
                 RaycastHit2D hit2D = Physics2D.Raycast(_mytransform.position, _rayDirection.normalized, 1000, ~_ignoreLayer);
                 // Debug.Log(hit2D.collider.gameObject.name);
-                _myRay.enabled = true;
-                _myRay.SetPosition(0, _mytransform.position+_rayOffset*_mytransform.up); //Se renderiza la linea desde la posición del avast al choque con collider.
-                _myRay.SetPosition(1, hit2D.point);
+                _myRay.GetComponent<LineRenderer>(). enabled = true;
+                _myRay.GetComponent<LineRenderer>().SetPosition(0, _mytransform.position+_rayOffset*_mytransform.up); //Se renderiza la linea desde la posición del avast al choque con collider.
+                _myRay.GetComponent<LineRenderer>().SetPosition(1, hit2D.point);
 
                 if (hit2D)
                 {
@@ -98,7 +99,8 @@ public class AvastController : MonoBehaviour
             {
                 _isCharging = false;
                 _shooting = false;
-                _myRay.enabled = false; //Se deja de ver el rayo.
+                _myRay.GetComponent<LineRenderer>().enabled = false; //Se deja de ver el rayo.
+                _myRay.SetActive(false);
                 _elapsedDuration = 0;
                 _elapsedCoolDown = 0;
                

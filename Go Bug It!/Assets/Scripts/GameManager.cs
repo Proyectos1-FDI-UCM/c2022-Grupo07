@@ -55,8 +55,8 @@ public class GameManager : MonoBehaviour
 
     public void Spammed()
     {
-        if (_spam) _speedmod = _slowtimeFactor;
-        else _speedmod = 1;
+        if (_spam) _speedmod = _slowtimeFactor;//_speedmod es una variable que cogen todos los objetos afectados, si esta spameado, coge el valor realentizado
+        else _speedmod = 1;// Cuando no está spameado, vale 1
     }
 
     // Espera hasta que termine la animación de muerte
@@ -65,8 +65,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.1f);
         _myUIObject.SetActive(false);
         _myPauseObject.SetActive(false);
-        if (SceneManager.GetActiveScene().name != "BossFight") SceneManager.LoadScene("GameOver");
-        else SceneManager.LoadScene("GameOverBoss");
+        SceneManager.LoadScene("GameOver");
     }
 
     // Espera hasta que termine la animación de fin de nivel

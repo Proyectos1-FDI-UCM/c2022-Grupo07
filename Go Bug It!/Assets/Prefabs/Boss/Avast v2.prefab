@@ -38,6 +38,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4801687054915191418}
     m_Modifications:
+    - target: {fileID: 499552845221810119, guid: 863c4628fd0730c41bac8867d9570807, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2253701208693668545, guid: 863c4628fd0730c41bac8867d9570807, type: 3}
       propertyPath: m_Name
       value: Avast
