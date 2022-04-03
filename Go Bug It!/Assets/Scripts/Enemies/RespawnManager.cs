@@ -15,6 +15,7 @@ public class EnemyRespawnManager : MonoBehaviour
     #region references
     [SerializeField] private GameObject _enemy;
     private GameObject InstantiatedEnemy;
+    private float _gravity;
 
     
     #endregion
@@ -25,6 +26,12 @@ public class EnemyRespawnManager : MonoBehaviour
         _counter = 0; // Para hacer que se instancie solo una vez el if antes de instanciar el enemigo
         yield return new WaitForSeconds(_respawnTimer);
         InstantiatedEnemy = Instantiate(_enemyPrefab, _myTransform);
+        if(_enemyPrefab.GetComponent<Rigidbody2D>() != null)
+        {
+            _enemyPrefab.GetComponent<Rigidbody2D>().gravityScale = _gravity;
+        }
+            
+
         _enemy = InstantiatedEnemy;
         _counter = 1; //Restablece la posibilidad de respawnear al enemigo
     }
@@ -34,6 +41,10 @@ public class EnemyRespawnManager : MonoBehaviour
     void Start()
     {
         _myTransform = transform;
+        if(_enemy.GetComponent<Rigidbody2D>() != null)
+        {
+            _gravity =_enemy.GetComponent<Rigidbody2D>().gravityScale; 
+        }
     }
 
     // Update is called once per frame
