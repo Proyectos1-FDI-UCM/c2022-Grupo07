@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     private int[] _collectibles = { 0, 0, 0, 0 }; // 0 = no obtenido, 1 = obtenido
     [HideInInspector] public bool _spam;
     [HideInInspector] public float _speedmod;
+    private string _scene = "";
     #endregion
 
     #region methods
@@ -44,6 +45,12 @@ public class GameManager : MonoBehaviour
     public int GetPoints()
     {
         return _points;
+    }
+
+    // Devuelve la última escena registrada
+    public string GetScene()
+    {
+        return _scene;
     }
 
     public void Spammed()
@@ -56,7 +63,10 @@ public class GameManager : MonoBehaviour
     IEnumerator WaitDeath()
     {
         yield return new WaitForSeconds(1.1f);
-        SceneManager.LoadScene("GameOver");
+        _myUIObject.SetActive(false);
+        _myPauseObject.SetActive(false);
+        if (SceneManager.GetActiveScene().name != "BossFight") SceneManager.LoadScene("GameOver");
+        else SceneManager.LoadScene("GameOverBoss");
     }
 
     // Espera hasta que termine la animación de fin de nivel
@@ -72,6 +82,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         // Cargar siguiente escena
+        _scene = SceneManager.GetActiveScene().name;
         DontDestroyOnLoad(this);
         DontDestroyOnLoad(_myUIManager.gameObject);
         DontDestroyOnLoad(_myPauseObject.gameObject);

@@ -14,7 +14,7 @@ public class GameOver : MonoBehaviour
     private GameObject _retryText;
     #endregion
 
-    #region properties
+    #region parameters
     private string _retryScene = "Tutorial";
     #endregion
 
@@ -28,17 +28,18 @@ public class GameOver : MonoBehaviour
     // Asigna el nombre de las escena en la que mueres para después cargar la correcta
     public void SetRetryScene(string name)
     {
-        _retryScene = name;
-        _retryText.GetComponent<Text>().text = _retryText.GetComponent<Text>().text + "(" + name + ")";
+        if (name != "") _retryScene = name;
+        _retryText.transform.GetChild(0).GetComponent<Text>().text += " (" + _retryScene + ")";
+        _retryText.transform.GetChild(1).GetComponent<Text>().text += " (" + _retryScene + ")";
     }
 
-    // Carga el nivel en el que muriste de nuevo
+    // Carga la escena correspondiente
     public void Retry()
     {
         SceneManager.LoadScene(_retryScene);
     }
 
-    //Cierra la aplicación
+    // Cierra la aplicación
     public void Quit() 
     {
         Application.Quit();
@@ -58,6 +59,9 @@ public class GameOver : MonoBehaviour
         // Inicializar y desactivar explicación
         _retryText = gameObject.transform.GetChild(2).gameObject;
         _retryText.SetActive(false);
+
+        // Actualizar el valor de la escena a recargar
+        SetRetryScene(GameManager.Instance.GetScene());
     }
 
     // Update is called once per frame
