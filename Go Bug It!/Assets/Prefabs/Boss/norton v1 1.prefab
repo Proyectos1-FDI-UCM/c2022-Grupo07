@@ -113,7 +113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3308406682026890726, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
       propertyPath: m_GravityScale
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3308406682784083879, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
       propertyPath: m_IsActive
@@ -191,11 +191,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3308406682026890726, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
       propertyPath: m_GravityScale
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3308406682784083879, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741146882939151187, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
+      propertyPath: _gravity
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
@@ -269,7 +273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3308406682026890726, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
       propertyPath: m_GravityScale
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3308406682784083879, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
       propertyPath: m_IsActive
@@ -347,11 +351,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3308406682026890726, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
       propertyPath: m_GravityScale
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3308406682784083879, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741146882939151187, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
+      propertyPath: _gravity
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c40ef9418d83464783605121447f1cc, type: 3}
