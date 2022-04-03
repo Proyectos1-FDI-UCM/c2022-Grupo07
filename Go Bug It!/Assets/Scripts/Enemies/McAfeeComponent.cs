@@ -16,6 +16,7 @@ public class McAfeeComponent : MonoBehaviour
     private Transform _myTransform;
     private GameObject _myPlayer;
     public bool lookingRight = false;
+    [SerializeField] private GameObject _sfx;
     #endregion
 
     #region properties
@@ -29,6 +30,7 @@ public class McAfeeComponent : MonoBehaviour
     // Disparo de McAfee
     public void Shoot()
     {
+        _sfx.GetComponent<SoundEffectController>().PlaySound("shot");
         GameObject _bulletShot = GameObject.Instantiate(_myBullet, _instancePosition, Quaternion.identity);
         _bulletShot.GetComponent<McAfeeBullet>().SetDirection(SetBulletDirection());
         _elapsedTime = _shootCooldown;
