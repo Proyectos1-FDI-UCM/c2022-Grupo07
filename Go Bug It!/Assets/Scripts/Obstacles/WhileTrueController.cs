@@ -9,18 +9,24 @@ public class WhileTrueController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Colisión con un enemigo
-        EnemyLifeComponent _enemy = collision.gameObject.GetComponent<EnemyLifeComponent>();
-
-        if (_enemy != null)
+        EnemyLifeComponent _enemyWD = collision.gameObject.GetComponent<EnemyLifeComponent>();
+        if (_enemyWD != null)
         {
-            GameManager.Instance.OnEnemyDies(_enemy.GetPoints());
-            _enemy.Dies();
-            _enemy.enabled = false;
+            Debug.Log("Matar enemigo WD");
+            _enemyWD.Dies();
+            _enemyWD.enabled = false;
+        }
+
+        EnemyLifeComponent _enemyNM = collision.gameObject.GetComponentInChildren<EnemyLifeComponent>();
+        if (_enemyNM != null)
+        {
+            Debug.Log("Matar enemigo N-M");
+            _enemyNM.Dies();
+            _enemyNM.enabled = false;
         }
 
         // Colisión con el jugador
         PlayerLifeComponent _player = collision.gameObject.GetComponent<PlayerLifeComponent>();
-
         if (_player != null) _player.CallForDamage();
     }
     #endregion

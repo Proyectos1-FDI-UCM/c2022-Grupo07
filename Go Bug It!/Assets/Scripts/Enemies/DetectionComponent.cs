@@ -19,7 +19,7 @@ public class DetectionComponent : MonoBehaviour
         {
             //Si soy un McAfee disparo y si soy Norton me activo, si no estoy neutralizado
             if (_isMcAfee && !NeuState()) _myMcAfee.Shoot();
-            else _myNorton.Activated();
+            else if (!_isMcAfee) _myNorton.Activated();
         }
     }
     #endregion

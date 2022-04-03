@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f55e41d2ac9cdf24ab5334af2d4756ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMcAfee: 0
 --- !u!1 &3308406682026890650
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,9 +275,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gravity: 1
-  _animationCooldown: 1
   _myRigidbody: {fileID: 3308406682026890726}
   _myAnimator: {fileID: 3308406682026890722}
+  _isWD: 0
 --- !u!114 &626486750462425011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _puntuation: 30
-  _animationDuration: 1
+  _animationDuration: 0.3
   _myAnimator: {fileID: 3308406682026890722}
 --- !u!1 &7801201331155976375
 GameObject:
