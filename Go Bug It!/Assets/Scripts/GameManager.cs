@@ -55,8 +55,8 @@ public class GameManager : MonoBehaviour
 
     public void Spammed()
     {
-        if (_spam) _speedmod = _slowtimeFactor;
-        else _speedmod = 1;
+        if (_spam) _speedmod = _slowtimeFactor;//_speedmod es una variable que cogen todos los objetos afectados, si esta spameado, coge el valor realentizado
+        else _speedmod = 1;// Cuando no está spameado, vale 1
     }
 
     // Espera hasta que termine la animación de muerte
