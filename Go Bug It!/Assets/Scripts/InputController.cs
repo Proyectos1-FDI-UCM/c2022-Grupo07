@@ -11,13 +11,14 @@ public class InputController : MonoBehaviour
     private GunpointController _myGunpoint;
     private Animator _myAnimator;
     [SerializeField] private Collider2D _myGroundDetector;
-    [SerializeField] private GameObject _sfx;
+    private AudioSource _playerInputSFX;
     #endregion
 
     #region parameters
     // Gravedad
     private bool _changeGravity = false;
     [HideInInspector] public bool _isGrounded = false;
+    [SerializeField] private AudioClip[] _audioClips;
     #endregion
 
     #region properties
@@ -81,17 +82,13 @@ public class InputController : MonoBehaviour
     // Actualiza el valor del cooldown al recoger un desencriptar.
 
     IEnumerator changeGrav()
-    {
-        
+    {  
         yield return new WaitForSeconds(0.2f);
-        _sfx.GetComponent<SoundEffectController>().PlaySound("gravity");
-
         if (_myAnimator.GetBool("OnGravityChange") == true) _myAnimator.SetBool("OnGravityChange", false);
     }
 
     IEnumerator changeDash()
     {
-        _sfx.GetComponent<SoundEffectController>().PlaySound("dash");
         yield return new WaitForSeconds(0.65f);
 
         if (_myAnimator.GetBool("Dash") == true) _myAnimator.SetBool("Dash", false);
@@ -109,6 +106,7 @@ public class InputController : MonoBehaviour
         _elapsedSelect = _shotSelectCooldown;
         _elapseDash = _dashCooldown;
         _isPaused = false;
+        _playerInputSFX = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -128,9 +126,11 @@ public class InputController : MonoBehaviour
         // Cambio de gravedad
         if (_isGrounded && _jump > 0 &&!_movController._dash) //Si presiono espacio, estoy tocando una superficie y no estoy en mitad de un dash...
         {
+            
             _changeGravity = !_changeGravity;                       //Negamos el booleano gravedad para q ahora sea lo contrario
             _myGravityComponent.ChangeGravity(_changeGravity);      //Llamamos al metodo ChangeGravity del script de gravedad
             StartCoroutine(changeGrav());
+           /* _playerInputSFX.PlayOneShot(_audioClips[0]);//Cambio de Grav*/ //suena raro
         }
 
         // Dash
@@ -139,8 +139,10 @@ public class InputController : MonoBehaviour
             GameManager.Instance.OnDashUpdate(true);
             if (_dash > 0)
             {
+                
                 _myAnimator.SetBool("Dash", true);
                 _movController.SetDash();
+                _playerInputSFX.PlayOneShot(_audioClips[1]);//Hace dash
                 _elapseDash = 0;
                 _myAnimator.SetBool("Dash", true);
                 StartCoroutine(changeDash());
@@ -153,6 +155,7 @@ public class InputController : MonoBehaviour
         if (_elapsedSelect > _shotSelectCooldown && _selectShot > 0)
         {
              _myGunpoint.ChangeShoot();
+            _playerInputSFX.PlayOneShot(_audioClips[2]);//Cambio de disparo
             _elapsedSelect = 0;
         }
         else _elapsedSelect += Time.deltaTime;
@@ -164,9 +167,9 @@ public class InputController : MonoBehaviour
 
             switch (_typeShoot)
             {
-                case 0: _myGunpoint.RegularShoot(); break;
-                case 1: _myGunpoint.TripleShoot(); break;
-                case 2: _myGunpoint.RaycastShoot(); break;
+                case 0: _myGunpoint.RegularShoot();_playerInputSFX.PlayOneShot(_audioClips[3]); break;
+                case 1: _myGunpoint.TripleShoot(); _playerInputSFX.PlayOneShot(_audioClips[3]); break;
+                case 2: _myGunpoint.RaycastShoot(); _playerInputSFX.PlayOneShot(_audioClips[4]); break;
             }
             _elapsedShoot = 0;
         }
@@ -175,7 +178,6 @@ public class InputController : MonoBehaviour
         // Pausa (se detecta si ya estaba pausado o no)
         if ((Input.GetKeyDown(KeyCode.JoystickButton7) || Input.GetKeyDown(KeyCode.Escape)) && _isPaused == false)
         {
-            _sfx.GetComponent<SoundEffectController>().PlaySound("pause");
             _isPaused = true;
             GameManager.Instance.Pause(_isPaused);
         }
