@@ -7,6 +7,13 @@ public class VictoryScreen : MonoBehaviour
 {
     #region references
     private Text _collectiblesMessage;
+    private Transform _creditsTextTransform;
+    private GameObject _creditsTextObject;
+    #endregion
+
+    #region parameters
+    [SerializeField] private float _speed;
+    private float _elapsedTime;
     #endregion
 
     #region methods
@@ -36,7 +43,7 @@ public class VictoryScreen : MonoBehaviour
     {
         //Desactivamos los objetos
         Debug.Log(1);
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(45);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
         Debug.Log(2);
 
@@ -56,5 +63,15 @@ public class VictoryScreen : MonoBehaviour
         _collectiblesMessage = transform.GetChild(0).GetChild(0).GetChild(4).GetComponent<Text>();
         ShowCollectibles();
         StartCoroutine(ShowVictoryScreen());
+        _creditsTextObject = transform.GetChild(0).GetChild(0).GetChild(1).gameObject;
+        _creditsTextTransform = _creditsTextObject.transform;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        _creditsTextTransform.Translate(new Vector3(0, 10, 0) * _speed * Time.deltaTime);
+        _elapsedTime += Time.deltaTime;
+        Debug.Log(_elapsedTime);
     }
 }

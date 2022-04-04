@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afe0d482699b9bf4f95a42be65a551d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 10
 --- !u!1 &1808121545963809940
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,8 +180,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -551, y: 344}
-  m_SizeDelta: {x: 600, y: 300}
+  m_AnchoredPosition: {x: 1995, y: -372}
+  m_SizeDelta: {x: 1500.9773, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6704181407333813697
 CanvasRenderer:
@@ -223,7 +224,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Thanks for playing
+  m_Text: Thanks for playing!
 --- !u!1 &2117181427888445187
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -556, y: 45}
+  m_AnchoredPosition: {x: -1089, y: -782}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3378696455640784918
@@ -319,6 +320,128 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &2187418651421273249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2964323793522687114}
+  m_Layer: 0
+  m_Name: Credits
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2964323793522687114
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2187418651421273249}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 456183143772661711}
+  - {fileID: 1054559894402153218}
+  m_Father: {fileID: 7118482574705937215}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2264854480976161682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1054559894402153218}
+  - component: {fileID: 1206281851064811213}
+  - component: {fileID: 6154938573046801153}
+  m_Layer: 0
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1054559894402153218
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2264854480976161682}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2964323793522687114}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -1600}
+  m_SizeDelta: {x: 1440, y: 2095}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1206281851064811213
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2264854480976161682}
+  m_CullTransparentMesh: 1
+--- !u!114 &6154938573046801153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2264854480976161682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 2f2872000eea02945b2e9e52f77c7f1e, type: 3}
+    m_FontSize: 120
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 150
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Developed by:\r\n\xD1intendo\r\n\r\nMade by:\r\n- Pablo Gonz\xE1lez\r
+    Arroyo\n- Javier Murillo\r Gonz\xE1lez\n- Rafael Vilches\r Hern\xE1ndez\n- Rafael
+    Argando\xF1a\r Bl\xE1cido\n- Jaime Felip\r de la Pe\xF1a\n\r\nArt Inspiration:\r\n-
+    Geometry dash. (2013). RobTop Games.\r\n- Geometry wars. (2003). Bizarre creations.\r\n-
+    Matrix. (1999). Warner Bros Pictures.\r\n\r\nMusic:\r\nMusic by Karl Casey @
+    White Bat Audio \"Glitch in reality\", \"End Credits\"\r\nBen Arntz, @beepartz\r\n\r\nSpecial
+    thanks to:\r\nBrackeys https://www.youtube.com/c/Brackeys"
 --- !u!1 &3610681502256631671
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +454,7 @@ GameObject:
   - component: {fileID: 1359728612401935331}
   - component: {fileID: 2796918855551538347}
   m_Layer: 0
-  m_Name: Credits
+  m_Name: Text Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,13 +471,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7118482574705937215}
-  m_RootOrder: 1
+  m_Father: {fileID: 2964323793522687114}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 411, y: 0}
-  m_SizeDelta: {x: 900, y: 900}
+  m_AnchoredPosition: {x: 20, y: -1620}
+  m_SizeDelta: {x: 1440, y: 2095}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1359728612401935331
 CanvasRenderer:
@@ -377,7 +500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -385,24 +508,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: 2f2872000eea02945b2e9e52f77c7f1e, type: 3}
+    m_FontSize: 120
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 150
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Developed by:\r\n\xD1intendo\r\n\r\n\tMade by:\r\n- Pablo Gonz\xE1lez\r
+  m_Text: "Developed by:\r\n\xD1intendo\r\n\r\nMade by:\r\n- Pablo Gonz\xE1lez\r
     Arroyo\n- Javier Murillo\r Gonz\xE1lez\n- Rafael Vilches\r Hern\xE1ndez\n- Rafael
-    Argando\xF1a\r Bl\xE1cido\n- Jaime Felip\r de la Pe\xF1a\n\r\n\tArt Inspiration:\r\n-
+    Argando\xF1a\r Bl\xE1cido\n- Jaime Felip\r de la Pe\xF1a\n\r\nArt Inspiration:\r\n-
     Geometry dash. (2013). RobTop Games.\r\n- Geometry wars. (2003). Bizarre creations.\r\n-
-    Matrix. (1999). Warner Bros Pictures.\r\n\r\n\tMusic:\r\nMusic by Karl Casey
-    @ White Bat Audio \"Glitch in reality\", \"End Credits\"\r\nBen Arntz, @beepartz\r\n\r\n\tSpecial
+    Matrix. (1999). Warner Bros Pictures.\r\n\r\nMusic:\r\nMusic by Karl Casey @
+    White Bat Audio \"Glitch in reality\", \"End Credits\"\r\nBen Arntz, @beepartz\r\n\r\nSpecial
     thanks to:\r\nBrackeys https://www.youtube.com/c/Brackeys"
 --- !u!1 &5582663626393529625
 GameObject:
@@ -513,7 +636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -555, y: -277}
+  m_AnchoredPosition: {x: -1663, y: -625}
   m_SizeDelta: {x: 700, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2038634505825030957
@@ -588,7 +711,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2747362848096111161}
-  - {fileID: 456183143772661711}
+  - {fileID: 2964323793522687114}
   - {fileID: 5794811025733640864}
   - {fileID: 6074305761687170030}
   - {fileID: 4866008665417084407}
