@@ -13,6 +13,7 @@ public class PlayerLifeComponent : MonoBehaviour
     private InputController _myInput;
     private BoxCollider2D _respawnBox1;
     private BoxCollider2D _respawnBox2;
+    [SerializeField] private GameObject _sfx;
     #endregion
 
     #region parameters
@@ -114,6 +115,7 @@ public class PlayerLifeComponent : MonoBehaviour
     // Método accedido por los enemigos para hacer daño
     public void CallForDamage()
     {
+        _sfx.GetComponent<SoundEffectController>().PlaySound("hit");
         StartCoroutine(hurted(1.65f));
     }
 
@@ -121,6 +123,7 @@ public class PlayerLifeComponent : MonoBehaviour
     private void Damage()
     {
         // Actualizar vida
+        
         _currLife -= _hitDamage;
 
         if (_currLife <= 0) Dies(); // Si muere, llamada al método de muerte
@@ -149,6 +152,7 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         if (_currLife < _playerLife)
         {
+            _sfx.GetComponent<SoundEffectController>().PlaySound("cura");
             _currLife++;
             GameManager.Instance.OnPlayerHeals(_currLife);
         }
@@ -158,6 +162,7 @@ public class PlayerLifeComponent : MonoBehaviour
     // Curación completa
     public void FullyHealing()
     {
+        _sfx.GetComponent<SoundEffectController>().PlaySound("cura");
         int j = _playerLife - _currLife;
         for (int i = 0; i < j; i++) Heal();
     }
@@ -165,6 +170,7 @@ public class PlayerLifeComponent : MonoBehaviour
     // Muerte del jugador
     public void Dies()
     {
+        _sfx.GetComponent<SoundEffectController>().PlaySound("gameOver");
         _myAnimator.SetBool("Dies", true);
         _myInput.enabled = false;
         _myRigidbody.velocity = new Vector2(0, 0);

@@ -56,7 +56,7 @@ public class MovementController : MonoBehaviour
 
     // Activar el dash
     public void SetDash()
-    {
+    {       
         _dash = true;
     }
 

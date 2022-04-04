@@ -11,6 +11,7 @@ public class InputController : MonoBehaviour
     private GunpointController _myGunpoint;
     private Animator _myAnimator;
     [SerializeField] private Collider2D _myGroundDetector;
+    [SerializeField] private GameObject _sfx;
     #endregion
 
     #region parameters
@@ -81,13 +82,16 @@ public class InputController : MonoBehaviour
 
     IEnumerator changeGrav()
     {
+        
         yield return new WaitForSeconds(0.2f);
+        _sfx.GetComponent<SoundEffectController>().PlaySound("gravity");
 
         if (_myAnimator.GetBool("OnGravityChange") == true) _myAnimator.SetBool("OnGravityChange", false);
     }
 
     IEnumerator changeDash()
     {
+        _sfx.GetComponent<SoundEffectController>().PlaySound("dash");
         yield return new WaitForSeconds(0.65f);
 
         if (_myAnimator.GetBool("Dash") == true) _myAnimator.SetBool("Dash", false);
@@ -171,6 +175,7 @@ public class InputController : MonoBehaviour
         // Pausa (se detecta si ya estaba pausado o no)
         if ((Input.GetKeyDown(KeyCode.JoystickButton7) || Input.GetKeyDown(KeyCode.Escape)) && _isPaused == false)
         {
+            _sfx.GetComponent<SoundEffectController>().PlaySound("pause");
             _isPaused = true;
             GameManager.Instance.Pause(_isPaused);
         }

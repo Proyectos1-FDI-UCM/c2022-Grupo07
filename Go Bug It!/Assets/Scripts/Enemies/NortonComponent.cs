@@ -10,6 +10,7 @@ public class NortonComponent : MonoBehaviour
     private CircleCollider2D _myRango;
     private Animator _myAnimator;
     private Animator _rangeAnim;
+    [SerializeField] private GameObject _sfx;
     #endregion
 
     #region properties
@@ -29,6 +30,7 @@ public class NortonComponent : MonoBehaviour
     public void Explode()
     {
         //Activo la animacion de explosion, mi rango de daño y destruyo todo lo que encuentre en él
+        _sfx.GetComponent<SoundEffectController>().PlaySound("explosion");
         _myAnimator.SetBool("Explosion", true);
         _rangeAnim.SetTrigger("Explosion");
         _myRango.enabled = true;

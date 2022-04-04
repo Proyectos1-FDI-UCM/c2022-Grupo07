@@ -14,6 +14,7 @@ public class GravEnemyComponent : MonoBehaviour
     private Rigidbody2D _myRigidbody;
     [SerializeField]
     private Animator _myAnimator;
+    [SerializeField] private GameObject _sfx;
     #endregion
 
     #region properties
@@ -42,7 +43,10 @@ public class GravEnemyComponent : MonoBehaviour
     // Cambio de gravedad
     public void ChangeGravity()
     {
+
         //Le cambio el signo a mi gravedad
+
+        _sfx.GetComponent<SoundEffectController>().PlaySound("gravity");
         _gravity *= -1;
         //Dependiendo del signo de la gravedad ejecuto una animacion u otra
         if (_gravity < 0) _myAnimator.SetBool("ChangingGrav", true);
