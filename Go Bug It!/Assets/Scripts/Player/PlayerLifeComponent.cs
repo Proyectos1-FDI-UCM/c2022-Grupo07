@@ -13,7 +13,7 @@ public class PlayerLifeComponent : MonoBehaviour
     private InputController _myInput;
     private BoxCollider2D _respawnBox1;
     private BoxCollider2D _respawnBox2;
-    private AudioSource _playerLifeSFX;
+    [SerializeField] private GameObject _sfx;
     #endregion
 
     #region parameters
@@ -33,7 +33,6 @@ public class PlayerLifeComponent : MonoBehaviour
     [SerializeField] private float _respawnX = 0;
     //Respawn position Y
     [SerializeField] private float _respawnY = 0;
-    [SerializeField] AudioClip[] _audioClips;
     #endregion
 
     #region methods
@@ -92,7 +91,6 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         // Activar animación de daño
         _myAnimator.SetBool("Hurted", true);
-        _playerLifeSFX.PlayOneShot(_audioClips[0]);//Hit
 
         // Deshabilitar movimiento y físicas
         _myInput.enabled = false;
@@ -117,6 +115,7 @@ public class PlayerLifeComponent : MonoBehaviour
     // Método accedido por los enemigos para hacer daño
     public void CallForDamage()
     {
+        _sfx.GetComponent<SoundEffectController>().PlaySound("hit");
         StartCoroutine(hurted(1.65f));
     }
 
@@ -153,16 +152,17 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         if (_currLife < _playerLife)
         {
+            _sfx.GetComponent<SoundEffectController>().PlaySound("cura");
             _currLife++;
             GameManager.Instance.OnPlayerHeals(_currLife);
         }
         else GameManager.Instance.UpdatePoints(200);
-        _playerLifeSFX.PlayOneShot(_audioClips[1]);//Heal
     }
 
     // Curación completa
     public void FullyHealing()
     {
+        _sfx.GetComponent<SoundEffectController>().PlaySound("cura");
         int j = _playerLife - _currLife;
         for (int i = 0; i < j; i++) Heal();
     }
@@ -170,10 +170,10 @@ public class PlayerLifeComponent : MonoBehaviour
     // Muerte del jugador
     public void Dies()
     {
+        _sfx.GetComponent<SoundEffectController>().PlaySound("gameOver");
         _myAnimator.SetBool("Dies", true);
         _myInput.enabled = false;
         _myRigidbody.velocity = new Vector2(0, 0);
-        _playerLifeSFX.PlayOneShot(_audioClips[2]);
         Destroy(gameObject, 1.1f);
         GameManager.Instance.OnPlayerDies();
     }
@@ -205,6 +205,5 @@ public class PlayerLifeComponent : MonoBehaviour
             _respawnBox2 = _respawn.transform.GetChild(1).gameObject.transform.GetComponent<BoxCollider2D>();
             StartCoroutine(respawn_aid());
         }
-        _playerLifeSFX = GetComponent<AudioSource>();
     }
 }

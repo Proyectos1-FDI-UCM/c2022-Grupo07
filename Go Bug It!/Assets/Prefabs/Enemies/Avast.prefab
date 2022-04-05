@@ -295,7 +295,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myRay: {fileID: 499552845221810119}
-  _lasergun: {fileID: 8300000, guid: c99a85d4411af324eba48e26d8c9e659, type: 3}
   _rayCoolDown: 5
   _rayDuration: 2
   _rayDirection: {x: 1, y: 0}

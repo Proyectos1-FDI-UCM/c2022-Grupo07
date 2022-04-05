@@ -11,6 +11,8 @@ public class AvastController : MonoBehaviour
 
     [SerializeField] private GameObject _myRay;
 
+    [SerializeField] private GameObject _sfx;
+
     #endregion
 
     #region parameters
@@ -29,7 +31,6 @@ public class AvastController : MonoBehaviour
     private int _ignoreLayer = (1<< 2)|(1<<9)|(1<<8);
     private bool _isCharging;
     private float anim_speed;
-    private bool _activateSound;
     #endregion
 
     // Start is called before the first frame update
@@ -70,10 +71,6 @@ public class AvastController : MonoBehaviour
 
         if (_shooting == true)
         {
-            if(_activateSound==true)//llama al disparo una sola vez
-            {
-                _activateSound = false;
-            }
             if (_elapsedDuration <= _rayDuration)
             {
                 _myRay.SetActive(true);
@@ -105,7 +102,6 @@ public class AvastController : MonoBehaviour
             else
             {
                 _isCharging = false;
-                _activateSound = true;
                 _shooting = false;
                 _myRay.GetComponent<LineRenderer>().enabled = false; //Se deja de ver el rayo.
                 _myRay.SetActive(false);
