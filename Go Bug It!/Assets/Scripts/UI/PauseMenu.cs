@@ -12,14 +12,16 @@ public class PauseMenu : MonoBehaviour
     // Botones EventSystem
     [SerializeField] private GameObject _firstPauseButton;
     // Pausa
-    [SerializeField] private GameObject _pauseUI, _controllsUI, _optionsUI, _sfx;
+    [SerializeField] private GameObject _pauseUI, _controllsUI, _optionsUI;
     private Transform _controllsTransform, _optionsTransform;
+    private AudioSource _pauseSFX;
     #endregion
 
     #region parameters
     private Image[] _collectiblesImg = new Image[4];
     [SerializeField] private Sprite[] _activated = new Sprite[4];
     [SerializeField] private Sprite[] _deactivated = new Sprite[4];
+    [SerializeField] private AudioClip _pauseSounds;
     #endregion
 
     #region methods
@@ -32,7 +34,7 @@ public class PauseMenu : MonoBehaviour
     // Mostrar controles
     public void ControllsMenu()
     {
-        _sfx.GetComponent<SoundEffectController>().PlaySound("cambioDisparo");
+        _pauseSFX.PlayOneShot(_pauseSounds);
         _pauseUI.SetActive(false);
         _controllsUI.SetActive(true);
         _controllsTransform.localPosition = new Vector3(0, 0, 0);
@@ -41,7 +43,7 @@ public class PauseMenu : MonoBehaviour
     // Mostrar las opciones
     public void OptionsMenu()
     {
-        _sfx.GetComponent<SoundEffectController>().PlaySound("cambioDisparo");
+        _pauseSFX.PlayOneShot(_pauseSounds);
         _pauseUI.SetActive(false);
         _optionsUI.SetActive(true);
         _optionsTransform.localPosition = new Vector3(0, 0, 0);
@@ -50,7 +52,7 @@ public class PauseMenu : MonoBehaviour
     // Volver del menú de opciones y/o controles al de principal
     public void Back(string option)
     {
-        _sfx.GetComponent<SoundEffectController>().PlaySound("cambioDisparo");
+        _pauseSFX.PlayOneShot(_pauseSounds);
         if (option == "Options") // Si estaba en opciones
         {
             _optionsUI.SetActive(false);
@@ -111,5 +113,6 @@ public class PauseMenu : MonoBehaviour
 
         // Asignar el botón inicial del menú
         EventSystem.current.SetSelectedGameObject(_firstPauseButton);
+        _pauseSFX = GetComponent<AudioSource>();
     }
 }
