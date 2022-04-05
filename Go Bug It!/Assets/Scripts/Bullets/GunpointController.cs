@@ -14,7 +14,6 @@ public class GunpointController : MonoBehaviour
     [SerializeField] private Transform _playerTransform; // Posición del label Gun
     private Animator _playerAnimator;
     [SerializeField] private LineRenderer _myRay;
-    [SerializeField] private GameObject _sfx;
     #endregion
 
     #region properties
@@ -45,7 +44,6 @@ public class GunpointController : MonoBehaviour
         // Si no es el tercer disparo
         if (_dmgShoot == false)
         {
-            _sfx.GetComponent<SoundEffectController>().PlaySound("shot");
             // Instancia de la bala
             if (_shot == ShootType.Gravity)                                 // Gravedad
             {
@@ -188,7 +186,6 @@ public class GunpointController : MonoBehaviour
     // Cambio de disparo
     public void ChangeShoot()
     {
-        _sfx.GetComponent<SoundEffectController>().PlaySound("cambioDisparo");
         if (_shot == ShootType.Gravity) // Si tengo el disparo de gravedad
         {
             _shot = ShootType.Neutralize;                   // Cambio de disparo

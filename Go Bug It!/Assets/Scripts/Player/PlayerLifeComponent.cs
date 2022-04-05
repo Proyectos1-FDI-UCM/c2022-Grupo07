@@ -17,6 +17,7 @@ public class PlayerLifeComponent : MonoBehaviour
     #endregion
 
     #region parameters
+    bool _isDying;
     // Boss Gameobject
     [SerializeField] private GameObject _boss;
     // Respawn point
@@ -92,8 +93,6 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         // Activar animación de daño
         _myAnimator.SetBool("Hurted", true);
-        _playerLifeSFX.PlayOneShot(_audioClips[0]);//Hit
-
         // Deshabilitar movimiento y físicas
         _myInput.enabled = false;
         _myRigidbody.simulated = false;
@@ -106,6 +105,7 @@ public class PlayerLifeComponent : MonoBehaviour
 
         // Llamada al método de daño
         Damage();
+        if (_currLife >= 1) _playerLifeSFX.PlayOneShot(_audioClips[0]);//Hit
 
         // Activar animación de idle, movimiento y físicas
         _myAnimator.SetBool("Hurted", false);
@@ -173,7 +173,13 @@ public class PlayerLifeComponent : MonoBehaviour
         _myAnimator.SetBool("Dies", true);
         _myInput.enabled = false;
         _myRigidbody.velocity = new Vector2(0, 0);
-        _playerLifeSFX.PlayOneShot(_audioClips[2]);
+
+        if (_isDying)
+        {
+            _playerLifeSFX.PlayOneShot(_audioClips[2]);//gameover
+            _isDying = false;
+            Debug.Log("Hola");
+        }
         Destroy(gameObject, 1.1f);
         GameManager.Instance.OnPlayerDies();
     }
@@ -198,6 +204,7 @@ public class PlayerLifeComponent : MonoBehaviour
         _myRigidbody = GetComponent<Rigidbody2D>();
         _myInput = GetComponent<InputController>();
         _myCollider = GetComponent<BoxCollider2D>();
+         _isDying = true;
 
         if (_boss != null)
         {
