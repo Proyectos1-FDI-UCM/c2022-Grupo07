@@ -298,7 +298,7 @@ PrefabInstance:
       objectReference: {fileID: 325799428}
     - target: {fileID: 6841133249072536980, guid: 95f4955655946734da5ec356365ffa30, type: 3}
       propertyPath: _lifePoints
-      value: 4
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6841133249072536980, guid: 95f4955655946734da5ec356365ffa30, type: 3}
       propertyPath: brokens.Array.size
