@@ -7,6 +7,7 @@ public class DamageObjectComponent : MonoBehaviour
 
     #region references
     private Animator _myAnimator;
+    [SerializeField] GameObject _boss;
     #endregion
 
     #region methods
@@ -16,6 +17,7 @@ public class DamageObjectComponent : MonoBehaviour
 
         if (_playerGun != null)
         {
+            _boss.SetActive(true);
             _playerGun.SetDmgShoot();
             GameManager.Instance.OnDmgShootActivate();
             _myAnimator.SetBool("Picked", true);

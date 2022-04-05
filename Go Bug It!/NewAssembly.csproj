@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Enemies\AvastController.cs" />
     <Compile Include="Assets\Scripts\Pickups\SpamComponent.cs" />
     <Compile Include="Assets\Scripts\UI\StartMenu.cs" />
+    <Compile Include="Assets\Scripts\SoundEffectController.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Bullets\McAfeeBullet.cs" />
     <Compile Include="Assets\Scripts\Obstacles\TeleporterComponent.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Assets\Scripts\Enemies\DetectionComponent.cs" />
     <Compile Include="Assets\Scripts\Boss\BossAttackController.cs" />
     <Compile Include="Assets\Scripts\Pickups\StructComponent.cs" />
+    <Compile Include="Assets\Scripts\UI\AltF4MovingImage.cs" />
     <Compile Include="Assets\Scripts\Boss\BossLifeController.cs" />
     <Compile Include="Assets\Scripts\UI\GameOver.cs" />
     <Compile Include="Assets\Scripts\Bullets\GunpointController.cs" />
@@ -107,8 +109,6 @@
     <Compile Include="Assets\Scripts\Bullets\LifeTimeController.cs" />
     <Compile Include="Assets\Scripts\Pickups\ReupCodeComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\GravEnemyComponent.cs" />
-    <Compile Include="Assets\Scripts\SoundEffectController.cs" />
-    <Compile Include="Assets\Scripts\UI\AltF4MovingImage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\AssemblyDefinition.asmdef" />
