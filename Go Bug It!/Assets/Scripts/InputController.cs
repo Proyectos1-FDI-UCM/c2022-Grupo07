@@ -130,7 +130,6 @@ public class InputController : MonoBehaviour
             _changeGravity = !_changeGravity;                       //Negamos el booleano gravedad para q ahora sea lo contrario
             _myGravityComponent.ChangeGravity(_changeGravity);      //Llamamos al metodo ChangeGravity del script de gravedad
             StartCoroutine(changeGrav());
-           /* _playerInputSFX.PlayOneShot(_audioClips[0]);//Cambio de Grav*/ //suena raro
         }
 
         // Dash
@@ -142,7 +141,7 @@ public class InputController : MonoBehaviour
                 
                 _myAnimator.SetBool("Dash", true);
                 _movController.SetDash();
-                _playerInputSFX.PlayOneShot(_audioClips[1]);//Hace dash
+                _playerInputSFX.PlayOneShot(_audioClips[0]);//Hace dash
                 _elapseDash = 0;
                 _myAnimator.SetBool("Dash", true);
                 StartCoroutine(changeDash());
@@ -155,7 +154,7 @@ public class InputController : MonoBehaviour
         if (_elapsedSelect > _shotSelectCooldown && _selectShot > 0)
         {
              _myGunpoint.ChangeShoot();
-            _playerInputSFX.PlayOneShot(_audioClips[2]);//Cambio de disparo
+            _playerInputSFX.PlayOneShot(_audioClips[1]);//Cambio de disparo
             _elapsedSelect = 0;
         }
         else _elapsedSelect += Time.deltaTime;
@@ -167,9 +166,9 @@ public class InputController : MonoBehaviour
 
             switch (_typeShoot)
             {
-                case 0: _myGunpoint.RegularShoot();_playerInputSFX.PlayOneShot(_audioClips[3]); break;
-                case 1: _myGunpoint.TripleShoot(); _playerInputSFX.PlayOneShot(_audioClips[3]); break;
-                case 2: _myGunpoint.RaycastShoot(); _playerInputSFX.PlayOneShot(_audioClips[4]); break;
+                case 0: _myGunpoint.RegularShoot();_playerInputSFX.PlayOneShot(_audioClips[2]); break;
+                case 1: _myGunpoint.TripleShoot(); _playerInputSFX.PlayOneShot(_audioClips[2]); break;
+                case 2: _myGunpoint.RaycastShoot(); _playerInputSFX.PlayOneShot(_audioClips[3]); break;
             }
             _elapsedShoot = 0;
         }

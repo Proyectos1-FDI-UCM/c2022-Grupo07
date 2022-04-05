@@ -14,12 +14,10 @@ public class GravEnemyComponent : MonoBehaviour
     private Rigidbody2D _myRigidbody;
     [SerializeField]
     private Animator _myAnimator;
-    private AudioSource _enemiesSFX;
     #endregion
 
     #region properties
     [SerializeField] private bool _isWD = false;
-    [SerializeField] private AudioClip audioClip;
     #endregion
 
     #region methods
@@ -50,7 +48,6 @@ public class GravEnemyComponent : MonoBehaviour
         //Dependiendo del signo de la gravedad ejecuto una animacion u otra
         if (_gravity < 0) _myAnimator.SetBool("ChangingGrav", true);
         else _myAnimator.SetBool("ChangingGrav+", true);
-        _enemiesSFX.PlayOneShot(audioClip);//Cambio de gravedad
     }
 
     // Animación de inmunidad del Windows Defender que retrasa la asignación de NeuBullet

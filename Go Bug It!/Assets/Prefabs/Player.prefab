@@ -341,7 +341,6 @@ MonoBehaviour:
   _myGroundDetector: {fileID: 5453095105715680625}
   _isGrounded: 0
   _audioClips:
-  - {fileID: 8300000, guid: 509b005d39b128d45b773560fbf86efa, type: 3}
   - {fileID: 8300000, guid: 27ac1eb4dec4fe34fa886a6f71fd927a, type: 3}
   - {fileID: 8300000, guid: ca93bc70c67fa4241936d2b4307a3360, type: 3}
   - {fileID: 8300000, guid: 9ceed399f54531140a4b7acf7721aad6, type: 3}

@@ -11,9 +11,6 @@ public class AvastController : MonoBehaviour
 
     [SerializeField] private GameObject _myRay;
 
-    private AudioSource _avastSFX;
-    [SerializeField] private AudioClip _lasergun;
-
     #endregion
 
     #region parameters
@@ -46,7 +43,6 @@ public class AvastController : MonoBehaviour
         _firstTimeShoot = true;
         _isCharging = false;
         anim_speed = 1;
-        _avastSFX = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -76,7 +72,6 @@ public class AvastController : MonoBehaviour
         {
             if(_activateSound==true)//llama al disparo una sola vez
             {
-                _avastSFX.PlayOneShot(_lasergun);
                 _activateSound = false;
             }
             if (_elapsedDuration <= _rayDuration)
