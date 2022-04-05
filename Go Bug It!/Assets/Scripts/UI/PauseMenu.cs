@@ -1,0 +1,115 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+public class PauseMenu : MonoBehaviour
+{
+
+    #region references
+    // Botones EventSystem
+    [SerializeField] private GameObject _firstPauseButton;
+    // Pausa
+    [SerializeField] private GameObject _pauseUI, _controllsUI, _optionsUI, _sfx;
+    private Transform _controllsTransform, _optionsTransform;
+    #endregion
+
+    #region parameters
+    private Image[] _collectiblesImg = new Image[4];
+    [SerializeField] private Sprite[] _activated = new Sprite[4];
+    [SerializeField] private Sprite[] _deactivated = new Sprite[4];
+    #endregion
+
+    #region methods
+    // Volver al menú
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    // Mostrar controles
+    public void ControllsMenu()
+    {
+        _sfx.GetComponent<SoundEffectController>().PlaySound("cambioDisparo");
+        _pauseUI.SetActive(false);
+        _controllsUI.SetActive(true);
+        _controllsTransform.localPosition = new Vector3(0, 0, 0);
+    }
+
+    // Mostrar las opciones
+    public void OptionsMenu()
+    {
+        _sfx.GetComponent<SoundEffectController>().PlaySound("cambioDisparo");
+        _pauseUI.SetActive(false);
+        _optionsUI.SetActive(true);
+        _optionsTransform.localPosition = new Vector3(0, 0, 0);
+    }
+
+    // Volver del menú de opciones y/o controles al de principal
+    public void Back(string option)
+    {
+        _sfx.GetComponent<SoundEffectController>().PlaySound("cambioDisparo");
+        if (option == "Options") // Si estaba en opciones
+        {
+            _optionsUI.SetActive(false);
+            _optionsTransform.localPosition = new Vector3(-1920, 0, 0);
+        }
+        else // Si estaba en controles
+        {
+            _controllsUI.SetActive(false);
+            _controllsTransform.localPosition = new Vector3(1920, 0, 0);
+        }
+
+        // Activar pausa y seleccionar botón
+        _pauseUI.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(_firstPauseButton);
+    }
+
+    // Comandos que ejecutar al salir del menú de pausa
+    public void ExitingPause()
+    {
+        Back("Options");
+        Back("");
+    }
+
+    // Asigna la imagen del coleccionable obtenido a los indicadores de estos
+    public void ActivateCollectibles(int[] collectibles)
+    {
+        for (int i = 0; i < collectibles.Length; i++)
+        {
+            if (collectibles[i] == 1) _collectiblesImg[i].sprite = _activated[i];
+        }
+    }
+    #endregion
+
+    // Initializes own references
+    void Awake()
+    {
+        // Desactivar UI de controles y opciones
+        _controllsUI.SetActive(false);
+        _optionsUI.SetActive(false);
+
+        // Inicializar los indicadores de coleccionables a vacíos
+        for (int i = 0; i < _collectiblesImg.Length; i++)
+        {
+            _collectiblesImg[i] = gameObject.transform.GetChild(3).GetChild(i).GetComponent<Image>();
+            _collectiblesImg[i].sprite = _deactivated[i];
+        }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Inicializar variable de posición
+        _optionsTransform = _optionsUI.transform;
+        _controllsTransform = _controllsUI.transform;
+
+        // Asegurarse de que no se selecciona ningún botón de base
+        EventSystem.current.SetSelectedGameObject(null);
+
+        // Asignar el botón inicial del menú
+        EventSystem.current.SetSelectedGameObject(_firstPauseButton);
+    }
+}
