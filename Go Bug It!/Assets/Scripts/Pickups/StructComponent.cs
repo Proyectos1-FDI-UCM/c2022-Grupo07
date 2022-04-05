@@ -16,9 +16,12 @@ public class StructComponent : MonoBehaviour
 
         if (_myPlayer != null)
         {
-            _myPlayer.StructControl(true);
-            _myAnimator.SetTrigger("Picked");
-            Destroy(gameObject, 1.2f);
+            if (!_myPlayer.IsPoweredUp())
+            {
+                _myPlayer.StructControl(true);
+                _myAnimator.SetTrigger("Picked");
+                Destroy(gameObject, 1.2f);
+            }
         }
     }
     #endregion

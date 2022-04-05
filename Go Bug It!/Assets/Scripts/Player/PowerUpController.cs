@@ -30,6 +30,11 @@ public class PowerUpController : MonoBehaviour
     #endregion
 
     #region methods
+    //Devuelve si el jugador esta o no con un powerup
+    public bool IsPoweredUp()
+    {
+        return _isPoweredUp;
+    }
     // Devuelve si el escudo está activado o no
     public bool IsShieldActive()
     {
