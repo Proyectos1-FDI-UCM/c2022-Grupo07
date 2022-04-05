@@ -197,6 +197,7 @@ public class PlayerLifeComponent : MonoBehaviour
     {
         // Registro en el GameManager
         GameManager.Instance.PlayerRegistration(this);
+        GameManager.Instance.PLayerRegistrationTrue(this.gameObject);
         
         // Inicialización de variables
         _currLife = _playerLife;

@@ -113,6 +113,11 @@ public class GameManager : MonoBehaviour
         _myPlayerLife = player;
     }
 
+    public void PLayerRegistrationTrue(GameObject player)
+    {
+        _player = player;
+    }
+
     // Actualiza la puntuación y llama la UI
     public void UpdatePoints(int newPoints)
     {

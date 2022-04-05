@@ -5457,6 +5457,10 @@ PrefabInstance:
       propertyPath: _gravity
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 8472275953691085035, guid: caf3bacbf422d6646902213cfa3dc613, type: 3}
+      propertyPath: _nextSecene
+      value: Nivel 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8620317987412925684, guid: caf3bacbf422d6646902213cfa3dc613, type: 3}
       propertyPath: m_Name
       value: Nivel2-GDD
