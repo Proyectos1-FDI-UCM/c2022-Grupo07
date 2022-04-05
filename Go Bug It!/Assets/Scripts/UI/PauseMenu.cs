@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
     // Botones EventSystem
     [SerializeField] private GameObject _firstPauseButton;
     // Pausa
-    [SerializeField] private GameObject _pauseUI, _controllsUI, _optionsUI, _sfx;
+    [SerializeField] private GameObject _pauseUI, _controllsUI, _optionsUI;
     private Transform _controllsTransform, _optionsTransform;
     #endregion
 
@@ -32,7 +32,6 @@ public class PauseMenu : MonoBehaviour
     // Mostrar controles
     public void ControllsMenu()
     {
-        _sfx.GetComponent<SoundEffectController>().PlaySound("cambioDisparo");
         _pauseUI.SetActive(false);
         _controllsUI.SetActive(true);
         _controllsTransform.localPosition = new Vector3(0, 0, 0);
@@ -41,7 +40,6 @@ public class PauseMenu : MonoBehaviour
     // Mostrar las opciones
     public void OptionsMenu()
     {
-        _sfx.GetComponent<SoundEffectController>().PlaySound("cambioDisparo");
         _pauseUI.SetActive(false);
         _optionsUI.SetActive(true);
         _optionsTransform.localPosition = new Vector3(0, 0, 0);
@@ -50,7 +48,6 @@ public class PauseMenu : MonoBehaviour
     // Volver del menú de opciones y/o controles al de principal
     public void Back(string option)
     {
-        _sfx.GetComponent<SoundEffectController>().PlaySound("cambioDisparo");
         if (option == "Options") // Si estaba en opciones
         {
             _optionsUI.SetActive(false);
