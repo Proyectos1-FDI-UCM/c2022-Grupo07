@@ -238,5 +238,7 @@ public class UIManager : MonoBehaviour
     {
         // Inicializar el menú de pausa
         _pauseFirstScreen = _pauseMenu.transform.GetChild(0).GetComponent<PauseMenu>();
+
+        _pauseMenu.SetActive(false);
     }
 }

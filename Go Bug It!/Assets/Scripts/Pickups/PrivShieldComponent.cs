@@ -16,9 +16,12 @@ public class PrivShieldComponent : MonoBehaviour
 
         if (_myPlayer != null)
         {
-            _myPlayer.ShieldControl(true);
-            _myAnimator.SetTrigger("Picked");
-            Destroy(gameObject, 0.75f);
+            if (!_myPlayer.IsPoweredUp())
+            {
+                _myPlayer.ShieldControl(true);
+                _myAnimator.SetTrigger("Picked");
+                Destroy(gameObject, 0.75f);
+            }
         }
     }
     #endregion
