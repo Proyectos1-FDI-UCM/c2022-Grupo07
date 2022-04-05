@@ -69,7 +69,7 @@ Transform:
   m_GameObject: {fileID: 3925191865628489235}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
   - {fileID: 2311925592514932899}
   - {fileID: 5324153947344280322}
@@ -890,8 +890,8 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 7
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!66 &1626600915925201138
 CompositeCollider2D:
   m_ObjectHideFlags: 0

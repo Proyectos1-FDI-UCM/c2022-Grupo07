@@ -16,12 +16,9 @@ public class SpamComponent : MonoBehaviour
 
         if (_myplayer != null)
         {
-            if (!_myplayer.IsPoweredUp())
-            {
-                _myplayer.SpamControl(true);
-                _myAnimator.SetTrigger("Picked");
-                Destroy(gameObject, 0.59f);
-            }
+            _myplayer.SpamControl(true);
+            _myAnimator.SetTrigger("Picked");
+            Destroy(gameObject, 0.59f);
         }
     }
 
