@@ -16,9 +16,12 @@ public class StackPointerComponent : MonoBehaviour
 
         if (_myPlayer != null)
         {
-            _myPlayer.StackPointerControl(true);
-            _myAnimator.SetTrigger("Picked");
-            Destroy(gameObject, 0.92f);
+            if (!_myPlayer.IsPoweredUp())
+            {
+                _myPlayer.StackPointerControl(true);
+                _myAnimator.SetTrigger("Picked");
+                Destroy(gameObject, 0.92f);
+            }
         }
     }
     #endregion

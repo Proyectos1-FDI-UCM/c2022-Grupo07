@@ -111,7 +111,5 @@ public class PauseMenu : MonoBehaviour
 
         // Asignar el botón inicial del menú
         EventSystem.current.SetSelectedGameObject(_firstPauseButton);
-
-        gameObject.SetActive(false);
     }
 }
