@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1600}
-  m_SizeDelta: {x: 1440, y: 2400}
+  m_AnchoredPosition: {x: 0, y: -1531}
+  m_SizeDelta: {x: 1440, y: 2200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &907095881653271685
 CanvasRenderer:
@@ -80,13 +80,12 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "DEVELOPED BY\r\n\xD1intendo\r\n\r\nMADE BY\n- Pablo Gonz\xE1lez\r Arroyo\n-
     Javier Murillo\r Gonz\xE1lez\n- Rafael Vilches\r Hern\xE1ndez\n- Rafael Argando\xF1a\r
-    Bl\xE1cido\n- Jaime Felip\r de la Pe\xF1a\n\r\nART INSPIRATIONS\n- Geometry dash.
-    (2013). RobTop Games.\r\n- Geometry wars. (2003). Bizarre creations.\r\n- Matrix.
-    (1999). Warner Bros Pictures.\r\n\r\nART\nAll of the visual assets were completely
-    made by us, with the exception of:\n- Synthwave wallpaper, youtube.com/watch?v=3kCOAHSJFrM\n-
+    Bl\xE1cido\n- Jaime Felip\r de la Pe\xF1a\n\r\nART\nAll of the visual assets
+    were completely made by us, with the exception of:\n- Synthwave wallpaper, youtube.com/watch?v=3kCOAHSJFrM\n-
     Matrix Code Rain, youtube.com/watch?v=nwnTM7UrwPs\n\nMUSIC\nMusic by Karl Casey
-    @ White Bat Audio \"Glitch in reality\", \"End Credits\"\r\nBen Arntz, @beepartz\r\n\r\nSPECIAL
-    THANKS TO\nBrackeys youtube.com/c/Brackeys"
+    @ White Bat Audio \"Glitch in reality\", \"End Credits\"\r\nBen Arntz, @beepartz\r\n\nSOUNDS
+    (SFX)\nAll taken from Epidemic Sounds from anonimous authors.\n\r\nSPECIAL THANKS
+    TO\nBrackeys youtube.com/c/Brackeys"
 --- !u!1 &1371772210146582104
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,8 +689,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: -1620}
-  m_SizeDelta: {x: 1440, y: 2400}
+  m_AnchoredPosition: {x: 20, y: -1551}
+  m_SizeDelta: {x: 1440, y: 2200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1206281851064811213
 CanvasRenderer:
@@ -736,13 +735,12 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "DEVELOPED BY\r\n\xD1intendo\r\n\r\nMADE BY\n- Pablo Gonz\xE1lez\r Arroyo\n-
     Javier Murillo\r Gonz\xE1lez\n- Rafael Vilches\r Hern\xE1ndez\n- Rafael Argando\xF1a\r
-    Bl\xE1cido\n- Jaime Felip\r de la Pe\xF1a\n\r\nART INSPIRATIONS\n- Geometry dash.
-    (2013). RobTop Games.\r\n- Geometry wars. (2003). Bizarre creations.\r\n- Matrix.
-    (1999). Warner Bros Pictures.\r\n\r\nART\nAll of the visual assets were completely
-    made by us, with the exception of:\n- Synthwave wallpaper, youtube.com/watch?v=3kCOAHSJFrM\n-
+    Bl\xE1cido\n- Jaime Felip\r de la Pe\xF1a\n\r\nART\nAll of the visual assets
+    were completely made by us, with the exception of:\n- Synthwave wallpaper, youtube.com/watch?v=3kCOAHSJFrM\n-
     Matrix Code Rain, youtube.com/watch?v=nwnTM7UrwPs\n\nMUSIC\nMusic by Karl Casey
-    @ White Bat Audio \"Glitch in reality\", \"End Credits\"\r\nBen Arntz, @beepartz\r\n\r\nSpecial
-    thanks to:\r\nBrackeys youtube.com/c/Brackeys"
+    @ White Bat Audio \"Glitch in reality\", \"End Credits\"\r\nBen Arntz, @beepartz\r\n\nSOUNDS
+    (SFX)\nAll taken from Epidemic Sounds from anonimous authors.\n\r\nSPECIAL THANKS
+    TO\nBrackeys youtube.com/c/Brackeys"
 --- !u!1 &5582663626393529625
 GameObject:
   m_ObjectHideFlags: 0

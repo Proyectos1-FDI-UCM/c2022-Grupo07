@@ -346,7 +346,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9ceed399f54531140a4b7acf7721aad6, type: 3}
   - {fileID: 8300000, guid: c99a85d4411af324eba48e26d8c9e659, type: 3}
   _dashCooldown: 0.5
-  _shootCooldown: 0.2
+  _shootCooldown: 0.5
   _shotSelectCooldown: 1
 --- !u!114 &6243002863010358820
 MonoBehaviour:

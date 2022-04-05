@@ -12,9 +12,14 @@ public class CollectiblesComponent : MonoBehaviour
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameManager.Instance.OnCollectiblePicked(NameCheck(gameObject.name));
-        _myAnimator.SetTrigger("Picked");
-        Destroy(gameObject, 0.59f);
+        PlayerLifeComponent _player = collision.gameObject.GetComponent<PlayerLifeComponent>();
+
+        if (_player != null)
+        {
+            GameManager.Instance.OnCollectiblePicked(NameCheck(gameObject.name));
+            _myAnimator.SetTrigger("Picked");
+            Destroy(gameObject, 0.59f);
+        }
     }
 
     // Devuelve un índice según el coleccionable que se recoge

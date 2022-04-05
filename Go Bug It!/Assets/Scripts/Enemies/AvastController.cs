@@ -8,7 +8,6 @@ public class AvastController : MonoBehaviour
     #region references
     private Transform _mytransform;
     private Animator _myanimator;
-
     [SerializeField] private GameObject _myRay;
 
     #endregion

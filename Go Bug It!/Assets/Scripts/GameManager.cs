@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region properties
-    private int[] _collectibles = { 0, 0, 0, 0 }; // 0 = no obtenido, 1 = obtenido
+    private int[] _collectibles = new int[4]; // 0 = no obtenido, 1 = obtenido
     [HideInInspector] public bool _spam;
     [HideInInspector] public float _speedmod;
     private string _scene = "";
@@ -202,6 +202,7 @@ public class GameManager : MonoBehaviour
     // Actualiza el array de coleccionables y lo aplica en el menú de pausa
     public void OnCollectiblePicked(int posicion)
     {
+        Debug.Log("Picked");
         _collectibles[posicion] = 1;
         _myPause.ActivateCollectibles(_collectibles);
     }
@@ -217,6 +218,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        for (int i = 0; i < _collectibles.Length; i++) _collectibles[i] = 0;
     }
 
     // Start is called before the first frame update

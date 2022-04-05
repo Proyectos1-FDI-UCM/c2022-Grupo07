@@ -46,7 +46,7 @@ public class VictoryScreen : MonoBehaviour
     IEnumerator ShowVictoryScreen()
     {
         //Esperamos un tiempo a que acaben los créditos
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(40);
         _creditsTextObject.SetActive(false);
 
         // Activamos los siguientes objetos secuencialmente
@@ -61,6 +61,7 @@ public class VictoryScreen : MonoBehaviour
         // Desactivamos objetos y activamos la pantalla de error de Windows
         yield return new WaitForSeconds(2);
         transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        Camera.current.GetComponent<AudioSource>().Stop();
         _audioSrc.Play();
         transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
 

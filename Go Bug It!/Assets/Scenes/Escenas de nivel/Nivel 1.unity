@@ -9125,6 +9125,10 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[21].Array.data[11].Y
       value: 3877500
       objectReference: {fileID: 0}
+    - target: {fileID: 375985405434034286, guid: 3c85f4a1f79fab54dbaadd0045e3de83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 641517528314952914, guid: 3c85f4a1f79fab54dbaadd0045e3de83, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[11].m_Data
       value: 
@@ -9161,6 +9165,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 333
       objectReference: {fileID: 0}
+    - target: {fileID: 3013637026291026389, guid: 3c85f4a1f79fab54dbaadd0045e3de83, type: 3}
+      propertyPath: _gravity
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4334186787995526073, guid: 3c85f4a1f79fab54dbaadd0045e3de83, type: 3}
       propertyPath: m_Name
       value: Nivel1-GDD
@@ -9188,6 +9196,10 @@ PrefabInstance:
     - target: {fileID: 6692165105661438769, guid: 3c85f4a1f79fab54dbaadd0045e3de83, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8040347570595329484, guid: 3c85f4a1f79fab54dbaadd0045e3de83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8507442831633987131, guid: 3c85f4a1f79fab54dbaadd0045e3de83, type: 3}
       propertyPath: _enemyNorton
