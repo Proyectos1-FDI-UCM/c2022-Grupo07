@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Escenas de nivel/Nivel 2.unity
     guid: ebb80cb69ba17b544a8958796dd39e09
   - enabled: 1
+    path: Assets/Scenes/Escenas de nivel/Nivel 3.unity
+    guid: cc903f4412ebb8742b5ecf39330c1720
+  - enabled: 1
     path: Assets/Scenes/Escenas de nivel/BossFight.unity
     guid: 72cd300d2ffc014489ab32508ce033fa
   - enabled: 1
@@ -26,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Escenas de nivel/VictoryScene.unity
     guid: f39b727a213c6614e922ea99080d4602
+  - enabled: 1
+    path: Assets/Scenes/Escenas de nivel/Debug.unity
+    guid: 7d6e93cfc19433a4296579d50bd5952c
   m_configObjects: {}

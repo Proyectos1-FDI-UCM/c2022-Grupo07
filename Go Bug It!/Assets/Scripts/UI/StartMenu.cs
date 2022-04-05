@@ -59,4 +59,9 @@ public class StartMenu : MonoBehaviour
         // Iniciar animación de splashscreen
         StartCoroutine(StartScene());
     }
+
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.B) && Input.GetKey(KeyCode.U) && Input.GetKey(KeyCode.G)) SceneManager.LoadScene("Debug");
+    }
 }
