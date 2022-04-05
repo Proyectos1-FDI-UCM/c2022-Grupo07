@@ -11,6 +11,7 @@ public class TeleporterComponent : MonoBehaviour
 
     #region properties
     [SerializeField] private Vector3 _myDestination;
+    [SerializeField] private float _waitForSeconds = 1.5f;
     #endregion
 
     #region methods
@@ -31,7 +32,7 @@ public class TeleporterComponent : MonoBehaviour
     {
         _playerObj.GetComponent<InputController>().enabled = false;
         _playerObj.GetComponent<MovementController>().enabled = false;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(_waitForSeconds);
         _playerObj.GetComponent<InputController>().enabled = true;
         _playerObj.GetComponent<MovementController>().enabled = true;
     }
