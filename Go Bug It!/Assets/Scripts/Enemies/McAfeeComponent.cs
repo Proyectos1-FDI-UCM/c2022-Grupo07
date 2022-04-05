@@ -8,15 +8,15 @@ public class McAfeeComponent : MonoBehaviour
     #region parameters
     [SerializeField] private float _shootCooldown = 2.0f;
     [SerializeField] private float _offset;
+    [SerializeField] private AudioClip audioClip;
     #endregion
 
     #region references
     [SerializeField] private GameObject _myBullet;
     private Transform _myTransform;
-
+    private AudioSource _mcAfeeSFX;
     private BoxCollider2D _myDetector;
     [SerializeField]private bool lookingRight = false;
-    [SerializeField] private GameObject _sfx;
     #endregion
 
     #region properties
@@ -44,12 +44,12 @@ public class McAfeeComponent : MonoBehaviour
         if (canShoot && !_neutralized)
         {
             //Dependiendo de donde miro instancio la bala en el offset positivo o negativo
-            _sfx.GetComponent<SoundEffectController>().PlaySound("shot");
             if (lookingRight) _instancePosition = _myTransform.position + new Vector3(_offset, 0, 0);
             else _instancePosition = _myTransform.position - new Vector3(_offset, 0, 0);
             //Le aplico la orientacion a la bala al instanciarla, devuelvo el cooldown a su valor inicial y no puedo disparar
             GameObject _bulletShot = GameObject.Instantiate(_myBullet, _instancePosition, Quaternion.identity);
             _bulletShot.GetComponent<McAfeeBullet>().SetDirection(SetBulletDirection());
+            _mcAfeeSFX.PlayOneShot(audioClip);
             canShoot = false;
             _elapsedTime = _shootCooldown;
         }
@@ -78,6 +78,7 @@ public class McAfeeComponent : MonoBehaviour
         
         //cogemos el detector del jugador mediante codigo
         _myDetector = transform.GetChild(0).GetComponent<BoxCollider2D>();
+        _mcAfeeSFX = GetComponent<AudioSource>();
     }
 }
 
