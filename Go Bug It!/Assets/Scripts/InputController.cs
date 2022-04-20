@@ -33,6 +33,9 @@ public class InputController : MonoBehaviour
     private float _elapsedSelect;
     [SerializeField] private float _shotSelectCooldown;
     private bool _thirdBullet = false;
+    // Gravedad
+    [SerializeField] private float _gravCooldown;
+    private float _elapsedGrav;
     // Axis
     private float _horizontal;
     private float _jump;
@@ -105,6 +108,7 @@ public class InputController : MonoBehaviour
         _elapsedShoot = _shootCooldown;
         _elapsedSelect = _shotSelectCooldown;
         _elapseDash = _dashCooldown;
+        _elapsedGrav = _gravCooldown;
         _isPaused = false;
         _playerInputSFX = GetComponent<AudioSource>();
     }
@@ -124,13 +128,14 @@ public class InputController : MonoBehaviour
         _movController.SetMovementDirection(_horizontal);
 
         // Cambio de gravedad
-        if (_isGrounded && _jump > 0 &&!_movController._dash) //Si presiono espacio, estoy tocando una superficie y no estoy en mitad de un dash...
+        if (_elapsedGrav > _gravCooldown && _isGrounded && _jump > 0 && !_movController._dash) //Si presiono espacio, estoy tocando una superficie y no estoy en mitad de un dash...
         {
-            
             _changeGravity = !_changeGravity;                       //Negamos el booleano gravedad para q ahora sea lo contrario
             _myGravityComponent.ChangeGravity(_changeGravity);      //Llamamos al metodo ChangeGravity del script de gravedad
             StartCoroutine(changeGrav());
+            _elapsedGrav = 0;
         }
+        else _elapsedGrav += Time.deltaTime;
 
         // Dash
         if (_elapseDash > _dashCooldown)

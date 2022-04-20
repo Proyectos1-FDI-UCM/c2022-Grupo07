@@ -348,6 +348,7 @@ MonoBehaviour:
   _dashCooldown: 0.5
   _shootCooldown: 0.5
   _shotSelectCooldown: 1
+  _gravCooldown: 0.5
 --- !u!114 &6243002863010358820
 MonoBehaviour:
   m_ObjectHideFlags: 0

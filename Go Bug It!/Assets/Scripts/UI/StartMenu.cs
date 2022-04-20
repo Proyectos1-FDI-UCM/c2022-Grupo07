@@ -12,6 +12,7 @@ public class StartMenu : MonoBehaviour
     private GameObject _initialFlash;
     private GameObject _ñintendo;
     private GameObject _authors;
+    private GameObject _message;
     #endregion
 
     #region methods
@@ -49,9 +50,10 @@ public class StartMenu : MonoBehaviour
     void Start()
     {
         // Obtener GameObjects del menú
-        _initialFlash = transform.GetChild(3).gameObject;
-        _ñintendo = transform.GetChild(4).gameObject;
-        _authors = transform.GetChild(5).gameObject;
+        _message = transform.GetChild(3).gameObject;
+        _initialFlash = transform.GetChild(4).gameObject;
+        _ñintendo = transform.GetChild(5).gameObject;
+        _authors = transform.GetChild(6).gameObject;
 
         // Asegurarse de que no se selecciona ningún botón de base
         EventSystem.current.SetSelectedGameObject(null);
