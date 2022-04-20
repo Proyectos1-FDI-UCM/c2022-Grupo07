@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputController : MonoBehaviour
 {
@@ -190,6 +191,9 @@ public class InputController : MonoBehaviour
             _isPaused = false;
             GameManager.Instance.Pause(_isPaused);
         }
+
+        // Debug entre niveles
+        if ((Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.N)) || ((Input.GetKeyDown(KeyCode.JoystickButton4) && Input.GetKeyDown(KeyCode.JoystickButton5)))) SceneManager.LoadScene("Debug");
     }
 
 }

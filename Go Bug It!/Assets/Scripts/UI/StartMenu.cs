@@ -42,6 +42,10 @@ public class StartMenu : MonoBehaviour
         yield return new WaitForSeconds(3.2f);
         _initialFlash.GetComponent<Animator>().SetBool("GoFlash", true);
 
+        yield return new WaitForSeconds(0.5f);
+        _authors.SetActive(false);
+        _ñintendo.SetActive(false);
+        _initialFlash.SetActive(false);
         // Asignar el botón inicial del menú
         EventSystem.current.SetSelectedGameObject(_startFirtsButton);
     }
@@ -64,6 +68,7 @@ public class StartMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.B) && Input.GetKey(KeyCode.U) && Input.GetKey(KeyCode.G)) SceneManager.LoadScene("Debug");
+        // if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.B) && Input.GetKey(KeyCode.U) && Input.GetKey(KeyCode.G)) SceneManager.LoadScene("Debug");
+        if ((Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.N)) || ((Input.GetKeyDown(KeyCode.JoystickButton4) && Input.GetKeyDown(KeyCode.JoystickButton5)))) SceneManager.LoadScene("Debug");
     }
 }

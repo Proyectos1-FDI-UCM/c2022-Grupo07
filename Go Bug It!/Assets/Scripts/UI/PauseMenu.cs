@@ -10,7 +10,7 @@ public class PauseMenu : MonoBehaviour
 
     #region references
     // Botones EventSystem
-    [SerializeField] private GameObject _firstPauseButton;
+    [SerializeField] private GameObject _firstPauseButton, _backOptionsButton, _backControllsButton, _optionsButton, _controllsButton;
     // Pausa
     [SerializeField] private GameObject _pauseUI, _controllsUI, _optionsUI;
     private Transform _controllsTransform, _optionsTransform;
@@ -35,6 +35,7 @@ public class PauseMenu : MonoBehaviour
     // Mostrar controles
     public void ControllsMenu()
     {
+        EventSystem.current.SetSelectedGameObject(_backControllsButton);
         _pauseSFX.PlayOneShot(_pauseSounds);
         _pauseUI.SetActive(false);
         _controllsUI.SetActive(true);
@@ -44,6 +45,7 @@ public class PauseMenu : MonoBehaviour
     // Mostrar las opciones
     public void OptionsMenu()
     {
+        EventSystem.current.SetSelectedGameObject(_backOptionsButton);
         _pauseSFX.PlayOneShot(_pauseSounds);
         _pauseUI.SetActive(false);
         _optionsUI.SetActive(true);
@@ -55,13 +57,15 @@ public class PauseMenu : MonoBehaviour
     {
         _pauseSFX.PlayOneShot(_pauseSounds);
         if (option == "Options") // Si estaba en opciones
-        {
+        { 
             _optionsUI.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(_optionsButton);
             _optionsTransform.localPosition = new Vector3(-1920, 0, 0);
         }
         else // Si estaba en controles
         {
             _controllsUI.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(_controllsButton);
             _controllsTransform.localPosition = new Vector3(1920, 0, 0);
         }
 
