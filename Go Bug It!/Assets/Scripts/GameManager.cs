@@ -217,6 +217,14 @@ public class GameManager : MonoBehaviour
     {
         return _collectibles;
     }
+
+    // Destruye la UI, el menú de pausa y a sí mismo para volver al menú principal
+    public void MainMenu()
+    {
+        Destroy(_myUIObject);
+        Destroy(_myPauseObject);
+        Destroy(gameObject);
+    }
     #endregion
 
     // Initializes GameManager instance

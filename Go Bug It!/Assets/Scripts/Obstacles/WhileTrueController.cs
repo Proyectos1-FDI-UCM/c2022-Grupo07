@@ -11,8 +11,7 @@ public class WhileTrueController : MonoBehaviour
         // Colisión con un enemigo
         EnemyLifeComponent _enemyWD = collision.gameObject.GetComponent<EnemyLifeComponent>();
         if (_enemyWD != null)
-        {
-            Debug.Log("Matar enemigo WD");
+        { 
             _enemyWD.Dies();
             _enemyWD.enabled = false;
         }
@@ -20,7 +19,6 @@ public class WhileTrueController : MonoBehaviour
         EnemyLifeComponent _enemyNM = collision.gameObject.GetComponentInChildren<EnemyLifeComponent>();
         if (_enemyNM != null)
         {
-            Debug.Log("Matar enemigo N-M");
             _enemyNM.Dies();
             _enemyNM.enabled = false;
         }
