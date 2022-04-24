@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1497941172226475547}
   - component: {fileID: 8529396205168401503}
   - component: {fileID: 5513774468250991259}
-  - component: {fileID: -952550501011943122}
   - component: {fileID: 8983570571320088260}
+  - component: {fileID: -952550501011943122}
   m_Layer: 0
   m_Name: Teleporter
   m_TagString: Untagged
@@ -111,19 +111,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12}
   m_EdgeRadius: 0
---- !u!114 &-952550501011943122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7039095839096975580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ead0d1f8903259c41865caadca3b036d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myDestination: {x: 0, y: 0, z: 0}
 --- !u!95 &8983570571320088260
 Animator:
   serializedVersion: 3
@@ -143,3 +130,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-952550501011943122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039095839096975580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead0d1f8903259c41865caadca3b036d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myDestination: {x: 0, y: 0, z: 0}
+  _waitForSeconds: 1.5
