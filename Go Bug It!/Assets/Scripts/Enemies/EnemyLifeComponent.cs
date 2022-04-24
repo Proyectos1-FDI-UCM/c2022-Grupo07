@@ -6,7 +6,7 @@ public class EnemyLifeComponent : MonoBehaviour
 {
     #region parameters
     [SerializeField] private int _puntuation;
-    [SerializeField] private float _animationDuration = 1;
+    [SerializeField] private float _animationDuration = 1f;
     #endregion
 
     #region references

@@ -8039,6 +8039,22 @@ PrefabInstance:
       propertyPath: _sfx
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4093423135966479568, guid: cb2b95dabfb5f374db02497fb5b62eeb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093423135966479568, guid: cb2b95dabfb5f374db02497fb5b62eeb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093423135966479568, guid: cb2b95dabfb5f374db02497fb5b62eeb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 527.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093423135966479568, guid: cb2b95dabfb5f374db02497fb5b62eeb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.76
+      objectReference: {fileID: 0}
     - target: {fileID: 4100442583696815474, guid: cb2b95dabfb5f374db02497fb5b62eeb, type: 3}
       propertyPath: _sfx
       value: 
