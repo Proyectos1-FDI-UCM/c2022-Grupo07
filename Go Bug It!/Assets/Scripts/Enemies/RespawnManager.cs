@@ -26,9 +26,9 @@ public class EnemyRespawnManager : MonoBehaviour
         _counter = 0; // Para hacer que se instancie solo una vez el if antes de instanciar el enemigo
         yield return new WaitForSeconds(_respawnTimer);
         InstantiatedEnemy = Instantiate(_enemyPrefab, _myTransform);
-        if(_enemyPrefab.GetComponent<Rigidbody2D>() != null)
+        if(_enemyPrefab.GetComponent<GravEnemyComponent>() != null)
         {
-            _enemyPrefab.GetComponent<Rigidbody2D>().gravityScale = _gravity;
+            _enemyPrefab.GetComponent<GravEnemyComponent>().SetGravity(_gravity);
         }
             
 
@@ -41,9 +41,14 @@ public class EnemyRespawnManager : MonoBehaviour
     void Start()
     {
         _myTransform = transform;
-        if(_enemy.GetComponent<Rigidbody2D>() != null)
+        if(_enemy.GetComponent<GravEnemyComponent>() != null)
         {
-            _gravity =_enemy.GetComponent<Rigidbody2D>().gravityScale; 
+            _gravity =_enemy.GetComponent<GravEnemyComponent>().ReturnGravity(); 
+        }
+
+        if (_enemy.transform.GetChild(2).GetComponent<GravEnemyComponent>() != null)
+        {
+            _gravity = _enemy.transform.GetChild(2).GetComponent<GravEnemyComponent>().ReturnGravity();
         }
     }
 

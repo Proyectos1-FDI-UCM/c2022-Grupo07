@@ -39,6 +39,16 @@ public class GravEnemyComponent : MonoBehaviour
         }
     }
 
+    public void SetGravity(float grav)
+    {
+        _gravity = grav;
+    }
+
+    public float ReturnGravity()
+    {
+        return _gravity;
+    }
+
     // Cambio de gravedad
     public void ChangeGravity()
     {
