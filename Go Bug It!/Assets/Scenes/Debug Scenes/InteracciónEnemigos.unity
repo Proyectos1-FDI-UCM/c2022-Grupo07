@@ -6002,6 +6002,10 @@ PrefabInstance:
       propertyPath: _myDestination.y
       value: 1.48
       objectReference: {fileID: 0}
+    - target: {fileID: 5681648965377839081, guid: 95dd4efeb36710841a54b26adb4a9c16, type: 3}
+      propertyPath: m_Text
+      value: "SECCI\xD3N 2: NORTON"
+      objectReference: {fileID: 0}
     - target: {fileID: 6318567352606517828, guid: 95dd4efeb36710841a54b26adb4a9c16, type: 3}
       propertyPath: _myDestination.x
       value: 74.6
@@ -6018,6 +6022,10 @@ PrefabInstance:
       propertyPath: _myDestination.y
       value: 1.48
       objectReference: {fileID: 0}
+    - target: {fileID: 7521210470608059369, guid: 95dd4efeb36710841a54b26adb4a9c16, type: 3}
+      propertyPath: _myRay
+      value: 
+      objectReference: {fileID: 387909266}
     - target: {fileID: 8762366782197813633, guid: 95dd4efeb36710841a54b26adb4a9c16, type: 3}
       propertyPath: m_Name
       value: "Interacci\xF3nEnemigos"
@@ -6137,6 +6145,11 @@ PrefabInstance:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4729239257457353064, guid: d6d6069ba66be00478a67151d00c0f06, type: 3}
   m_PrefabInstance: {fileID: 316340434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &387909266 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2652960985612655482, guid: 95dd4efeb36710841a54b26adb4a9c16, type: 3}
+  m_PrefabInstance: {fileID: 196145728}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &989213415
 GameObject:
