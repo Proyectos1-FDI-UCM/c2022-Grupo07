@@ -98,6 +98,21 @@ public class GameManager : MonoBehaviour
         _myUIManager.SetTransition(false);
     }
 
+    IEnumerator RetryTransition(string scene)
+    {
+        // Activar UI y transición
+        _myUIObject.SetActive(true);
+        _myUIManager.SetTransition(true);
+        yield return new WaitForSeconds(1.5f);
+
+        // if (scene != "Tutorial") DestroyOnLoad(); // Si es el tutorial, destruir DontDestroyOnLoad
+        // else _myUIManager.SetTransition(false); // Si no, transición normal
+
+        // Transición y cargar escena
+        _myUIManager.SetTransition(false);
+        SceneManager.LoadScene(scene);
+    }
+
     // Avance de nivel
     public void OnGoalAdvance(string scene, float newTime)
     {
@@ -105,6 +120,15 @@ public class GameManager : MonoBehaviour
         _timeLeft = newTime;
         _myPlayerLife.FullyHealing();
         StartCoroutine(LevelTransition(scene));
+    }
+
+    // Reintentar el nivel
+    public void OnRetry(string scene, float newTime)
+    {
+        _myUIObject.SetActive(true);
+        _myUIManager.SetTransition(false);
+        _timeLeft = newTime;
+        StartCoroutine(RetryTransition(scene));
     }
 
     // Registro del jugador en el GameManager
@@ -179,7 +203,7 @@ public class GameManager : MonoBehaviour
     // Muerte del jugador. Inicia la animación de muerte y marca la escena actual como la de reintento
     public void OnPlayerDies()
     {
-        // _gameOverScreen.SetRetryScene(SceneManager.GetActiveScene().name);
+        _scene = SceneManager.GetActiveScene().name;
         if (_timeLeft > 0) StartCoroutine(WaitDeath()); 
         else _myUIManager.Time();
     }

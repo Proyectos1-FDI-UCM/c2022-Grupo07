@@ -178,7 +178,6 @@ public class PlayerLifeComponent : MonoBehaviour
         {
             _playerLifeSFX.PlayOneShot(_audioClips[2]);//gameover
             _isDying = false;
-            Debug.Log("Hola");
         }
         Destroy(gameObject, 1.1f);
         GameManager.Instance.OnPlayerDies();

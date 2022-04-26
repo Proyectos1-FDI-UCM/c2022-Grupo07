@@ -30,22 +30,19 @@ public class McAfeeComponent : MonoBehaviour
     // Disparo de McAfee
     public void Shoot()
     {
-
         //Mientras que no este neutralizado y aun no puedo disparar rebajo el cooldown
         if (!canShoot && !_neutralized)
         {
             _elapsedTime -= Time.deltaTime * GameManager.Instance._speedmod;
-            if (_elapsedTime <= 0)
-            {
-                canShoot = true;
-            }
+            if (_elapsedTime <= 0) canShoot = true;
         }
         //Si el cooldown ya es 0 y no estoy neutralizado disparo
-        if (canShoot && !_neutralized)
+        else if (canShoot && !_neutralized)
         {
             //Dependiendo de donde miro instancio la bala en el offset positivo o negativo
             if (lookingRight) _instancePosition = _myTransform.position + new Vector3(_offset, 0, 0);
             else _instancePosition = _myTransform.position - new Vector3(_offset, 0, 0);
+            
             //Le aplico la orientacion a la bala al instanciarla, devuelvo el cooldown a su valor inicial y no puedo disparar
             GameObject _bulletShot = GameObject.Instantiate(_myBullet, _instancePosition, Quaternion.identity);
             _bulletShot.GetComponent<McAfeeBullet>().SetDirection(SetBulletDirection());
@@ -53,9 +50,6 @@ public class McAfeeComponent : MonoBehaviour
             canShoot = false;
             _elapsedTime = _shootCooldown;
         }
-
-        
-
     }
 
     // Asignar la dirección de la bala
@@ -64,6 +58,12 @@ public class McAfeeComponent : MonoBehaviour
         //La direccion de la bala dependera de hacia donde mire el McAfees
         if (lookingRight) return Vector3.right;
         else return Vector3.left;
+    }
+
+    // Desactiva el collider de detección de diparo cuando muere
+    public void Death()
+    {
+        _myDetector.enabled = false;
     }
     #endregion
 
