@@ -17,7 +17,7 @@ public class DamageObjectComponent : MonoBehaviour
 
         if (_playerGun != null)
         {
-            //_boss.SetActive(true);
+            _boss.SetActive(true);
             _playerGun.SetDmgShoot();
             GameManager.Instance.OnDmgShootActivate();
             _myAnimator.SetBool("Picked", true);

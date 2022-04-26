@@ -36,27 +36,30 @@ public class PauseMenu : MonoBehaviour
     // Mostrar controles
     public void ControllsMenu()
     {
-        EventSystem.current.SetSelectedGameObject(_backControllsButton);
         _pauseSFX.PlayOneShot(_pauseSounds);
         _pauseUI.SetActive(false);
         _controllsUI.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(_backControllsButton);
         _controllsTransform.localPosition = new Vector3(0, 0, 0);
     }
 
     // Mostrar las opciones
     public void OptionsMenu()
     {
-        EventSystem.current.SetSelectedGameObject(_backOptionsButton);
         _pauseSFX.PlayOneShot(_pauseSounds);
         _pauseUI.SetActive(false);
         _optionsUI.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(_backOptionsButton);
         _optionsTransform.localPosition = new Vector3(0, 0, 0);
     }
 
     // Volver del menú de opciones y/o controles al de principal
     public void Back(string option)
     {
+        // Activar menú de pausa
         _pauseSFX.PlayOneShot(_pauseSounds);
+        _pauseUI.SetActive(true);
+
         if (option == "Options") // Si estaba en opciones
         { 
             _optionsUI.SetActive(false);
@@ -69,10 +72,6 @@ public class PauseMenu : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(_controllsButton);
             _controllsTransform.localPosition = new Vector3(1920, 0, 0);
         }
-
-        // Activar pausa y seleccionar botón
-        _pauseUI.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(_firstPauseButton);
     }
 
     // Comandos que ejecutar al salir del menú de pausa
