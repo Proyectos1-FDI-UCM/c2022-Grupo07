@@ -148,13 +148,13 @@ public class GunpointController : MonoBehaviour
         if (_objectHit)
         {
             // Debug.Log(_objectHit.transform.name);
-            EnemyLifeComponent _enemy = _objectHit.transform.GetComponent<EnemyLifeComponent>();
+            EnemyLifeComponent _enemy = _objectHit.collider.gameObject.GetComponent<EnemyLifeComponent>();
             if (_enemy != null) _enemy.Dies();
-
+            
             else
             {
-                EnemyLifeComponent _enemy2 = _objectHit.transform.GetComponentInParent<EnemyLifeComponent>();
-                if (_enemy2 != null) _enemy2.Dies();
+                NortonComponent _myNorton = _objectHit.transform.GetComponentInParent<NortonComponent>();
+                if (_myNorton != null) _myNorton.Activated();
             }
 
             _myRay.SetPosition(0, Gun.position);

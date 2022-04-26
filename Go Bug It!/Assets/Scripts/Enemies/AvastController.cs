@@ -96,30 +96,13 @@ public class AvastController : MonoBehaviour
                     if (!hit2D.collider.isTrigger)
                     {
                         PlayerLifeComponent _player = hit2D.collider.gameObject.GetComponent<PlayerLifeComponent>();
-
                         if (_player != null) _player.CallForDamage();
 
                         EnemyLifeComponent _myEnemy = hit2D.collider.gameObject.GetComponent<EnemyLifeComponent>();
+                        if (_myEnemy != null) _myEnemy.Dies();
 
-                        if (_myEnemy != null)
-                        {
-                            NortonComponent _myNorton = hit2D.collider.gameObject.GetComponent<NortonComponent>();
-
-                            if (_myNorton != null) _myNorton.Activated();
-                            else _myEnemy.Dies();
-                        }
-                    }
-                    else
-                    {
-                        DetectionComponent _detectionNorton = hit2D.collider.gameObject.GetComponent<DetectionComponent>();
-                        if (_detectionNorton != null) _detectionNorton.GetComponentInParent<NortonComponent>().Activated();
-                        /*
-                        PrivShieldController _playerShield = hit2D.collider.gameObject.GetComponent<PrivShieldController>();
-                        if (_playerShield != null)
-                        {
-                            StartCoroutine(DestroyingShield());
-                            _playerShield.GetComponentInParent<PowerUpController>().ShieldControl(false);
-                        }*/
+                        NortonComponent _myNorton = hit2D.collider.gameObject.GetComponent<NortonComponent>();
+                        if (_myNorton != null) _myNorton.Activated();
                     }
                 }
                 

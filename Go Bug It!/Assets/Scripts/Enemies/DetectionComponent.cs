@@ -22,6 +22,11 @@ public class DetectionComponent : MonoBehaviour
             else if (!_isMcAfee) _myNorton.Activated();
         }
     }
+
+    public bool WhichEnemy()
+    {
+        return _isMcAfee;
+    }
     #endregion
 
     public bool NeuState()
