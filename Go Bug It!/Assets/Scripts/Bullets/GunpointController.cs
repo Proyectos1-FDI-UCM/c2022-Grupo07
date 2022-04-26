@@ -149,9 +149,14 @@ public class GunpointController : MonoBehaviour
         {
             // Debug.Log(_objectHit.transform.name);
             EnemyLifeComponent _enemy = _objectHit.transform.GetComponent<EnemyLifeComponent>();
-
             if (_enemy != null) _enemy.Dies();
-            
+
+            else
+            {
+                EnemyLifeComponent _enemy2 = _objectHit.transform.GetComponentInParent<EnemyLifeComponent>();
+                if (_enemy2 != null) _enemy2.Dies();
+            }
+
             _myRay.SetPosition(0, Gun.position);
             _myRay.SetPosition(1, _objectHit.point);
         }

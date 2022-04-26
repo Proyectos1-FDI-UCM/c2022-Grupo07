@@ -11,6 +11,7 @@ public class ActivationAreaComponent : MonoBehaviour
         PlayerLifeComponent _myPlayer = collision.gameObject.GetComponent<PlayerLifeComponent>();
 
         if (_myPlayer != null && !_myPlayer.gameObject.GetComponent<PowerUpController>().IsShieldActive()) _myPlayer.CallForDamage();
+        else if (_myPlayer != null && _myPlayer.gameObject.GetComponent<PowerUpController>().IsShieldActive()) _myPlayer.GetComponent<PowerUpController>().ShieldControl(false);
 
         // Si es un enemigo
         EnemyLifeComponent _myEnemy = collision.gameObject.GetComponent<EnemyLifeComponent>();

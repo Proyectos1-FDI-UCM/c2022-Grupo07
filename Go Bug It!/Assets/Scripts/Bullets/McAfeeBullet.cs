@@ -20,6 +20,8 @@ public class McAfeeBullet : MonoBehaviour
         //Al chocarme con el player le hago daño
         PlayerLifeComponent _myPlayer = collision.gameObject.GetComponent<PlayerLifeComponent>();
         NortonComponent _myNorton = collision.gameObject.GetComponentInParent<NortonComponent>();
+        PrivShieldController playerShield = collision.gameObject.GetComponent<PrivShieldController>();
+        LifeTimeController _otherBullet = collision.gameObject.GetComponent<LifeTimeController>();
 
         if (!collision.isTrigger)
         {
@@ -27,6 +29,20 @@ public class McAfeeBullet : MonoBehaviour
             if (_myPlayer != null) _myPlayer.CallForDamage();
             else if (_myNorton != null) _myNorton.Activated();
             Destroy(gameObject);
+        }
+        if (collision.isTrigger)
+        {
+            if (playerShield != null)
+            {
+                playerShield.GetComponentInParent<PowerUpController>().ShieldControl(false);
+                Destroy(gameObject);
+            }
+
+            else if (_otherBullet != null)
+            {
+                Destroy(collision.gameObject);
+                Destroy(gameObject);
+            }
         }
     }
 

@@ -12,7 +12,7 @@ public class PrivShieldController : MonoBehaviour
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 6) _myPowerUpController.ShieldControl(false);
+        if (collision.gameObject.layer == 6 && !collision.isTrigger) _myPowerUpController.ShieldControl(false);
     }
     #endregion
 
