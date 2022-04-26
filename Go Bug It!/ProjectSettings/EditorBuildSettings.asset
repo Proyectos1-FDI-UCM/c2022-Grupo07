@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Debug Scenes/Interacci\xF3nEnemigos.unity"
     guid: cca1e120279e4684fad9adcceb1d4047
+  - enabled: 1
+    path: Assets/Scenes/Debug Scenes/PowerUps.unity
+    guid: afdff728ca06e144481727a89016546c
   m_configObjects: {}
