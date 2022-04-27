@@ -101,8 +101,8 @@ public class GameManager : MonoBehaviour
     IEnumerator RetryTransition(string scene)
     {
         // Activar UI y transición
-        _myUIObject.SetActive(true);
         _myUIManager.SetTransition(true);
+        _myUIObject.SetActive(true);
         yield return new WaitForSeconds(1.5f);
 
         // if (scene != "Tutorial") DestroyOnLoad(); // Si es el tutorial, destruir DontDestroyOnLoad
@@ -125,8 +125,8 @@ public class GameManager : MonoBehaviour
     // Reintentar el nivel
     public void OnRetry(string scene, float newTime)
     {
-        _myUIObject.SetActive(true);
         _myUIManager.SetTransition(false);
+        _myUIObject.SetActive(true);
         _timeLeft = newTime;
         StartCoroutine(RetryTransition(scene));
     }
