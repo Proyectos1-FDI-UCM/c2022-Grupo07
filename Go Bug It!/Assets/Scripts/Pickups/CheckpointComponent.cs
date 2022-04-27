@@ -9,7 +9,7 @@ public class CheckpointComponent : MonoBehaviour
     private Transform _myTransform;
     private Collider2D _myCollider;
     private Animator _myAnimator;
-    private GameObject _myBanner;
+    private GameObject _myFloatingText;
     #endregion
 
     #region properties
@@ -26,15 +26,9 @@ public class CheckpointComponent : MonoBehaviour
             _myPlayer.SetRespawnPosition(_newRespawnPosition);
             _myCollider.enabled = false;
             _myAnimator.SetBool("activated", true);
-            StartCoroutine(CheckpointBanner());
+            _myFloatingText.SetActive(true);
+            _myFloatingText.GetComponent<FloatingTextComponent>().Appear();
         }
-    }
-
-    IEnumerator CheckpointBanner()
-    {
-        _myBanner.SetActive(true);
-        yield return new WaitForSeconds(1.67f);
-        _myBanner.SetActive(false);
     }
     #endregion
 
@@ -44,7 +38,7 @@ public class CheckpointComponent : MonoBehaviour
         _myTransform = transform;
         _myAnimator = GetComponent<Animator>();
         _myCollider = GetComponent<Collider2D>();
-        _myBanner = transform.GetChild(0).gameObject;
-        _myBanner.SetActive(false);
+        _myFloatingText = transform.GetChild(0).gameObject;
+        _myFloatingText.SetActive(false);
     }
 }

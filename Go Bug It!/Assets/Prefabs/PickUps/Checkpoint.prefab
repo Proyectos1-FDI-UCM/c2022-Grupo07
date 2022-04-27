@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4c5334b90b947d4c8aba73ad240d57e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _myFloatingText: {fileID: 3097688536433267197}
 --- !u!114 &5588112514183093150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +169,7 @@ GameObject:
   - component: {fileID: 5370000084807981273}
   - component: {fileID: 7102414031482772790}
   - component: {fileID: 1494969444986197680}
+  - component: {fileID: 3097688536433267197}
   m_Layer: 0
   m_Name: Checkpoint!
   m_TagString: Untagged
@@ -259,3 +261,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3097688536433267197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7378547865947834843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e479159fdbaf6b041a03be13eda1faae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

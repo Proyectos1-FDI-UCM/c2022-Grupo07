@@ -7,6 +7,7 @@ public class ReupCodeComponent : MonoBehaviour
 
     #region references
     private Animator _myAnimator;
+    private GameObject _myFloatingText;
     #endregion
 
     #region methods
@@ -18,7 +19,9 @@ public class ReupCodeComponent : MonoBehaviour
         {
             _myPlayer.Heal();
             _myAnimator.SetTrigger("Picked");
-            Destroy(gameObject, 0.59f);
+            _myFloatingText.SetActive(true);
+            _myFloatingText.GetComponent<FloatingTextComponent>().Appear();
+            Destroy(gameObject, 1.67f);
         }
     }
     #endregion
@@ -27,5 +30,7 @@ public class ReupCodeComponent : MonoBehaviour
     void Start()
     {
         _myAnimator = GetComponent<Animator>();
+        _myFloatingText = transform.GetChild(0).gameObject;
+        _myFloatingText.SetActive(false);
     }
 }

@@ -109,6 +109,7 @@
     <Compile Include="Assets\Scripts\Bullets\LifeTimeController.cs" />
     <Compile Include="Assets\Scripts\Pickups\ReupCodeComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\GravEnemyComponent.cs" />
+    <Compile Include="Assets\Scripts\Pickups\FloatingTextComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\AssemblyDefinition.asmdef" />
