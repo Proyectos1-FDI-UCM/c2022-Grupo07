@@ -10,7 +10,7 @@ public class SpamComponent : MonoBehaviour
     #endregion
 
     #region methods
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         PowerUpController _myplayer = collision.gameObject.GetComponent<PowerUpController>();
 

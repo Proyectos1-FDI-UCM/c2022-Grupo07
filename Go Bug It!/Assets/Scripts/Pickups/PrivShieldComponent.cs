@@ -10,7 +10,7 @@ public class PrivShieldComponent : MonoBehaviour
     #endregion
 
     #region methods
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerStay2D(Collider2D collision)
     {
         PowerUpController _myPlayer = collision.gameObject.GetComponent<PowerUpController>();
 
