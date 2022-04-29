@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5370059319247504662}
   - component: {fileID: 8475894760070715565}
   - component: {fileID: 7014193241950246421}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: NeuBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 2605744409412045724}
   - component: {fileID: 6275680783233426216}
   - component: {fileID: 2676201588204428917}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: NeuBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

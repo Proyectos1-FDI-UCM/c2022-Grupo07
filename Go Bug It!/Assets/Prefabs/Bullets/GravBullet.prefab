@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2961185096567123888}
   - component: {fileID: 4239304138936502422}
   - component: {fileID: 502954455183045040}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GravBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 2605744409412045724}
   - component: {fileID: -9064116540444624523}
   - component: {fileID: 4863509118200628711}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GravBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
