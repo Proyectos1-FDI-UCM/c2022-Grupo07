@@ -12,13 +12,14 @@ public class StartMenu : MonoBehaviour
     private GameObject _initialFlash;
     private GameObject _ñintendo;
     private GameObject _authors;
-    private GameObject _message;
+    [SerializeField] private GameObject GameManager;
     #endregion
 
     #region methods
     //Carga la escena del tutorial (primer nivel)
     public void StartGame()
     {
+        GameManager.SetActive(true);
         SceneManager.LoadScene("Tutorial");
     }
 
@@ -54,10 +55,9 @@ public class StartMenu : MonoBehaviour
     void Start()
     {
         // Obtener GameObjects del menú
-        _message = transform.GetChild(3).gameObject;
-        _initialFlash = transform.GetChild(4).gameObject;
-        _ñintendo = transform.GetChild(5).gameObject;
-        _authors = transform.GetChild(6).gameObject;
+        _initialFlash = transform.GetChild(3).gameObject;
+        _ñintendo = transform.GetChild(4).gameObject;
+        _authors = transform.GetChild(5).gameObject;
 
         // Asegurarse de que no se selecciona ningún botón de base
         EventSystem.current.SetSelectedGameObject(null);
@@ -69,6 +69,10 @@ public class StartMenu : MonoBehaviour
     void Update()
     {
         // if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.B) && Input.GetKey(KeyCode.U) && Input.GetKey(KeyCode.G)) SceneManager.LoadScene("Debug");
-        if ((Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.N)) || ((Input.GetKeyDown(KeyCode.JoystickButton4) && Input.GetKeyDown(KeyCode.JoystickButton5)))) SceneManager.LoadScene("Debug");
+        if ((Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.N)) || ((Input.GetKeyDown(KeyCode.JoystickButton4) && Input.GetKeyDown(KeyCode.JoystickButton5))))
+        {
+            GameManager.SetActive(true);
+            SceneManager.LoadScene("Debug");
+        }
     }
 }

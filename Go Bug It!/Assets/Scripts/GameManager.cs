@@ -18,13 +18,13 @@ public class GameManager : MonoBehaviour
     static private GameManager _instance;
     static public GameManager Instance { get { return _instance; } }
     // UI
-    [SerializeField] private GameObject _myUIObject;
+    private GameObject _myUIObject;
     private UIManager _myUIManager;
     // Pausa
-    [SerializeField] private GameObject _myPauseObject;
+    private GameObject _myPauseObject;
     private PauseMenu _myPause;
     // Jugador
-    [SerializeField] private GameObject _player;
+    private GameObject _player;
     private PlayerLifeComponent _myPlayerLife;
     // Boss
     private BossLifeController _boss;
@@ -92,12 +92,11 @@ public class GameManager : MonoBehaviour
         // Cargar siguiente escena
         _scene = SceneManager.GetActiveScene().name;
         DontDestroyOnLoad(this);
-        DontDestroyOnLoad(_myUIManager.gameObject);
-        DontDestroyOnLoad(_myPauseObject.gameObject);
         SceneManager.LoadScene(scene);
         _myUIManager.SetTransition(false);
     }
 
+    // Lo llama el Game Over
     IEnumerator RetryTransition(string scene)
     {
         // Activar UI y transición
@@ -131,15 +130,32 @@ public class GameManager : MonoBehaviour
         StartCoroutine(RetryTransition(scene));
     }
 
-    // Registro del jugador en el GameManager
+    /* Registro del jugador en el GameManager
     public void PlayerRegistration(PlayerLifeComponent player)
     {
         _myPlayerLife = player;
-    }
+    } */
 
+    // Registrar a la instancia del nivel del player
     public void PLayerRegistrationTrue(GameObject player)
     {
         _player = player;
+        _myPlayerLife = _player.GetComponent<PlayerLifeComponent>();
+    }
+
+    // Registrar a la instancia del nivel de la UI
+    public void UIRegistration(GameObject UI)
+    {
+        _myUIObject = UI;
+        _myUIManager = _myUIObject.GetComponent<UIManager>();
+    }
+
+    // Registrar a la instancia del nivel de la UI
+    public void PauseRegistration(GameObject pause)
+    {
+        _myPauseObject = pause;
+        _myPause = _myPauseObject.GetComponent<PauseMenu>();
+        _myPauseObject.SetActive(false);
     }
 
     // Actualiza la puntuación y llama la UI
@@ -245,8 +261,6 @@ public class GameManager : MonoBehaviour
     // Destruye la UI, el menú de pausa y a sí mismo para volver al menú principal
     public void MainMenu()
     {
-        Destroy(_myUIObject);
-        Destroy(_myPauseObject);
         Destroy(gameObject);
     }
     #endregion
@@ -263,22 +277,22 @@ public class GameManager : MonoBehaviour
     {
         _spam = false;
         _timeLeft = 300.0f;
-        _myUIManager = _myUIObject.GetComponent<UIManager>();
-        _myPause = _myPauseObject.transform.GetChild(0).GetComponent<PauseMenu>();
-        _myPauseObject.SetActive(false);
         _boss = gameObject.GetComponent<BossLifeController>();
-        // _gameOverScreen = _myGameOver.GetComponent<GameOver>();
+        DontDestroyOnLoad(this.gameObject);
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         if (_timeLeft <= 0) OnPlayerDies();
         else
         {
             _timeLeft -= Time.deltaTime;
             _myUIManager.UpdateTime((int)_timeLeft);
         }
+        */
         Spammed();//Comprueba constantemente si el spam está activado
     }
 }

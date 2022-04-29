@@ -109,6 +109,8 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.PauseRegistration(gameObject);
+
         // Inicializar variable de posición
         _optionsTransform = _optionsUI.transform;
         _controllsTransform = _controllsUI.transform;

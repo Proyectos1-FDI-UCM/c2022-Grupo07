@@ -195,7 +195,7 @@ public class PlayerLifeComponent : MonoBehaviour
     void Start()
     {
         // Registro en el GameManager
-        GameManager.Instance.PlayerRegistration(this);
+        // GameManager.Instance.PlayerRegistration(this);
         GameManager.Instance.PLayerRegistrationTrue(this.gameObject);
         
         // Inicialización de variables

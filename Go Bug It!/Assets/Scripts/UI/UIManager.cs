@@ -132,7 +132,11 @@ public class UIManager : MonoBehaviour
     // Activa o desactiva el menu de pausa en función de si estaba o no activado previamente
     public void Pause()
     {
-        if (!_pauseMenu.activeInHierarchy) _pauseMenu.SetActive(true);
+        if (!_pauseMenu.activeInHierarchy)
+        {
+            _pauseMenu.SetActive(true);
+            _pauseMenu.transform.GetChild(0).gameObject.SetActive(true);
+        }
         else if (_pauseMenu.activeInHierarchy)
         {
             _pauseFirstScreen.ExitingPause();
@@ -236,6 +240,9 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Debug") gameObject.SetActive(false);
+        else GameManager.Instance.UIRegistration(gameObject);
+
         // Inicializar el menú de pausa
         _pauseFirstScreen = _pauseMenu.transform.GetChild(0).GetComponent<PauseMenu>();
 
