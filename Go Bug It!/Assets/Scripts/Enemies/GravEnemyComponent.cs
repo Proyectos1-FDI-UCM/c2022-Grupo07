@@ -25,6 +25,7 @@ public class GravEnemyComponent : MonoBehaviour
     {
         GravBulletComponent _gravBullet = collision.gameObject.GetComponent<GravBulletComponent>();
         NeuBulletComponent _neuBullet = collision.gameObject.GetComponent<NeuBulletComponent>();
+        DmgBulletComponent _DmgBullet = collision.gameObject.GetComponent<DmgBulletComponent>();
         //Si me colisiona una bala de grav cambio de gravedad
         if (_gravBullet != null)
         {
@@ -32,7 +33,7 @@ public class GravEnemyComponent : MonoBehaviour
             StartCoroutine(ChanGrav());
         }
         //Si me colisiona una bala de neu y soy WD muestro que soy inmune
-        else if (_neuBullet != null && _isWD)
+        else if ((_neuBullet != null||_DmgBullet!=null) && _isWD)
         {
             _myAnimator.SetBool("NeuBullet", true);
             StartCoroutine(WDInmune());
