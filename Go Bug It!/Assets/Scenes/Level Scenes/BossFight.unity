@@ -315,7 +315,7 @@ PrefabInstance:
     - target: {fileID: 6563789564862256953, guid: 95f4955655946734da5ec356365ffa30, type: 3}
       propertyPath: _prefab
       value: 
-      objectReference: {fileID: 6541345085416083710, guid: 3dac1fc74e4d7aa4680a737f343975e2, type: 3}
+      objectReference: {fileID: 6541345085416083710, guid: 73971564fea5bd442ab9a265e7959a0b, type: 3}
     - target: {fileID: 6563789564862256953, guid: 95f4955655946734da5ec356365ffa30, type: 3}
       propertyPath: _respawnTimer
       value: 12.5
