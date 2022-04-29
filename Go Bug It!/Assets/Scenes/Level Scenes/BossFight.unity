@@ -406,6 +406,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7272931317619996392, guid: 95f4955655946734da5ec356365ffa30, type: 3}
+    - {fileID: 3913996855269257977, guid: 95f4955655946734da5ec356365ffa30, type: 3}
+    - {fileID: 9063203412778340460, guid: 95f4955655946734da5ec356365ffa30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 95f4955655946734da5ec356365ffa30, type: 3}
 --- !u!120 &982983166 stripped
 LineRenderer:
@@ -578,7 +580,7 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 0.5
+    m_Time: 1
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []

@@ -18,12 +18,10 @@ public class DmgBulletComponent : MonoBehaviour
 
         if (_enemy != null)
         {
-
                 _myMovementController.enabled = false;
                 transform.GetChild(0).localScale = new Vector3(0.5f, 0.5f, 0);
                 _myAnimator.SetBool("OnEnemyCollision", true);
-            if (_enemy.gameObject.GetComponent<McAfeeComponent>() == null && _enemy.gameObject.GetComponent<NortonComponent>() == null) { }
-            else _enemy.Dies();
+            if (_enemy.gameObject.GetComponentInParent<McAfeeComponent>() != null || _enemy.gameObject.GetComponentInParent<NortonComponent>() != null) _enemy.Dies();
             Destroy(gameObject, 0.5f);
             
 
