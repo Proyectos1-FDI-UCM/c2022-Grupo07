@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WhileTrueController : MonoBehaviour
 {
-
     #region methods
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -25,7 +24,10 @@ public class WhileTrueController : MonoBehaviour
 
         // Colisión con el jugador
         PlayerLifeComponent _player = collision.gameObject.GetComponent<PlayerLifeComponent>();
-        if (_player != null) _player.CallForDamage();
+        if (_player != null)
+        {
+            _player.CallForDamage();
+        }
     }
     #endregion
 
