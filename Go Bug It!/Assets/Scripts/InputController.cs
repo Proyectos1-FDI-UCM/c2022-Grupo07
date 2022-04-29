@@ -45,6 +45,8 @@ public class InputController : MonoBehaviour
     private float _shoot;
     // private float _pause;
     private int _typeShoot = 0;
+    private float _dashGrav_offset=0.5f;
+    private float _elapsed_dashGrav_offset=0;
     #endregion
 
     #region methods
@@ -129,17 +131,22 @@ public class InputController : MonoBehaviour
         _movController.SetMovementDirection(_horizontal);
 
         // Cambio de gravedad
-        if (_elapsedGrav > _gravCooldown && _isGrounded && _jump > 0 && !_movController._dash) //Si presiono espacio, estoy tocando una superficie y no estoy en mitad de un dash...
+        if (_elapsedGrav > _gravCooldown && _isGrounded && _jump > 0 && !_movController._dash && _elapsed_dashGrav_offset > _dashGrav_offset) //Si presiono espacio, estoy tocando una superficie y no estoy en mitad de un dash...
         {
             _changeGravity = !_changeGravity;                       //Negamos el booleano gravedad para q ahora sea lo contrario
             _myGravityComponent.ChangeGravity(_changeGravity);      //Llamamos al metodo ChangeGravity del script de gravedad
             StartCoroutine(changeGrav());
             _elapsedGrav = 0;
+            _elapsed_dashGrav_offset = 0;
         }
-        else _elapsedGrav += Time.deltaTime;
+        else
+        {
+            _elapsedGrav += Time.deltaTime;
+            _elapsed_dashGrav_offset += Time.deltaTime;
+        }
 
         // Dash
-        if (_elapseDash > _dashCooldown)
+        if (_elapseDash > _dashCooldown && _elapsed_dashGrav_offset>_dashGrav_offset)
         {
             GameManager.Instance.OnDashUpdate(true);
             if (_dash > 0)
@@ -149,12 +156,19 @@ public class InputController : MonoBehaviour
                 _movController.SetDash();
                 _playerInputSFX.PlayOneShot(_audioClips[0]);//Hace dash
                 _elapseDash = 0;
+                _elapsed_dashGrav_offset = 0;
                 _myAnimator.SetBool("Dash", true);
                 StartCoroutine(changeDash());
                 GameManager.Instance.OnDashUpdate(false);
             }
         }
-        else if (_isGrounded) _elapseDash += Time.deltaTime;
+        else
+        {
+            if (_isGrounded) _elapseDash += Time.deltaTime;
+            _elapsed_dashGrav_offset += Time.deltaTime;
+
+        }
+
 
         // Selección de disparo
         if (_elapsedSelect > _shotSelectCooldown && _selectShot > 0)
