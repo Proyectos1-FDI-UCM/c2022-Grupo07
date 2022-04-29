@@ -24,10 +24,14 @@ public class NeuBulletComponent : MonoBehaviour
         }
         if (!collision.isTrigger)
         {
-            _myMovementController.enabled = false;
-            transform.GetChild(0).localScale = new Vector3(0.3f, 0.3f, 0);
-            _myAnimator.SetBool("OnWallCollision", true);
-            Destroy(gameObject, 0.25f);
+            PlayerLifeComponent _myPlayer = collision.gameObject.GetComponent<PlayerLifeComponent>();
+            if (_myPlayer == null)
+            {
+                _myMovementController.enabled = false;
+                transform.GetChild(0).localScale = new Vector3(0.3f, 0.3f, 0);
+                _myAnimator.SetBool("OnWallCollision", true);
+                Destroy(gameObject, 0.25f);
+            }
         } 
     }
     #endregion
