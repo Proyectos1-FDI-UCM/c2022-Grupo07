@@ -7,6 +7,11 @@ public class StackPointerComponent : MonoBehaviour
 
     #region references
     private Animator _myAnimator;
+    private GameObject _myText;
+    #endregion
+
+    #region properties
+    private float _duration = 0.92f;
     #endregion
 
     #region methods
@@ -20,7 +25,9 @@ public class StackPointerComponent : MonoBehaviour
             {
                 _myPlayer.StackPointerControl(true);
                 _myAnimator.SetTrigger("Picked");
-                Destroy(gameObject, 0.92f);
+                _myText.SetActive(true);
+                _myText.GetComponent<FloatingTextComponent>().Appear(_duration);
+                Destroy(gameObject, _duration);
             }
         }
     }
@@ -30,5 +37,7 @@ public class StackPointerComponent : MonoBehaviour
     void Start()
     {
         _myAnimator = GetComponent<Animator>();
+        _myText = transform.GetChild(0).gameObject;
+        _myText.SetActive(false);
     }
 }

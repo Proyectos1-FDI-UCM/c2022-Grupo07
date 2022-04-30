@@ -7,6 +7,11 @@ public class SpamComponent : MonoBehaviour
 
     #region references
     private Animator _myAnimator;
+    private GameObject _mytext;
+    #endregion
+
+    #region properties
+    private float _duration = 0.59f;
     #endregion
 
     #region methods
@@ -20,7 +25,9 @@ public class SpamComponent : MonoBehaviour
             {
                 _myplayer.SpamControl(true);
                 _myAnimator.SetTrigger("Picked");
-                Destroy(gameObject, 0.59f);
+                _mytext.SetActive(true);
+                _mytext.GetComponent<FloatingTextComponent>().Appear(_duration);
+                Destroy(gameObject, _duration);
             }
         }
     }
@@ -31,5 +38,7 @@ public class SpamComponent : MonoBehaviour
     void Start()
     {
         _myAnimator = GetComponent<Animator>();
+        _mytext = transform.GetChild(0).gameObject;
+        _mytext.SetActive(false);
     }
 }

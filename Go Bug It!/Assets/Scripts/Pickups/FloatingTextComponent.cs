@@ -9,14 +9,14 @@ public class FloatingTextComponent : MonoBehaviour
     #endregion
 
     #region methods
-    public void Appear()
+    public void Appear(float duration)
     {
-        StartCoroutine(ObjectBanner());
+        StartCoroutine(ObjectBanner(duration));
     }
 
-    IEnumerator ObjectBanner()
+    IEnumerator ObjectBanner(float duration)
     {
-        yield return new WaitForSeconds(1.67f);
+        yield return new WaitForSeconds(duration);
         _myBanner.SetActive(false);
     }
     #endregion

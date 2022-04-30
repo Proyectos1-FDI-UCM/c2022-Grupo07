@@ -7,6 +7,11 @@ public class DecryptComponent : MonoBehaviour
 
     #region references
     private Animator _myAnimator;
+    private GameObject _myText;
+    #endregion
+
+    #region properties
+    private float _duration = 0.67f;
     #endregion
 
     #region methods
@@ -18,7 +23,9 @@ public class DecryptComponent : MonoBehaviour
         {
             _myPlayer.SetElapsedDash(10); //Setea el cooldown para que se disponga del dash de nuevo.
             _myAnimator.SetTrigger("Picked");
-            Destroy(gameObject, 0.67f);
+            _myText.SetActive(true);
+            _myText.GetComponent<FloatingTextComponent>().Appear(_duration);
+            Destroy(gameObject, _duration);
         }
     }
     #endregion
@@ -27,5 +34,7 @@ public class DecryptComponent : MonoBehaviour
     void Start()
     {
         _myAnimator = GetComponent<Animator>();
+        _myText = transform.GetChild(0).gameObject;
+        _myText.SetActive(false);
     }
 }
