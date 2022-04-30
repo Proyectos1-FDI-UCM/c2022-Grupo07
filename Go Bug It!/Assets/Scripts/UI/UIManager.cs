@@ -12,9 +12,6 @@ public class UIManager : MonoBehaviour
     private GameObject _shotsCorner;
     // Vida
     private Image[] _hearts = new Image[4];
-    // Tiempo
-    private Text _timeText;
-    private Animator _timeAnim;
     // Puntos
     private Text _pointsText;
     // Disparos
@@ -32,8 +29,6 @@ public class UIManager : MonoBehaviour
     // Pausa
     [SerializeField] private GameObject _pauseMenu;
     private PauseMenu _pauseFirstScreen;
-    // TIME!
-    private GameObject _TIME;
     // Transitions
     private GameObject _damageTransition;
     private GameObject _endTransition;    
@@ -62,19 +57,6 @@ public class UIManager : MonoBehaviour
         _damageTransition.SetActive(true);
         yield return new WaitForSeconds(1.1f);
         _damageTransition.SetActive(false);
-    }
-
-    // Actualizar cronómetro
-    public void UpdateTime(int time)
-    {
-        // Mantener ceros a la izquierda según el nº de dígitos
-        if (time >= 100) _timeText.text = "" + time;
-        else if (time >= 10)
-        {
-            _timeText.text = "0" + time;
-            if (time < 30) _timeAnim.SetBool("Bellow", true);
-        }
-        else _timeText.text = "00" + time;
     }
 
     // Actualizar puntos en la UI
@@ -136,26 +118,13 @@ public class UIManager : MonoBehaviour
         {
             _pauseMenu.SetActive(true);
             _pauseMenu.transform.GetChild(0).gameObject.SetActive(true);
+            _pauseMenu.transform.GetChild(0).GetComponent<PauseMenu>().EnterPause();
         }
         else if (_pauseMenu.activeInHierarchy)
         {
             _pauseFirstScreen.ExitingPause();
             _pauseMenu.SetActive(false);
         }
-    }
-
-    // Llama a la corrutina del rotulo TIME!
-    public void Time()
-    {
-        StartCoroutine(TimeCoroutine());
-    }
-
-    // Activa el rotulo TIME!, espera y carga la escena de GameOver
-    IEnumerator TimeCoroutine()
-    {
-        _TIME.SetActive(true);
-        yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("GameOver");
     }
 
     // Cambia el sprite del indicador del dash según si se puede o no hacer
@@ -176,7 +145,7 @@ public class UIManager : MonoBehaviour
         _shotsObj[2].SetActive(true);
 
         // Reposicionar la esquina y el indicador de dash y aplicar animaciones
-        _shotsCorner.transform.localPosition = new Vector3(1040, -490, 0);
+        _shotsCorner.transform.localPosition = new Vector3(1040, 482, 0);
         _shotsCorner.GetComponent<Animator>().SetTrigger("DmgShoot");
         _dashInd.transform.localPosition = new Vector3(813, 46, 0);
     }
@@ -198,50 +167,41 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         // Inicializar esquina derecha para su posterior manipulación
-        _shotsCorner = gameObject.transform.GetChild(0).GetChild(3).gameObject;
+        _shotsCorner = gameObject.transform.GetChild(0).GetChild(1).gameObject;
 
         // Inicializar vida
         for (int i = 0; i < _hearts.Length; i++) _hearts[i] = gameObject.transform.GetChild(1).GetChild(i).GetComponent<Image>();
 
-        // Inicializar temporizador
-        _timeText = gameObject.transform.GetChild(2).GetChild(1).GetComponent<Text>();
-        _timeAnim = gameObject.transform.GetChild(2).GetChild(1).GetComponent<Animator>();
-
         // Inicializar puntos
-        _pointsText = gameObject.transform.GetChild(3).GetComponent<Text>();
+        _pointsText = gameObject.transform.GetChild(2).GetComponent<Text>();
 
         // Inicializar disparos
         for (int i = 0; i < _shotsImg.Length; i++)
         {
-            _shotsObj[i] = gameObject.transform.GetChild(4).GetChild(i).gameObject; // Objeto
+            _shotsObj[i] = gameObject.transform.GetChild(3).GetChild(i).gameObject; // Objeto
             _shotsImg[i] = _shotsObj[i].GetComponent<Image>();                      // Imagen del disparo
         }
         _shotsObj[2].SetActive(false); // Desactivar disparo damage
 
         // Inicializar dash
-        _dashInd = gameObject.transform.GetChild(4).GetChild(3).gameObject;
+        _dashInd = gameObject.transform.GetChild(3).GetChild(3).gameObject;
 
         // Inicializar slider de powerup, imagen de powerup y desactivarlos
-        _powerupObject = gameObject.transform.GetChild(5).gameObject;
+        _powerupObject = gameObject.transform.GetChild(4).gameObject;
         _powerupObject.SetActive(false);
         _powerupSlider = _powerupObject.transform.GetChild(0).GetComponent<Slider>();
         _powerupIcon = _powerupObject.transform.GetChild(1).GetComponent<Image>();
 
-        // Inicializar rotulo TIME! y desactivarlo
-        _TIME = gameObject.transform.GetChild(6).gameObject;
-        _TIME.SetActive(false);
-
         // Inicializar transiciones de daño y fin
-        _damageTransition = transform.GetChild(7).gameObject;
+        _damageTransition = transform.GetChild(5).gameObject;
         _damageTransition.SetActive(false);
-        _endTransition = transform.GetChild(8).gameObject;
+        _endTransition = transform.GetChild(6).gameObject;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Debug") gameObject.SetActive(false);
-        else GameManager.Instance.UIRegistration(gameObject);
+        GameManager.Instance.UIRegistration(gameObject);
 
         // Inicializar el menú de pausa
         _pauseFirstScreen = _pauseMenu.transform.GetChild(0).GetComponent<PauseMenu>();

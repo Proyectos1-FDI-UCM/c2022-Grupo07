@@ -7,7 +7,6 @@ public class BackDoorComponent : MonoBehaviour
 
     #region parameters
     [SerializeField] string _nextSecene = "";
-    [SerializeField] float _newLevelDuration = 60;
     #endregion
 
     #region methods
@@ -17,7 +16,7 @@ public class BackDoorComponent : MonoBehaviour
 
         if (_myPlayer != null)
         {
-            GameManager.Instance.OnGoalAdvance(_nextSecene, _newLevelDuration);
+            GameManager.Instance.OnGoalAdvance(_nextSecene);
             Destroy(gameObject);
         }
     }

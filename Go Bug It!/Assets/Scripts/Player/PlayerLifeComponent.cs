@@ -105,6 +105,7 @@ public class PlayerLifeComponent : MonoBehaviour
 
         // Llamada al método de daño
         Damage();
+        Debug.Log("m");
         if (_currLife >= 1) _playerLifeSFX.PlayOneShot(_audioClips[0]);//Hit
 
         // Activar animación de idle, movimiento y físicas
@@ -124,7 +125,6 @@ public class PlayerLifeComponent : MonoBehaviour
     private void Damage()
     {
         // Actualizar vida
-        
         _currLife -= _hitDamage;
 
         if (_currLife <= 0) Dies(); // Si muere, llamada al método de muerte
@@ -160,19 +160,10 @@ public class PlayerLifeComponent : MonoBehaviour
         _playerLifeSFX.PlayOneShot(_audioClips[1]);//Heal
     }
 
-    // Curación completa
-    public void FullyHealing()
-    {
-        int j = _playerLife - _currLife;
-        for (int i = 0; i < j; i++) Heal();
-    }
-
     // Muerte del jugador
     public void Dies()
     {
         _myAnimator.SetBool("Dies", true);
-        _myInput.enabled = false;
-        _myRigidbody.velocity = new Vector2(0, 0);
 
         if (_isDying)
         {
@@ -180,6 +171,7 @@ public class PlayerLifeComponent : MonoBehaviour
             _isDying = false;
         }
         Destroy(gameObject, 1.1f);
+
         GameManager.Instance.OnPlayerDies();
     }
 
@@ -194,9 +186,7 @@ public class PlayerLifeComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Registro en el GameManager
-        // GameManager.Instance.PlayerRegistration(this);
-        GameManager.Instance.PLayerRegistrationTrue(this.gameObject);
+        GameManager.Instance.PlayerRegistrationTrue(gameObject);
         
         // Inicialización de variables
         _currLife = _playerLife;
