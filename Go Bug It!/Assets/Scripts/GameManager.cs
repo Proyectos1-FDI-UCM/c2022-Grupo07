@@ -7,9 +7,9 @@ public class GameManager : MonoBehaviour
 {
 
     #region parameters
+    // Puntuación
     int _points = 0;
-    // Temporizador del nivel
-    private float _timeLeft;
+    // Factor de ralentización
     public float _slowtimeFactor;
     #endregion
 
@@ -18,19 +18,15 @@ public class GameManager : MonoBehaviour
     static private GameManager _instance;
     static public GameManager Instance { get { return _instance; } }
     // UI
-    [SerializeField] private GameObject _myUIObject;
+    private GameObject _myUIObject;
     private UIManager _myUIManager;
     // Pausa
-    [SerializeField] private GameObject _myPauseObject;
+    private GameObject _myPauseObject;
     private PauseMenu _myPause;
     // Jugador
-    [SerializeField] private GameObject _player;
-    private PlayerLifeComponent _myPlayerLife;
+    private GameObject _player;
     // Boss
     private BossLifeController _boss;
-    // GameOver
-    // [SerializeField] private GameObject ;
-    // private GameOver _gameOverScreen;
     #endregion
 
     #region properties
@@ -72,8 +68,6 @@ public class GameManager : MonoBehaviour
     IEnumerator WaitDeath()
     {
         yield return new WaitForSeconds(1.1f);
-        _myUIObject.SetActive(false);
-        _myPauseObject.SetActive(false);
         SceneManager.LoadScene("GameOver");
     }
 
@@ -92,12 +86,11 @@ public class GameManager : MonoBehaviour
         // Cargar siguiente escena
         _scene = SceneManager.GetActiveScene().name;
         DontDestroyOnLoad(this);
-        DontDestroyOnLoad(_myUIManager.gameObject);
-        DontDestroyOnLoad(_myPauseObject.gameObject);
         SceneManager.LoadScene(scene);
         _myUIManager.SetTransition(false);
     }
 
+    // Lo llama el Game Over
     IEnumerator RetryTransition(string scene)
     {
         // Activar UI y transición
@@ -114,32 +107,38 @@ public class GameManager : MonoBehaviour
     }
 
     // Avance de nivel
-    public void OnGoalAdvance(string scene, float newTime)
+    public void OnGoalAdvance(string scene)
     {
-        _myUIManager.UpdatePoints(Mathf.RoundToInt(_timeLeft) * 2);
-        _timeLeft = newTime;
-        _myPlayerLife.FullyHealing();
         StartCoroutine(LevelTransition(scene));
     }
 
     // Reintentar el nivel
-    public void OnRetry(string scene, float newTime)
+    public void OnRetry(string scene)
     {
         _myUIManager.SetTransition(false);
         _myUIObject.SetActive(true);
-        _timeLeft = newTime;
         StartCoroutine(RetryTransition(scene));
     }
 
-    // Registro del jugador en el GameManager
-    public void PlayerRegistration(PlayerLifeComponent player)
-    {
-        _myPlayerLife = player;
-    }
-
-    public void PLayerRegistrationTrue(GameObject player)
+    // Registrar a la instancia del nivel del player
+    public void PlayerRegistrationTrue(GameObject player)
     {
         _player = player;
+    }
+
+    // Registrar a la instancia del nivel de la UI
+    public void UIRegistration(GameObject UI)
+    {
+        _myUIObject = UI;
+        _myUIManager = _myUIObject.GetComponent<UIManager>();
+    }
+
+    // Registrar a la instancia del nivel del menú de pausa
+    public void PauseRegistration(GameObject pause)
+    {
+        _myPauseObject = pause;
+        _myPause = _myPauseObject.GetComponent<PauseMenu>();
+        _myPauseObject.SetActive(false);
     }
 
     // Actualiza la puntuación y llama la UI
@@ -204,8 +203,7 @@ public class GameManager : MonoBehaviour
     public void OnPlayerDies()
     {
         _scene = SceneManager.GetActiveScene().name;
-        if (_timeLeft > 0) StartCoroutine(WaitDeath()); 
-        else _myUIManager.Time();
+        StartCoroutine(WaitDeath()); 
     }
 
     // Llama a la UI para actualizar el indicador del dash según si está o no disponible
@@ -245,8 +243,6 @@ public class GameManager : MonoBehaviour
     // Destruye la UI, el menú de pausa y a sí mismo para volver al menú principal
     public void MainMenu()
     {
-        Destroy(_myUIObject);
-        Destroy(_myPauseObject);
         Destroy(gameObject);
     }
     #endregion
@@ -262,23 +258,14 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _spam = false;
-        _timeLeft = 300.0f;
-        _myUIManager = _myUIObject.GetComponent<UIManager>();
-        _myPause = _myPauseObject.transform.GetChild(0).GetComponent<PauseMenu>();
-        _myPauseObject.SetActive(false);
         _boss = gameObject.GetComponent<BossLifeController>();
-        // _gameOverScreen = _myGameOver.GetComponent<GameOver>();
+        DontDestroyOnLoad(gameObject);
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_timeLeft <= 0) OnPlayerDies();
-        else
-        {
-            _timeLeft -= Time.deltaTime;
-            _myUIManager.UpdateTime((int)_timeLeft);
-        }
         Spammed();//Comprueba constantemente si el spam está activado
     }
 }

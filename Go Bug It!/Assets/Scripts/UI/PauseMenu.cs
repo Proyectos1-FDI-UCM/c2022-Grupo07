@@ -74,6 +74,12 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    // Seleccionar botón al entrar a la pausa
+    public void EnterPause()
+    {
+        EventSystem.current.SetSelectedGameObject(_firstPauseButton);
+    }
+
     // Comandos que ejecutar al salir del menú de pausa
     public void ExitingPause()
     {
@@ -109,6 +115,8 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.PauseRegistration(gameObject);
+
         // Inicializar variable de posición
         _optionsTransform = _optionsUI.transform;
         _controllsTransform = _controllsUI.transform;
@@ -116,8 +124,6 @@ public class PauseMenu : MonoBehaviour
         // Asegurarse de que no se selecciona ningún botón de base
         EventSystem.current.SetSelectedGameObject(null);
 
-        // Asignar el botón inicial del menú
-        EventSystem.current.SetSelectedGameObject(_firstPauseButton);
         _pauseSFX = GetComponent<AudioSource>();
     }
 }

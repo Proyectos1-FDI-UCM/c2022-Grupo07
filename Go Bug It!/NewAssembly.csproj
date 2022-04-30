@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Bullets\McAfeeBullet.cs" />
     <Compile Include="Assets\Scripts\Obstacles\TeleporterComponent.cs" />
+    <Compile Include="Assets\Scripts\Pickups\FloatingTextComponent.cs" />
     <Compile Include="Assets\Scripts\Pickups\CheckpointComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyRespawnManager.cs" />
     <Compile Include="Assets\Scripts\Enemies\ActivationAreaComponent.cs" />
@@ -109,7 +110,6 @@
     <Compile Include="Assets\Scripts\Bullets\LifeTimeController.cs" />
     <Compile Include="Assets\Scripts\Pickups\ReupCodeComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\GravEnemyComponent.cs" />
-    <Compile Include="Assets\Scripts\Pickups\FloatingTextComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\AssemblyDefinition.asmdef" />

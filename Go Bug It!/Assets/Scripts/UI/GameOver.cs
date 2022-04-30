@@ -36,7 +36,7 @@ public class GameOver : MonoBehaviour
     // Carga la escena correspondiente
     public void Retry()
     {
-        GameManager.Instance.OnRetry(_retryScene, 300);
+        GameManager.Instance.OnRetry(_retryScene);
     }
 
     // Cierra la aplicación
