@@ -10,6 +10,10 @@ public class ReupCodeComponent : MonoBehaviour
     private GameObject _myFloatingText;
     #endregion
 
+    #region properties
+    private float _duration = 1.67f;
+    #endregion
+
     #region methods
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,8 +24,8 @@ public class ReupCodeComponent : MonoBehaviour
             _myPlayer.Heal();
             _myAnimator.SetTrigger("Picked");
             _myFloatingText.SetActive(true);
-            _myFloatingText.GetComponent<FloatingTextComponent>().Appear();
-            Destroy(gameObject, 1.67f);
+            _myFloatingText.GetComponent<FloatingTextComponent>().Appear(_duration);
+            Destroy(gameObject, _duration);
         }
     }
     #endregion

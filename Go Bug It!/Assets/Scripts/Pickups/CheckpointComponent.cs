@@ -27,7 +27,7 @@ public class CheckpointComponent : MonoBehaviour
             _myCollider.enabled = false;
             _myAnimator.SetBool("activated", true);
             _myFloatingText.SetActive(true);
-            _myFloatingText.GetComponent<FloatingTextComponent>().Appear();
+            _myFloatingText.GetComponent<FloatingTextComponent>().Appear(1.5f);
         }
     }
     #endregion
