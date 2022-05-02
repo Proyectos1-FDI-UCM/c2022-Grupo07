@@ -207,7 +207,11 @@ public class InputController : MonoBehaviour
         }
 
         // Debug entre niveles
-        if ((Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.N)) || ((Input.GetKeyDown(KeyCode.JoystickButton4) && Input.GetKeyDown(KeyCode.JoystickButton5)))) SceneManager.LoadScene("Debug");
+        if ((Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.N)) || ((Input.GetKeyDown(KeyCode.JoystickButton4) && Input.GetKeyDown(KeyCode.JoystickButton5))))
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("Debug");
+        }
     }
 
 }

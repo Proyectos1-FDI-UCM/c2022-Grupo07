@@ -72,6 +72,7 @@ public class StartMenu : MonoBehaviour
         if ((Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.N)) || ((Input.GetKeyDown(KeyCode.JoystickButton4) && Input.GetKeyDown(KeyCode.JoystickButton5))))
         {
             GameManager.SetActive(true);
+            Time.timeScale = 1f;
             SceneManager.LoadScene("Debug");
         }
     }
