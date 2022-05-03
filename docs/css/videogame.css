@@ -6,8 +6,10 @@ html,body {
   font-size: 18px;
 }
 body {
-  padding-bottom: 1rem;
-  color: #5a5a5a;
+    padding-bottom: 1rem;
+    color: #5a5a5a;
+    /* Fondo de pantalla gif background-image: url("img/descargar.gif");*/
+    /*background-repeat: round*/;
 }
 
 
@@ -17,7 +19,7 @@ body {
 -------------------------------------------------- */
 
 img.img-header {
-  max-height: 500px;
+  max-height: 400px;
 }
 
 
@@ -26,15 +28,16 @@ img.img-header {
 
 /* Center align the text within the three columns below the carousel */
 .marketing {
-  margin-top: 1rem;
+    margin-top: 1rem;
+    /*color: white;*/
 }
 
-.marketing h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 1rem 0;
-
-}
+    .marketing h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 1rem 0;
+        /*color: white*/;
+    }
 
 .media-item {
   margin: 1rem;
