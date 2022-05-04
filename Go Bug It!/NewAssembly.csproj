@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\UI\OptionsMenuManager.cs" />
     <Compile Include="Assets\Scripts\Obstacles\BackDoorComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyLifeComponent.cs" />
+    <Compile Include="Assets\Scripts\Enemies\ShowingNortonInteraction.cs" />
     <Compile Include="Assets\Scripts\Pickups\DecryptComponent.cs" />
     <Compile Include="Assets\Scripts\Pickups\CollectiblesComponent.cs" />
     <Compile Include="Assets\Scripts\Player\MovementController.cs" />
