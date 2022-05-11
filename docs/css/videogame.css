@@ -9,8 +9,7 @@ body {
     padding-bottom: 1rem;
     color: #ffffff;
     background-color: #000000;
-   /* Fondo de pantalla gif background-image: url("img/descargar.gif");*/
-    /*background-repeat: round;*/
+    background-repeat: round;
 }
 
 
@@ -21,7 +20,7 @@ body {
 
 img.img-header {
     max-height: 400px;
-    background-color: #000000;
+    background-color: transparent;
 }
 
 
@@ -38,7 +37,7 @@ img.img-header {
         font-size: 2rem;
         font-weight: 700;
         margin: 1rem 0;
-        /*color: white*/;
+        /*color: white;*/
     }
 
 .media-item {

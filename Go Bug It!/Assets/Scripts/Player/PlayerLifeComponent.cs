@@ -91,8 +91,8 @@ public class PlayerLifeComponent : MonoBehaviour
     // Corrutina al ser dañado
     IEnumerator hurted(float _firstWaitTime)
     {
-        // Activar animación de daño
-        _myAnimator.SetBool("Hurted", true);
+        // Activar animación de daño si no está muriendo
+        if(!_isDying) _myAnimator.SetBool("Hurted", true);
         // Deshabilitar movimiento y físicas
         _myInput.enabled = false;
         _myRigidbody.simulated = false;
@@ -105,7 +105,6 @@ public class PlayerLifeComponent : MonoBehaviour
 
         // Llamada al método de daño
         Damage();
-        Debug.Log("m");
         if (_currLife >= 1) _playerLifeSFX.PlayOneShot(_audioClips[0]);//Hit
 
         // Activar animación de idle, movimiento y físicas
@@ -163,16 +162,14 @@ public class PlayerLifeComponent : MonoBehaviour
     // Muerte del jugador
     public void Dies()
     {
-        _myAnimator.SetBool("Dies", true);
-
-        if (_isDying)
+        if (!_isDying)
         {
+            _myAnimator.SetBool("Dies", true);
             _playerLifeSFX.PlayOneShot(_audioClips[2]);//gameover
-            _isDying = false;
+            _isDying = true;
+            Destroy(gameObject, 1.1f);
+            GameManager.Instance.OnPlayerDies();
         }
-        Destroy(gameObject, 1.1f);
-
-        GameManager.Instance.OnPlayerDies();
     }
 
     // Actualiza la posición de reaparición del jugador al tocar un checkpoint
@@ -194,7 +191,7 @@ public class PlayerLifeComponent : MonoBehaviour
         _myRigidbody = GetComponent<Rigidbody2D>();
         _myInput = GetComponent<InputController>();
         _myCollider = GetComponent<BoxCollider2D>();
-         _isDying = true;
+        _isDying = false;
 
         if (_boss != null)
         {
