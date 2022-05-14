@@ -187,6 +187,7 @@ public class GameManager : MonoBehaviour
     public void Pause(bool pause)
     {
         _myUIManager.Pause();
+        _myPause.ActivateCollectibles(GetCollectibles());
         if (pause == true) Time.timeScale = 0;
         else Time.timeScale = 1;
     }
