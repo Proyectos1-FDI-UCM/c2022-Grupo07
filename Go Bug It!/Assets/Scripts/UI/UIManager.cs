@@ -116,12 +116,14 @@ public class UIManager : MonoBehaviour
     {
         if (!_pauseMenu.activeInHierarchy)
         {
+            Time.timeScale = 0;
             _pauseMenu.SetActive(true);
             _pauseMenu.transform.GetChild(0).gameObject.SetActive(true);
             _pauseMenu.transform.GetChild(0).GetComponent<PauseMenu>().EnterPause();
         }
         else if (_pauseMenu.activeInHierarchy)
         {
+            Time.timeScale = 1;
             _pauseFirstScreen.ExitingPause();
             _pauseMenu.SetActive(false);
         }

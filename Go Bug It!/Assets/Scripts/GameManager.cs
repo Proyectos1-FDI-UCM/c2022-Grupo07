@@ -142,7 +142,6 @@ public class GameManager : MonoBehaviour
     {
         _myPauseObject = pause;
         _myPause = _myPauseObject.GetComponent<PauseMenu>();
-        _myPauseObject.SetActive(false);
     }
 
     // Actualiza la puntuación y llama la UI
@@ -188,8 +187,12 @@ public class GameManager : MonoBehaviour
     {
         _myUIManager.Pause();
         _myPause.ActivateCollectibles(GetCollectibles());
-        if (pause == true) Time.timeScale = 0;
-        else Time.timeScale = 1;
+        /*if (pause == true)
+        {
+            Debug.Log("TiempoPausado");
+            Time.timeScale = 0;
+        }
+        else Time.timeScale = 1;*/
     }
 
     // Cerrar juego
