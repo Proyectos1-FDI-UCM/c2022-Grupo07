@@ -95,8 +95,7 @@ public class BossInputController : MonoBehaviour
 
     IEnumerator changeDash()
     {
-        yield return new WaitForSeconds(0.65f);
-
+        yield return new WaitForSeconds(0.15f);
         if (_myAnimator.GetBool("Dash") == true) _myAnimator.SetBool("Dash", false);
     }
     #endregion

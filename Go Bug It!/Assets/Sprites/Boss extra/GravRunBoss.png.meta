@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 42835d3c330fcdf418c26056ff591464
+guid: 629b006ba84d6004ab1a1ab898848591
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -101,11 +101,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 10392
-        width: 10368
-        height: 10344
+        y: 576
+        width: 576
+        height: 576
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -123,10 +123,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 10368
-        height: 10368
+        width: 576
+        height: 576
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
