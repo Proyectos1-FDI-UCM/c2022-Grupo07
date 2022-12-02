@@ -111,10 +111,6 @@
     <Compile Include="Assets\Scripts\Bullets\LifeTimeController.cs" />
     <Compile Include="Assets\Scripts\Pickups\ReupCodeComponent.cs" />
     <Compile Include="Assets\Scripts\Enemies\GravEnemyComponent.cs" />
-    <Compile Include="Assets\Scripts\Boss extra\MovementControllerBoss.cs" />
-    <Compile Include="Assets\Scripts\Boss extra\BossLifeComponent.cs" />
-    <Compile Include="Assets\Scripts\Boss extra\BossInputController.cs" />
-    <Compile Include="Assets\Scripts\Boss extra\BossGroundDetectorComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\AssemblyDefinition.asmdef" />
